@@ -91,7 +91,7 @@ We welcome contributions! To get started:
 
 - **Push to your branch:**
   ```bash
-   git push origin feature/your-feature-name
+   git push origin feature/Issue title
   ```
 
 - **Create a pull request.**
