@@ -53,7 +53,7 @@ SkillNet offers tailored dashboards to meet the unique needs of its users:
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: React.js, Tailwind CSS
+- **Frontend**: Next.js, Tailwind CSS
 - **Backend**: Node.js, Express.js
 - **Blockchain**: StarkNet for decentralized data integrity
 - **Database**: MongoDB for efficient data storage
@@ -71,7 +71,7 @@ Follow these steps to set up SkillNet on your local machine:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/skill-mind/SkillNet.git
+   git clone https://github.com/skill-mind/SkillNet-frontend.git
    cd skillnet
 
 ###  🧑‍💻 Contribution Guidelines
@@ -97,3 +97,11 @@ We welcome contributions! To get started:
 - **Create a pull request.**
 
 ## 🤝 Connect with Us
+
+[Telegram](https://t.me/+wkTCPZzVyGU5ZDFk")
+
+[Discord](https://discord.gg/kP5FkkQs")
+
+[WhatsApp](https://chat.whatsapp.com/JDNY8iGHyRtE9fsIYVdKvL")
+
+[Twitter](https://x.com/projectSkillNet")
