@@ -81,12 +81,12 @@ We welcome contributions! To get started:
 - **Create a new branch**
 
   ```bash
-   git checkout -b feature/your-feature-name
+   git checkout -b feature/Issue title
   ```
 
  - **Commit your changes:**
    ```bash
-    git commit -m "Add your message here"
+    git commit -m "Add the title as the commit message"
    ```
 
 - **Push to your branch:**
