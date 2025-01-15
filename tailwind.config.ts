@@ -12,6 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        worksans: ["Work Sans", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
+      },
     },
   },
   plugins: [],
