@@ -53,7 +53,7 @@ SkillNet offers tailored dashboards to meet the unique needs of its users:
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: Next.js, Tailwind CSS
+- **Frontend**: Next.js, Tailwind CSS, Typescript
 - **Backend**: Node.js, Express.js
 - **Blockchain**: StarkNet for decentralized data integrity
 - **Database**: MongoDB for efficient data storage
