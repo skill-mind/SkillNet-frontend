@@ -110,7 +110,7 @@ export default function Home() {
                 <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
                   <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
                   <p className="text-[14px]">
-                    Host custom exams to assess applicants' skills.
+                    Host custom exams to assess applicants skills.
                   </p>
                 </div>
               </div>
