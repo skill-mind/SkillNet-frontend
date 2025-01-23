@@ -1,5 +1,4 @@
 "use client";
-import bg from "../public/bg.jpeg";
 import bg_2 from "../public/bg_2.jpeg";
 import Arrow from "../public/arrow_back_ios_new.svg";
 import Arrow_4 from "../public/arrow_forward.svg";
@@ -83,50 +82,6 @@ export default function Home() {
         </div>
       </section>
       <section className="w-full h-screen relative flex flex-col justify-between items-center gap-16 py-[80px]">
-        {/* <div className="w-full h-[600px] relative px-[100px] py-[80px]">
-          <div
-            className="absolute inset-0 bg-cover bg-no-repeat bg-center"
-            style={{
-              backgroundImage: `linear-gradient(to right, rgba(14, 15, 14, 0.9), rgba(14, 15, 14, 0.3)), url(${bg.src})`,
-            }}
-          />
-          <div className="relative z-10 flex flex-col justify-between items-start gap-5">
-            <h3 className="text-[40px] leading-10">
-              Find Top Talents With <br /> Confidence
-            </h3>
-            <div className="flex flex-col justify-between gap-5">
-              <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                <p className="text-[14px]">
-                  Post job listings and attract qualified candidates.
-                </p>
-              </div>
-              <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                <p className="text-[14px]">
-                  Verify candidates credentials instantly.
-                </p>
-              </div>
-              <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                <p className="text-[14px]">
-                  Host custom exams to assess applicants' skills.
-                </p>
-              </div>
-            </div>
-            <button className="bg-[#0E0F0E] border border-[#161716] rounded-md py-[12px] px-[24px] mt-5 flex flex-row justify-center items-center gap-3">
-              Find out more
-              <span>
-                <Image
-                  className="w-[16.67px] h-[14.17px]"
-                  src={Arrow_4}
-                  alt="x"
-                />
-              </span>
-            </button>
-          </div>
-        </div> */}
-
         <div className="w-full h-[826px] relative px-[100px] py-[80px]">
           <div
             className="absolute inset-0 bg-cover bg-no-repeat bg-center"
@@ -270,7 +225,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full h-auto flex flex-col items-center">
+      <section id="faqs" className="w-full h-auto flex flex-col items-center">
         <div className="w-[892px] h-[872px] flex flex-col justify-center items-center">
           <div className="text-center">
             <h1 className="font-bold text-[40px]">

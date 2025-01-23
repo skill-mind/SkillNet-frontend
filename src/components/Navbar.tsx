@@ -22,7 +22,7 @@ export default function Navbar() {
         <li className="cursor-pointer pr-5 border-r-2 border-[#222220]">
           Help
         </li>
-        <li className="cursor-pointer pr-5">FAQs</li>
+        {/* <li className="cursor-pointer pr-5">FAQs</li> */}
       </ul>
       <button className="border border-[#2F302F] rounded-md text-[#FAFAFA] py-[14px] px-[32px]">
         CONNECT WALLET
