@@ -7,6 +7,9 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['"Ubuntu Sans"'],
+    },
     extend: {
       colors: {
         background: "var(--background)",
