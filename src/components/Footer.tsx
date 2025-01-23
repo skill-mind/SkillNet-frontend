@@ -4,6 +4,8 @@ import X from "../public/new-twitter.svg";
 import Image from "next/image";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="w-[1240px] h-[180px] mx-auto border border-[#595958] bg-[#121312] flex flex-col justify-evenly items-center rounded-md mb-10 mt-20">
       <div className="w-full flex flex-row justify-between p-[24px]">
@@ -27,7 +29,7 @@ export default function Footer() {
         </ul>
         <p className="text-[14px]">
           <span>© </span>
-          Copyright SkillNet 2025
+          Copyright SkillNet {currentYear}
         </p>
       </div>
     </footer>

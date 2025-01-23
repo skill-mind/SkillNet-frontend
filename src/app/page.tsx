@@ -19,7 +19,7 @@ export default function Home() {
             blockchain-powered <br /> platform for job seekers, employers,
             tutors, and institutions.
           </p>
-          <button className="border border-[#A8C789] rounded-md text-[#A8C789] p-3">
+          <button className="border border-[#A8C789] rounded-md text-[#A8C789] py-[16px] px-[24px]">
             Get started
           </button>
         </div>
@@ -82,8 +82,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[200vh] relative flex flex-col justify-between items-center gap-16 py-[80px]">
-        <div className="w-full h-[600px] relative px-[100px] py-[80px]">
+      <section className="w-full h-screen relative flex flex-col justify-between items-center gap-16 py-[80px]">
+        {/* <div className="w-full h-[600px] relative px-[100px] py-[80px]">
           <div
             className="absolute inset-0 bg-cover bg-no-repeat bg-center"
             style={{
@@ -125,7 +125,7 @@ export default function Home() {
               </span>
             </button>
           </div>
-        </div>
+        </div> */}
 
         <div className="w-full h-[826px] relative px-[100px] py-[80px]">
           <div
