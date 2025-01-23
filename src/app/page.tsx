@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <section className="h-screen pt-10 flex justify-center items-center -mt-20">
         <div className="w-[1240px] mx-auto h-[400px] flex flex-col justify-between items-center">
           <h1 className="text-[60px] text-center font-bold leading-tight">
@@ -331,6 +331,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
