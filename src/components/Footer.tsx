@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="w-[1240px] h-[180px] mx-auto border border-[#595958] bg-[#121312] flex justify-between items-center">
+    <footer className="w-[1240px] h-[180px] mx-auto border border-[#595958] bg-[#121312]">
       <div className="w-full flex flex-row justify-between items-center">
         <h5 className="">SKILLNET</h5>
         <ul className="flex flex-row justify-center items-center gap-5">
