@@ -1,18 +1,21 @@
 import { Circle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import ArgentImg from "@/public/ArgentImg.svg"
+import Braavos from "@/public/Braavos.svg"
+import Image from "next/image"
 
 const wallets = [
     {
         name: "Argent Mobile Phone",
-        icon: Circle,
+        icon: ArgentImg,
     },
     {
         name: "Argent Web",
-        icon: Circle,
+        icon: ArgentImg,
     },
     {
         name: "Braavos",
-        icon: Circle,
+        icon: Braavos,
     },
 ]
 
@@ -27,7 +30,7 @@ export function WalletSelectorUI() {
                         variant="ghost"
                         className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800"
                     >
-                        <wallet.icon className="h-5 w-5 text-orange-400" />
+                        <Image src={wallet.icon} alt={wallet.name} />
                         <span>{wallet.name}</span>
                     </Button>
                 ))}
