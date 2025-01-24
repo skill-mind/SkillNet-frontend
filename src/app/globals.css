@@ -3,6 +3,60 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../public/fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UbuntuBold";
+  src: url("../public/fonts/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UbuntuLight";
+  src: url("../public/fonts/Ubuntu-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UbuntuMedium";
+  src: url("../public/fonts/Ubuntu-Medium.ttf") format("truetype");
+}
+
+*{
+  font-family: "Ubuntu", sans-serif;
+}
+
+.hexagon-img {
+  background-image: url("../public/img/hexagon.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 50%;
+}
+
+.agreement-checkbox input[type='checkbox'] {
+  width: 30px;
+  height: 20px;
+  margin-right: 10px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  background-color: transparent;
+}
+
+.agreement-checkbox input[type='checkbox']:checked {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.agreement-checkbox input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  font-size: 14px;
+  color: #fff;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -11,12 +65,8 @@
   }
 }
 
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
-}
-:root {
-  --font-ubuntu: 'Ubuntu', sans-serif;
-  --font-work-sans: 'Work Sans', sans-serif;
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
