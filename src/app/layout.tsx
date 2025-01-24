@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Providers } from "../components/providers";
-
-
-
 
 export const metadata: Metadata = {
   title: "SkillNet",
@@ -18,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" > 
+    <html lang="en">
       <Providers>
         <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat">
           {children}
