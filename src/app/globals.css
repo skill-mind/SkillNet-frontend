@@ -4,6 +4,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../public/fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UbuntuBold";
+  src: url("../public/fonts/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UbuntuLight";
+  src: url("../public/fonts/Ubuntu-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UbuntuMedium";
+  src: url("../public/fonts/Ubuntu-Medium.ttf") format("truetype");
+}
+*{
+  font-family: "Ubuntu", sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
