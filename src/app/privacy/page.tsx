@@ -1,9 +1,14 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import React from "react";
 
 const page = () => {
   
   return (
-    <section className="h-[847px]   flex  justify-center pt-10 ">
+  <>
+    <Navbar/>
+
+   <section className="h-[847px]   flex  justify-center pt-10 ">
       <div className="w-full px-[100px] h-screen mx-auto flex flex-col  ">
         <div className="flex justify-center">
           <h1 className="text-[40px] text-pretty font-bold text-[#EAEDE7]">
@@ -49,12 +54,17 @@ const page = () => {
             <h2 className="text-lg text-[#FFFFFF]">Data Retention</h2>
             <p className=" text-sm text-[#898783]">
               User data will be retained as long as necessary to fulfill the
-              platform's purpose or as required by law.
+              platform&apos;s purpose or as required by law.
             </p>
           </div>
         </div>
       </div>
     </section>
+
+    <Footer />
+
+  </>
+ 
   );
 };
 
