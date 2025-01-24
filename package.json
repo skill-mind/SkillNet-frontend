@@ -14,13 +14,14 @@
     "@starknet-react/core": "^3.6.3",
     "@starknet-react/typescript-config": "^0.0.1",
     "lodash": "^4.17.21",
-    "next": "14.2.20",
+    "next": "file:next-15.1.6.tgz",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
     "starknet": "^6.11.0"
   },
   "devDependencies": {
+    "@next/swc-linux-x64-gnu": "file:swc-linux-x64-gnu-15.1.6.tgz",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
