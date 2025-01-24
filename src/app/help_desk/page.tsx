@@ -1,11 +1,12 @@
 import Link from "next/link";
 import {  WorkSans } from "../ui/fonts";
+import design from "../public/design.svg"
 import Image from "next/image";
 
 export default function page() {
   return (
-    <div className= {`bg-no-repeat  -bg-top`}>
-      <Image src={"/design.png"}  alt="design" width={500} height={500}/>
+    <div className= {`relative bg-no-repeat  -bg-top`}>
+     <Image className="absolute -top-48  left-10 -z-10" src={design} alt="design" width={900} height={500} />
       <div
         id="helpDesk"
         className={` w-full ${WorkSans.className} text-white h-full   font-light space-y-24 text-[16px]pt-5 pb-10`}>
@@ -32,7 +33,7 @@ export function Header() {
         </p>
         <button
           type="button"
-          className="py-2 md:py-4 px-4 md:px-8 font-medium hover:bg-[#A8C789] border border-[#A8C789] text-[#A8C789] hover:text-black rounded-lg transition-all duration-200 outline-none bg-transparent">
+          className="py-2 md:py-4 px-2 md:px-8 font-medium hover:bg-[#A8C789] border border-[#A8C789] text-[#A8C789] hover:text-black rounded-lg transition-all duration-200 outline-none bg-transparent">
           Submit a Ticket
         </button>
       </div>
