@@ -30,8 +30,9 @@ export default function Navbar() {
         </li>
         <li className="cursor-pointer pr-5">Help</li>
         {/* <li className="cursor-pointer pr-5">FAQs</li> */}
+      </ul>
       <div className="flex items-center flex-col relative">
-        <button onClick={showModal} className="border border-[#2F302F] rounded-md  text-[#FAFAFA] py-[14px] px-[]">
+        <button onClick={showModal} className="border border-[#2F302F] rounded-md  text-[#FAFAFA] py-[14px] px-[32px]">
           CONNECT WALLET
         </button>
         {isModalVisible && (

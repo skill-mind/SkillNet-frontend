@@ -18,7 +18,7 @@ const wallets = [
 
 export function WalletSelectorUI() {
   return (
-    <div className="absolute top-16 right-4 w-[300px] rounded-lg border border-neutral-800 bg-neutral-900 p-4 shadow-lg">
+    <div className="absolute top-4 right-1 w-[300px] rounded-lg border border-neutral-800 bg-neutral-900 p-4 shadow-lg">
       <h2 className="mb-4 text-sm font-semibold text-neutral-400">SELECT WALLET</h2>
       <div className="flex flex-col gap-2">
         {wallets.map((wallet) => (
