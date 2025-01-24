@@ -13,7 +13,7 @@ function Input({
   label: string;
   placeholder: string;
   value: string;
-  onChange: any;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div className="flex flex-col">

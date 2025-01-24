@@ -18,7 +18,9 @@ const skills = [
 ];
 
 function Tutor() {
-  const handleSkillSelection = (selectedSkills: string[]) => {};
+  const handleSkillSelection = (selectedSkills: string[]) => {
+    console.log(selectedSkills)
+  };
   const handleContinue = () => {};
 
   return (
@@ -41,7 +43,7 @@ function Tutor() {
                 name="title"
                 placeholder="eg. Web3 Developer"
                 label="Title"
-                onChange={null}
+                onChange={()=>{}}
                 value=""
               />
             </div>
@@ -50,7 +52,7 @@ function Tutor() {
                 name="bio"
                 placeholder="Tell us about yourself"
                 label="Brief Bio"
-                onChange={null}
+                onChange={()=>{}}
                 value=""
               />
             </div>
@@ -60,7 +62,7 @@ function Tutor() {
                 name="email"
                 placeholder="Enter your email"
                 label="Email"
-                onChange={null}
+                onChange={()=>{}}
                 value=""
               />
             </div>

@@ -11,7 +11,7 @@ function TextArea({
   label: string;
   placeholder: string;
   value: string;
-  onChange: any;
+  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }) {
   return (
     <div className="flex flex-col">

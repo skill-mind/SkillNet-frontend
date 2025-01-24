@@ -5,7 +5,7 @@ function Button({
   onButtonClick,
 }: {
   label: string;
-  onButtonClick: any;
+  onButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   return (
     <div className="flex flex-col">

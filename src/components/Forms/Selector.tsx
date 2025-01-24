@@ -2,14 +2,12 @@ import React, { useState } from "react";
 
 interface SelectorProps {
   dataArray: string[];
-  minSelection?: number;
   label?: string;
   onSelectionChange?: (selectedSkills: string[]) => void;
 }
 
 const Selector: React.FC<SelectorProps> = ({
   dataArray,
-  minSelection = 5,
   onSelectionChange,
   label,
 }) => {
