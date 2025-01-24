@@ -1,5 +1,5 @@
 "use client";
-import bg_2 from "../img/public/bg_2.jpeg";
+import bg_2 from "../public/img/bg_2.jpeg";
 import Arrow from "../public/img/arrow_back_ios_new.svg";
 import Arrow_4 from "../public/img/arrow_forward.svg";
 import Image from "next/image";
