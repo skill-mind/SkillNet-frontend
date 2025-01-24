@@ -73,12 +73,12 @@ export default function page() {
                 tips.map((tip) => (
                   <div
                     key={tip.title}
-                    className="p-10 h-[244px] bg-stone-700/5 space-y-5 w-[398px] rounded-lg border border-stone-600/30 ">
+                    className="p-10 min-h-[244px] bg-stone-700/5 space-y-5 max-w-[398px] rounded-lg border border-stone-600/30 ">
                     <h1 className=" text-xl  text-white/90 font-medium">
                       {tip.title}
                     </h1>
 
-                    <p className="w-[347px] text-[#898783]">{tip.body}</p>
+                    <p className="max-w-[347px] text-[#898783]">{tip.body}</p>
                   </div>
                 ))}
             </div>
