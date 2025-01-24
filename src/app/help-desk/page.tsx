@@ -47,7 +47,7 @@ export default function page() {
               <h1 className="text-2xl font-sans font-bold text-white/90 md:text-4xl ">
                 WE&#39;RE HERE TO HELP
               </h1>
-              <p className="text-center text-[#898783] text-xl leading-5">
+              <p className="text-center text-[#898783] text-lg sm:text-xl leading-5">
                 Having any troubles? If our{" "}
                 <Link className="text-[#C33BEC] font-bold" href={"/faq"}>
                   FAQ section
