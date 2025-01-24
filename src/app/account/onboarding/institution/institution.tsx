@@ -2,7 +2,6 @@
 import Input from "@/components/Forms/Input";
 import React from "react";
 import TextArea from "@/components/Forms/TextArea";
-import Selector from "@/components/Forms/Selector";
 import Checkbox from "@/components/Forms/Checkbox";
 import Button from "@/components/Forms/Button";
 
