@@ -6,10 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 
-const ubuntu = Ubuntu({
-  subsets: ["latin"], 
-  weight: ["400", "700"], 
-});
+
 
 export const metadata: Metadata = {
   title: "SkillNet",
@@ -23,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ubuntu.className}> 
+    <html lang="en" > 
       <Providers>
         <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat">
           <Navbar />
