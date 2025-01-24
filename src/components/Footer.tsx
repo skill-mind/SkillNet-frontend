@@ -1,6 +1,6 @@
 "use client";
-import telegram from "../public/telegram.svg";
-import X from "../public/new-twitter.svg";
+import telegram from "../public/img/telegram.svg";
+import X from "../public/img/new-twitter.svg";
 import Image from "next/image";
 import Link from "next/link";
 
