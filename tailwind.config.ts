@@ -14,6 +14,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#D0EFB1",
+        grayText: "#ABABAB"
       },
       fontFamily: {
         customFont: [

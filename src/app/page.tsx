@@ -3,10 +3,13 @@ import bg_2 from "../public/img/bg_2.jpeg";
 import Arrow from "../public/img/arrow_back_ios_new.svg";
 import Arrow_4 from "../public/img/arrow_forward.svg";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <section className="h-screen pt-10 flex justify-center items-center -mt-20">
         <div className="w-[1240px] mx-auto h-[400px] flex flex-col justify-between items-center">
           <h1 className="text-[60px] text-center font-bold leading-tight">
@@ -331,6 +334,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
