@@ -44,7 +44,7 @@ export function Main() {
         Tips for Submitting a Support Ticket
       </h1>
       <div className="flex w-fit flex-grow-1 justify-center md:justify-start gap-8 px-10 flex-wrap">
-        <div className="p-3 space-y-3 w-[400px]  bg-white rounded-xl border-2 border-[#D0EFB1]/60 hover:border-[#D0EFB1] ">
+        <div className="p-3 space-y-3 w-[400px] bg-white rounded-xl border-2 border-[#D0EFB1]/60 hover:border-[#D0EFB1] ">
           <h3 className="flex space-x-2">
             <img src="/lucide_pen-line.svg" alt="pen-icon" />
             <span className=" text-xl font-medium">Be Clear and Concise</span>
