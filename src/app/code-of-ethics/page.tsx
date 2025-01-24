@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const featureCard = [
     {
@@ -28,6 +30,10 @@ const featureCard = [
   
   export default function CodeOfEthics() {
     return (
+      <>
+
+<Navbar/>
+
       <div className={`w-full min-h-screen bg-transparent flex flex-col items-center justify-center gap-5 px-4 my-6 py-6  `}>
         <h1 className="text-[#EAEDE7] font-bold text-5xl text-center  ">Code of Ethics</h1>
         <p className="text-base font-light text-[#80837E] text-center ">
@@ -50,6 +56,9 @@ const featureCard = [
           ))}
         </div>
       </div>
+      
+      <Footer/>
+      </>
     );
   }
   
