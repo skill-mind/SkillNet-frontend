@@ -30,15 +30,15 @@ export default function PersonalInfoForm() {
         <div className="max-w-md mx-auto w-full space-y-6 sm:space-y-8">
           <div className="space-y-2 text-center">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold  text-[#FCFCFC] font-ubuntu">Personal Information</h1>
-            <p className="text-sm sm:text-base text-[#ABABAB] font-ubuntu">Please enter the following information carefully.</p>
+            <p className="text-sm sm:text-base text-[#ABABAB] ">Please enter the following information carefully.</p>
           </div>
 
           <form className="space-y-4 sm:space-y-6">
             <div className="space-y-1 sm:space-y-2">
-              <Label htmlFor="name" className="text-sm sm:text-base text-[#ABABAB] font-ubuntu">
+              <Label htmlFor="name" className="text-sm sm:text-base text-[#ABABAB] font-ubuntu ">
                 Name
               </Label>
-              <Input id="name" placeholder="Enter your name" className="bg-gray-900 outline-none  border-gray-800  text-[#FAFAFA]" />
+              <Input id="name" placeholder="Enter your name" className="bg-gray-900 outline-none font-work-sans border-gray-800  text-[#FAFAFA]" />
             </div>
 
             <div className="space-y-1 sm:space-y-2">
@@ -48,7 +48,7 @@ export default function PersonalInfoForm() {
               <Textarea
                 id="bio"
                 placeholder="Tell us about yourself"
-                className="bg-gray-900 border-gray-800 outline-none text-[#FAFAFA] min-h-[120px]"
+                className="bg-gray-900 border-gray-800 font-work-sans outline-none text-[#FAFAFA] min-h-[120px]"
               />
             </div>
 
@@ -60,7 +60,7 @@ export default function PersonalInfoForm() {
                 id="email"
                 type="email"
                 placeholder="Enter your email"
-                className="bg-gray-900 outline-none border-gray-800 text-[#FAFAFA]"
+                className="bg-gray-900 outline-none font-work-sans border-gray-800 text-[#FAFAFA]"
               />
             </div>
 
@@ -73,7 +73,7 @@ export default function PersonalInfoForm() {
               />
               <label
                 htmlFor="terms"
-                className="text-xs sm:text-sm font-thin text-[#9596A0] leading-tight sm:leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-ubuntu"
+                className="text-xs font-ubuntu sm:text-sm font-thin text-[#9596A0] leading-tight sm:leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
               >
                 By clicking on this, you agree to the{" "}
                 <a href="#" className="text-[#D0EFB1] hover:underline">
@@ -88,7 +88,7 @@ export default function PersonalInfoForm() {
             </div>
 
             <Button
-              className="w-full bg-[#D0EFB1] hover:bg-[#beec90] text-[#0E0F0E] font-medium text-sm sm:text-base py-2 sm:py-3"
+              className="w-full bg-[#D0EFB1] hover:bg-[#beec90] text-[#0E0F0E] font-medium text-sm sm:text-base py-2 sm:py-3 font-ubuntu"
               disabled={!agreed}
             >
               CONTINUE
