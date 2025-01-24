@@ -15,10 +15,7 @@ export default function Footer() {
           <li className="cursor-pointer p-2">About</li>
           {/* <li className="cursor-pointer p-2">FAQ</li> */}
           <li className="cursor-pointer p-2">Contact</li>
-
-          <li className="cursor-pointer p-2">
-          <Link href="/pages/code-of-ethics">Ethics</Link>
-            </li>
+          <li className="cursor-pointer p-2">Ethics</li>
           <li className="cursor-pointer p-2">Privacy</li>
           <li className="cursor-pointer p-2">Terms</li>
         </ul>
