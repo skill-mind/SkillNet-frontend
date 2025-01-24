@@ -1,8 +1,17 @@
 "use client";
 import Logo from "../public/logo.svg";
 import Image from "next/image";
+import { useState } from "react";
+import { WalletSelectorUI } from "./WalletConnectModal";
+
 
 export default function Navbar() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(!isModalVisible);
+  };
+
   return (
     <nav className="w-full h-[124px] flex justify-between items-center px-[100px]">
       <div className="flex items-center cursor-pointer">
@@ -21,10 +30,16 @@ export default function Navbar() {
         </li>
         <li className="cursor-pointer pr-5">Help</li>
         {/* <li className="cursor-pointer pr-5">FAQs</li> */}
-      </ul>
-      <button className="border border-[#2F302F] rounded-md text-[#FAFAFA] py-[14px] px-[32px]">
-        CONNECT WALLET
-      </button>
+      <div className="flex items-center flex-col relative">
+        <button onClick={showModal} className="border border-[#2F302F] rounded-md  text-[#FAFAFA] py-[14px] px-[]">
+          CONNECT WALLET
+        </button>
+        {isModalVisible && (
+          <div className="absolute top-full right-0">
+            <WalletSelectorUI />
+          </div>
+        )}
+      </div>
     </nav>
   );
 }
