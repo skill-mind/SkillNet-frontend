@@ -1,5 +1,5 @@
 "use client";
-import Logo from "../public/logo.svg";
+import Logo from "../public/img/logo.svg";
 import Image from "next/image";
 import { useState } from "react";
 import { WalletSelectorUI } from "./WalletConnectModal";

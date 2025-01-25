@@ -8,15 +8,24 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	fontFamily: {
-  		sans: [
-  			'Ubuntu Sans"'
-  		]
-  	},
+    fontFamily: {
+      customFont: [
+        "Ubuntu",
+        "UbuntuMedium",
+        "UbuntuBold",
+        "UbuntuLight",
+      ],
+      Ubuntu: ["Ubuntu"],
+      UbuntuMedium: ["UbuntuMedium"],
+      UbuntuBold: ["UbuntuBold"],
+      UbuntuLight: ["UbuntuLight"],
+    },
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+        primary: "#D0EFB1",
+        grayText: "#ABABAB",
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
