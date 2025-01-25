@@ -12,7 +12,9 @@ export default function Navbar() {
       <ul className="flex justify-center items-center gap-4">
         <li className="cursor-pointer">Home</li>
         <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li>
-        <li className="cursor-pointer">About</li>
+        <li className="cursor-pointer">
+          <Link href="/about">About</Link>
+        </li>
         <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li>
         <li className="cursor-pointer">Help</li>
         <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li>
