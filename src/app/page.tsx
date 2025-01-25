@@ -1,336 +1,282 @@
 "use client";
-import bg_2 from "../public/bg_2.jpeg";
-import Arrow from "../public/arrow_back_ios_new.svg";
-import Arrow_4 from "../public/arrow_forward.svg";
+import astronaut from "../public/img/astronaut.svg";
+import hexagon from "../public/img/hexagonn.svg";
 import Image from "next/image";
+import { skillnetQualities } from "./utils/data";
+import InformationCard from "@/components/InformationCard";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <section className="h-screen pt-10 flex justify-center items-center -mt-20">
-        <div className="w-[1240px] mx-auto h-[400px] flex flex-col justify-between items-center">
-          <h1 className="text-[60px] text-center font-bold leading-tight">
+    <>
+      <Navbar />
+      <main className="relative">
+        <section className="h-[806px] pt-[204px] flex justify-center text-center relative">
+          <Image
+            src={hexagon}
+            className="absolute top-[9px] right-[-28px] z-[-1]"
+            alt=""
+          />
+          <Image
+            src={hexagon}
+            className="absolute top-[389px] left-[-384px] z-[-1]"
+            alt=""
+          />
+          <div>
+          <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
             Empowering <br /> Careers, Verified on <br />
-            <span className="text-[#b8d39d]"> Blockchain</span>
+            <span className="text-[#A8C789]">Blockchain</span>
           </h1>
-          <p className="text-center">
+          <p className="text-2xl leading-8 mb-12 text-[#EAEDE7]">
             Upskill, certify, and connect with top employers on SkillNet—a
             blockchain-powered <br /> platform for job seekers, employers,
             tutors, and institutions.
           </p>
-          <button className="border border-[#A8C789] rounded-md text-[#A8C789] py-[16px] px-[24px]">
+          <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
             Get started
           </button>
-        </div>
-      </section>
-      <section className="h-screen bg-[#121312] flex justify-center items-center py-16">
-        <div className="w-[1240px] h-screen flex flex-col justify-center">
-          <div className="w-[1240px] mx-auto flex flex-row items-center justify-center gap-10 pt-16">
-            <div className=" pr-8 border-r-4 border-[#222220]">
-              <h4 className="text-[40px]">What Makes SkillNet Effective?</h4>
-            </div>
-            <div>
-              <p>
-                Empower your career with verified skills, blockchain-backed
-                trust,
-                <br />
-                and seamless connections to opportunities.
-              </p>
-            </div>
           </div>
-          <div className="w-[1240px] mx-auto pb-20 mt-10 flex flex-wrap flex-row items-center justify-center gap-5">
-            <div className="w-[398px] h-[220px] bg-[#101110] border-2 border-[#222220] p-16 pt-10 rounded-md">
-              <h4 className="text-[18px] mb-5">
-                Blockchain Verified Certificates
-              </h4>
-              <p className="text-[14px]">
-                Authentic, tamper-proof certifications <br /> powered by
-                blockchain, ensuring they are <br /> permanent and verifiable.
-              </p>
-            </div>
-            <div className="w-[398px] h-[220px] bg-[#101110] border-2 border-[#222220] p-16 pt-10 rounded-md">
-              <h4 className="text-[18px] mb-5">Seamless Job Matching </h4>
-              <p className="text-[14px]">
-                Connect with top employers, showcase verified skills, and
-                streamline your path to career success
-              </p>
-            </div>
-            <div className="w-[398px] h-[220px] bg-[#101110] border-2 border-[#222220] p-16 pt-10 rounded-md">
-              <h4 className="text-[18px] mb-5">Customizable Exams</h4>
-              <p className="text-[14px]">
-                Create blockchain-secured, customizable exams to evaluate
-                candidates with accuracy and confidence.
-              </p>
-            </div>
-            <div className="w-[398px] h-[220px] bg-[#101110] border-2 border-[#222220] p-16 pt-10 rounded-md">
-              <h4 className="text-[18px] mb-5">
-                Secure and Transparent Transactions
-              </h4>
-              <p className="text-[14px]">
-                Experience low-fee, blockchain-powered payments for courses,
-                exams, and certifications you can trust.
-              </p>
-            </div>
-            <div className="w-[398px] h-[220px] bg-[#101110] border-2 border-[#222220] p-16 pt-10 rounded-md">
-              <h4 className="text-[18px] mb-5">Monetize Expertise with Ease</h4>
-              <p className="text-[14px]">
-                Easily create and sell courses, earning revenue while making an
-                impact on careers worldwide.
-              </p>
-            </div>
+        
+        </section>
+        <section className="bg-[#121312] py-20 px-[100px] text-[#EAEDE7]">
+          <div className="flex items-center gap-6">
+            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] max-w-[455px] font-bold">
+              What Makes SkillNet Effective?
+            </h4>
+            <p className="text-2xl leading-7 text-[#80837E]">
+              Empower your career with verified skills, blockchain-backed trust,
+              and seamless connections to opportunities.
+            </p>
           </div>
-        </div>
-      </section>
-      <section className="w-full h-screen relative flex flex-col justify-between items-center gap-16 py-[80px]">
-        <div className="w-full h-[826px] relative px-[100px] py-[80px]">
-          <div
-            className="absolute inset-0 bg-cover bg-no-repeat bg-center"
-            style={{
-              backgroundImage: `linear-gradient(to right, rgba(14, 15, 14, 0.5), rgba(14, 15, 14, 0)), url(${bg_2.src})`,
-            }}
+          <div className="mt-12 flex flex-wrap flex-row items-center justify-center gap-5">
+            {skillnetQualities.map((quality) => (
+              <InformationCard
+                title={quality.title}
+                description={quality.description}
+                key={quality.id}
+              />
+            ))}
+          </div>
+        </section>
+        <div className="h-[140px] bg-[#0e0f0e]"></div>
+        <section className="relative flex justify-end py-[80px] px-[100px] bg-[#080808]">
+          <Image
+            src={astronaut}
+            className="absolute top-0 left-[100px]"
+            alt="#"
           />
-          <div className="relative z-10 flex flex-col items-end">
-            <div className=" flex flex-col items-start gap-5">
-              <h3 className="text-[40px] leading-10">
-                Find Top Talents With <br /> Confidence
-              </h3>
-              <div className="flex flex-col justify-between gap-5">
-                <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                  <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                  <p className="text-[14px]">
-                    Post job listings and attract qualified candidates.
-                  </p>
-                </div>
-                <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                  <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                  <p className="text-[14px]">
-                    Verify candidates credentials instantly.
-                  </p>
-                </div>
-                <div className="w-[435px] h-[54px] bg-[#121311] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                  <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                  <p className="text-[14px]">
-                    Host custom exams to assess applicants skills.
-                  </p>
-                </div>
+          <div className="relative z-10 py-[113px]">
+            <h3 className="text-[40px] leading-[47px] font-workSans font-bold mb-12">
+              Find Top Talents With <br /> Confidence
+            </h3>
+            <div className="flex flex-col justify-between gap-5 text-[#EAEDE7]">
+              <div className="w-[450px] bg-[#121311] py-[12px] px-[25px] rounded-lg flex items-center gap-2">
+                <div className="bg-[#EAEDE7] w-[30px] h-[30px] rounded-full"></div>
+                <p className="text-base leading-5 font-normal">
+                  Post job listings and attract qualified candidates.
+                </p>
               </div>
-              <button className="bg-[#0E0F0E] border border-[#161716] rounded-md py-[12px] px-[24px] mt-5 flex flex-row justify-center items-center gap-3">
-                Find out more
-                <span>
-                  <Image
-                    className="w-[16.67px] h-[14.17px]"
-                    src={Arrow_4}
-                    alt="x"
-                  />
-                </span>
-              </button>
+              <div className="w-[450px] bg-[#121311] py-[12px] px-[25px] rounded-lg flex items-center gap-2">
+                <div className="bg-[#EAEDE7] w-[30px] h-[30px] rounded-full"></div>
+                <p className="text-base leading-5 font-normal">
+                  Verify candidates credentials instantly.
+                </p>
+              </div>
+              <div className="w-[450px] bg-[#121311] py-[12px] px-[25px] rounded-lg flex items-center gap-2">
+                <div className="bg-[#EAEDE7] w-[30px] h-[30px] rounded-full"></div>
+                <p className="text-[14px]">
+                  Host custom exams to assess applicants skills.
+                </p>
+              </div>
             </div>
+            <button className="bg-[#0E0F0E] border border-[#161716] rounded-lg py-3 px-6 mt-12 flex justify-center items-center gap-[10px] text-base leading-5">
+              Find out more
+              <span>
+                <ChevronRight />
+              </span>
+            </button>
           </div>
-        </div>
-      </section>
+        </section>
+        <section className="py-[140px] bg-[#0e0f0e]">
+          <div className="py-[80px] px-[100px]">
+            <h3 className="font-bold text-white text-[40px] leading-[47px] font-workSans mb-12">
+              Share Knowledge, Earn Revenue
+            </h3>
+            <div className="grid grid-cols-3 gap-x-5">
 
-      <section className="w-full h-screen py-[80px] flex justify-center items-center">
-        <div className="w-full h-[448px] bg-[#121312] px-[100px]">
-          <div className="w-[1240px] mx-auto flex flex-row items-center justify-start gap-10 pt-16">
-            <div className=" pr-8 border-r-4 border-[#222220]">
-              <h4 className="text-[40px]">How skillnet works</h4>
-            </div>
-            <div>
-              <p>Understand how Skillnet operates</p>
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
+                <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
+                <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
+                  Create and monetize engaging courses.
+                </p>
+              </div>
+
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
+                <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
+                <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
+                  Host exams and issue blockchain-verified results.
+                </p>
+              </div>
+
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2 items-center w-full">
+                <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
+                <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
+                  Reach a global audience of eager learners and earn revenue for
+                  every enrollment.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="w-[1240px] h-[176px] m-auto flex flex-row items-center gap-10">
-            <div className="flex flex-col items-start justify-between gap-10 pt-16">
-              <span>1</span>
-              <div className="border-t border-[#595958] pt-10">
-                <h5 className="mb-2 text-[18px]">Build your profile</h5>
-                <p className="text-[14px]">
-                  Create a professional profile and showcase <br /> your skills.
+        </section>
+
+        <section className="py-[80px] px-[100px] bg-[#121312]">
+          <div className="flex items-center gap-6">
+            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] max-w-[455px] font-bold">
+              How skillnet works
+            </h4>
+            <p className="text-2xl leading-7 text-[#80837E]">
+              Understand how Skillnet operates
+            </p>
+          </div>
+          <div className="grid grid-cols-4 items-center gap-5 mt-12 text-[#595958]">
+            <div className="flex flex-col items-start gap-4">
+              <span className="text-[40px] leading-[48px] text-[#ACACAC] font-bold">
+                1
+              </span>
+              <div className="border-t border-[#595958] pt-6">
+                <h5 className="mb-4 text-[18px] font-medium leading-[22px] text-[#40403E]">
+                  Build your profile
+                </h5>
+                <p className="text-[14px] leading-[17px]">
+                  Create a professional profile and showcase your skills.
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-start justify-between gap-10 pt-16">
-              <span>2</span>
-              <div className="border-t border-[#595958] pt-10">
-                <h5 className="mb-2 text-[18px]">Upskill and Certify</h5>
-                <p className="text-[14px]">
-                  Enroll in courses and earn blockchain-verified <br />{" "}
-                  certifications.
+            <div className="flex flex-col items-start gap-4">
+              <span className="text-[40px] leading-[48px] text-[#ACACAC] font-bold">
+                2
+              </span>
+              <div className="border-t border-[#595958] pt-6">
+                <h5 className="mb-4 text-[18px] font-medium leading-[22px] text-[#40403E]">
+                  Upskill and Certify
+                </h5>
+                <p className="text-[14px] leading-[17px]">
+                  Enroll in courses and earn blockchain-verified certifications.
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-start justify-between gap-10 pt-16">
-              <span>3</span>
-              <div className="border-t border-[#595958] pt-10">
-                <h5 className="mb-2 text-[18px]">Connect with Employers</h5>
-                <p className="text-[14px]">
+            <div className="flex flex-col items-start gap-4">
+              <span className="text-[40px] leading-[48px] text-[#ACACAC] font-bold">
+                3
+              </span>
+              <div className="border-t border-[#595958] pt-6">
+                <h5 className="mb-4 text-[18px] font-medium leading-[22px] text-[#40403E]">
+                  Connect with Employers
+                </h5>
+                <p className="text-[14px] leading-[17px]">
                   Find job opportunities and share verified <br /> achievements.
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-start justify-between gap-10 pt-16">
-              <span>4</span>
-              <div className="border-t border-[#595958] pt-10">
-                <h5 className="mb-2 text-[18px]">Grow Professionally</h5>
-                <p className="text-[14px]">
+            <div className="flex flex-col items-start gap-4">
+              <span className="text-[40px] leading-[48px] text-[#ACACAC] font-bold">
+                4
+              </span>
+              <div className="border-t border-[#595958] pt-6">
+                <h5 className="mb-4 text-[18px] font-medium leading-[22px] text-[#40403E]">
+                  Grow Professionally
+                </h5>
+                <p className="text-[14px] leading-[17px]">
                   Gain new skills, get certified, and land your <br /> dream
                   job.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="w-full h-[448px] flex flex-col items-center">
-        <div className="w-[1240px]">
-          <div className="w-[1240px] mx-auto flex flex-row items-center justify-start gap-10 pt-16">
-            <div className="">
-              <h4 className="text-[40px]">Share Knowledge, Earn Revenue</h4>
+        </section>
+        <section id="faqs" className="py-[140px] flex justify-center">
+          <div className="w-[892px] flex flex-col justify-center items-center">
+            <div className="text-center">
+              <h1 className="font-bold text-[40px] leading-[47px] text-white font-workSans mb-6">
+                Frequently Asked Questions
+              </h1>
+              <p className="font-normal text-[24px] leading-8">
+                Quick answers to questions you might have about SkillNet. Can’t
+                find what you are looking for?{" "}
+                <span className="text-[#A8C789]">Contact Us</span>
+              </p>
             </div>
-          </div>
-          <div className="w-[1240px] h-[176px] my-auto flex flex-row justify-center items-center gap-5">
-            <div className="w-full flex flex-row itmes-center gap-5">
-              <div className="w-[435px] h-[54px] bg-[#1b1b1b] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                <p className="text-[14px]">
-                  Create and monetize engaging courses.
-                </p>
+            <div className="mt-12 flex flex-col gap-y-[30px] px-9">
+              <div className="border border-[#595958] gap-x-5 flex p-6 rounded-md">
+                <ChevronDown />
+                <div className="w-full flex flex-col gap-5">
+                  <h5 className="text-lg leading-[21px] font-medium">
+                    What is SkillNet?
+                  </h5>
+                  <p className="text-[14px] text-[#898783] leading-[17px]">
+                    SkillNet is a blockchain-powered platform that connects job
+                    seekers with employers, and allows tutors and <br />
+                    institutions to create, sell, and host certified courses and
+                    exams.
+                  </p>
+                </div>
               </div>
-              <div className="w-[435px] h-[54px] bg-[#1b1b1b] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                <p className="text-[14px]">
-                  Host exams and issue blockchain-verified results.
-                </p>
+              <div className="border border-[#595958] gap-x-5 flex p-6 rounded-md">
+                <ChevronDown />
+                <div className="w-full flex flex-col gap-5">
+                  <h5 className="text-lg leading-[21px] font-medium">
+                    How do I create an account?
+                  </h5>
+                  <p className="text-[14px] text-[#898783] leading-[17px]">
+                    Use your Bravoo or Argent wallet address to securely create
+                    an account on the platform. exams.
+                  </p>
+                </div>
               </div>
-              <div className="w-[435px] h-[54px] bg-[#1b1b1b] py-[12px] px-[24px] rounded-md flex items-center gap-5">
-                <div className="bg-[#EAEDE7] w-10 h-10 rounded-full"></div>
-                <p className="text-[14px]">
-                  Reach a global audience of eager learners <br /> and earn
-                  revenue for every enrollment.
-                </p>
+              <div className="border border-[#595958] gap-x-5 flex p-6 rounded-md">
+                <ChevronDown />
+                <div className="w-full flex flex-col gap-5">
+                  <h5 className="text-lg leading-[21px] font-medium">
+                    Are certifications verifiable?
+                  </h5>
+                  <p className="text-[14px] text-[#898783] leading-[17px]">
+                    Yes, all certifications and exam results are stored on the
+                    StarkNet blockchain, making them tamper-proof and easily
+                    verifiable
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-          <button className="bg-[#0E0F0E] border border-[#161716] rounded-md py-[12px] px-[24px] mt-5 flex flex-row justify-center items-center gap-3">
-            Find out more
-            <span>
-              <Image
-                className="w-[16.67px] h-[14.17px]"
-                src={Arrow_4}
-                alt="x"
-              />
-            </span>
-          </button>
-        </div>
-      </section>
-
-      <section id="faqs" className="w-full h-auto flex flex-col items-center">
-        <div className="w-[892px] h-[872px] flex flex-col justify-center items-center">
-          <div className="text-center">
-            <h1 className="font-bold text-[40px]">
-              Frequently Asked Questions
-            </h1>
-            <p className="font-normal text[24px]">
-              Quick answers to questions you might have about SkillNet. Can’t
-              find what you are looking for? Contact Us
-            </p>
-          </div>
-          <div className="w-[820px] h-[689px] py-5">
-            <div className="w-full h-[124px] border my-5 flex flex-row justify-between items-center p-[24px] rounded-md">
-              <div className="h-[76px] pt-2">
-                <Image
-                  className="w-[16.67px] h-[14.17px]"
-                  src={Arrow}
-                  alt="x"
-                />
+              <div className="border border-[#595958] gap-x-5 flex p-6 rounded-md">
+                <ChevronDown />
+                <div className="w-full flex flex-col gap-5">
+                  <h5 className="text-lg leading-[21px] font-medium">
+                    What payment methods are supported?
+                  </h5>
+                  <p className="text-[14px] text-[#898783] leading-[17px]">
+                    Payments for courses and certifications are processed
+                    securely through StarkNet’s decentralized payment system.
+                  </p>
+                </div>
               </div>
-              <div className="w-[729px] h-[76px] flex flex-col gap-3">
-                <h5 className="text-[20px] font-medium">What is SkillNet?</h5>
-                <p className="text-[14px]">
-                  SkillNet is a blockchain-powered platform that connects job
-                  seekers with employers, and allows tutors and <br />
-                  institutions to create, sell, and host certified courses and
-                  exams.
-                </p>
-              </div>
-            </div>
-            <div className="w-full h-[124px] border my-5 flex flex-row justify-between items-center p-[24px] rounded-md">
-              <div className="h-[76px] pt-2">
-                <Image
-                  className="w-[16.67px] h-[14.17px]"
-                  src={Arrow}
-                  alt="x"
-                />
-              </div>
-              <div className="w-[729px] h-[76px] flex flex-col gap-3">
-                <h5 className="text-[20px] font-medium">
-                  How do I create an account?
-                </h5>
-                <p className="text-[14px]">
-                  Use your Bravoo or Argent wallet address to securely create an
-                  account on the platform. exams.
-                </p>
-              </div>
-            </div>
-            <div className="w-full h-[124px] border my-5 flex flex-row justify-between items-center p-[24px] rounded-md">
-              <div className="h-[76px] pt-2">
-                <Image
-                  className="w-[16.67px] h-[14.17px]"
-                  src={Arrow}
-                  alt="x"
-                />
-              </div>
-              <div className="w-[729px] h-[76px] flex flex-col gap-3">
-                <h5 className="text-[20px] font-medium">
-                  Are certifications verifiable?
-                </h5>
-                <p className="text-[14px]">
-                  Yes, all certifications and exam results are stored on the
-                  StarkNet blockchain, making them tamper-proof and easily
-                  verifiable
-                </p>
-              </div>
-            </div>
-            <div className="w-full h-[124px] border my-5 flex flex-row justify-between items-center p-[24px] rounded-md">
-              <div className="h-[76px] pt-2">
-                <Image
-                  className="w-[16.67px] h-[14.17px]"
-                  src={Arrow}
-                  alt="x"
-                />
-              </div>
-              <div className="w-[729px] h-[76px] flex flex-col gap-3">
-                <h5 className="text-[20px] font-medium">
-                  What payment methods are supported?
-                </h5>
-                <p className="text-[14px]">
-                  Payments for courses and certifications are processed securely
-                  through StarkNet’s decentralized payment system.
-                </p>
-              </div>
-            </div>
-            <div className="w-full h-[124px] border my-5 flex flex-row justify-between items-center p-[24px] rounded-md">
-              <div className="h-[76px] pt-2">
-                <Image
-                  className="w-[16.67px] h-[14.17px]"
-                  src={Arrow}
-                  alt="x"
-                />
-              </div>
-              <div className="w-[729px] h-[76px] flex flex-col gap-3">
-                <h5 className="text-[20px] font-medium">
-                  Can institutions host their own exams?
-                </h5>
-                <p className="text-[14px]">
-                  Yes, verified institutions can create and host their own
-                  exams, with results securely stored on the blockchain
-                </p>
+              <div className="border border-[#595958] gap-x-5 flex p-6 rounded-md">
+                <ChevronDown />
+                <div className="w-full flex flex-col gap-5">
+                  <h5 className="text-lg leading-[21px] font-medium">
+                    Can institutions host their own exams?
+                  </h5>
+                  <p className="text-[14px] text-[#898783] leading-[17px]">
+                    Yes, verified institutions can create and host their own
+                    exams, with results securely stored on the blockchain
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

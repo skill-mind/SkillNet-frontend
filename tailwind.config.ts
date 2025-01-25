@@ -8,12 +8,22 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['"Ubuntu Sans"'],
+      sans: ["Ubuntu Sans", "sans-serif"],
+      workSans: ["Work Sans", "sans-serif"],
     },
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#D0EFB1",
+        grayText: "#ABABAB",
+      },
+      fontFamily: {
+        customFont: ["Ubuntu", "UbuntuMedium", "UbuntuBold", "UbuntuLight"],
+        Ubuntu: ["Ubuntu"],
+        UbuntuMedium: ["UbuntuMedium"],
+        UbuntuBold: ["UbuntuBold"],
+        UbuntuLight: ["UbuntuLight"],
       },
     },
   },

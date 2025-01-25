@@ -1,8 +1,39 @@
-
-
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hexagon-img {
+  background-image: url("../public/img/hexagon.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 50%;
+}
+
+.agreement-checkbox input[type="checkbox"] {
+  width: 30px;
+  height: 20px;
+  margin-right: 10px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  background-color: transparent;
+}
+
+.agreement-checkbox input[type="checkbox"]:checked {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.agreement-checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  font-size: 14px;
+  color: #fff;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -14,6 +45,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
