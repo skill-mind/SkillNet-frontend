@@ -1,7 +1,7 @@
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
       <>
-        <main className="">{children}</main>
+        <main className="grow">{children}</main>
       </>
     );
   };
