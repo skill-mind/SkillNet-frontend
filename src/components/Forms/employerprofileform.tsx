@@ -13,7 +13,7 @@ export default function EmployerProfileForm() {
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
-      
+      {/* hexagon design */}
       <div className="hidden lg:block bg-black relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black to-transparent"></div>
         <div className="absolute bottom-0 left-1/1.5 transform -translate-x-1/2.5 translate-y-1/1 opacity-30">
