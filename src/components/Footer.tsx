@@ -3,9 +3,11 @@ import telegram from "../public/img/telegram.svg";
 import X from "../public/img/new-twitter.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const router = useRouter();
 
   return (
     <footer className="px-[100px] pb-12">
@@ -14,12 +16,21 @@ export default function Footer() {
           <h5 className="text-[20px] leading-6">SKILLNET</h5>
           <ul className="flex items-center gap-11 text-base leading-5 text-[#ABABAB]">
             <li>
-            <Link href="/about">About</Link>
-          </li>
+              <Link href="/about">About</Link>
+            </li>
             <li>Contact</li>
             <li>Ethics</li>
             <li>Privacy</li>
-            <li>Terms</li>
+            <li>
+              <button
+                onClick={() => {
+                  router.push("/terms");
+                }}
+                className="cursor-pointer"
+              >
+                Terms
+              </button>
+            </li>
           </ul>
         </div>
         <div className="flex justify-between border-t border-[#595958] p-[24px]">
@@ -29,7 +40,7 @@ export default function Footer() {
                 <Image
                   className="w-[16.67px] h-[14.17px]"
                   src={telegram}
-                  alt="git"
+                  alt="Telegram link"
                 />
               </Link>
             </li>
