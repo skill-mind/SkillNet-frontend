@@ -12,7 +12,9 @@ export default function Footer() {
       <div className="w-full flex flex-row justify-between p-[24px]">
         <h5 className="text-[20px]">SKILLNET</h5>
         <ul className="flex flex-row justify-center items-center gap-5 text-[16px]">
-          <li className="cursor-pointer p-2">About</li>
+          <li className="cursor-pointer p-2">
+            <Link href="/about">About</Link>
+          </li>
           {/* <li className="cursor-pointer p-2">FAQ</li> */}
           <li className="cursor-pointer p-2">Contact</li>
           <li className="cursor-pointer p-2">Ethics</li>

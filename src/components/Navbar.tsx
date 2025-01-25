@@ -1,6 +1,7 @@
 "use client";
 import Logo from "../public/img/logo.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -17,7 +18,7 @@ export default function Navbar() {
           Home
         </li>
         <li className="cursor-pointer pr-5 border-r-2 border-[#222220]">
-          About
+          <Link href="/about">About</Link>
         </li>
         <li className="cursor-pointer pr-5">Help</li>
         {/* <li className="cursor-pointer pr-5">FAQs</li> */}
