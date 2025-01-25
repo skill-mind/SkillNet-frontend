@@ -3,11 +3,11 @@ import telegram from "../public/img/telegram.svg";
 import X from "../public/img/new-twitter.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <footer className="px-[100px] pb-12">
