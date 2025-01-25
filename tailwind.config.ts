@@ -8,24 +8,6 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-<<<<<<< HEAD
-  	extend: {
-  		colors: {
-  			background: 'var(--background)',
-  			foreground: 'var(--foreground)'
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
-		  fontFamily: {
-			'work-sans': ['"Work Sans"', 'sans-serif'],
-			'ubuntu': ['"Ubuntu"', 'sans-serif'],
-		  },
-	
-  	}
-=======
     fontFamily: {
       sans: ["Ubuntu Sans"],
     },
@@ -49,7 +31,6 @@ export default {
         UbuntuLight: ["UbuntuLight"],
       },
     },
->>>>>>> main
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
