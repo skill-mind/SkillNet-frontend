@@ -1,6 +1,6 @@
 "use client"
 
-import  useState  from "react"
+import { useState } from "react";
 import  Button  from "@/components/Forms/Button"
 import  Checkbox  from "@/components/Forms/Checkbox"
 import  Input  from "@/components/Forms/Input"
