@@ -14,12 +14,20 @@ export default function Footer() {
           <h5 className="text-[20px] leading-6">SKILLNET</h5>
           <ul className="flex items-center gap-11 text-base leading-5 text-[#ABABAB]">
             <li>
-            <Link href="/about">About</Link>
-          </li>
-            <li>Contact</li>
-            <li>Ethics</li>
-            <li>Privacy</li>
-            <li>Terms</li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/contact-us">Contact</Link>
+            </li>
+            <li>
+              <Link href="/code-of-ethics">Ethics</Link>
+            </li>
+            <li>
+              <Link href="/privacy">Privacy</Link>
+            </li>
+            <li>
+              <Link href="/terms-and-condition">Terms</Link>
+            </li>
           </ul>
         </div>
         <div className="flex justify-between border-t border-[#595958] p-[24px]">

@@ -10,15 +10,22 @@ export default function Navbar() {
         <Image className="w-[100px] h-[40px]" src={Logo} alt="Logo" />
       </button>
       <ul className="flex justify-center items-center gap-4">
-        <li className="cursor-pointer">Home</li>
+        <li className="cursor-pointer">
+          <Link href="/">Home</Link>
+        </li>
         <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li>
         <li className="cursor-pointer">
           <Link href="/about">About</Link>
         </li>
         <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li>
-        <li className="cursor-pointer">Help</li>
+        <li className="cursor-pointer">
+          <Link href="/help-center"> Help</Link>
+        </li>
         <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li>
-        <li className="cursor-pointer">FAQs</li>
+
+        <li className="cursor-pointer">
+          <Link href="/faqs"> FAQs</Link>
+        </li>
       </ul>
       <button className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold">
         CONNECT WALLET

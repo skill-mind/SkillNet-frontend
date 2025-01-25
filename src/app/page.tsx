@@ -24,6 +24,7 @@ export default function Home() {
             className="absolute top-[389px] left-[-384px] z-[-1]"
             alt=""
           />
+          <div>
           <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
             Empowering <br /> Careers, Verified on <br />
             <span className="text-[#A8C789]">Blockchain</span>
@@ -36,6 +37,8 @@ export default function Home() {
           <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
             Get started
           </button>
+          </div>
+        
         </section>
         <section className="bg-[#121312] py-20 px-[100px] text-[#EAEDE7]">
           <div className="flex items-center gap-6">
