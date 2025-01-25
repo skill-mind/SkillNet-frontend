@@ -13,7 +13,9 @@ export default function Footer() {
         <div className="w-full flex flex-row justify-between pt-[56px] px-6 pb-6">
           <h5 className="text-[20px] leading-6">SKILLNET</h5>
           <ul className="flex items-center gap-11 text-base leading-5 text-[#ABABAB]">
-            <li>About</li>
+            <li>
+            <Link href="/about">About</Link>
+          </li>
             <li>Contact</li>
             <li>Ethics</li>
             <li>Privacy</li>
