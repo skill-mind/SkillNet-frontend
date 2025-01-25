@@ -38,7 +38,6 @@ export default function Navbar() {
         {isModalVisible && (
           <div className="absolute top-full right-0">
             <WalletSelectorUI />
-            lorem
           </div>
         )}
       </div>
