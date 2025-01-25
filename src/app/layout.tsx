@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat">
+        <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat overflow-x-hidden">
           {children}
         </body>
       </Providers>
