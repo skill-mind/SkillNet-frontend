@@ -1,12 +1,31 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+<<<<<<< HEAD
+  	extend: {
+  		colors: {
+  			background: 'var(--background)',
+  			foreground: 'var(--foreground)'
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		},
+		  fontFamily: {
+			'work-sans': ['"Work Sans"', 'sans-serif'],
+			'ubuntu': ['"Ubuntu"', 'sans-serif'],
+		  },
+	
+  	}
+=======
     fontFamily: {
       sans: ["Ubuntu Sans"],
     },
@@ -30,6 +49,7 @@ export default {
         UbuntuLight: ["UbuntuLight"],
       },
     },
+>>>>>>> main
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
