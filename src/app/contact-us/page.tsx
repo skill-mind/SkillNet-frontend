@@ -10,9 +10,9 @@ const page = () => {
     <Navbar/>
 
    <section className="h-[847px] items-center justify-center pt-10 ">
-      <div className="md:p-8 py-8 px-2 pt-0 rounded-[8px]  max-w-4xl w-full">
+      <div className="md:p-8 flex flex-col items-center justify-center px-2 pt-0 rounded-[8px]   w-full">
         
-      <div className=" items-center justify-center">
+      <div className=" flex flex-col items-center justify-center">
         <h1 className="text-[40px] text-pretty font-bold text-[#FCFCFC]">Contact Us</h1>
         <p className=" text-lg text-[#898783]">Do you have something to share with us? Reach out to us!</p>  
       </div>

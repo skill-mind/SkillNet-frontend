@@ -106,7 +106,7 @@ export default function Form() {
       {!isSubmitted ? (
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 p-4 sm:p-6 md:p-[32px] rounded-[8px] border-[1px] border-[#CBD5E1] w-full"
+          className="space-y-4 p-4 sm:p-6 md:p-[32px] rounded-[8px]   w-full"
         >
           <div className="space-y-2">
             <label className="block text-sm md:text-base font-medium text-[#FFFFFF]">
@@ -120,7 +120,7 @@ export default function Form() {
               placeholder="Type in your name"
               className={`mt-1 block w-full border bg-transparent placeholder:italic ${
                 errors.name ? "border-red-500" : "text-[#898783]"
-              } rounded-md shadow-sm text-sm md:text-base focus:border-[#F97316] focus:ring-[#F97316] px-3 py-2 md:px-[16px] md:py-[13px]`}
+              } rounded-md shadow-sm text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               required
             />
             {errors.name && (
@@ -140,7 +140,7 @@ export default function Form() {
               placeholder="Type in your email address"
               className={`mt-1 block w-full border bg-transparent placeholder:italic ${
                 errors.email ? "border-red-500" : "text-[#898783]"
-              } rounded-[4px] shadow-sm text-sm md:text-base focus:border-[#F97316] focus:ring-[#F97316] px-3 py-2 md:px-[16px] md:py-[13px]`}
+              } rounded-[4px] shadow-sm text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               required
             />
             {errors.email && (
@@ -159,7 +159,7 @@ export default function Form() {
               placeholder="Type your special message here..."
               className={`mt-1 block w-full border bg-transparent placeholder:italic ${
                 errors.message ? "border-red-500" : "text-[#898783]"
-              } rounded-[4px] text-sm md:text-base focus:border-[#F97316] focus:ring-[#F97316] px-3 py-2 md:px-[16px] md:py-[13px]`}
+              } rounded-[4px] text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               rows={4}
               required
             ></textarea>
@@ -175,7 +175,7 @@ export default function Form() {
               className={`flex justify-center items-center m-auto py-2 md:py-[12px] px-4 md:px-[24px] border border-transparent text-sm md:text-[14px] font-medium rounded-[32px] text-black focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                 isSubmitting
                   ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-[#F97316] hover:bg-[#e16312]"
+                  : "bg-[#D0EFB1] hover:bg-[#D0EFB1]"
               } w-full md:max-w-[226px] transition-colors duration-200`}
             >
               {isSubmitting ? "Sending..." : "Send message"}
