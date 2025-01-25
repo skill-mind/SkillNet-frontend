@@ -16,7 +16,6 @@ export default function Form() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({
     name: "",
@@ -72,7 +71,7 @@ export default function Form() {
     }
 
     setIsSubmitting(true);
-    setSubmitMessage(null);
+ 
 
     try {
       const response = await fetch(
