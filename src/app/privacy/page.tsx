@@ -7,8 +7,9 @@ const page = () => {
   return (
   <>
     <Navbar/>
-
+     
    <section className="h-[847px]   flex  justify-center pt-10 ">
+    
       <div className="w-full px-[100px] h-screen mx-auto flex flex-col  ">
         <div className="flex justify-center">
           <h1 className="text-[40px] text-pretty font-bold text-[#EAEDE7]">
