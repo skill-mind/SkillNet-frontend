@@ -14,7 +14,6 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function Home() {
   return (
     <main className="relative">
-      <Navbar />
       <section className="h-[100vh] pt-[204px] flex justify-center text-center relative">
         <Image
           src={hexagon}
@@ -272,7 +271,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }
