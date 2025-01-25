@@ -10,8 +10,8 @@ const page = () => {
   <>
     <Navbar/>
 
-   <section className=" pt-5 ">
-      <div className="md:p-8 flex flex-col items-center justify-center px-2 pt-0 rounded-[8px]  w-full">
+   <section className="">
+      <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
         
       <div className="text-center ">
         <h1 className="text-[40px] text-pretty font-bold pb-4 text-[#FCFCFC]">CONTACT US</h1>

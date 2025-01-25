@@ -3,9 +3,11 @@ import telegram from "../public/img/telegram.svg";
 import X from "../public/img/new-twitter.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const router = useRouter();
 
   return (
     <footer className="px-[100px] pb-12">
@@ -26,7 +28,7 @@ export default function Footer() {
               <Link href="/privacy">Privacy</Link>
             </li>
             <li>
-              <Link href="/terms-and-condition">Terms</Link>
+              <Link href="/terms">Terms</Link>
             </li>
           </ul>
         </div>
@@ -37,7 +39,7 @@ export default function Footer() {
                 <Image
                   className="w-[16.67px] h-[14.17px]"
                   src={telegram}
-                  alt="git"
+                  alt="Telegram link"
                 />
               </Link>
             </li>
