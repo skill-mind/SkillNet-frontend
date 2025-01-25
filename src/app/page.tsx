@@ -105,19 +105,22 @@ export default function Home() {
               Share Knowledge, Earn Revenue
             </h3>
             <div className="grid grid-cols-3 gap-x-5">
+
               <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
                 <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
                 <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
                   Create and monetize engaging courses.
                 </p>
               </div>
-              <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2">
+
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
                 <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
                 <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
                   Host exams and issue blockchain-verified results.
                 </p>
               </div>
-              <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2 items-center">
+
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2 items-center w-full">
                 <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
                 <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
                   Reach a global audience of eager learners and earn revenue for
