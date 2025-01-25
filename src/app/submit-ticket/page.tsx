@@ -57,7 +57,7 @@ export default function SubmitTicket() {
           <textarea
             value={details}
             onChange={(e) => setDetails(e.target.value)}
-            className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full"
+            className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full h-[149px] min-h-[149px] resize-y"
             placeholder="Write your message here..."
           />
           <p>

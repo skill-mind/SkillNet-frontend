@@ -9,7 +9,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function Home() {
   return (
     <main className="relative">
-      <section className="h-[100vh] pt-[204px] flex justify-center text-center relative">
+      <section className="h-[806px] pt-[204px] flex justify-center text-center relative">
         <Image
           src={hexagon}
           className="absolute top-[9px] right-[-28px] z-[-1]"
@@ -20,20 +20,18 @@ export default function Home() {
           className="absolute top-[389px] left-[-384px] z-[-1]"
           alt=""
         />
-        <div className="max-w-[1240px] text-[#EAEDE7]">
-          <h1 className="text-[100px] leading-[90px] font-bold mb-6">
-            Empowering <br /> Careers, Verified on <br />
-            <span className="text-[#A8C789]"> Blockchain</span>
-          </h1>
-          <p className="text-2xl leading-8 mb-12">
-            Upskill, certify, and connect with top employers on SkillNet—a
-            blockchain-powered <br /> platform for job seekers, employers,
-            tutors, and institutions.
-          </p>
-          <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
-            Get started
-          </button>
-        </div>
+        <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
+          Empowering <br /> Careers, Verified on <br />
+          <span className="text-[#A8C789]"> Blockchain</span>
+        </h1>
+        <p className="text-2xl leading-8 mb-12 text-[#EAEDE7]">
+          Upskill, certify, and connect with top employers on SkillNet—a
+          blockchain-powered <br /> platform for job seekers, employers, tutors,
+          and institutions.
+        </p>
+        <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
+          Get started
+        </button>
       </section>
       <section className="bg-[#121312] py-20 px-[100px] text-[#EAEDE7]">
         <div className="flex items-center gap-6">
@@ -99,22 +97,22 @@ export default function Home() {
           <h3 className="font-bold text-white text-[40px] leading-[47px] font-workSans mb-12">
             Share Knowledge, Earn Revenue
           </h3>
-          <div className="grid grid-cols-3 gap-x-5 items-stretch">
-            <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2">
+          <div className="grid grid-cols-3 gap-x-5">
+            <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
               <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
-              <p className="text-base leading-5 text-[#DBDBDB]">
+              <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
                 Create and monetize engaging courses.
               </p>
             </div>
             <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2">
               <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
-              <p className="text-base leading-5 text-[#DBDBDB]">
+              <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
                 Host exams and issue blockchain-verified results.
               </p>
             </div>
-            <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2">
+            <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2 items-center">
               <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
-              <p className="text-base leading-5 text-[#DBDBDB]">
+              <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
                 Reach a global audience of eager learners and earn revenue for
                 every enrollment.
               </p>
