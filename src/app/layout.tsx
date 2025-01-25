@@ -22,9 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <Providers>
         <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat">
-          <Navbar />
+           <Navbar /> 
           {children}
-          <Footer />
+           <Footer /> 
         </body>
       </Providers>
     </html>
