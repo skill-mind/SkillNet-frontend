@@ -2,8 +2,12 @@
 import Image from "next/image";
 import hexagon from "../../public/img/hexagonn.svg";
 import { Plus } from "lucide-react";
+import { useState } from "react";
 
 export default function SubmitTicket() {
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [details, setDetails] = useState("");
   return (
     <div className="relative pt-[150px] md:pt-[200px] lg::pt-[252px] pb-[128px] text-center flex flex-col items-center px-6">
       <Image
@@ -27,6 +31,8 @@ export default function SubmitTicket() {
           </label>
           <input
             type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full"
             placeholder="Enter email address"
           />
@@ -37,6 +43,8 @@ export default function SubmitTicket() {
           </label>
           <input
             type="text"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
             className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full"
             placeholder="Enter subject"
           />
@@ -47,6 +55,8 @@ export default function SubmitTicket() {
             Additional Details
           </label>
           <textarea
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
             className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full"
             placeholder="Write your message here..."
           />
