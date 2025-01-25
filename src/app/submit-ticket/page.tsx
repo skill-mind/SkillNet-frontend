@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import hexagon from "../../public/img/hexagon.png";
+import hexagon from "../../public/img/hexagon.svg";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
@@ -67,7 +67,7 @@ export default function SubmitTicket() {
             <textarea
               value={details}
               onChange={(e) => setDetails(e.target.value)}
-              className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full h-[149px] min-h-[149px] resize-y"
+              className="py-2 px-3 border-[#252625] placeholder:text-[#696969] border rounded-lg bg-transparent w-full h-[149px]To min-h-[149px] resize-none h-[10em]"
               placeholder="Write your message here..."
             />
             <p>
