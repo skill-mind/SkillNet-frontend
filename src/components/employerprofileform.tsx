@@ -21,7 +21,7 @@ export default function EmployerProfileForm() {
         </div>
       </div>
 
-    {/* form section */}
+    
       <div className="bg-black p-8 lg:p-12 flex items-center justify-center">
         <div className="w-full max-w-md space-y-8">
           <div className="space-y-2 text-center">
