@@ -3,13 +3,16 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 
 const page = () => {
+  
   return (
-    <>
-      <Navbar />
-
-      <section className=" ">
-        <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
-          <h1 className="text-[40px] text-center font-bold uppercase leading-tight h-12 w-full md:w-[331px] ">
+  <>
+    <Navbar/>
+     
+   <section className="h-[847px]   flex  justify-center pt-10 ">
+    
+      <div className="w-full px-[100px] h-screen mx-auto flex flex-col ">
+        <div className="flex justify-center">
+          <h1 className="text-[40px] text-pretty font-bold text-[#EAEDE7]">
             PRIVACY POLICY
           </h1>
 
@@ -50,16 +53,16 @@ const page = () => {
               </p>
             </div>
 
-            <div className="flex flex-col gap-[20px] border-b border-[#595958] pb-[24px] pt-[24px]">
-              <h2 className="text-lg text-[#FFFFFF]">Data Retention</h2>
-              <p className=" text-sm text-[#898783]">
-                User data will be retained as long as necessary to fulfill the
-                platform&apos;s purpose or as required by law.
-              </p>
-            </div>
+          <div className="flex flex-col gap-[20px] border-b border-[#595958] pb-[24px] pt-[24px]">
+            <h2 className="text-lg text-[#FFFFFF]">Data Retention</h2>
+            <p className=" text-sm text-[#898783]">
+              User data will be retained as long as necessary to fulfill the
+              platform&apos;s purpose or as required by law.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <Footer />
     </>
