@@ -39,10 +39,8 @@ export default function CodeOfEthics() {
     <>
       <Navbar />
 
-      <div
-        className={`w-full min-h-screen bg-transparent flex flex-col items-center justify-center gap-5 px-4 my-6 py-6  `}
-      >
-        <h1 className="text-[#EAEDE7] font-bold text-5xl text-center  ">
+      <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10">
+        <h1 className="text-[40px] text-center font-bold uppercase leading-tight h-12 w-full md:w-[331px] ">
           Code of Ethics
         </h1>
         <p className="text-base font-light text-[#80837E] text-center ">

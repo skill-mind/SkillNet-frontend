@@ -9,16 +9,9 @@ export default {
   ],
   theme: {
     fontFamily: {
-      customFont: [
-        "Ubuntu",
-        "UbuntuMedium",
-        "UbuntuBold",
-        "UbuntuLight",
-      ],
-      Ubuntu: ["Ubuntu"],
-      UbuntuMedium: ["UbuntuMedium"],
-      UbuntuBold: ["UbuntuBold"],
-      UbuntuLight: ["UbuntuLight"],
+
+      sans: ["Ubuntu Sans", "sans-serif"],
+      workSans: ["Work Sans", "sans-serif"],
     },
   	extend: {
   		colors: {
@@ -71,6 +64,7 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		}
   	}
+
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
