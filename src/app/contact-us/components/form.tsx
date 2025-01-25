@@ -1,7 +1,12 @@
-
 "use client";
 
 import { useState } from "react";
+
+interface FormErrors {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -13,7 +18,7 @@ export default function Form() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<FormErrors>({
     name: "",
     email: "",
     message: "",
@@ -34,7 +39,7 @@ export default function Form() {
   };
 
   const validateForm = () => {
-    const newErrors: typeof errors = {
+    const newErrors: FormErrors = {
       name: "",
       email: "",
       message: "",
@@ -196,4 +201,4 @@ export default function Form() {
       )}
     </div>
   );
-}
+};
