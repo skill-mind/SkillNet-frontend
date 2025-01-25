@@ -1,4 +1,3 @@
-import { Circle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ArgentImg from "@/public/ArgentImg.svg"
 import Braavos from "@/public/Braavos.svg"
