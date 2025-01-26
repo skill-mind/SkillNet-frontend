@@ -27,30 +27,35 @@ export default function Personal() {
 
           <form className="flex flex-col gap-6 w-full max-w-md">
             <div className="space-y-1 sm:space-y-2">
-              <p className="text-sm sm:text-base text-[#ABABAB] font-ubuntu">Name</p>
               <Input
-                id="name"
-                placeholder="Enter your name"
-                className="bg-gray-900 outline-none font-work-sans border-gray-800 text-[#FAFAFA]"
+                 type="text"
+                 name="name"
+                 placeholder="Enter your name"
+                 label="Name"
+                 onChange={()=>{}}
+                 value=""
               />
             </div>
 
             <div className="space-y-1 sm:space-y-2">
-              <p className="text-sm sm:text-base text-[#ABABAB] font-ubuntu">Brief Bio</p>
               <Textarea
-                id="bio"
+                name="bio"
                 placeholder="Tell us about yourself"
-                className="bg-gray-900 border-gray-800 font-work-sans outline-none text-[#FAFAFA] min-h-[120px]"
+                label="Brief Bio"
+                onChange={()=>{}}
+                value=""
               />
             </div>
 
             <div className="space-y-1 sm:space-y-2">
               <p className="text-sm sm:text-base text-[#ABABAB] font-ubuntu">Email</p>
               <Input
-                id="email"
                 type="email"
+                name="email"
                 placeholder="Enter your email"
-                className="bg-gray-900 outline-none font-work-sans border-gray-800 text-[#FAFAFA]"
+                label="Email"
+                onChange={()=>{}}
+                value=""
               />
             </div>
 
