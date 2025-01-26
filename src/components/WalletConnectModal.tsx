@@ -27,7 +27,7 @@ export function WalletSelectorUI() {
                     <Button
                         key={wallet.name}
                         variant="ghost"
-                        className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800"
+                        className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
                     >
                         <Image src={wallet.icon} alt={wallet.name} />
                         <span>{wallet.name}</span>

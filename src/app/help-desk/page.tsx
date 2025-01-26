@@ -6,6 +6,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
+
 export default function page() {
   const tips = [
     {
@@ -50,18 +51,21 @@ export default function page() {
               </h1>
               <p className="text-center text-[#898783] text-lg sm:text-xl leading-5">
                 Having any troubles? If our{" "}
-                <Link className="text-[#C33BEC] font-bold" href={"/faq"}>
+                <Link className="text-[#C33BEC] font-bold" href={"/"}>
                   FAQ section
                 </Link>{" "}
                 didn’t provide the solution you’re looking for, please submit a
                 support ticket. <br /> Our team is here to assist you and will
                 respond within 48 business hours.
               </p>
+              <Link href="/submit-ticket">
               <button
                 type="button"
                 className="py-2 md:py-4 px-2 md:px-8 font-medium hover:bg-[#A8C789] border border-[#A8C789] text-[#A8C789] hover:text-black rounded-lg transition-all duration-200 outline-none bg-transparent">
                 Submit a Ticket
               </button>
+              </Link>
+       
             </div>
           </div>
           <div className="space-y-4">
