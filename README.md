@@ -57,6 +57,82 @@ SkillNet offers tailored dashboards for each user type:
 - **Blockchain:** StarkNet (for decentralized data integrity)
 - **Database:** MongoDB (for efficient information storage)
 
+## Package Dependencies
+
+The following packages are used in the SkillNet project:
+
+- **React:** This package forms the essential foundation for creating UI structures.
+- **Next.js:** Server-side rendering and static site generation
+- **TypeScript:** Static typing for JavaScript
+- **Tailwind CSS:** Utility-first CSS framework
+- **Axios:** Circular-HTTP serves as the core tool to perform API requests through HTTP communications.
+- **React Hook Form:** Form handling library
+- **eact Query:** Library for managing server state
+- **ESLint:** Linter for maintaining code quality
+- **Prettier:** Code formatter
+- **PostCSS:** Tool for processing CSS
+- **@testing-library/react:** Testing utilities for React components
+
+## Folder Structure
+
+The project follows a standard Next.js directory structure with some customizations:
+
+src/
+
+├── components/
+
+│ ├── common/
+
+│ │ ├── Button.js
+
+│ │ └── Input.js
+
+│ ├── jobSeeker/
+
+│ │ ├── Profile.js
+
+│ │ └── ResumeBuilder.js
+
+│ ├── employer/
+
+│ │ ├── JobListings.js
+
+│ │ └── CandidateProfile.js
+
+│ └── institution/
+
+│ ├── CourseCatalog.js
+
+│ └── ExaminationSystem.js
+
+├── pages/
+
+│ ├── index.js
+
+│ ├── login.js
+
+│ ├── dashboard.js
+
+│ └── profile.js
+
+├── styles/
+
+│ ├── globals.css
+
+│ └── theme.css
+
+├── utils/
+
+│ ├── api.js
+
+│ └── auth.js
+
+└── lib/
+
+├── blockchain.js
+
+└── database.js
+
 ## Getting Started
 
 To set up SkillNet on your local machine:
