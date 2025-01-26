@@ -4,8 +4,10 @@
 function ExamPage() {
   return (
     <div>
-      <h1>Exam</h1>
+      <h1>Exam dashboard</h1>
  
     </div>
   );
 }
+
+export default ExamPage;
