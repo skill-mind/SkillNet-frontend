@@ -61,7 +61,7 @@ SkillNet offers tailored dashboards for each user type:
 
 The following packages are used in the SkillNet project:
 
-- **React:** This package forms the essential foundation for creating UI structures.
+<!-- - **React:** This package forms the essential foundation for creating UI structures.
 - **Next.js:** Server-side rendering and static site generation
 - **TypeScript:** Static typing for JavaScript
 - **Tailwind CSS:** Utility-first CSS framework
@@ -71,67 +71,40 @@ The following packages are used in the SkillNet project:
 - **ESLint:** Linter for maintaining code quality
 - **Prettier:** Code formatter
 - **PostCSS:** Tool for processing CSS
-- **@testing-library/react:** Testing utilities for React components
+- **@testing-library/react:** Testing utilities for React components -->
+
+    - "@headlessui/react": "^2.2.0",
+    - "@radix-ui/react-slot": "^1.1.1",
+    - "@starknet-react/chains": "^3.1.1",
+    - "@starknet-react/core": "^3.6.3",
+    - "@starknet-react/typescript-config": "^0.0.1",
+    - "class-variance-authority": "^0.7.1",
+    - "clsx": "^2.1.1",
+    - "lodash": "^4.17.21",
+    - "lucide-react": "^0.474.0",
+    - "next": "^14.2.20",
+    - "react": "^18",
+    - "react-dom": "^18",
+    - "react-icons": "^5.4.0",
+    - "starknet": "^6.11.0",
+    - "tailwind-merge": "^2.6.0",
+    - "tailwindcss-animate": "^1.0.7"
+
 
 ## Folder Structure
 
 The project follows a standard Next.js directory structure with some customizations:
 
 src/
+   |--ABI
+|--app/
+   ├── components/
 
-├── components/
+  ├── lib/
 
-│ ├── common/
+  ├── public
 
-│ │ ├── Button.js
 
-│ │ └── Input.js
-
-│ ├── jobSeeker/
-
-│ │ ├── Profile.js
-
-│ │ └── ResumeBuilder.js
-
-│ ├── employer/
-
-│ │ ├── JobListings.js
-
-│ │ └── CandidateProfile.js
-
-│ └── institution/
-
-│ ├── CourseCatalog.js
-
-│ └── ExaminationSystem.js
-
-├── pages/
-
-│ ├── index.js
-
-│ ├── login.js
-
-│ ├── dashboard.js
-
-│ └── profile.js
-
-├── styles/
-
-│ ├── globals.css
-
-│ └── theme.css
-
-├── utils/
-
-│ ├── api.js
-
-│ └── auth.js
-
-└── lib/
-
-├── blockchain.js
-
-└── database.js
 
 ## Getting Started
 
