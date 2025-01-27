@@ -1,107 +1,177 @@
-# SkillNet
+# SkillNet: Empowering Careers Through Blockchain Technology
 
-SkillNet is an innovative blockchain-powered platform that seamlessly bridges the gap between job seekers, employers, tutors, and institutions. Combining an online job marketplace with a comprehensive learning hub, SkillNet empowers users to thrive in today’s dynamic job market.
+The innovative platform SkillNet provides an intelligent networking solution for uniting job
+hunters with both employers and institutions and tutors.
+SkillNet combines its online job platform features with educational resources
+to help people succeed in modern employment environments.
 
----
+## Key Features
 
-## 🌟 Features
+### For Job Seekers
 
-### **For Job Seekers**
-- **Verified Courses and Exams**: Enhance your skills and showcase blockchain-certified qualifications.
-- **Job Marketplace**: Connect with potential employers and explore tailored job opportunities.
-- **Personalized Dashboard**: Track job applications, course progress, and certifications in one place.
+- **Verified Skills:** Enhance and validate your talents by displaying blockchain-authenticated credentials.
+- **Job Matching:** Potential employers can connect with you through SkillNet to view personalized job opportunities.
+- **Personalized Dashboard:** Track applications, skills development, and certifications in one place.
 
-### **For Employers**
-- **Talent Pool**: Access a diverse pool of talented candidates with verified credentials.
-- **Secure Platform**: Ensure hiring transparency with blockchain-verified candidate profiles.
-- **Custom Dashboard**: Manage job postings, review applications, and streamline hiring processes.
+### For Employers
 
-### **For Tutors and Institutions**
-- **Monetize Expertise**: Create, sell, and deliver high-quality courses and exams.
-- **Blockchain-Certified Credentials**: Issue secure, tamper-proof certifications for students and professionals.
-- **Secure Exam Hosting**: Conduct reliable and transparent assessments with StarkNet’s blockchain technology.
-- **Personalized Dashboard**: Manage courses, students, and certifications effortlessly.
+- **Diverse Talent Pool:** Access candidates with verified credentials.
+- **Secure Hiring:** Job candidates show authenticated profiles by implementing blockchain verification methods.
+- **Streamlined Process:** Users can post jobs and work effectively through application reviews.
 
----
+### For Tutors and Institutions
 
-## 🔒 Why Blockchain? 
+- **Monetize Expertise:** The platform enables users to develop premium educational content which they can sell for examination delivery to customers.
+- **Secure Certifications:** Issue tamper-proof certifications for students and professionals.
+- **Transparent Assessments:** Modern examinations based in blockchain technology enable transparent assessment capabilities and reliable verification
+  of examination outcomes.
+- **Effortless Management:** Users maintain course records and student profiles and certification management at a touch of a button.
 
-SkillNet leverages the power of **StarkNet blockchain** for:
-- **Security**: Ensures that user data, certifications, and transactions are protected.
-- **Transparency**: Provides verifiable and immutable records of credentials and activities.
-- **Decentralization**: Removes intermediaries, offering users full control over their careers and learning journeys.
+## Why Blockchain?
 
----
+SkillNet leverages StarkNet blockchain technology to:
 
-## 🚀 Key Benefits
+- **Protect User Data:** Personal information together with credentials are be safely kept in secure storage environments.
+- **Ensure Transparency:** Secure technology creates its own permanent records of verified user accomplishments and participation.
+- **Promote Decentralization:** Users maintain complete authority to direct their career development with their educational endeavors.
 
-- **Empowerment**: Equip job seekers, tutors, and institutions with the tools to excel.
-- **Trustworthy Credentials**: Blockchain-based certifications ensure authenticity.
-- **Inclusive Platform**: Seamlessly connects professionals, educators, and organizations.
-- **Future-Proofing Careers**: Combines job opportunities with continuous skill development.
+## Key Benefits for All Users
 
----
+- **Empowerment Tools:** Users obtain necessary resources to achieve success within their professional areas.
+- **Trustworthy Credentials:** Blockchain-based qualifications deliver qualified credentials that maintain their value and prove their legit status.
+- **Inclusive Platform:** The platform enables effortless connections between professionals together with educators and worldwide organizations.
+- **Future-Proof Skills:** Job opportunities link with ongoing skill development programs.
 
-## 🎯 Personalized Dashboards
+## User-Friendly Dashboards
 
-SkillNet offers tailored dashboards to meet the unique needs of its users:
-- **Job Seekers**: Track job applications, view skill progress, and manage certifications.
-- **Employers**: Post jobs, evaluate candidates, and access blockchain-verified credentials.
-- **Tutors/Institutions**: Create courses, host exams, and issue blockchain-backed certificates.
+SkillNet offers tailored dashboards for each user type:
 
----
+- **Job Seekers:** The system enables users to track applications and view their skills advancement while managing their attained certifications.
+- **Employers:** Enter positions for selection then review candidate profiles and view authorized credential statements.
+- **Tutors/Institutions:** Users can design courses while administering blockchain-secured examinations to distribute digital certificates authenticated by blockchain.
 
-## 🛠️ Technologies Used
+## Technologies Behind SkillNet
 
-- **Frontend**: Next.js, Tailwind CSS, Typescript
-- **Backend**: Node.js, Express.js
-- **Blockchain**: StarkNet for decentralized data integrity
-- **Database**: MongoDB for efficient data storage
+- **Frontend:** Next.js (for building website)
+- **Backend:** Node.js (for server-side operations)
+- **Blockchain:** StarkNet (for decentralized data integrity)
+- **Database:** MongoDB (for efficient information storage)
 
+## Package Dependencies
 
----
+The following packages are used in the SkillNet project:
 
-## 🌐 Getting Started
+- **React:** This package forms the essential foundation for creating UI structures.
+- **Next.js:** Server-side rendering and static site generation
+- **TypeScript:** Static typing for JavaScript
+- **Tailwind CSS:** Utility-first CSS framework
+- **Axios:** Circular-HTTP serves as the core tool to perform API requests through HTTP communications.
+- **React Hook Form:** Form handling library
+- **eact Query:** Library for managing server state
+- **ESLint:** Linter for maintaining code quality
+- **Prettier:** Code formatter
+- **PostCSS:** Tool for processing CSS
+- **@testing-library/react:** Testing utilities for React components
 
-Follow these steps to set up SkillNet on your local machine:
+## Folder Structure
 
+The project follows a standard Next.js directory structure with some customizations:
 
+src/
 
-### Installation
+├── components/
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/skill-mind/SkillNet-frontend.git
-   cd skillnet
+│ ├── common/
 
-###  🧑‍💻 Contribution Guidelines
-We welcome contributions! To get started:
+│ │ ├── Button.js
 
-- **Fork the repository**
-- **Create a new branch**
+│ │ └── Input.js
 
-  ```bash
-   git checkout -b feature/Issue title
-  ```
+│ ├── jobSeeker/
 
- - **Commit your changes:**
-   ```bash
-    git commit -m "Add the title as the commit message"
-   ```
+│ │ ├── Profile.js
 
-- **Push to your branch:**
-  ```bash
-   git push origin feature/Issue title
-  ```
+│ │ └── ResumeBuilder.js
 
-- **Create a pull request.**
+│ ├── employer/
 
-## 🤝 Connect with Us
+│ │ ├── JobListings.js
 
-[Telegram](https://t.me/+wkTCPZzVyGU5ZDFk")
+│ │ └── CandidateProfile.js
 
-[Discord](https://discord.gg/kP5FkkQs")
+│ └── institution/
 
-[WhatsApp](https://chat.whatsapp.com/JDNY8iGHyRtE9fsIYVdKvL")
+│ ├── CourseCatalog.js
 
-[Twitter](https://x.com/projectSkillNet")
+│ └── ExaminationSystem.js
+
+├── pages/
+
+│ ├── index.js
+
+│ ├── login.js
+
+│ ├── dashboard.js
+
+│ └── profile.js
+
+├── styles/
+
+│ ├── globals.css
+
+│ └── theme.css
+
+├── utils/
+
+│ ├── api.js
+
+│ └── auth.js
+
+└── lib/
+
+├── blockchain.js
+
+└── database.js
+
+## Getting Started
+
+To set up SkillNet on your local machine:
+
+- **1. Clone the repository:**
+  _git clone https://github.com/skill-mind/SkillNet-frontend.git_
+
+  _cd skillnet_
+
+- **2. Install dependencies:**
+
+  _npm install_
+
+- **Start the development server:**
+
+  _npm run dev_
+
+## Contributing to SkillNet
+
+We welcome contributions! To participate:
+
+1. **Fork the repository**
+
+2. **Create a new branch**
+   _git checkout -b feature/Issue title_
+
+3. **Commit your changes:**
+   _Type *"Add the title as the commit message"* when prompted during your commit stage using git._
+
+4. **Push to your branch:**
+   _git push origin feature/Issue title_
+5. **Create a pull request**
+
+## Connect with Us
+
+Stay updated on SkillNet developments through our community channels:
+
+[Telegram](https://t.me/+wkTCPZzVyGU5ZDFk%22)
+
+[Twitter(X)](https://x.com/projectSkillNet)
+
+We invite you to join our effort in transforming the way skills meet jobs alongside learning possibilities.
