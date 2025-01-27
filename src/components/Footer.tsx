@@ -10,7 +10,7 @@ export default function Footer() {
   // const router = useRouter();
 
   return (
-    <footer className="px-[100px] pb-12">
+    <footer className="px-[100px] pt-16 pb-12">
       <div className="border border-[#595958] rounded-lg">
         <div className="w-full flex flex-row justify-between pt-[56px] px-6 pb-6">
           <h5 className="text-[20px] leading-6">SKILLNET</h5>

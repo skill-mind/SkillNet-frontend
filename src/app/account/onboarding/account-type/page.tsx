@@ -1,14 +1,27 @@
+"use client";
 
+import React from "react";
+import AccountTypeSelector from "@/app/account/onboarding/account-type/account-type";
+import selectImgBg from "../../../../public/selecttype.svg";
+import Image from "next/image";
 
-import React from 'react'
-import Account from './account-type'
-
-function Page() {
+const page = () => {
   return (
-    <div>
-        <Account />
-    </div>
-  )
-}
+    <div className="min-h-screen w-full grid grid-cols-2 justify-evenly items-center bg-gray-950 p-6">
+      <div className="relative">
+        <Image
+          src={selectImgBg}
+          className="absolute left-10 -top-16"
+          alt="background"
+          priority
+        />
+      </div>
 
-export default Page
+      <div className="flex items-center justify-center">
+        <AccountTypeSelector />
+      </div>
+    </div>
+  );
+};
+
+export default page;
