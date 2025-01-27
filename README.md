@@ -91,7 +91,7 @@ The following packages are used in the SkillNet project:
     - "tailwindcss-animate": "^1.0.7"
 
 
-## Folder Structure
+<!-- ## Folder Structure
 
 The project follows a standard Next.js directory structure with some customizations:
 
@@ -102,7 +102,7 @@ src/
 
   ├── lib/
 
-  ├── public
+  ├── public -->
 
 
 
