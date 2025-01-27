@@ -13,7 +13,7 @@ const accountTypes: AccountType[] = [
   {
     id: "job-seeker",
     title: "Job Seeker",
-    description: "Apply for jobs and excel in careers",
+    description: "Apply for jobs and enroll in courses",
   },
   {
     id: "employer",
@@ -23,7 +23,7 @@ const accountTypes: AccountType[] = [
   {
     id: "tutor",
     title: "Tutor",
-    description: "Create and monitor courses and test assignments",
+    description: "Create and monetize courses and track engagement",
   },
   {
     id: "institution",
