@@ -1,7 +1,8 @@
 "use client";
 import SearchIcon from "@/public/img/search-01.png";
-import Pic from "@/public/img/whisCourse.png";
+
 import { ChangeEvent } from "react";
+import {coursesData} from "@/./app/account/dashboard/job-seeker/components/courses"
 import CourseCard from "./CourseCard";
 import Image from "next/image";
 import { useState } from "react";
@@ -14,72 +15,7 @@ const WishList = () => {
     setSearch(e.target.value);
   };
 
-  const coursesData = [
-    {
-      title: "BLOCKCHAIN DEVELOPMENT BOOTCAMP: ZERO TO HERO",
-      author: "Satoshi Nakamoto",
-      price: 29.99,
-      duration: "3 MONTHS COURSE",
-      isBookmarked: false,
-      image: Pic,
-    },
-    {
-      title: "ADVANCED DEFI PROTOCOLS & SMART CONTRACTS",
-      author: "Vitalik Buterin",
-      price: 49.99,
-      duration: "2 MONTHS COURSE",
-      isBookmarked: true,
-      image: Pic,
-    },
-    {
-      title: "CRYPTOCURRENCY TRADING FUNDAMENTALS",
-      author: "Michael Saylor",
-      price: 24.99,
-      duration: "6 WEEKS COURSE",
-      isBookmarked: false,
-      image: Pic,
-    },
-    {
-      title: "NFT CREATION & MARKETPLACE DEVELOPMENT",
-      author: "Beeple Digital",
-      price: 34.99,
-      duration: "4 WEEKS COURSE",
-      isBookmarked: false,
-      image: Pic,
-    },
-    {
-      title: "BLOCKCHAIN DEVELOPMENT BOOTCAMP: ZERO TO HERO",
-      author: "Satoshi Nakamoto",
-      price: 29.99,
-      duration: "3 MONTHS COURSE",
-      isBookmarked: false,
-      image: Pic,
-    },
-    {
-      title: "ADVANCED DEFI PROTOCOLS & SMART CONTRACTS",
-      author: "Vitalik Buterin",
-      price: 49.99,
-      duration: "2 MONTHS COURSE",
-      isBookmarked: true,
-      image: Pic,
-    },
-    {
-      title: "CRYPTOCURRENCY TRADING FUNDAMENTALS",
-      author: "Michael Saylor",
-      price: 24.99,
-      duration: "6 WEEKS COURSE",
-      isBookmarked: false,
-      image: Pic,
-    },
-    {
-      title: "NFT CREATION & MARKETPLACE DEVELOPMENT",
-      author: "Beeple Digital",
-      price: 34.99,
-      duration: "4 WEEKS COURSE",
-      isBookmarked: false,
-      image: Pic,
-    },
-  ];
+ 
 
   let  filteredCourses = coursesData.filter(
     (course) =>
