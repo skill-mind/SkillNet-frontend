@@ -1,9 +1,9 @@
-
+import WishList from "./components/WishList";
 
 function JobSeeker() {
     return (
-        <div>
-            <h1>Job Seeker Dashboard</h1>
+        <div className="pb-10">
+        <WishList/>
         </div>
     );
 }

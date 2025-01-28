@@ -30,6 +30,9 @@ export default function Navbar() {
         <li className="cursor-pointer">
           <Link href="/help-desk"> Help</Link>
         </li>
+        <li className="cursor-pointer">
+          <Link href="/account/dashboard/job-seeker"> Help</Link>
+        </li>
         {/* <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg"></li> */}
 
         {/* <li className="cursor-pointer">
