@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "../components/providers";
+import Chatbot from "@/components/Chatbot";
 
 export const metadata: Metadata = {
   title: "SkillNet",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <Providers>
         <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat overflow-x-hidden">
           {children}
+          <Chatbot />
         </body>
       </Providers>
     </html>
