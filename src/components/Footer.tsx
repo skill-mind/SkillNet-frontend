@@ -36,17 +36,14 @@ export default function Footer() {
   return (
     <footer className="px-4 sm:px-6 lg:px-[100px] pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 lg:pb-12">
       <div className="border border-[#595958] rounded-lg">
-        {/* Main Footer Content */}
         <div
           className="w-full flex flex-col sm:flex-row justify-between gap-8 sm:gap-0 
                       pt-6 sm:pt-8 lg:pt-[56px] px-4 sm:px-6 pb-6"
         >
-          {/* Logo/Brand */}
           <h5 className="text-lg sm:text-xl lg:text-[20px] leading-6 text-center sm:text-left">
             SKILLNET
           </h5>
 
-          {/* Navigation Links */}
           <nav className="w-full sm:w-auto">
             <ul
               className="grid grid-cols-2 sm:flex sm:flex-row
@@ -70,15 +67,12 @@ export default function Footer() {
             </ul>
           </nav>
         </div>
-
-        {/* Footer Bottom */}
         <div
           className="flex flex-col-reverse sm:flex-row justify-between items-center 
                       gap-4 sm:gap-0 
                       border-t border-[#595958] 
                       p-4 sm:p-6 lg:p-[24px]"
         >
-          {/* Social Links */}
           <ul className="flex flex-row justify-center items-center gap-5">
             {socialLinks.map((social) => (
               <li key={social.href} className="cursor-pointer">
@@ -99,8 +93,6 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-
-          {/* Copyright */}
           <p className="text-sm leading-4 text-center sm:text-right">
             &copy; Copyright SkillNet {currentYear}
           </p>
