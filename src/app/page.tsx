@@ -7,6 +7,7 @@ import InformationCard from "@/components/InformationCard";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BlockchainBootcamp from "@/components/content";
 
 export default function Home() {
   return (
@@ -25,20 +26,19 @@ export default function Home() {
             alt=""
           />
           <div>
-          <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
-            Empowering <br /> Careers, Verified on <br />
-            <span className="text-[#A8C789]">Blockchain</span>
-          </h1>
-          <p className="text-2xl leading-8 mb-12 text-[#EAEDE7]">
-            Upskill, certify, and connect with top employers on SkillNet—a
-            blockchain-powered <br /> platform for job seekers, employers,
-            tutors, and institutions.
-          </p>
-          <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
-            Get started
-          </button>
+            <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
+              Empowering <br /> Careers, Verified on <br />
+              <span className="text-[#A8C789]">Blockchain</span>
+            </h1>
+            <p className="text-2xl leading-8 mb-12 text-[#EAEDE7]">
+              Upskill, certify, and connect with top employers on SkillNet—a
+              blockchain-powered <br /> platform for job seekers, employers,
+              tutors, and institutions.
+            </p>
+            <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
+              Get started
+            </button>
           </div>
-        
         </section>
         <section className="bg-[#121312] py-20 px-[100px] text-[#EAEDE7]">
           <div className="flex items-center gap-6">
@@ -105,7 +105,6 @@ export default function Home() {
               Share Knowledge, Earn Revenue
             </h3>
             <div className="grid grid-cols-3 gap-x-5">
-
               <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
                 <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
                 <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
@@ -276,6 +275,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   );
