@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export default function CourseAccordion() {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className="bg-[#222220] flex justify-between  p-5 mt-5 rounded-md">
+    <div className="bg-[#222220] flex justify-between p-5 mt-5 rounded-md border-2 border-[#282827]">
       <div>
         <div>
           <h1 className="text-xl font-semibold">Blockchain Fundamentals</h1>
