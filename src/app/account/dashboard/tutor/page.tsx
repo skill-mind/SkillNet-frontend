@@ -1,10 +1,13 @@
-import Tutor from './tutor';
-
+import NavbarJobSeeker from "@/components/Navbar-job-seeker";
+import Tutor from "./tutor";
+import Footer from "@/components/Footer";
 
 function page() {
   return (
     <div>
-            <Tutor/>
+      <NavbarJobSeeker />
+      <Tutor />
+      <Footer />
     </div>
   );
 }
