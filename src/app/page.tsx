@@ -7,7 +7,7 @@ import InformationCard from "@/components/InformationCard";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BlockchainBootcamp from "@/components/content";
+
 
 export default function Home() {
   return (
@@ -275,7 +275,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
       <Footer />
     </>
   );
