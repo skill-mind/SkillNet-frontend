@@ -16,8 +16,8 @@ function NavbarJobSeeker() {
 
   const navigation = [
     { name: "Jobs", href: "/account/dashboard/job-seeker" },
-    { name: "Learning Hub", href: "/learning" },
-    { name: "Messages", href: "/messages" },
+    { name: "Learning Hub", href: "/account/dashboard/learning-hub" },
+    { name: "Messages", href: "/account/dashboard/messages" },
   ]
 
   return (
