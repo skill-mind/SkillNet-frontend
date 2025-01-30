@@ -18,7 +18,12 @@ export default function CourseAccordion() {
           <div className="flex space-x-3 mt-3 items-center *:flex *:items-center *:space-x-1 *:text-sm *:font-light">
             <p>
               <span>
-                <Image src={VideoIcon} alt="globe" width={15} height={15} />
+                <Image
+                  src={VideoIcon}
+                  alt="video-icon"
+                  width={15}
+                  height={15}
+                />
               </span>
               <span>3 Videos</span>
             </p>
@@ -35,7 +40,12 @@ export default function CourseAccordion() {
             </p>
             <p>
               <span>
-                <Image src={ArticleIcon} alt="globe" width={15} height={15} />
+                <Image
+                  src={ArticleIcon}
+                  alt="article-icon"
+                  width={15}
+                  height={15}
+                />
               </span>
               <span>1 Article</span>
             </p>
@@ -45,25 +55,45 @@ export default function CourseAccordion() {
           <div className="mt-5 space-y-2 *:flex *:items-center *:space-x-1 *:text-sm *:font-light">
             <p>
               <span>
-                <Image src={VideoIcon} alt="video" width={15} height={15} />
+                <Image
+                  src={VideoIcon}
+                  alt="video-icon"
+                  width={15}
+                  height={15}
+                />
               </span>
               <span>What is Blockchain</span>
             </p>
             <p>
               <span>
-                <Image src={VideoIcon} alt="video" width={15} height={15} />
+                <Image
+                  src={VideoIcon}
+                  alt="video-icon"
+                  width={15}
+                  height={15}
+                />
               </span>
               <span>Who created cryptocurrency</span>
             </p>
             <p>
               <span>
-                <Image src={ArticleIcon} alt="article" width={15} height={15} />
+                <Image
+                  src={ArticleIcon}
+                  alt="article-icon"
+                  width={15}
+                  height={15}
+                />
               </span>
               <span>Satoshi Nakamoto White Paper</span>
             </p>
             <p>
               <span>
-                <Image src={VideoIcon} alt="video" width={15} height={15} />
+                <Image
+                  src={VideoIcon}
+                  alt="video-icon"
+                  width={15}
+                  height={15}
+                />
               </span>
               <span>Distributed Database and Ledger</span>
             </p>
@@ -71,7 +101,7 @@ export default function CourseAccordion() {
               <span>
                 <Image
                   src={AssessmentIcon}
-                  alt="assessment"
+                  alt="assessment-icon"
                   width={15}
                   height={15}
                 />

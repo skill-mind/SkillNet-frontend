@@ -9,37 +9,37 @@ export default function CourseEnrollCard() {
       <div className="space-y-2 *:flex *:items-center *:space-x-1 *:font-light">
         <p>
           <span>
-            <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+            <Image src={GlobeIcon} alt="globe-icon" width={15} height={15} />
           </span>
           <span>24 Videos</span>
         </p>
         <p>
           <span>
-            <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+            <Image src={GlobeIcon} alt="globe-icon" width={15} height={15} />
           </span>
           <span>10 Assessments</span>
         </p>
         <p>
           <span>
-            <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+            <Image src={GlobeIcon} alt="globe-icon" width={15} height={15} />
           </span>
           <span>5 Articles</span>
         </p>
         <p>
           <span>
-            <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+            <Image src={GlobeIcon} alt="globe-icon" width={15} height={15} />
           </span>
           <span>34,529 Enrollments</span>
         </p>
         <p>
           <span>
-            <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+            <Image src={GlobeIcon} alt="globe-icon" width={15} height={15} />
           </span>
           <span>Unlimited Access</span>
         </p>
         <p>
           <span>
-            <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+            <Image src={GlobeIcon} alt="globe-icon" width={15} height={15} />
           </span>
           <span>Certificate Of Completion</span>
         </p>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import GlobeIcon from "@/public/img/globe.svg";
-import CourseAccordion from "@/components/CourseAccordion";
-import CourseEnrollCard from "@/components/CourseEnrollCard";
+import CourseAccordion from "@/components/course-overview/CourseAccordion";
+import CourseEnrollCard from "@/components/course-overview/CourseEnrollCard";
 
 function Tutor() {
   return (
@@ -23,19 +23,34 @@ function Tutor() {
             <div className="flex space-x-10 items-center">
               <p className="flex space-x-1 items-center text-[#D9D9D9]">
                 <span>
-                  <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+                  <Image
+                    src={GlobeIcon}
+                    alt="globe-icon"
+                    width={15}
+                    height={15}
+                  />
                 </span>
                 <span>24 Videos</span>
               </p>
               <p className="flex space-x-1 items-center text-[#D9D9D9]">
                 <span>
-                  <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+                  <Image
+                    src={GlobeIcon}
+                    alt="globe-icon"
+                    width={15}
+                    height={15}
+                  />
                 </span>
                 <span>10 Assesments</span>
               </p>
               <p className="flex space-x-1 items-center text-[#D9D9D9]">
                 <span>
-                  <Image src={GlobeIcon} alt="globe" width={15} height={15} />
+                  <Image
+                    src={GlobeIcon}
+                    alt="globe-icon"
+                    width={15}
+                    height={15}
+                  />
                 </span>
                 <span>5 Articles</span>
               </p>
