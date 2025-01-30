@@ -1,29 +1,71 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Tabs from "@/components/Tabs"
-import SavedJobs from "@/components/SavedJobs"
+import React, { useState } from "react";
+import RecentTab from "./components/RecentTab";
+import SavedTab from "./components/SavedTab";
+import ApplicationTab from "./components/ApplicationTabs";
 
-export default function JobSeeker() {
-  const [activeTab, setActiveTab] = useState<"recent" | "saved" | "applications">("saved")
+type TabType = "recent" | "saved" | "applications";
+
+const JobSeeker: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<TabType>("recent");
+
+  const tabs = [
+    { id: "recent", label: "Recent" },
+    { id: "saved", label: "Saved" },
+    { id: "applications", label: "Applications" },
+  ] as const;
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "recent":
+        return (
+          <div className="space-y-4">
+            <RecentTab />
+          </div>
+        );
+      case "saved":
+        return (
+          <div className="text-gray-300">
+            <SavedTab />
+          </div>
+        );
+      case "applications":
+        return (
+          <div className="text-gray-300">
+            <ApplicationTab />
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="w-[1096px] mx-auto flex gap-6">
-      <div className="w-[800px]">
-        <h1 className="text-[24px] font-semibold mt-6 mb-6 text-white">
-          {activeTab === "recent" && "Recent Jobs"}
-          {activeTab === "saved" && "Your Saved Jobs"}
-          {activeTab === "applications" && "Your Applications"}
-        </h1>
+    <div className="min-h-screen mx-24 text-white p-6">
+      <h1 className="text-2xl font-bold mb-6">Jobs you might like</h1>
 
-        <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
-
-        <div className="mt-6">
-          {activeTab === "recent" && <p>Here are your recent jobs...</p>}
-          {activeTab === "saved" && <SavedJobs />}
-          {activeTab === "applications" && <p>Here are your applications...</p>}
+      <div className="mb-6">
+        <div className="flex gap-4 border-gray-700">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-3 py-1 transition-all rounded-lg text-base font-medium ${
+                activeTab === tab.id
+                  ? "border-b-1 text-[#A8C789] border border-[#A8C789]"
+                  : "text-gray-400 border border-[#3B3B3A] hover:text-gray-300"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
       </div>
+
+      <div className="mt-6">{renderContent()}</div>
     </div>
-  )
-}
+  );
+};
+
+export default JobSeeker;
