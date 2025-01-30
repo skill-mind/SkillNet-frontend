@@ -22,7 +22,7 @@ function NavbarJobSeeker() {
 
   return (
     <header className="bg-[#101110] py-5">
-      <div className="flex items-center justify-between pl-4 md:pl-24 pr-8 py-3 sm:px-6 ">
+      <div className="flex items-center justify-between pl-4 md:px-24 pr-8 px-3 py-3 sm:px-6 ">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center">
             <Image src={Logo} width={100} height={40} className="w-[100px] h-[40px]" alt="Logo" />
