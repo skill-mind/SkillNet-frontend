@@ -10,8 +10,17 @@ import {
   Banknote,
 } from "lucide-react";
 import { IoBriefcaseOutline } from "react-icons/io5";
+import { useState } from "react"; // Agregado para manejar el estado del modal
+import ApplicationModal from "../components/ApplicationForm";
 
 export default function JobSeekerOverview() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para el modal
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   const jobDetails = {
     title: "Quality Assurance Manager",
     company: "SkillNet Incorporated",
@@ -25,6 +34,7 @@ export default function JobSeekerOverview() {
   };
 
   return (
+    
     <div className="max-w-[1256px] mx-auto px-4 py-8 flex gap-8">
       {/* Left Column - Job Details */}
       <div className="flex-1 space-y-6">
@@ -45,7 +55,7 @@ export default function JobSeekerOverview() {
               </div>
               {/* Apply Button */}
               <div className="flex items-center gap-2">
-                <button className="bg-[#D0EFB1] hover:bg-[#B5D998] text-[#0E0F0E] p-[12px_24px] gap-[8px]  rounded-[4px]">
+                <button onClick={toggleModal} className="bg-[#D0EFB1] hover:bg-[#B5D998] text-[#0E0F0E] p-[12px_24px] gap-[8px]  rounded-[4px]">
                   APPLY NOW
                 </button>
               </div>
@@ -292,6 +302,7 @@ export default function JobSeekerOverview() {
           </div>
         </div>
       </div>
+      {isModalOpen && <ApplicationModal isOpen={isModalOpen} onClose={toggleModal} />}
     </div>
   );
 }
