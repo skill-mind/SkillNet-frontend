@@ -110,7 +110,6 @@ export default function JobSeekerOverview() {
             <div className="h-px w-full bg-[#1D1D1C] my-4" />
 
             {/* Key Responsibilities Section */}
-            {/* Key Responsibilities Section */}
             <div className="p-2 space-y-4">
               <h2 className="text-xl font-[500] text-[#767776]">
                 Key Responsibilities
