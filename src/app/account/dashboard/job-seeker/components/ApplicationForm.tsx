@@ -6,7 +6,12 @@ import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
 
-export default function ApplicationModal({ isOpen, onClose }) {
+interface ApplicationModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export default function ApplicationModal({ isOpen, onClose }: ApplicationModalProps) {
     const [coverLetter, setCoverLetter] = useState("");
     const [fortune500, setFortune500] = useState("");
     const router = useRouter(); 
