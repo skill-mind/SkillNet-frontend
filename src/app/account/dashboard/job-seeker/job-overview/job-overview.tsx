@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/Footer";
 import {
   Bookmark,
   MapPin,
@@ -107,7 +106,7 @@ export default function JobSeekerOverview() {
               oversee testing processes, and collaborate with cross-functional
               teams to drive continuous improvement. As the Quality Assurance
               Manager, you will play a critical role in maintaining customer
-              satisfaction and upholding the company's reputation for
+              satisfaction and upholding the company&apos;s reputation for
               excellence. This position requires strong leadership, analytical,
               and problem-solving skills, as well as a deep understanding of QA
               methodologies and best practices.
@@ -191,7 +190,7 @@ export default function JobSeekerOverview() {
             </h2>
             <ul className="list-disc list-inside space-y-2 text-[#D9D9D9]">
               <li>
-                Bachelor's degree in Quality Management, Engineering, or a
+                Bachelor&apos;s degree in Quality Management, Engineering, or a
                 related field.
               </li>
               <li>
@@ -251,7 +250,7 @@ export default function JobSeekerOverview() {
             tutors and institutions to create, sell, and deliver high-quality
             courses and exams. It combines the best of both worlds—an online job
             marketplace and a learning hub—giving users a competitive edge in
-            today's ever-evolving job market. Job seekers can enhance their
+            today&apos;s ever-evolving job market. Job seekers can enhance their
             skills through verified courses and exams, employers gain access to
             a pool of talented candidates, and tutors/institutions monetize
             their expertise—all powered by the StarkNet blockchain for security,
