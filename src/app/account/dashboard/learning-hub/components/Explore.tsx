@@ -39,7 +39,7 @@ const Explore = () => {
   };
   return (
     <>
-      <main className="container bg-red-500 mx-auto">
+      <main className="container mx-auto">
         <div className="flex flex-col gap-12 ">
           {/* Hero Section */}
           <div className="w-[718px]">
