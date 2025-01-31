@@ -10,12 +10,12 @@ import {
   Banknote,
 } from "lucide-react";
 import { IoBriefcaseOutline } from "react-icons/io5";
-import { useState } from "react"; // Agregado para manejar el estado del modal
+import { useState } from "react"; 
 import ApplicationModal from "../components/ApplicationForm";
 
 export default function JobSeekerOverview() {
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para el modal
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
