@@ -1,10 +1,11 @@
-import Tutor from './tutor';
-
+import Header from "./component/DashboardHeader";
+import Tutor from "./tutor";
 
 function page() {
   return (
-    <div>
-            <Tutor/>
+    <div className="bg-[#101110] min-h-[100vh]">
+      <Header />
+      <Tutor />
     </div>
   );
 }
