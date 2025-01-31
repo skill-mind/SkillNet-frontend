@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  DollarSign,
-  Users,
-  BookOpen,
-  MessageSquare,
-  Percent,
-  Folder,
-} from "lucide-react";
+import { MessageSquare, Percent, Folder } from "lucide-react";
 import { Sidebar } from "./component/TutorDashboardSidebar";
 import { QuickActionButton } from "./component/QuickActionButton";
 import { StatCard } from "./component/StatCard";

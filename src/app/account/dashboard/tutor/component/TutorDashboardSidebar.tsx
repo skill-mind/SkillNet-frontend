@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  BookOpen,
-  Users,
-  MessageSquare,
-  DollarSign,
-  Settings,
-  HelpCircle,
-  Home,
-  ChevronDown,
-  House,
-  Headset,
-} from "lucide-react";
+import { ChevronDown, Headset } from "lucide-react";
 import Image from "next/image";
 import { ReactNode } from "react";
 import profilePic from "@/public/img/dashboardProfile.svg";
