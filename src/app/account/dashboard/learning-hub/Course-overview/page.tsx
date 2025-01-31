@@ -1,16 +1,16 @@
+import Footer from "@/components/Footer";
+import NavbarJobSeeker from "@/components/Navbar-job-seeker";
+import CourseOverviewPage from "./course-overview";
 
-
-
-import React from 'react'
-
- const page = () => {
+const CourseOverview = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      <NavbarJobSeeker />
+      {/* <LearningHub /> */}
+      <CourseOverviewPage />
+      <Footer />
+    </div>
+  );
+};
 
-
-export default page;
-
-
-
+export default CourseOverview;

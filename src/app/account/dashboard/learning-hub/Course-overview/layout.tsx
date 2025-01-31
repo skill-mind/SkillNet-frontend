@@ -1,9 +1,9 @@
-import React from 'react'
-
-const layout = () => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>layout</div>
-  )
-}
+    <>
+      <main className="grow">{children}</main>
+    </>
+  );
+};
 
-export default layout
+export default Layout;

@@ -1,36 +1,45 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Menu, MoreVertical, Search, X } from "lucide-react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
-import Logo from "../public/img/logo.svg"
-import Avatar from "../public/img/Avatar.png"
-import Notification from "../public/img/notification.svg"
+import { useState } from "react";
+import { Menu, MoreVertical, Search, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Logo from "../public/img/logo.svg";
+import Avatar from "../public/img/Avatar.png";
+import Notification from "../public/img/notification.svg";
 
 function NavbarJobSeeker() {
-  const pathname = usePathname()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
     { name: "Jobs", href: "/account/dashboard/job-seeker" },
     { name: "Learning Hub", href: "/account/dashboard/learning-hub" },
     { name: "Messages", href: "/account/dashboard/messages" },
-  ]
+  ];
 
   return (
     <header className="bg-[#101110] py-5">
       <div className="flex items-center justify-between pl-4 md:px-24 pr-8 px-3 py-3 sm:px-6 ">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center">
-            <Image src={Logo} width={100} height={40} className="w-[100px] h-[40px]" alt="Logo" />
+            <Image
+              src={Logo}
+              width={100}
+              height={40}
+              className="w-[100px] h-[40px]"
+              alt="Logo"
+            />
           </Link>
         </div>
 
         {/* Mobile menu button */}
-        <button className="lg:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button
+          className="lg:hidden text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
@@ -38,10 +47,17 @@ function NavbarJobSeeker() {
         <nav className="hidden lg:flex items-center justify-center gap-4">
           {navigation.map((item, index) => (
             <div key={item.name} className="flex items-center">
-              {index > 0 && <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>}
+              {index > 0 && (
+                <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+              )}
               <Link
                 href={item.href}
-                className={cn("text-sm font-medium", pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]")}
+                className={cn(
+                  "text-sm font-medium ml-4",
+                  pathname.includes(item.href)
+                    ? "text-[#FCFCFC]"
+                    : "text-[#ABABAB]"
+                )}
               >
                 {item.name}
               </Link>
@@ -68,8 +84,16 @@ function NavbarJobSeeker() {
           </div>
 
           <div className="flex items-center gap-2 bg-[#161716] p-2 rounded-lg">
-            <Image src={Avatar} width={25} height={25} className="rounded-full" alt="Avatar" />
-            <span className="text-sm text-[#F3F5FF]">osatuyipikin.braavos.eth</span>
+            <Image
+              src={Avatar}
+              width={25}
+              height={25}
+              className="rounded-full"
+              alt="Avatar"
+            />
+            <span className="text-sm text-[#F3F5FF]">
+              osatuyipikin.braavos.eth
+            </span>
             <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
           </div>
         </div>
@@ -83,7 +107,10 @@ function NavbarJobSeeker() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={cn("text-sm font-medium py-2", pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]")}
+                className={cn(
+                  "text-sm font-medium py-2",
+                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
+                )}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -108,7 +135,9 @@ function NavbarJobSeeker() {
                   className="rounded-full"
                   alt="Avatar"
                 />
-                <span className="text-sm text-[#F3F5FF]">osatuyipikin.braavos.eth</span>
+                <span className="text-sm text-[#F3F5FF]">
+                  osatuyipikin.braavos.eth
+                </span>
               </div>
               <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
             </div>
@@ -116,7 +145,7 @@ function NavbarJobSeeker() {
         </div>
       )}
     </header>
-  )
+  );
 }
 
-export default NavbarJobSeeker
+export default NavbarJobSeeker;
