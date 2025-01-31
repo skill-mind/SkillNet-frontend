@@ -2,7 +2,8 @@
 import SearchIcon from "@/public/img/search-01.png";
 
 import { ChangeEvent } from "react";
-import {coursesData} from "@/./app/account/dashboard/job-seeker/components/courses"
+// import {coursesData} from "@/./app/account/dashboard/job-seeker/components/courses"
+import {coursesData} from "@/./app/account/dashboard/learning-hub/courses"
 import CourseCard from "./CourseCard";
 import Image from "next/image";
 import { useState } from "react";
@@ -59,3 +60,6 @@ const WishList = () => {
 };
 
 export default WishList;
+
+
+
