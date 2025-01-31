@@ -6,7 +6,12 @@ function CourseCard() {
   return (
     <div className="w-[352px] border border-[#313130]">
       <div className="w-full h-[249px]">
-        <Image src="/course-banner.png" width={352} height={249} alt="hey" />
+        <Image
+          src="/src/public/img/course-banner.png"
+          width={352}
+          height={249}
+          alt="hey"
+        />
       </div>
       <div className="py-6 px-2">
         <div className="flex justify-between">
