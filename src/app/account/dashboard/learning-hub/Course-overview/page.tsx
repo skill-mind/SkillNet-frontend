@@ -1,13 +1,16 @@
 import Footer from "@/components/Footer";
 import NavbarJobSeeker from "@/components/Navbar-job-seeker";
 import CourseOverviewPage from "./course-overview";
+import { Suspense } from "react";
 
 const CourseOverview = () => {
   return (
     <div>
       <NavbarJobSeeker />
       {/* <LearningHub /> */}
-      <CourseOverviewPage />
+      <Suspense fallback={<div>Loading...</div>}>
+        <CourseOverviewPage />
+      </Suspense>
       <Footer />
     </div>
   );
