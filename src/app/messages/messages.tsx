@@ -1,18 +1,45 @@
 "use client";
-import Input from "@/components/Forms/Input";
 import { CheckCheck, EllipsisVertical, Search, Mic, Send, Smile, ChevronLeft } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import Input from "./components/input";
+import { useState } from "react";
+import userProfile from "@/public/img/Avatar.png"
+// import userProfile from "@/public/img/userProfile.png" // image file returns error (file is corrupted)
 
 function Messages() {
+  const [selectedFilter, setSelectedFilter] = useState<string>("All"); // Track the selected filter
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  // Sample messages (this can be replaced with actual dynamic data)
+  const messages = [
+    { id: 1, name: "Satoshi Nakamoto", message: "Hi, how are you?", status: "Unread" },
+    { id: 2, name: "Vitalik Buterin", message: "Let's catch up later!", status: "Favourite" },
+    { id: 3, name: "Elon Musk", message: "Hey, we need to talk.", status: "Archived" },
+    { id: 4, name: "Bill Gates", message: "Excited to chat!", status: "Unread" },
+  ];
+
+  // Filter messages based on the selected filter
+  const filteredMessages = messages.filter((msg) => {
+    if (selectedFilter === "All") return true;
+    if (selectedFilter === "Unread") return msg.status === "Unread";
+    if (selectedFilter === "Favourite") return msg.status === "Favourite";
+    if (selectedFilter === "Archived") return msg.status === "Archived";
+    return false;
+  });
+
+  // Filter messages based on the search query
+  const filteredBySearch = filteredMessages.filter((msg) =>
+    msg.message.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="my-[10em] px-4 sm:px-8 lg:px-[100px] flex w-full h-screen">
       <div className="flex w-full h-full">
-
         {/* Side Nav containing messages */}
         <div className="w-full md:w-1/3 lg:w-1/3 p-4 border-r border-[#252625] overflow-hidden md:block hidden">
           <div className="flex flex-col space-y-6">
             <div className="flex items-center justify-between">
-              <h4 className="text-2xl ">Messages</h4>
+              <h4 className="text-2xl">Messages</h4>
               <EllipsisVertical color="#9596A0" />
             </div>
             <Input
@@ -20,66 +47,45 @@ function Messages() {
               name="search"
               placeholder="Search"
               type="text"
-              value=""
-              onChange={() => { }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)} // Handle search query change
             />
 
             <div className="flex flex-wrap gap-2">
-              <div className="border border-[#252625] bg-[#313130] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
-                All
-              </div>
-              <div className="border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
-                Unread
-              </div>
-              <div className="border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
-                Favourite
-              </div>
-              <div className="border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
-                Archived
-              </div>
+              {/* Filter Buttons */}
+              {["All", "Unread", "Favourite", "Archived"].map((filter) => (
+                <div
+                  key={filter}
+                  className={`border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px] ${
+                    selectedFilter === filter ? "bg-[#313130]" : ""
+                  }`}
+                  onClick={() => setSelectedFilter(filter)} // Update selected filter on click
+                >
+                  {filter}
+                </div>
+              ))}
             </div>
 
-            <ContactMessage
-              imgSrc="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
-              name="Satoshi Nakamoto"
-              message="Hi my name is Osatuyi Flora, and I'm excited to be here...!"
-            />
-            <ContactMessage
-              imgSrc="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
-              name="Satoshi Nakamoto"
-              message="Hi my name is Osatuyi Flora, and I'm excited to be here...!"
-            />
-            <ContactMessage
-              imgSrc="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
-              name="Satoshi Nakamoto"
-              message="Hi my name is Osatuyi Flora, and I'm excited to be here...!"
-            />
-            <ContactMessage
-              imgSrc="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
-              name="Satoshi Nakamoto"
-              message="Hi my name is Osatuyi Flora, and I'm excited to be here...!"
-            />
-            <ContactMessage
-              imgSrc="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
-              name="Satoshi Nakamoto"
-              message="Hi my name is Osatuyi Flora, and I'm excited to be here...!"
-            />
-            <ContactMessage
-              imgSrc="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
-              name="Satoshi Nakamoto"
-              message="Hi my name is Osatuyi Flora, and I'm excited to be here...!"
-            />
+            {/* Display Filtered Messages */}
+            {filteredBySearch.map((msg) => (
+              <ContactMessage
+                key={msg.id}
+                imgSrc={userProfile}
+                name={msg.name}
+                message={msg.message}
+              />
+            ))}
           </div>
         </div>
 
-        {/* chat editor screen */}
+        {/* Chat editor screen */}
         <div className="w-full md:w-2/3 lg:w-2/3 flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b border-[#252625]">
             <div className="flex items-center space-x-3">
               {/* back button */}
               <ChevronLeft className="block md:hidden" />
               <Image
-                src="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
+                src={userProfile}
                 alt="user profile image"
                 width={40}
                 height={40}
@@ -95,6 +101,7 @@ function Messages() {
           </div>
 
           <div className="flex-grow p-4 overflow-auto">
+            {/* Add chat messages here */}
           </div>
           <div className="flex justify-end p-4">
             <div className="bg-[#1e1e1e] p-4 rounded-md">
@@ -119,7 +126,6 @@ function Messages() {
               </div>
             </div>
           </div>
-
 
           <div className="p-4 flex items-center space-x-4">
             <div className="p-1 pl-4 pr-4 flex items-center space-x-4 border-[#252625] border rounded-[0.5em] w-full">
@@ -134,7 +140,6 @@ function Messages() {
                 className="flex-grow p-2 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] placeholder:italic focus:outline-none focus:border-[#555]"
               />
 
-
               <Send
                 size={34}
                 color="#555"
@@ -147,7 +152,8 @@ function Messages() {
     </div>
   );
 }
-const ContactMessage = ({ name, message, imgSrc }: { name: string; message: string; imgSrc: string }) => {
+
+const ContactMessage = ({ name, message, imgSrc }: { name: string; message: string; imgSrc: string | StaticImageData }) => {
   return (
     <div className="flex items-center justify-center space-x-4 p-4 pt-0 mt-0 w-full m-0">
       <div className="min-w-[60px] h-[60px] sm:w-[60px] sm:h-[60px] overflow-hidden rounded-full bg-gray-300 flex justify-center items-center">
