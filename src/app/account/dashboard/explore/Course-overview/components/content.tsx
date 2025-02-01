@@ -2,6 +2,7 @@ import Image from "next/image";
 import globe from "@/public/img/globe.svg";
 import ContentCourseCard from "../../components/contentCourseCard";
 import hexagon from "@/public/img/hexagon.svg";
+import img from "@/public/img/Rectangle 8(1).svg";
 
 interface Feature {
   icon: string;
@@ -38,16 +39,23 @@ const ContentComponent = () => {
   ];
   return (
     <div className="overflow-hidden">
-         <Image
+      <Image
         src={hexagon}
         className="absolute -left-64 top-52 translate-y-1/2 -translate-x-1/2 transform object-contain"
         width={900}
         alt=""
       />
       <div className=" relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 md:max-w-5xl">
-            <ContentCourseCard className="w-full" />
+            <ContentCourseCard
+              title={"   Blockchain Development Bootcamp: Zero to Hero"}
+              price={"29.99"}
+              author={" Satoshi Nakamoto"}
+              duration={"3"}
+              courseImg={img as unknown as string}
+              className="w-full"
+            />
 
             <div className="space-y-6 bg-[#121312] p-6 pb-10 rounded mt-5">
               <section className="border-b border-[#252625] pb-6">
@@ -68,11 +76,11 @@ const ContentComponent = () => {
                     master blockchain development. From understanding
                     foundational concepts to hands-on coding in Solidity and
                     interacting with leading platforms like Ethereum and
-                    Hyperledger, you&apos;ll gain practical skills and real-world
-                    knowledge. By the end of the course, you&apos;ll have the
-                    confidence to design and deploy secure blockchain solutions,
-                    contribute to the decentralized economy, and transform
-                    industries with your expertise.
+                    Hyperledger, you&apos;ll gain practical skills and
+                    real-world knowledge. By the end of the course, you&apos;ll
+                    have the confidence to design and deploy secure blockchain
+                    solutions, contribute to the decentralized economy, and
+                    transform industries with your expertise.
                   </p>
                 </div>
               </section>
@@ -83,9 +91,12 @@ const ContentComponent = () => {
                 </h2>
                 <ul className="space-y-2 text-gray-300">
                   {courseObjectives.map((objective, index) => (
-                    <div className="flex gap-3" key={new Date().getTime() + index}>
+                    <div
+                      className="flex gap-3"
+                      key={new Date().getTime() + index}
+                    >
                       <span>• </span>
-                      <li >{objective.text}</li>
+                      <li>{objective.text}</li>
                     </div>
                   ))}
                 </ul>
