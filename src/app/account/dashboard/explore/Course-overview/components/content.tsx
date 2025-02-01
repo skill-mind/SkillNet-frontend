@@ -1,6 +1,6 @@
 import Image from "next/image";
 import globe from "@/public/img/globe.svg";
-import CourseCard from "../../components/course";
+import ContentCourseCard from "../../components/contentCourseCard";
 import hexagon from "@/public/img/hexagon.svg";
 
 interface Feature {
@@ -47,7 +47,7 @@ const ContentComponent = () => {
       <div className=" relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 md:max-w-5xl">
-            <CourseCard className="w-full" />
+            <ContentCourseCard className="w-full" />
 
             <div className="space-y-6 bg-[#121312] p-6 pb-10 rounded mt-5">
               <section className="border-b border-[#252625] pb-6">
