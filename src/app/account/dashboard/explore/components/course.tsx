@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function CourseCard(){
     return (
-      <div className="w-72 rounded-lg overflow-hidden bg-gradient-to-b from-purple-950 to-black text-white shadow-xl">
+      <div className="border max-w-96 w-[352px] rounded-lg border-[#313130]">
         <Image src={img} alt="course logo" />
         <div className="py-6 px-2">
           <div className="grid grid-cols-[3fr_1fr]">

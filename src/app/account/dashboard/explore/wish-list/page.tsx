@@ -60,7 +60,10 @@ function WishList() {
             </div>
           ) : (
             filteredCourses.map((course, index) => (
-              <CourseCard key={index} {...course} />
+              <div className="flex gap-5 overflow-x-auto max-w-full flex-wrap">
+                 <CourseCard key={index} {...course} />
+              </div>
+              
             ))
           )}
         </div>
