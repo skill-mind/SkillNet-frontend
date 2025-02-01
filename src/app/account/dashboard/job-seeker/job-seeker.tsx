@@ -4,11 +4,19 @@ import React, { useState } from "react";
 import RecentTab from "./components/RecentTab";
 import SavedTab from "./components/SavedTab";
 import ApplicationTab from "./components/ApplicationTabs";
+import { Job } from "./components/RecentTabBox";
 
 type TabType = "recent" | "saved" | "applications";
 
 const JobSeeker: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>("recent");
+  const [savedJobs, setSavedJobs] = useState<Job[]>([]);
+
+  const handleSaveJob = (job: Job) => {
+    if (!savedJobs.some((saved) => saved.title === job.title)) {
+      setSavedJobs((prev) => [...prev, job]);
+    }
+  };
 
   const tabs = [
     { id: "recent", label: "Recent" },
@@ -21,13 +29,13 @@ const JobSeeker: React.FC = () => {
       case "recent":
         return (
           <div className="space-y-4">
-            <RecentTab />
+            <RecentTab onSaveJob={handleSaveJob} />
           </div>
         );
       case "saved":
         return (
           <div className="text-gray-300">
-            <SavedTab />
+            <SavedTab savedJobs={savedJobs} />
           </div>
         );
       case "applications":
