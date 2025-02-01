@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { Button } from "@headlessui/react";
 import { useState } from "react";
+import TutorFacilitator from "../Course-overview/components/tutor-facilitator";
 
 function MyCourse() {
-    const [route,setRoute] = useState("overview")
+  const [route, setRoute] = useState("overview");
   return (
     <section className="grid gap-5">
       <div className="capitalize grid gap-4 grid-cols-3 max-w-lg">
@@ -38,6 +39,8 @@ function MyCourse() {
           Tutors/Facilitators
         </Button>
       </div>
+
+      {route === "tutors" && <TutorFacilitator />}
     </section>
   );
 }

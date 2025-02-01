@@ -10,6 +10,7 @@ interface TutorProps {
 
 export default function Tutor({ activeSection, onSectionChange }: TutorProps) {
   return (
+
     <div className="flex min-h-[100%] text-white">
       <Sidebar
         activeSection={activeSection}
@@ -19,3 +20,4 @@ export default function Tutor({ activeSection, onSectionChange }: TutorProps) {
     </div>
   );
 }
+
