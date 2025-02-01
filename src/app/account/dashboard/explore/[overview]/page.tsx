@@ -45,6 +45,7 @@ function MyCourse() {
       {route === "tutors" && <TutorFacilitator />}
       {route === "content" && <ContentPage />}
     </section>
-  );
+  )
+   
 }
 export default MyCourse;
