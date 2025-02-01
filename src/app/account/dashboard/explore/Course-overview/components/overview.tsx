@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
+import Image from "next/image";
 import { Suspense } from "react";
+import Jobcard from "@/public/img/Jobcard.png";
 
 const list = [
   `Learn the fundamentals of blockchain technology and its applications.`,
@@ -29,14 +31,8 @@ export const Overview = () => {
       <div className="grid grid-cols-12 gap-6 xl:gap-[79px] mt-10">
         <div className="col-span-12 lg:col-span-7">
           <Suspense fallback={<p>Loading video...</p>}>
-            <div className="!h-[302px] w-full border border-[#252625] rounded-lg overflow-hidden bg-[#1011107A]/45">
-              <iframe
-                src="https://www.youtube.com/embed/19g66ezsKAg"
-                allowFullScreen
-                width={"100%"}
-                height={"100%"}
-                className=""
-              />
+            <div className="relative !h-[302px] w-full border border-[#252625] rounded-lg overflow-hidden bg-[#1011107A]/45">
+              <Image src={Jobcard} alt="course" fill={true} />
             </div>
           </Suspense>
           <div className="mt-12 py-6 px-5 bg-[#161716] border border-[#1D1D1C] rounded-xl">

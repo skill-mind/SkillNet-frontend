@@ -3,6 +3,7 @@ import { Button } from "@headlessui/react";
 import { useState } from "react";
 import TutorFacilitator from "../Course-overview/components/tutor-facilitator";
 import ContentPage from "../Course-overview/components/content";
+import Overview from "../Course-overview/components/overview";
 
 function MyCourse() {
   const [route, setRoute] = useState("overview");
@@ -40,11 +41,10 @@ function MyCourse() {
           Tutors/Facilitators
         </Button>
       </div>
-
+      {route === "overview" && <Overview />}
       {route === "tutors" && <TutorFacilitator />}
-      {route === "content" && <ContentPage /> }
+      {route === "content" && <ContentPage />}
     </section>
-  )
-   
+  );
 }
 export default MyCourse;
