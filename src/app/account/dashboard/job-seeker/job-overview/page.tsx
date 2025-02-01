@@ -1,14 +1,15 @@
-import React from "react";
-import JobOverview from "./job-overview";
 import NavbarJobSeeker from "@/components/Navbar-job-seeker";
+import JobSeekerOverview from "./job-overview";
+import Footer from "@/components/Footer";
 
-const page = () => {
+function page() {
   return (
-    <div>
+    <div className="bg-[#101110] min-h-screen text-white">
       <NavbarJobSeeker />
-      <JobOverview />
+      <JobSeekerOverview />
+      <Footer />
     </div>
   );
-};
+}
 
 export default page;

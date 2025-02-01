@@ -1,15 +1,16 @@
-import NavbarJobSeeker from "@/components/Navbar-job-seeker";
+"use client";
+import { useState } from "react";
+import Header from "./component/DashboardHeader";
 import Tutor from "./tutor";
-import Footer from "@/components/Footer";
 
-function page() {
+function Page() {
+  const [activeSection, setActiveSection] = useState("home");
   return (
-    <div>
-      <NavbarJobSeeker />
-      <Tutor />
-      <Footer />
+    <div className="bg-[#101110] min-h-[100vh]">
+      <Header activeSection={activeSection} />
+      <Tutor activeSection={activeSection} onSectionChange={setActiveSection} />
+
     </div>
   );
 }
-
-export default page;
+export default Page;
