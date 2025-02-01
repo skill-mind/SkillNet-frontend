@@ -1,4 +1,3 @@
-import { EllipsisVertical, Search } from "lucide-react";
 import React from "react";
 
 function Input({
