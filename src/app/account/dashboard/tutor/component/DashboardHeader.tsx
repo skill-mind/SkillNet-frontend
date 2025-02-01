@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, MoreVertical, Pencil, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,14 +11,50 @@ import Notification from "../../../../../public/img/notification.svg";
 import Avatar from "../../../../../public/img/Avatar.png";
 import { Button } from "@headlessui/react";
 
-function Header() {
+interface HeaderProps {
+  activeSection: string;
+}
+
+function Header({ activeSection }: HeaderProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navigation = [
-    { name: "Home", href: "/account/dashboard/#" },
-    { name: "Glance", href: "/account/dashboard/#" },
-  ];
+  // Dynamic navigation based on active section
+  const getNavigation = () => {
+    switch (activeSection) {
+      case "home":
+        return [
+          { name: "Home", href: "/account/dashboard/tutor" },
+          { name: "Glance", href: "/account/dashboard/tutor" },
+        ];
+      case "students":
+        return [{ name: "Students", href: "/account/dashboard/tutor" }];
+      case "courses":
+        return [
+          { name: "Courses", href: "/account/dashboard/tutor" },
+          { name: "My courses", href: "/account/dashboard/tutor" },
+        ];
+      case "earnings":
+        return [
+          { name: "Earnings", href: "/account/dashboard/tutor" },
+          { name: "Total earnings", href: "/account/dashboard/tutor" },
+        ];
+      case "notifications":
+        return [
+          { name: "Notifications", href: "/account/dashboard/tutor" },
+          { name: "New students", href: "/account/dashboard/tutor" },
+        ];
+      case "support":
+        return [{ name: "Help Center", href: "/account/dashboard/tutor" }];
+      default:
+        return [{ name: "Profile", href: "/account/dashboard/tutor" }];
+    }
+  };
+
+  useEffect(() => {
+    console.log("Updated activeSection:", activeSection);
+  }, [activeSection]);
+  const navigation = getNavigation();
 
   return (
     <header className="bg-[#101110] py-5">

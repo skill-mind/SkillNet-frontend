@@ -1,5 +1,4 @@
 "use client";
-
 import { ChevronDown, Headset } from "lucide-react";
 import Image from "next/image";
 import { ReactNode } from "react";
@@ -31,11 +30,21 @@ function NavItem({ icon, label, active = false, onClick }: NavItemProps) {
   );
 }
 
-export function Sidebar() {
+interface SidebarProps {
+  activeSection: string;
+  onSectionChange: (section: string) => void;
+}
+
+export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
   return (
     <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800">
-      <div className="p-4  h-[100%]">
-        <div className="flex relative cursor-pointer  items-center gap-3 mb-8 border rounded-md p-2 border-[#2F302F] hover:bg-[#FFFFFF1A]">
+      <div className="p-4 h-[100%]">
+        <div
+          onClick={() => onSectionChange("profile")}
+          className={`flex relative cursor-pointer items-center gap-3 mb-8 border rounded-md p-2 border-[#2F302F] hover:bg-[#FFFFFF1A] ${
+            activeSection === "profile" ? "bg-[#FFFFFF1A]" : ""
+          }`}
+        >
           <div className="relative w-10 h-10 rounded-full overflow-hidden">
             <Image
               src={profilePic}
@@ -54,48 +63,57 @@ export function Sidebar() {
         <nav className="space-y-2">
           <NavItem
             label="Home"
-            active
-            icon={<Image src={homeIcon} alt={"Home"} height={20} width={20} />}
+            active={activeSection === "home"}
+            icon={<Image src={homeIcon} alt="Home" height={20} width={20} />}
+            onClick={() => onSectionChange("home")}
           />
           <NavItem
             icon={
-              <Image src={studentIcon} alt={"Student"} height={20} width={20} />
+              <Image src={studentIcon} alt="Student" height={20} width={20} />
             }
             label="Students"
+            active={activeSection === "students"}
+            onClick={() => onSectionChange("students")}
           />
           <NavItem
             icon={
               <Image
                 src={notificationIcon}
-                alt={"Notification"}
+                alt="Notification"
                 height={20}
                 width={20}
               />
             }
             label="Notifications"
+            active={activeSection === "notifications"}
+            onClick={() => onSectionChange("notifications")}
           />
           <NavItem
             icon={
-              <Image src={coursesIcon} alt={"Courses"} height={20} width={20} />
+              <Image src={coursesIcon} alt="Courses" height={20} width={20} />
             }
             label="Courses"
+            active={activeSection === "courses"}
+            onClick={() => onSectionChange("courses")}
           />
           <NavItem
             icon={
-              <Image
-                src={earningIcon}
-                alt={"Earnings"}
-                height={20}
-                width={20}
-              />
+              <Image src={earningIcon} alt="Earnings" height={20} width={20} />
             }
             label="Earnings"
+            active={activeSection === "earnings"}
+            onClick={() => onSectionChange("earnings")}
           />
         </nav>
       </div>
 
       <div className="absolute bottom-0 w-64 border-t border-gray-800">
-        <NavItem icon={<Headset size={20} />} label="Support" />
+        <NavItem
+          icon={<Headset size={20} />}
+          label="Support"
+          active={activeSection === "support"}
+          onClick={() => onSectionChange("support")}
+        />
       </div>
     </aside>
   );
