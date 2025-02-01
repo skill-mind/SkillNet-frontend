@@ -1,3 +1,4 @@
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
       <>
@@ -7,4 +8,3 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   };
   
   export default Layout;
-  
