@@ -1,12 +1,16 @@
-import Tutor from './tutor';
+"use client";
+import { useState } from "react";
+import Header from "./component/DashboardHeader";
+import Tutor from "./tutor";
 
-
-function page() {
+function Page() {
+  const [activeSection, setActiveSection] = useState("home");
   return (
-    <div>
-            <Tutor/>
+    <div className="bg-[#101110] min-h-[100vh]">
+      <Header activeSection={activeSection} />
+      <Tutor activeSection={activeSection} onSectionChange={setActiveSection} />
     </div>
   );
 }
 
-export default page;
+export default Page;
