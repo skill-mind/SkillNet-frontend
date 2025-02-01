@@ -15,6 +15,10 @@ export interface Job {
   postedTime: string;
 }
 
+interface RecentTabBoxProps {
+  onSaveJob: (job: Job) => void;
+}
+
 const ClockIcon = () => (
   <svg
     width="12"
@@ -71,7 +75,8 @@ const SaveIcon = () => (
   </svg>
 );
 
-const JobCard: React.FC<{ job: Job }> = ({ job }) => (
+
+const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({ job, onSaveJob }) => (
   <div className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg">
     <div className="flex justify-between items-start mb-2">
       <div>
@@ -80,7 +85,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => (
         </h3>
         <p className="text-[#BBBBBB] text-base">{job.company}</p>
       </div>
-      <button className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded hover:bg-gray-600">
+      <button onClick={() => onSaveJob(job)}className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded hover:bg-gray-600">
         <SaveIcon />
         <span className="pl-2">Save job</span>
       </button>
@@ -115,7 +120,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => (
   </div>
 );
 
-const RecentTabBox = () => {
+const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob }) => {
   const sampleJobs: Job[] = [
     {
       title: "Full Stack Developer",
@@ -157,7 +162,7 @@ const RecentTabBox = () => {
   return (
     <div>
       {sampleJobs.map((job, index) => (
-        <JobCard key={index} job={job} />
+        <JobCard key={index} job={job} onSaveJob={onSaveJob} />
       ))}
     </div>
   );
