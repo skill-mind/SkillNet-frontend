@@ -1,7 +1,7 @@
 "use client";
 import { CheckCheck, EllipsisVertical, Search, Mic, Send, Smile, ChevronLeft } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
-import Input from "./input";
+import Input from "./input-messages";
 import { useState } from "react";
 import userProfile from "@/public/img/Avatar.png"
 // import userProfile from "@/public/img/userProfile.png" // image file returns error (file is corrupted)
