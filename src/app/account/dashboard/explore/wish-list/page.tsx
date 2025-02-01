@@ -8,10 +8,16 @@ import SearchIcon from "@/public/img/search-01.png";
 import {coursesData} from "@/app/account/dashboard/explore/wish-list/courseData"
 import CourseCard from "../components/course";
 
+
+interface Course {
+  title: string;
+  author: string;
+}
+
 function WishList() {
   const [search, setSearch] = useState("");
-  let  filteredCourses = coursesData.filter(
-    (course:any) =>
+  const filteredCourses = coursesData.filter(
+    (course:Course) =>
       course.title.toLowerCase().includes(search.toLowerCase()) ||
       course.author.toLowerCase().includes(search.toLowerCase())
   );
@@ -60,7 +66,7 @@ function WishList() {
             </div>
           ) : (
             filteredCourses.map((course, index) => (
-              <div className="flex gap-5 overflow-x-auto max-w-full flex-wrap">
+              <div key={index} className="flex gap-5 overflow-x-auto max-w-full flex-wrap">
                  <CourseCard key={index} {...course} />
               </div>
               
