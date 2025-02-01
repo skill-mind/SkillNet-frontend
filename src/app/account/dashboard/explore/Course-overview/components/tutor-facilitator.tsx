@@ -2,23 +2,16 @@ import Image from "next/image";
 import GlobeIcon from "@/public/img/globe.svg";
 import CourseAccordion from "../../components/CourseAccordion";
 import CourseEnrollCard from "../../components/CourseEnrollCard";
-import CourseNav from "../../components/CourseNav";
 
-interface TutorFacilitatorProps {
-  route: string;
-  setRoute: (route: string) => void;
-}
-
-const TutorFacilitator = ({ route, setRoute }: TutorFacilitatorProps) => {
+const TutorFacilitator = () => {
   return (
-    <div className="flex justify-around font-sans h-full 2xl:h-screen py-10 space-x-5">
-      <div className="w-1/2 ">
+    <div className="flex justify-evenly font-sans h-full 2xl:h-screen py-10 space-x-5">
+      <div className="w-1/2">
         <div className="space-y-3">
           <h1 className="text-2xl font-semibold">
             Blockchain Development Bootcamp: Zero to Hero
           </h1>
           <p className="font-light">By Satoshi Nakamoto</p>
-          <CourseNav route={route} setRoute={setRoute} />
           <div className="pt-5 space-y-2">
             <p className="font-semibold text-xl">Satoshi Nakamoto</p>
             <div className="flex space-x-10 items-center">
