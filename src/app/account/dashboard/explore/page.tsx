@@ -18,6 +18,7 @@ const page = () => {
           <Link href="/account/dashboard/explore/wish-list"> wish list</Link>
         </Button>
       </div>
+      {/* cards  */}
       <div className="">
         <h2 className="font-bold text-3xl text-white">
           Explore a world of knowledge at your fingertips
