@@ -8,11 +8,11 @@ function Messages() {
     <div className="my-[10em] px-4 sm:px-8 lg:px-[100px] flex w-full h-screen">
       <div className="flex w-full h-full">
 
-{/* Side Nav containing messages */}
+        {/* Side Nav containing messages */}
         <div className="w-full md:w-1/3 lg:w-1/3 p-4 border-r border-[#252625] overflow-hidden md:block hidden">
           <div className="flex flex-col space-y-6">
             <div className="flex items-center justify-between">
-              <h4 className="text-3xl mb-2">Messages</h4>
+              <h4 className="text-2xl ">Messages</h4>
               <EllipsisVertical color="#9596A0" />
             </div>
             <Input
@@ -21,20 +21,20 @@ function Messages() {
               placeholder="Search"
               type="text"
               value=""
-              onChange={() => {}}
+              onChange={() => { }}
             />
 
-            <div className="flex flex-wrap gap-2 mt-4">
-              <div className="border border-[#252625] p-2 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.5rem] flex-1 min-w-[120px]">
+            <div className="flex flex-wrap gap-2">
+              <div className="border border-[#252625] bg-[#313130] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
                 All
               </div>
-              <div className="border border-[#252625] p-2 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.5rem] flex-1 min-w-[120px]">
+              <div className="border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
                 Unread
               </div>
-              <div className="border border-[#252625] p-2 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.5rem] flex-1 min-w-[120px]">
+              <div className="border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
                 Favourite
               </div>
-              <div className="border border-[#252625] p-2 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.5rem] flex-1 min-w-[120px]">
+              <div className="border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px]">
                 Archived
               </div>
             </div>
@@ -72,12 +72,12 @@ function Messages() {
           </div>
         </div>
 
-{/* chat editor screen */}
+        {/* chat editor screen */}
         <div className="w-full md:w-2/3 lg:w-2/3 flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b border-[#252625]">
             <div className="flex items-center space-x-3">
               {/* back button */}
-          <ChevronLeft className="block md:hiddden" />
+              <ChevronLeft className="block md:hidden" />
               <Image
                 src="https://img.freepik.com/free-vector/polygonal-face-with-headphones_23-2147507024.jpg"
                 alt="user profile image"
@@ -98,7 +98,7 @@ function Messages() {
           </div>
           <div className="flex justify-end p-4">
             <div className="bg-[#1e1e1e] p-4 rounded-md">
-              <p className="text-sm text-[#bbb]">
+              <p className="text-[14px] text-[#bbb]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni, totam ipsum perferendis libero iusto porro expedita deleniti officiis delectus?
               </p>
               <div className="flex justify-end items-center space-x-2 mt-2">
@@ -110,7 +110,7 @@ function Messages() {
 
           <div className="flex justify-end p-4">
             <div className="bg-[#1e1e1e] p-4 rounded-md">
-              <p className="text-sm text-[#bbb]">
+              <p className="text-[14px] text-[#bbb]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni, totam ipsum perferendis libero iusto porro expedita deleniti officiis delectus?
               </p>
               <div className="flex justify-end items-center space-x-2 mt-2">
@@ -131,10 +131,15 @@ function Messages() {
               <input
                 type="text"
                 placeholder="Type a message..."
-                className="flex-grow p-3 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] focus:outline-none focus:border-[#555]"
+                className="flex-grow p-2 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] placeholder:italic focus:outline-none focus:border-[#555]"
               />
 
-              <Send size={24} color="#555" className="cursor-pointer" />
+
+              <Send
+                size={34}
+                color="#555"
+                className="cursor-pointer  bg-white hover:bg-[#3a3a3a] hover:text-white p-2 rounded-full transition-colors duration-200 ease-in-out"
+              />
             </div>
           </div>
         </div>
@@ -142,21 +147,20 @@ function Messages() {
     </div>
   );
 }
-
-const ContactMessage = ({ name, message, imgSrc }: { name: string, message: string, imgSrc: string }) => {
+const ContactMessage = ({ name, message, imgSrc }: { name: string; message: string; imgSrc: string }) => {
   return (
-    <div className="flex items-center justify-center space-x-4 p-4 border-b border-[#252625] w-full m-0">
-      <div className="min-w-[60px] h-[60px] sm:w-[60px] sm:h-[60px] rounded-full border-2 border-[#252625] bg-gray-300 flex justify-center items-center">
+    <div className="flex items-center justify-center space-x-4 p-4 pt-0 mt-0 w-full m-0">
+      <div className="min-w-[60px] h-[60px] sm:w-[60px] sm:h-[60px] overflow-hidden rounded-full bg-gray-300 flex justify-center items-center">
         <Image
           src={imgSrc}
-          width={60}  
+          width={60}
           height={60}
           alt="user profile image"
           className="object-cover w-full h-full"
         />
       </div>
 
-      <div className="flex flex-col space-y-2 w-full pr-6">
+      <div className="flex flex-col w-full pr-4 pb-2 border-b border-[#252625]">
         <div className="flex items-center space-x-2">
           <h4 className="text-xs font-semibold text-[#b9b9b9]">{name}</h4>
         </div>
@@ -165,12 +169,12 @@ const ContactMessage = ({ name, message, imgSrc }: { name: string, message: stri
           <CheckCheck color="white" size={18} />
           <p className="truncate text sm w-full">{message}</p>
 
-        <div className="flex flex-col items-end ml-4">
-          <small className="text-[#bbb]">Friday</small>
-          <EllipsisVertical size={20} color="#555" className="mt-1 cursor-pointer" />
+          <div className="flex flex-col items-end ml-4">
+            <small className="text-[#bbb]">Friday</small>
+            <EllipsisVertical size={20} color="#555" className="mt-1 cursor-pointer" />
+          </div>
         </div>
       </div>
-        </div>
     </div>
   );
 };
