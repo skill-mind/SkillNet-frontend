@@ -10,12 +10,12 @@ const page = () => {
   <>
     <Navbar/>
 
-   <section className="">
-      <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
+   <section className="mt-20">
+      <div className="w-full mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
         
       <div className="text-center ">
         <h1 className="text-[40px] text-pretty font-bold pb-4 text-[#FCFCFC]">CONTACT US</h1>
-        <p className="text-lg pb-4 text-[#898783]">Do you have something to share with us? Reach out to us!</p>  
+        <p className="text-lg text-[#898783]">Do you have something to share with us? Reach out to us!</p>  
       </div>
 
       <Form/>

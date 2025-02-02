@@ -6,9 +6,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Logo from "../../../../../public/img/logo.svg";
-import Notification from "../../../../../public/img/notification.svg";
-import Avatar from "../../../../../public/img/Avatar.png";
+import Logo from "@/public/img/logo.svg";
+import Notification from "@/public/img/notification.svg";
+import Avatar from "@/public/img/Avatar.png";
 import { Button } from "@headlessui/react";
 
 interface HeaderProps {

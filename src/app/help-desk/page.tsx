@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import design from "../public/img/design.svg";
+import design from "@/public/design.svg";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
