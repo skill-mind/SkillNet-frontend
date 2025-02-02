@@ -4,7 +4,7 @@ import hexagon from "../public/img/hexagonn.svg";
 import Image from "next/image";
 import { skillnetQualities } from "./utils/data";
 import InformationCard from "@/components/InformationCard";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -25,24 +25,23 @@ export default function Home() {
             alt=""
           />
           <div>
-          <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
-            Empowering <br /> Careers, Verified on <br />
-            <span className="text-[#A8C789]">Blockchain</span>
-          </h1>
-          <p className="text-2xl leading-8 mb-12 text-[#EAEDE7]">
-            Upskill, certify, and connect with top employers on SkillNet—a
-            blockchain-powered <br /> platform for job seekers, employers,
-            tutors, and institutions.
-          </p>
-          <button className="border border-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
-            Get started
-          </button>
+            <h1 className="text-[100px] leading-[90px] font-bold mb-6 text-[#EAEDE7]">
+              Empowering <br /> Careers, Verified on <br />
+              <span className="text-[#A8C789]">Blockchain</span>
+            </h1>
+            <p className="text-2xl leading-8 mb-12 text-[#EAEDE7]">
+              Upskill, certify, and connect with top employers on SkillNet—a
+              blockchain-powered <br /> platform for job seekers, employers,
+              tutors, and institutions.
+            </p>
+            <button className="hover:text-black border border-[#A8C789] hover:bg-[#A8C789] rounded-lg text-[#A8C789] py-4 w-[196px]">
+              Get started
+            </button>
           </div>
-        
         </section>
-        <section className="bg-[#121312] py-20 px-[100px] text-[#EAEDE7]">
-          <div className="flex items-center gap-6">
-            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] max-w-[455px] font-bold">
+        <section className="bg-[#121312] py-20 px-12 text-[#EAEDE7] pb-56">
+          <div className="flex items-center gap-6 px">
+            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] max-w-[555px] font-bold uppercase">
               What Makes SkillNet Effective?
             </h4>
             <p className="text-2xl leading-7 text-[#80837E]">
@@ -60,7 +59,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <div className="h-[140px] bg-[#0e0f0e]"></div>
+        {/* <div className="h-[140px] bg-[#0e0f0e]"></div> */}
         <section className="relative flex justify-end py-[80px] px-[100px] bg-[#080808]">
           <Image
             src={astronaut}
@@ -94,35 +93,34 @@ export default function Home() {
             <button className="bg-[#0E0F0E] border border-[#161716] rounded-lg py-3 px-6 mt-12 flex justify-center items-center gap-[10px] text-base leading-5">
               Find out more
               <span>
-                <ChevronRight />
+                <ArrowRight />
               </span>
             </button>
           </div>
         </section>
         <section className="py-[140px] bg-[#0e0f0e]">
           <div className="py-[80px] px-[100px]">
-            <h3 className="font-bold text-white text-[40px] leading-[47px] font-workSans mb-12">
+            <h3 className="font-bold text-white text-[40px] leading-[47px] font-workSans mb-6 uppercase">
               Share Knowledge, Earn Revenue
             </h3>
             <div className="grid grid-cols-3 gap-x-5">
-
-              <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
-                <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
-                <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full relative">
+                <div className="absolute bg-[#D9D9D9] w-[30px] h-[30px] rounded-full" />
+                <p className="text-sm leading-5 text-[#DBDBDB] max-w-[300px] ml-9">
                   Create and monetize engaging courses.
                 </p>
               </div>
 
               <div className="bg-[#121312] py-4 px-6 rounded-lg flex items-center gap-2 w-full">
-                <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
-                <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
+                <div className="absolute bg-[#D9D9D9] w-[30px] h-[30px] rounded-full" />
+                <p className="text-sm leading-5 text-[#DBDBDB] max-w-[300px] ml-9">
                   Host exams and issue blockchain-verified results.
                 </p>
               </div>
 
-              <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2 items-center w-full">
-                <div className="bg-[#D9D9D9] w-[30px] h-[30px] rounded-full"></div>
-                <p className="text-base leading-5 text-[#DBDBDB] max-w-[300px]">
+              <div className="bg-[#121312] py-4 px-6 rounded-lg flex gap-2 items-center w-full relative">
+                <div className="absolute bg-[#D9D9D9] w-[30px] h-[30px] rounded-full" />
+                <p className="text-sm leading-5 text-[#DBDBDB] max-w-[300px] ml-9">
                   Reach a global audience of eager learners and earn revenue for
                   every enrollment.
                 </p>
@@ -133,7 +131,7 @@ export default function Home() {
 
         <section className="py-[80px] px-[100px] bg-[#121312]">
           <div className="flex items-center gap-6">
-            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] max-w-[455px] font-bold">
+            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] font-bold uppercase">
               How skillnet works
             </h4>
             <p className="text-2xl leading-7 text-[#80837E]">
@@ -199,7 +197,7 @@ export default function Home() {
         <section id="faqs" className="py-[140px] flex justify-center">
           <div className="w-[892px] flex flex-col justify-center items-center">
             <div className="text-center">
-              <h1 className="font-bold text-[40px] leading-[47px] text-white font-workSans mb-6">
+              <h1 className="font-bold text-[40px] leading-[47px] text-white font-workSans mb-6 uppercase">
                 Frequently Asked Questions
               </h1>
               <p className="font-normal text-[24px] leading-8">

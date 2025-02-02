@@ -1,4 +1,4 @@
-import Messages from "@/app/account/dashboard/messages/components/messages";
+import Messages from "@/app/dashboard/messages/components/messages";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
