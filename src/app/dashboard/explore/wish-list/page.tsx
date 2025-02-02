@@ -5,7 +5,7 @@ import { ChangeEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SearchIcon from "@/public/img/search-01.png";
-import {coursesData} from "@/app/account/dashboard/explore/wish-list/courseData"
+import {coursesData} from "@/app/dashboard/explore/wish-list/courseData"
 import CourseCard from "../components/course";
 
 

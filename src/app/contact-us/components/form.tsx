@@ -107,7 +107,7 @@ export default function Form() {
   };
 
   return (
-    <div className="flex justify-center items-center w-full max-w-[90%] sm:max-w-[80%] md:max-w-[600px] mx-auto">
+    <div className="flex justify-center items-center w-full max-w-[90%] sm:max-w-[80%] md:max-w-[700px] mx-auto">
       {!isSubmitted ? (
         <form
           onSubmit={handleSubmit}
@@ -123,7 +123,7 @@ export default function Form() {
               value={formData.name}
               onChange={handleChange}
               placeholder="Type in your name"
-              className={`mt-1 block w-full border bg-transparent placeholder:italic ${
+              className={`outline-none mt-1 block w-full border bg-transparent placeholder:italic ${
                 errors.name ? "border-red-500" : "border-[#898783]"
               } rounded-md shadow-sm text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               required
@@ -143,7 +143,7 @@ export default function Form() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Type in your email address"
-              className={`mt-1 block w-full border bg-transparent placeholder:italic ${
+              className={`outline-none  mt-1 block w-full border bg-transparent placeholder:italic ${
                 errors.email ? "border-red-500" : "border-[#898783]"
               } rounded-[4px] shadow-sm text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               required
@@ -162,7 +162,7 @@ export default function Form() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Type your special message here..."
-              className={`mt-1 block w-full border bg-transparent placeholder:italic ${
+              className={`outline-none mt-1 block w-full border bg-transparent placeholder:italic ${
                 errors.message ? "border-red-500" : "border-[#898783]"
               } rounded-[4px] text-sm md:text-base focus:border-[#898783] text-white focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               rows={4}

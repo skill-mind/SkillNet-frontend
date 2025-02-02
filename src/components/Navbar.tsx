@@ -6,6 +6,7 @@ import { WalletSelectorUI } from "./WalletConnectModal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { routes } from "@/lib/route";
 
 interface NavLinkProps {
   href: string;
@@ -44,9 +45,10 @@ const NavLink = ({ href, children }: NavLinkProps) => {
 
 export default function Navbar({
   navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/help-desk", label: "Help" },
+    { href: routes.home, label: "Home" },
+    { href: routes.about, label: "About" },
+    { href: routes.helpDesk, label: "Help" },
+    { href: routes.faqs, label: "FAQs" },
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -77,7 +79,7 @@ export default function Navbar({
   }, []);
 
   return (
-    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-[100px] py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-[5]">
+    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-10 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
       {/* Logo */}
       <button className="flex items-center cursor-pointer">
         <Image className="w-[100px] h-[40px]" src={Logo} alt="Logo" />
