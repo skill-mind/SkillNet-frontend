@@ -31,7 +31,7 @@ const Checkbox = ({ checked, label }: { checked: boolean; label: string }) => (
     <div
       className={`w-4 h-4 rounded border ${
         checked
-          ? "bg-blue-500 border-blue-500"
+          ? "bg-[#696969] border-[#696969]"
           : "border-gray-600 group-hover:border-gray-500"
       }`}
     >

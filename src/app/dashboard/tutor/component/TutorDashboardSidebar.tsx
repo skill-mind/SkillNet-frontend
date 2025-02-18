@@ -1,13 +1,14 @@
 "use client";
 import { ChevronDown, Headset } from "lucide-react";
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import profilePic from "@/public/img/dashboardProfile.svg";
 import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
 import studentIcon from "@/public/img/tutor icon/studentsDashboard.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
 import coursesIcon from "@/public/img/tutor icon/courseDashboard.svg";
 import earningIcon from "@/public/img/tutor icon/walletDashboard.svg";
+import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
 interface NavItemProps {
   icon: ReactNode;
@@ -30,15 +31,12 @@ function NavItem({ icon, label, active = false, onClick }: NavItemProps) {
   );
 }
 
-interface SidebarProps {
-  activeSection: string;
-  onSectionChange: (section: string) => void;
-}
-
-export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
+export function Sidebar() {
+    const { activeSection, setActiveSection: onSectionChange } =
+      useContext(DashBoardContext);
   return (
-    <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800">
-      <div className="p-4 h-[100%]">
+    <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800 overflow-y-auto">
+      <div className="p-4 h-[100%] overflow-y-auto scrollbar-hide scroll-smooth">
         <div
           onClick={() => onSectionChange("profile")}
           className={`flex relative cursor-pointer items-center gap-3 mb-8 border rounded-md p-2 border-[#2F302F] hover:bg-[#FFFFFF1A] ${

@@ -1,0 +1,68 @@
+import Pic from "@/public/img/whisCourse.png"
+import img from "@/public/img/Rectangle 8(1).svg";
+export const coursesData = [
+    {
+      title: "BLOCKCHAIN DEVELOPMENT BOOTCAMP: ZERO TO HERO",
+      author: "Satoshi Nakamoto",
+      price: 29.99,
+      duration: "3 MONTHS COURSE",
+      isBookmarked: false,
+      image: img,
+    },
+    {
+      title: "ADVANCED DEFI PROTOCOLS & SMART CONTRACTS",
+      author: "Vitalik Buterin",
+      price: 49.99,
+      duration: "2 MONTHS COURSE",
+      isBookmarked: true,
+      image: Pic,
+    },
+    {
+      title: "CRYPTOCURRENCY TRADING FUNDAMENTALS",
+      author: "Michael Saylor",
+      price: 24.99,
+      duration: "6 WEEKS COURSE",
+      isBookmarked: false,
+      image: Pic,
+    },
+    {
+      title: "NFT CREATION & MARKETPLACE DEVELOPMENT",
+      author: "Beeple Digital",
+      price: 34.99,
+      duration: "4 WEEKS COURSE",
+      isBookmarked: false,
+      image: img,
+    },
+    {
+      title: "BLOCKCHAIN DEVELOPMENT BOOTCAMP: ZERO TO HERO",
+      author: "Satoshi Nakamoto",
+      price: 29.99,
+      duration: "3 MONTHS COURSE",
+      isBookmarked: false,
+      image: Pic,
+    },
+    {
+      title: "ADVANCED DEFI PROTOCOLS & SMART CONTRACTS",
+      author: "Vitalik Buterin",
+      price: 49.99,
+      duration: "2 MONTHS COURSE",
+      isBookmarked: true,
+      image: img,
+    },
+    {
+      title: "CRYPTOCURRENCY TRADING FUNDAMENTALS",
+      author: "Michael Saylor",
+      price: 24.99,
+      duration: "6 WEEKS COURSE",
+      isBookmarked: false,
+      image: Pic,
+    },
+    {
+      title: "NFT CREATION & MARKETPLACE DEVELOPMENT",
+      author: "Beeple Digital",
+      price: 34.99,
+      duration: "4 WEEKS COURSE",
+      isBookmarked: false,
+      image: Pic,
+    },
+  ];

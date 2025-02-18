@@ -6,18 +6,19 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import Logo from "../public/img/logo.svg"
+import Logo from "../public/skillnet-white logo.png"
 import Avatar from "../public/img/Avatar.png"
 import Notification from "../public/img/notification.svg"
+import { routes } from "@/lib/route"
 
 function NavbarJobSeeker() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navigation = [
-    { name: "Jobs", href: "/account/dashboard/job-seeker" },
-    { name: "Learning Hub", href: "/account/dashboard/learning-hub" },
-    { name: "Messages", href: "/account/dashboard/messages" },
+    { name: "Jobs", href: routes.jobs },
+    { name: "Learning Hub", href: routes.explore },
+    { name: "Messages", href: routes.messages },
   ]
 
   return (

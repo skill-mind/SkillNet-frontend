@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import hexagon from "../../public/img/hexagon.svg";
+import hexagon from "@/public/img/hexagon.svg";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";

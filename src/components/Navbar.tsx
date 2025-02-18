@@ -1,5 +1,5 @@
 "use client";
-import Logo from "../public/img/logo.svg";
+import Logo from "../public/skillnet-white logo.png";
 import Image from "next/image";
 import React, { useState, useRef, useEffect, ReactNode, Fragment } from "react";
 import { WalletSelectorUI } from "./WalletConnectModal";
@@ -48,7 +48,6 @@ export default function Navbar({
     { href: routes.home, label: "Home" },
     { href: routes.about, label: "About" },
     { href: routes.helpDesk, label: "Help" },
-    { href: routes.faqs, label: "FAQs" },
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -79,7 +78,7 @@ export default function Navbar({
   }, []);
 
   return (
-    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-10 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
+    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
       {/* Logo */}
       <button className="flex items-center cursor-pointer">
         <Image className="w-[100px] h-[40px]" src={Logo} alt="Logo" />

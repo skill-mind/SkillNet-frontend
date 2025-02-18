@@ -1,11 +1,11 @@
 import Messages from "@/app/dashboard/messages/components/messages";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import NavbarJobSeeker from "@/components/Navbar-job-seeker";
 
 function page(){
     return(
         <div>
-           <Navbar />
+           <NavbarJobSeeker />
                 <Messages />
            <Footer />
         </div>
