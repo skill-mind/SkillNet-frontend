@@ -61,7 +61,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => (
         </h3>
         <p className="text-[#BBBBBB]">{job.company}</p>
       </div>
-      <button className="px-4 py-2 text-sm text-white bg-gray-700 rounded-lg hover:bg-gray-600">
+      <button className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded bg-inherit border-[#696969] border hover:border-[#D0EFB1] hover:text-[#D0EFB1]">
         VIEW APPLICATION
       </button>
     </div>
@@ -126,7 +126,7 @@ const ApplicationTab = () => {
 
   return (
     <div className="mt-4 flex justify-between">
-     <div className="p-4">
+     <div>
       {sampleJobs.map((job, index) => (
         <JobCard key={index} job={job} />
       ))}

@@ -76,7 +76,10 @@ const SaveIcon = () => (
 );
 
 
-const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({ job, onSaveJob }) => (
+const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({
+  job,
+  onSaveJob,
+}) => (
   <div className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg">
     <div className="flex justify-between items-start mb-2">
       <div>
@@ -85,7 +88,10 @@ const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({ job, o
         </h3>
         <p className="text-[#BBBBBB] text-base">{job.company}</p>
       </div>
-      <button onClick={() => onSaveJob(job)}className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded hover:bg-gray-600">
+      <button
+        onClick={() => onSaveJob(job)}
+        className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded bg-inherit border-[#696969] border hover:border-[#D0EFB1] hover:text-[#D0EFB1]" 
+      >
         <SaveIcon />
         <span className="pl-2">Save job</span>
       </button>
@@ -96,13 +102,13 @@ const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({ job, o
         <LocationIcon />
         <span>{job.location}</span>
       </div>
-      <span className=" border border-[#BBBBBB] rounded-lg px-2 py-1">
+      <span className=" border border-[#BBBBBB] rounded px-2 py-1">
         {job.workMode}
       </span>
-      <span className=" border border-[#BBBBBB] rounded-lg px-2 py-1">
+      <span className=" border border-[#BBBBBB] rounded px-2 py-1">
         {job.type}
       </span>
-      <span className=" border border-[#BBBBBB] rounded-lg px-2 py-1">
+      <span className=" border border-[#BBBBBB] rounded px-2 py-1">
         {job.level}
       </span>
     </div>
