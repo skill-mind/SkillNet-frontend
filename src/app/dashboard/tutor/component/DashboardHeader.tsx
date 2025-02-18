@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Menu, MoreVertical, Pencil, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,12 +10,11 @@ import Logo from "@/public/img/logo.svg";
 import Notification from "@/public/img/notification.svg";
 import Avatar from "@/public/img/Avatar.png";
 import { Button } from "@headlessui/react";
+import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
-interface HeaderProps {
-  activeSection: string;
-}
 
-function Header({ activeSection }: HeaderProps) {
+function Header() {
+    const { activeSection } = useContext(DashBoardContext);
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

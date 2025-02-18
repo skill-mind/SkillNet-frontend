@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Job } from "./RecentTabBox";
+import AllFilters from "./SideAllFilters";
 
 interface SavedTabProps {
   savedJobs: Job[];
@@ -65,52 +66,60 @@ const SaveIconFilled = () => (
 
 const SavedTab: React.FC<SavedTabProps> = ({ savedJobs }) => {
   return (
-    <div>
-      {savedJobs.length === 0 ? (
-        <p className="text-gray-400">No saved jobs yet</p>
-      ) : (
-        savedJobs.map((job, index) => (
-          <div key={index} className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg">
-            <div className="flex justify-between items-start mb-2">
-              <div>
-                <h3 className="text-[24px] font-semibold text-white my-1 mb-3">
-                  {job.title}
-                </h3>
-                <p className="text-[#BBBBBB] text-base">{job.company}</p>
+    <div className="mt-4 flex justify-between">
+      <div>
+        {savedJobs.length === 0 ? (
+          <p className="text-gray-400">No saved jobs yet</p>
+        ) : (
+          savedJobs.map((job, index) => (
+            <div
+              key={index}
+              className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg"
+            >
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-[24px] font-semibold text-white my-1 mb-3">
+                    {job.title}
+                  </h3>
+                  <p className="text-[#BBBBBB] text-base">{job.company}</p>
+                </div>
+                <div>
+                  <SaveIconFilled />
+                </div>
               </div>
-              <div className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded">
-                <SaveIconFilled />
+
+              <div className="flex items-center gap-4 text-sm text-gray-400 my-4">
+                <div className="flex items-center space-x-1 ml-2">
+                  <LocationIcon />
+                  <span>{job.location}</span>
+                </div>
+                <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
+                  {job.workMode}
+                </span>
+                <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
+                  {job.type}
+                </span>
+                <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
+                  {job.level}
+                </span>
+              </div>
+
+              <p className="text-[#D9D9D9] text-base  my-4">
+                {job.description}
+              </p>
+
+              <div className="flex justify-between items-center my-3 text-sm text-gray-400">
+                <div className="flex items-center space-x-1">
+                  <ClockIcon />
+                  <span>Deadline: {job.deadline}</span>
+                </div>
+                <span>Posted {job.postedTime}</span>
               </div>
             </div>
-
-            <div className="flex items-center gap-4 text-sm text-gray-400 my-4">
-              <div className="flex items-center space-x-1 ml-2">
-              <LocationIcon />
-              <span>{job.location}</span>
-              </div>
-              <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
-                {job.workMode}
-              </span>
-              <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
-                {job.type}
-              </span>
-              <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
-                {job.level}
-              </span>
-            </div>
-
-            <p className="text-[#D9D9D9] text-base  my-4">{job.description}</p>
-
-            <div className="flex justify-between items-center my-3 text-sm text-gray-400">
-              <div className="flex items-center space-x-1">
-              <ClockIcon />
-              <span>Deadline: {job.deadline}</span>
-              </div>
-              <span>Posted {job.postedTime}</span>
-            </div>
-          </div>
-        ))
-      )}
+          ))
+        )}
+      </div>
+     {savedJobs.length >0 && <AllFilters/>}
     </div>
   );
 };
