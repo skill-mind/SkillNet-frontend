@@ -8,8 +8,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="bg-[#101110] h-[100vh] max-h-screen  overflow-y-hidden">
         <Header />
         <div className="flex h-[100%] text-white overflow-y-auto scrollbar-hide scroll-smooth">
-          <Sidebar />
-          {children}
+          <section className="overflow-y-hidden"> <Sidebar /></section>
+
+          <main className="flex-grow overflow-y-scroll scrollbar-hide h-auto hide-scrollbar">
+            {children}
+          </main>
         </div>
       </main>
     </DashBoardContextProvider>
