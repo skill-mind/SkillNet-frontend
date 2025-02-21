@@ -3,7 +3,8 @@ import Image from "next/image";
 import { useState } from "react";
 import studentIcon from "@/public/img/tutor icon/studentsDashboard.svg";
 import walletIcon from "@/public/img/tutor icon/walletDashboard.svg";
-import speakerIcon from "@/public/img/tutor icon/walletDashboard.svg";
+import speakerIcon from "@/public/megaphone-02.svg";
+import questionIcon from "@/public/questionsimage.svg"
 
 function Notification() {
   const [displayedNotification, setDisplayedNotification] =
@@ -26,7 +27,7 @@ function Notification() {
 
   const questionsNotifications = [
     {
-      image: "/img/questionsimage.svg",
+      image: questionIcon,
       time: "15 mins",
       category: "Design",
       content:
@@ -106,7 +107,7 @@ function Notification() {
                   alt="students"
                   height={100}
                   width={100}
-                  className="w-6 h-6 object-contain "
+                  className="w-[41px] h-[41px] object-contain "
                 />
               </div>
 
@@ -175,12 +176,12 @@ function Notification() {
     {announcementNotifications.map((announcementNotification, index) => (
       <div
         key={index}
-        className="w-full flex justify-between items-center py-3 bg-[#161716] rounded-lg "
+        className="w-full flex justify-between items-center p-6 bg-[#161716] rounded-lg "
       >
         <div className="flex items-center gap-[18px] ">
           <span className=" h-12 w-12 rounded-full bg-[#2D2E2D] flex items-center justify-center ">
             <Image
-              src={studentIcon}
+              src={speakerIcon}
               alt="students"
               height={100}
               width={100}
@@ -188,7 +189,7 @@ function Notification() {
             />
           </span>
           <div>
-            <h1 className="text-[#CCCCCC] text-base font-medium ">
+            <h1 className="text-[#CCCCCC] text-base font-medium mb-1 ">
               {" "}
               {announcementNotification.heading}{" "}
             </h1>
