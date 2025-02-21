@@ -1,3 +1,4 @@
+"use client";
 import avatar from "@/public/org-avatar.svg";
 import CandidatesIcon from "@/svg/CandidatesIcon";
 import CertificatesIcon from "@/svg/CertificatesIcon";
@@ -7,12 +8,16 @@ import NotificationIcon from "@/svg/NotificationIcon";
 import VerificationIcon from "@/svg/VerificationIcon";
 import { ChevronDown, Settings } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function Sidebar() {
+  const path = usePathname();
+  console.log(path);
   const routes = [
     {
       label: "Home",
-      to: "home",
+      to: "",
       icon: <HomeIcon />,
     },
     {
@@ -52,13 +57,16 @@ function Sidebar() {
       </div>
       <div className="flex flex-1 flex-col gap-y-[10px] w-full mt-[10px]">
         {routes.map((route) => (
-          <button
-            className="flex items-center gap-x-[10px] py-2 px-3 rounded-lg hover:bg-[#FFFFFF1A] transition-all duration-300 ease-in-out"
+          <Link
+            href={`/dashboard/institution/${route.to}`}
+            className={`flex items-center gap-x-[10px] py-2 px-3 rounded-lg hover:bg-[#FFFFFF1A] ${
+              route.to === path.slice(22) ? "bg-[#FFFFFF1A]" : "bg-transparent"
+            } transition-all duration-300 ease-in-out`}
             key={route.to}
           >
             {route.icon}
             <span>{route.label}</span>
-          </button>
+          </Link>
         ))}
       </div>
       <button className="flex items-center gap-x-[10px] py-2 px-3">
