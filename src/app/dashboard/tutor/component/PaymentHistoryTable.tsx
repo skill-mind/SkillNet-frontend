@@ -26,7 +26,7 @@ export function PaymentHistoryTable({ transactions }: PaymentHistoryTableProps) 
         {transactions.map((tx) => (
           <tr key={tx.id} className="border-b border-gray-700 ">
             <td className="py-6">{tx.id}</td>
-            <td className="py-6 gap-3 text-center">
+            <td className="py-6 flex items-center justify-center gap-3 text-center">
               {tx.transactionId}
               <button
                 onClick={() => navigator.clipboard.writeText(tx.transactionId)}
