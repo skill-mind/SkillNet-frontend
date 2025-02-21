@@ -1,25 +1,21 @@
-import image1 from "../../../../public/img/course1.png";
-import image2 from "../../../../public/img/course2.png";
 import {Addcourse} from "../component/Addcourse";
 import CourseCard from "../component/CourseCard";
 
 type courseProps = {
    id: number;
-   banner: any;
+   banner: string;
    title: string;
    enrollment: number;
    rating: number;
    published: boolean;
    videosAvailable: boolean;
 };
-interface courseCardprops {
-   courses: courseProps;
-}
+
 function Courses() {
    const courses: courseProps[] = [
       {
          id: 1,
-         banner: image1,
+         banner: ``,
          title: "Become a web3 Developer:A beginners approach",
          enrollment: 20,
          rating: 4.5,
@@ -28,7 +24,7 @@ function Courses() {
       },
       {
          id: 2,
-         banner: image2,
+         banner: ``,
          title: "Become a web3 Developer:A beginners approach",
          enrollment: 15,
          rating: 0,

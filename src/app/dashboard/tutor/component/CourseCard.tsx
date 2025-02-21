@@ -1,9 +1,8 @@
 import {Edit2Icon} from "lucide-react";
-import Image from "next/image";
 
 type courseProps = {
    id: number;
-   banner: any;
+   banner: string;
    title: string;
    enrollment: number;
    rating: number;
@@ -17,8 +16,8 @@ interface courseCardprops {
 const CourseCard: React.FC<courseCardprops> = ({courses}) => {
    return (
       <div className=" h-[218px] bg-[#161716] p-[24px] rounded-[8px] flex gap-[15px] ">
-         <section className="w-[300px] h-[170px]">
-            <Image src={courses.banner} alt="course-banner" className="w-full h-full" />
+         <section className="w-[300px] h-[170px] bg-slate-500/20 rounded-[8px]">
+            {/* <Image src={courses.banner} width={100} height={100} alt="course-banner" className="w-full h-full" /> */}
          </section>
          <section className="flex-grow flex flex-col gap-[15px]">
             <div className="flex justify-between">
