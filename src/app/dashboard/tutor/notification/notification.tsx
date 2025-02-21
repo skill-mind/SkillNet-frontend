@@ -99,7 +99,7 @@ function Notification() {
     return (
       <>
         {questionsNotifications.map((questionsNotification, index) => (
-          <div className="w-full flex items-center justify-between   py-1 ">
+          <div key={index} className="w-full flex items-center justify-between   py-1 ">
             <div className="flex items-center justify-start gap-[31px]">
               <div className=" w-[41px] h-[41px] rounded-full flex items-center justify-center overflow-hidden ">
                 <Image
@@ -227,7 +227,8 @@ function Notification() {
     <div className="w-[1000px] h-full ">
       <header className=" w-full max-w-[429px)] min-h-[32px] flex items-center justify-start gap-[17px] ">
         {buttons.map((button, index) => (
-          <button
+          <button 
+          key={index}
             onClick={() => setDisplayedNotification(button)}
             className={`py-1 px-[14px] h-8 mx-[5px] min-w-[77px]  rounded-[48px]  text-xs font-medium ${
               displayedNotification === button
