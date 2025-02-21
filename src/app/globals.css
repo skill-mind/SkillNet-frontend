@@ -136,7 +136,9 @@ body {
   border: 3px solid var(--primary);
 }
 
+
 .scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
