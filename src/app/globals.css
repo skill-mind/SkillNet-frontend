@@ -137,3 +137,8 @@ body {
 }
 
 
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
