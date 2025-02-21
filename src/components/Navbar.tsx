@@ -1,153 +1,188 @@
 "use client";
-import Logo from "../public/skillnet-white logo.png";
-import Image from "next/image";
-import React, { useState, useRef, useEffect, ReactNode, Fragment } from "react";
-import { WalletSelectorUI } from "./WalletConnectModal";
+
+import { useState, useEffect, useContext } from "react";
+import { Menu, MoreVertical, Pencil, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { routes } from "@/lib/route";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Logo from "@/public/skillnet-white logo.png";
+import Notification from "@/public/img/notification.svg";
+import Avatar from "@/public/img/Avatar.png";
+import { Button } from "@headlessui/react";
+import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
-interface NavLinkProps {
-  href: string;
-  children: ReactNode;
-}
 
-interface NavLink {
-  href: string;
-  label: string;
-}
-
-interface NavbarProps {
-  navLinks?: NavLink[];
-}
-
-const NavLink = ({ href, children }: NavLinkProps) => {
+function Header() {
+    const { activeSection } = useContext(DashBoardContext);
   const pathname = usePathname();
-  const isActive = pathname === href;
-
-  return (
-    <Link href={href}>
-      <span
-        className={`relative cursor-pointer pb-1 group ${
-          isActive ? "text-white" : "text-[#FCFCFC]"
-        }`}
-      >
-        {children}
-        <span
-          className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 
-          ${isActive ? "scale-x-100" : "scale-x-0"} group-hover:scale-x-100`}
-        />
-      </span>
-    </Link>
-  );
-};
-
-export default function Navbar({
-  navLinks = [
-    { href: routes.home, label: "Home" },
-    { href: routes.about, label: "About" },
-    { href: routes.helpDesk, label: "Help" },
-  ],
-}: NavbarProps) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
-  const showModal = () => {
-    setIsModalVisible(!isModalVisible);
-    // Close menu if it's open
-    if (isMenuOpen) setIsMenuOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    // Close modal if it's open
-    if (isModalVisible) setIsModalVisible(false);
+  // Dynamic navigation based on active section
+  const getNavigation = () => {
+    switch (activeSection) {
+      case "home":
+        return [
+          { name: "Home", href: "/account/dashboard/institution" },
+          { name: "Glance", href: "/account/dashboard/institution" },
+        ];
+      case "students":
+        return [{ name: "Students", href: "/account/dashboard/institution" }];
+      case "courses":
+        return [
+          { name: "Courses", href: "/account/dashboard/institution" },
+          { name: "My courses", href: "/account/dashboard/institution" },
+        ];
+      case "earnings":
+        return [
+          { name: "Earnings", href: "/account/dashboard/institution" },
+          { name: "Total earnings", href: "/account/dashboard/institution" },
+        ];
+      case "notifications":
+        return [
+          { name: "Notifications", href: "/account/dashboard/institution" },
+          { name: "New students", href: "/account/dashboard/institution" },
+        ];
+      case "support":
+        return [{ name: "Help Center", href: "/account/dashboard/institution" }];
+      default:
+        return [{ name: "Profile", href: "/account/dashboard/institution" }];
+    }
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    console.log("Updated activeSection:", activeSection);
+  }, [activeSection]);
+  const navigation = getNavigation();
 
   return (
-    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
-      {/* Logo */}
-      <button className="flex items-center cursor-pointer">
-        <Image className="w-[100px] h-[40px]" src={Logo} alt="Logo" />
-      </button>
+    <header className="">
+      <div className="flex items-center justify-between pl-4 md:px-24 pr-8 px-3 py-3 sm:px-6 ">
+        <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center ">
+            <Image
+              src={Logo}
+              width={100}
+              height={40}
+              className="w-[100px] h-[40px]"
+              alt="Logo"
+            />
+          </Link>
+        </div>
 
-      <ul className="hidden md:flex justify-center items-center gap-4">
-        {navLinks.map((link, index) => (
-          <Fragment key={link.href}>
-            <li className="cursor-pointer">
-              <NavLink href={link.href}>{link.label}</NavLink>
-            </li>
-            {index < navLinks.length - 1 && (
-              <li className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg" />
-            )}
-          </Fragment>
-        ))}
-      </ul>
-
-      <div className="hidden md:flex items-center flex-col relative">
+        {/* Mobile menu button */}
         <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
-        >
-          CONNECT WALLET
-        </button>
-      </div>
-
-      <div className="flex md:hidden items-center gap-4">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
-        >
-          CONNECT
-        </button>
-        <button
-          onClick={toggleMenu}
-          className="p-2 rounded-lg hover:bg-[#313130] transition-colors"
-          aria-label="Toggle menu"
+          className="lg:hidden text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
-      {isMenuOpen && (
-        <div
-          ref={menuRef}
-          className="absolute top-full right-4 mt-2 w-64 rounded-lg bg-[#101110] border border-[#313130] shadow-lg md:hidden"
-        >
-          <div className="px-6 py-4 border-b border-[#313130]">
-            <h3 className="text-sm font-semibold text-white">SELECT PAGE</h3>
-          </div>
-          <div className="py-2">
-            {navLinks.map((link) => (
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center justify-center gap-4">
+          {navigation.map((item, index) => (
+            <div key={item.name} className="flex items-center">
+              {index > 0 && (
+                <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+              )}
               <Link
-                key={link.href}
-                href={link.href}
-                className="flex items-center px-6 py-3 hover:bg-[#313130] transition-colors text-[#FCFCFC] text-sm"
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium",
+                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
+                )}
+              >
+                {item.name}
+              </Link>
+            </div>
+          ))}
+        </nav>
+
+        <div className="hidden lg:flex items-center gap-4">
+          <Image
+            src={Notification}
+            width={20}
+            height={20}
+            className="text-white"
+            alt="Notification"
+          />
+
+          <div className="relative max-w-sm flex items-center">
+            <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-5 w-5 text-[#ABABAB] pointer-events-none" />
+            <input
+              type="search"
+              placeholder="Search..."
+              className="pl-8 py-2 bg-transparent text-[#ABABAB] border border-[#1F1F1F] outline-none placeholder:italic rounded-lg w-[200px] lg:w-[277px]"
+            />
+          </div>
+          <div className="flex cursor-pointer items-center gap-2 bg-none border border-[#1F1F1F] p-2 rounded-lg hover:bg-[#FFFFFF1A]">
+            <Pencil size={14} color="#F3F5FF" />
+            <Button className={"text-sm text-[#F3F5FF]"}>Create Courses</Button>
+          </div>
+
+          <div className="flex items-center gap-2 hover:bg-[#FFFFFF1A]  bg-[#161716] p-2 rounded-lg">
+            <Image
+              src={Avatar}
+              width={25}
+              height={25}
+              className="rounded-full"
+              alt="Avatar"
+            />
+            <span className="text-sm text-[#F3F5FF]">
+              osatuyipikin.braavos.eth
+            </span>
+            <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="lg:hidden mt-4 px-4 sm:px-6">
+          <nav className="flex flex-col gap-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium py-2",
+                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
+                )}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {link.label}
+                {item.name}
               </Link>
             ))}
+          </nav>
+          <div className="mt-4 flex flex-col gap-4">
+            <div className="relative">
+              <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-5 w-5 text-[#ABABAB] placeholder:italic pointer-events-none" />
+              <input
+                type="search"
+                placeholder="Search..."
+                className="w-full pl-8 py-2 bg-transparent text-[#ABABAB] border border-[#1F1F1F] outline-none placeholder:font rounded-lg"
+              />
+            </div>
+            <div className="flex items-center justify-between bg-[#161716] p-2 rounded-lg">
+              <div className="flex items-center gap-2">
+                <Image
+                  src={Avatar}
+                  width={25}
+                  height={25}
+                  className="rounded-full"
+                  alt="Avatar"
+                />
+                <span className="text-sm text-[#F3F5FF]">
+                  osatuyipikin.braavos.eth
+                </span>
+              </div>
+              <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
+            </div>
           </div>
         </div>
       )}
-      {isModalVisible && (
-        <div className="absolute top-full left-0 right-3 md:right-10 md:left-auto px-4 mt-2 z-10">
-          <WalletSelectorUI />
-        </div>
-      )}
-    </nav>
+    </header>
   );
 }
+
+export default Header;

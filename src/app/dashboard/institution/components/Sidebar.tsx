@@ -69,10 +69,13 @@ function Sidebar() {
           </Link>
         ))}
       </div>
-      <button className="flex items-center gap-x-[10px] py-2 px-3">
-        <Settings />
-        Settings
-      </button>
+      <Link href="/dashboard/institution/settings">
+  <button className="flex items-center gap-x-[10px] py-2 px-3 w-full text-left">
+    <Settings />
+    <span>Settings</span>
+  </button>
+</Link>
+
     </div>
   );
 }
