@@ -1,6 +1,6 @@
 import profilePic from "@/public/img/dashboardProfile.svg";
 import profileCopy from "@/public/img/copy.png";
-import TutorCourse from "@/public/img/tutorcourse.png";
+import TutorCourse from "@/public/img/image.png";
 import TutorReview from "@/public/img/tutorreview.png";
 
 import Image from "next/image";
