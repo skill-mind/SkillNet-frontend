@@ -1,7 +1,21 @@
+import { Metadata } from "next";
 import Footer from "@/components/Footer";
 import InformationCard from "@/components/InformationCard";
 import Navbar from "@/components/Navbar";
 import { featureCard } from "../utils/data";
+
+
+export const metadata: Metadata = {
+  title: "Code of Ethics",
+  description:
+    "Learn about SkillNet, a decentralized platform for job seekers and employers.",
+  keywords: [
+    "SkillNet",
+    "decentralized jobs",
+    "blockchain certification",
+    "secure exams",
+  ],
+};
 
 export default function CodeOfEthics() {
   return (
