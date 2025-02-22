@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import IssuedCertificates from "../components/IssuedCertificates";
 import VerifyCertificates from "../components/VerifyCertificates";
 
-const certifications = () => {
+const Certifications = () => {
    //current tabs on the pages
    const tabs = [
     {
@@ -53,4 +53,4 @@ const certifications = () => {
   )
 }
 
-export default certifications
+export default Certifications
