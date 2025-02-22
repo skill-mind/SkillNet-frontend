@@ -21,7 +21,7 @@ export default function VerificationPage() {
     setLoading(true)
     setResult(null)
 
-    // Simulate verification process
+    // Simulate verification process.
     setTimeout(() => {
       setResult({ verified: true })
       setLoading(false)
@@ -36,7 +36,7 @@ export default function VerificationPage() {
           <h2 className="text-lg font-normal text-gray-200">Certificate Lookup</h2>
         </div>
 
-        {/* Input Field */}
+        {/* Input Field for verification */}
         <div className="space-y-2">
           <label className="text-sm font-normal text-gray-200">Enter Unique Code</label>
           <input
