@@ -24,7 +24,7 @@ const CreateCourseModal: React.FC<CreateCourseModalProps> = ({
 
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="text-[14px] font-normal text-[#9596A0] leading-[24px]">
+            <label className="text-[14px] font-normal text-[#9596A0] leading-[26px]">
               Course title*
             </label>
             <input
