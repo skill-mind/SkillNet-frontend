@@ -13,7 +13,7 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { useState } from "react"; 
 import ApplicationModal from "../components/ApplicationForm";
 import { useParams } from 'next/navigation';
-import { Job } from '../components/RecentTabBox';
+import { sampleJobs } from '../components/RecentTabBox';
 
 export default function JobSeekerOverview() {
 

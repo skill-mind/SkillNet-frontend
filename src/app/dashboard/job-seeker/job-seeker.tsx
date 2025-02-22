@@ -35,7 +35,7 @@ const JobSeeker: React.FC = () => {
       case "recent":
         return (
           <div className="space-y-4">
-            <RecentTab onSaveJob={handleSaveJob} onJobClick={handleJobClick}  />
+            <RecentTab onSaveJob={handleSaveJob} onJobClick={handleJobClick} />
           </div>
         );
       case "saved":

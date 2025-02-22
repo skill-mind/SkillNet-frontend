@@ -43,7 +43,7 @@ function Messages() {
   );
 
   return (
-    <div className="bg-[#101110] mt-0 px-4 sm:px-8 lg:px-[100px] flex w-full h-[86vh]">
+    <div className="bg-[#101110] mt-0 px-4 sm:px-8 lg:px-[100px] flex w-full h-[85vh]">
       <div className="flex w-full h-full">
         {/* Side Nav containing messages */}
         <div
@@ -55,7 +55,7 @@ function Messages() {
           }}
         >
           <div className="flex flex-col space-y-6">
-            <div className="sticky pr-5 top-0 left-0 bg-[#101110]  h-[142px] z-10">
+            <div className="sticky pr-5 top-0 left-0 bg-[#101110] h-[142px] z-10">
               <div className="flex items-center justify-between">
                 <h4 className="text-2xl font-semibold mb-2">Messages</h4>
                 <EllipsisVertical color="#9596A0" />
@@ -120,82 +120,69 @@ function Messages() {
             </div>
           </div>
 
-          <div className="flex flex-col h-[520px]">
-          {/* Chat container */}
-          <div 
-            className="flex-1 overflow-y-auto p-4 scrollbar-hide"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
-            }}
-          >
-            {/* Message container - pushing content to bottom */}
-            <div className="flex flex-col justify-end min-h-full">
-              {/* Individual message */}
-              <div className="flex justify-end p-4">
-                <div className="bg-[#1e1e1e] flex p-4 rounded-md">
-                  <p className="text-base text-[#bbb]">
-                    Gm Gm, Satoshi. I have been following your teachings and it&apos;s been really helpful to me. I do have a thing to suggest regarding one of your programs.
-                  </p>
-                  <div className="flex justify-end space-x-2">
-                    <small className="text-[#888] flex gap-2 w-fit whitespace-nowrap items-end">
-                      12:43 AM
-                      <CheckCheck color="#888" size={18} />
-                    </small>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-end p-4">
-                <div className="bg-[#1e1e1e] flex p-4 rounded-md">
-                    <p className="text-base text-[#bbb] mr-2">
-                      Oh that&apos;s awesome. I&apos;m glad my resources have been helpful, and I&apos;m open to helpful suggestions.
-                    </p>
-                    <div className="flex justify-end space-x-2">
-                      <small className="text-[#888] flex gap-2 w-fit whitespace-nowrap items-end">
-                        12:43 AM
-                        <CheckCheck color="#888" size={18} />
-                      </small>
+          <div className="relative flex flex-col h-[560px]">
+              {/* Static Background */}
+              <div className="absolute inset-0"></div>
+              {/* Scrollable Chat Container */}
+              <div 
+                className="relative flex-1 overflow-y-auto scrollbar-hide"
+                style={{
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none'
+                }}
+              >
+                {/* Message Container */}
+                <div className="flex flex-col justify-end min-h-full">
+                  <div className="flex justify-end w-full p-4">
+                    <div className="bg-[#1e1e1e] p-4 rounded-md">
+                      <p className="text-base text-[#bbb] mr-20 leading-[28px] tracking-wider">
+                        Gm Gm, Satoshi. I have been following your teachings and it&apos;s been really helpful to me. I do have a thing to suggest regarding one of your programs.
+                      </p>
+                      <div className="flex justify-end items-center space-x-2 mt-2">
+                        <small className="text-[#888]">12:43 AM</small>
+                        <CheckCheck color="white" size={18} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              {/* Repeat message for demonstration */}
-              {Array(15).fill(null).map((_, i) => (
-                <div key={i} className="flex justify-end p-4">
-                  <div className="bg-[#1e1e1e] p-4 rounded-md max-w-2xl">
-                    <p className="text-base text-[#bbb] mr-20">
-                      Gm Gm, Satoshi. I have been following your teachings and it&apos;s been really helpful to me. I do have a thing to suggest regarding one of your programs.
-                    </p>
-                    <div className="flex justify-end items-center space-x-2 mt-2">
-                      <small className="text-[#888]">12:43 AM</small>
-                      <CheckCheck color="white" size={18} />
+
+                  {/* duplicated messages for demonstration */}
+                  {Array(10).fill(null).map((_, i) => (
+                    <div key={i} className="flex justify-end w-full p-4">
+                      <div className="bg-[#1e1e1e] p-4 rounded-md">
+                        <p className="text-base text-[#bbb] mr-20 leading-[28px] tracking-wider">
+                        Oh that&apos;s awesome. I&apos;m glad my resources have been helpful and I&apos;m open to helpful suggestions.
+                        </p>
+                        <div className="flex justify-end items-center space-x-2 mt-2">
+                          <small className="text-[#888]">12:43 AM</small>
+                          <CheckCheck color="white" size={18} />
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="p-4 flex items-center space-x-4">
-            <div className="p-1 pl-4 pr-4 flex items-center space-x-4 border-[#252625] border rounded-[0.5em] w-full">
-              <div className="flex space-x-4">
-                <Mic size={24} color="#555" className="cursor-pointer" />
-                <Smile size={24} color="#555" className="cursor-pointer" />
               </div>
+            {/* </div> */}
 
-              <input
-                type="text"
-                placeholder="Type a message"
-                className="flex-grow p-2 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] focus:outline-none focus:border-[#555]"
-              />
+            {/* Input Box */}
+            <div className="relative p-4 flex items-center space-x-4 z-10">
+              <div className="p-1 pl-4 pr-4 flex items-center space-x-4 border-[#252625] border rounded-[0.5em] w-full">
+                <div className="flex space-x-4">
+                  <Mic size={24} color="#555" className="cursor-pointer" />
+                  <Smile size={24} color="#555" className="cursor-pointer" />
+                </div>
 
-              <Send
-                size={34}
-                color="black"
-                className="cursor-pointer  bg-[#a9c789] hover:bg-[#3a3a3a] hover:text-white p-2 rounded-full transition-colors duration-200 ease-in-out"
-              />
+                <input
+                  type="text"
+                  placeholder="Type a message"
+                  className="flex-grow p-2 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] focus:outline-none focus:border-[#555]"
+                />
+
+                <Send
+                  size={34}
+                  color="black"
+                  className="cursor-pointer bg-[#a9c789] hover:bg-[#3a3a3a] hover:text-white p-2 rounded-full transition-colors duration-200 ease-in-out"
+                />
+              </div>
             </div>
           </div>
         </div>
