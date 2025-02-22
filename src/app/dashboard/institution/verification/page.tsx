@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { X, Check } from "lucide-react"
+import {  Check, X } from "lucide-react"
 import { JetBrains_Mono } from "next/font/google"
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] })
@@ -21,7 +21,7 @@ export default function VerificationPage() {
     setLoading(true)
     setResult(null)
 
-    // Simulate verification process.
+    // Simulate verification process
     setTimeout(() => {
       setResult({ verified: true })
       setLoading(false)
@@ -36,7 +36,7 @@ export default function VerificationPage() {
           <h2 className="text-lg font-normal text-gray-200">Certificate Lookup</h2>
         </div>
 
-        {/* Input Field for verification */}
+        {/* Input Field */}
         <div className="space-y-2">
           <label className="text-sm font-normal text-gray-200">Enter Unique Code</label>
           <input
@@ -44,7 +44,7 @@ export default function VerificationPage() {
             placeholder="# + 12453ynuffjfp889wdfjnkknsk"
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            className={w-full rounded-md border border-[#2a2a2a] bg-[#0d0d0d] px-3 py-2 text-sm text-gray-200 placeholder-gray-600 focus:border-[#3a3a3a] focus:outline-none ${jetBrainsMono.className}}
+            className={`${jetBrainsMono.className} w-full rounded-md border border-[#2a2a2a] bg-[#0d0d0d] px-3 py-2 text-sm text-gray-200 placeholder-gray-600 focus:border-[#3a3a3a] focus:outline-none`}
           />
         </div>
 
@@ -58,12 +58,8 @@ export default function VerificationPage() {
             >
               {loading ? (
                 "..."
-              ) : code.trim() ? (
-                <Check className="h-6 w-6 text-white" />
               ) : (
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-500/30"> {/* Opacity added */}
-                  <X className="h-6 w-6 text-gray-500" />
-                </div>
+                <X className="h-6 w-6 text-gray-400" />
               )}
             </button>
           </div>
