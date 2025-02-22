@@ -47,15 +47,15 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="p-6 w-[290px] bg-[#161716] flex flex-col h-full">
-      <div className="border border-[#2F302F] px-3 py-2 flex justify-between items-center rounded-lg">
-        <div className="flex items-center gap-x-[10px]">
-          <Image src={avatar} className="w-[30px] h-[30px]" alt="" />
-          <span className="text-sm text-[#FCFCFC]">SkillNet Org</span>
+    <div className='p-6 w-[290px] bg-[#161716] flex flex-col h-full'>
+      <div className='border border-[#2F302F] px-3 py-2 flex justify-between items-center rounded-lg'>
+        <div className='flex items-center gap-x-[10px]'>
+          <Image src={avatar} className='w-[30px] h-[30px]' alt='' />
+          <span className='text-sm text-[#FCFCFC]'>SkillNet Org</span>
         </div>
         <ChevronDown />
       </div>
-      <div className="flex flex-1 flex-col gap-y-[10px] w-full mt-[10px]">
+      <div className='flex flex-1 flex-col gap-y-[10px] w-full mt-[10px]'>
         {routes.map((route) => (
           <Link
             href={`/dashboard/institution/${route.to}`}
@@ -69,7 +69,7 @@ function Sidebar() {
           </Link>
         ))}
       </div>
-      <button className="flex items-center gap-x-[10px] py-2 px-3">
+      <button className='flex items-center gap-x-[10px] py-2 px-3'>
         <Settings />
         Settings
       </button>
