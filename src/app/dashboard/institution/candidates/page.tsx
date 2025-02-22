@@ -1,26 +1,28 @@
 "use client";
 import React, { useState } from "react";
 import NewCandidates from "./Components/NewCandidates";
+import PastCandidates from "./Components/PastCandidates";
+import VerifiedCandidates from "./Components/VerifiedCandidates";
 
-const Candidates = () => {
+const tabs = [
+  { id: "new_candidates", label: "New candidates" },
+  { id: "past_candidates", label: "Past candidates" },
+  { id: "verified_candidates", label: "Verified candidates" },
+] as const;
+
+type TabType = (typeof tabs)[number]["id"];
+
+const CandidatesTabs = () => {
   const [activeTab, setActiveTab] = useState<TabType>("new_candidates");
-
-  const tabs = [
-    { id: "new_candidates", label: "New candidates" },
-    { id: "past_candidates", label: "Past candidates" },
-    { id: "verified_candidates", label: "Verified candidates" },
-  ] as const;
-
-  type TabType = (typeof tabs)[number]["id"];
 
   const renderComponent = () => {
     switch (activeTab) {
       case "new_candidates":
         return <NewCandidates />;
-      // case "past_candidates":
-      //   return <Past candidates />;
-      // case "verified_candidates":
-      //   return <Verified candidates />;
+      case "past_candidates":
+        return <PastCandidates />;
+      case "verified_candidates":
+        return <VerifiedCandidates />;
       default:
         return null;
     }
@@ -33,8 +35,10 @@ const Candidates = () => {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-5 py-3 rounded-md border border-neutral-900 cursor-pointer transition-all ${
-              activeTab === tab.id ? "bg-neutral-800" : "hover:bg-neutral-800"
+            className={`px-5 py-3 rounded-md border border-neutral-900 text-white cursor-pointer transition-all ${
+              activeTab === tab.id 
+                ? "bg-neutral-800" 
+                : "hover:bg-neutral-800"
             }`}
           >
             {tab.label}
@@ -48,4 +52,4 @@ const Candidates = () => {
   );
 };
 
-export default Candidates;
+export default CandidatesTabs;

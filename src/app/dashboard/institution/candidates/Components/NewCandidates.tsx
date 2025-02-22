@@ -9,7 +9,7 @@ interface CandidateData {
   status: "Eligible" | "Unverified";
 }
 
-const pastCandidates = () => {
+const NewCandidates = () => {
   const data: CandidateData[] = [
     {
       sn: 1,
@@ -68,4 +68,4 @@ const pastCandidates = () => {
   );
 };
 
-export default pastCandidates;
+export default NewCandidates;
