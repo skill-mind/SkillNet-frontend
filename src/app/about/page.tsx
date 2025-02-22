@@ -41,7 +41,7 @@ export default function About() {
           </h4>
           <p className="w-full max-w-[934px] text-center text-sm md:text-lg leading-6 text-[#ABABAB]">
             To create a next-generation platform that connects job seekers with
-            employers, while offering a transparent, decentralised education and
+            employer&s, while offering a transparent, decentralised education and
             exam system, with certificates and exam results verified on the
             blockchain.
           </p>
