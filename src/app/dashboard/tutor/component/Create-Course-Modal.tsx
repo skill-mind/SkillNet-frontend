@@ -1,6 +1,5 @@
 // components/CreateCourseModal.js
-import { useState } from "react";
-import { PlusIcon } from "lucide-react";
+
 
 interface CreateCourseModalProps {
   isOpen: boolean;
