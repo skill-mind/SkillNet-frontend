@@ -38,7 +38,7 @@ const AccountTypeSelector: React.FC<{ typeHandle:(e:string)=>void }> = ({ typeHa
 
   useEffect(() => {
     typeHandle(selectedType);
-  }, [selectedType]);
+  }, [selectedType, typeHandle]);
   return (
     <Card className="max-w-md p-6 bg-gray-900 text-white mx-auto">
       <div className="space-y-6">
