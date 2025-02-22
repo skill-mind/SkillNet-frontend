@@ -2,18 +2,8 @@
 import React, { useState } from "react";
 import NewCandidates from "./Components/NewCandidates";
 
-type TabLabel = "New candidates" | "Past candidates" | "Verified candidates";
-
-interface CandidateData {
-  sn: number;
-  address: string;
-  date: string;
-  certification: string;
-  status: "Eligible" | "Unverified";
-}
-
 const Candidates = () => {
-  const [activeTab, setActiveTab] = useState("new_candidates");
+  const [activeTab, setActiveTab] = useState<TabType>("new_candidates");
 
   const tabs = [
     { id: "new_candidates", label: "New candidates" },
