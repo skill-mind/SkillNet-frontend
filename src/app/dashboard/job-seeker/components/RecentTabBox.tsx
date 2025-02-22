@@ -4,6 +4,7 @@ import React from "react";
 
 // This interface can be moved to a shared types file
 export interface Job {
+  id: string;
   title: string;
   company: string;
   location: string;
@@ -17,6 +18,7 @@ export interface Job {
 
 interface RecentTabBoxProps {
   onSaveJob: (job: Job) => void;
+  onJobClick: (jobId: string) => void;
 }
 
 const ClockIcon = () => (
@@ -76,11 +78,12 @@ const SaveIcon = () => (
 );
 
 
-const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({
+const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void; onJobClick: (jobId: string) => void;}> = ({
   job,
   onSaveJob,
+  onJobClick,
 }) => (
-  <div className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg">
+  <div className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg" onClick={() => onJobClick(job.id)}>
     <div className="flex justify-between items-start mb-2">
       <div>
         <h3 className="text-[24px] font-semibold text-white my-1 mb-3">
@@ -126,9 +129,10 @@ const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void }> = ({
   </div>
 );
 
-const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob }) => {
+const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob, onJobClick }) => {
   const sampleJobs: Job[] = [
     {
+      id: '1',
       title: "Full Stack Developer",
       company: "SkillNet Incorporated",
       location: "Lagos, Nigeria",
@@ -141,6 +145,7 @@ const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob }) => {
       postedTime: "12 hours ago",
     },
     {
+      id: '2',
       title: "Full Stack Developer",
       company: "SkillNet Incorporated",
       location: "Lagos, Nigeria",
@@ -153,6 +158,7 @@ const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob }) => {
       postedTime: "12 hours ago",
     },
     {
+      id: '3',
       title: "Full Stack Developer",
       company: "SkillNet Incorporated",
       location: "Lagos, Nigeria",
@@ -168,7 +174,7 @@ const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob }) => {
   return (
     <div>
       {sampleJobs.map((job, index) => (
-        <JobCard key={index} job={job} onSaveJob={onSaveJob} />
+        <JobCard key={index} job={job} onSaveJob={onSaveJob} onJobClick={onJobClick} />
       ))}
     </div>
   );

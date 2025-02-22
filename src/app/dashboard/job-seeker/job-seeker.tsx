@@ -5,10 +5,12 @@ import RecentTab from "./components/RecentTab";
 import SavedTab from "./components/SavedTab";
 import ApplicationTab from "./components/ApplicationTabs";
 import { Job } from "./components/RecentTabBox";
+import { useRouter } from 'next/navigation';
 
 type TabType = "recent" | "saved" | "applications";
 
 const JobSeeker: React.FC = () => {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>("recent");
   const [savedJobs, setSavedJobs] = useState<Job[]>([]);
 
@@ -16,6 +18,10 @@ const JobSeeker: React.FC = () => {
     if (!savedJobs.some((saved) => saved.title === job.title)) {
       setSavedJobs((prev) => [...prev, job]);
     }
+  };
+
+  const handleJobClick = (jobId: string) => {
+    router.push(`/job-seeker/${jobId}`);
   };
 
   const tabs = [
@@ -29,7 +35,7 @@ const JobSeeker: React.FC = () => {
       case "recent":
         return (
           <div className="space-y-4">
-            <RecentTab onSaveJob={handleSaveJob} />
+            <RecentTab onSaveJob={handleSaveJob} onJobClick={handleJobClick}  />
           </div>
         );
       case "saved":

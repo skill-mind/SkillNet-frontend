@@ -1,5 +1,5 @@
 import NavbarJobSeeker from "@/components/Navbar-job-seeker";
-import JobSeekerOverview from "./job-overview";
+import JobSeekerOverview from "../[id]/job-overview";
 import Footer from "@/components/Footer";
 
 function page() {

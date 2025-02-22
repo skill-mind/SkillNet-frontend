@@ -1,5 +1,5 @@
 import Messages from "@/app/dashboard/messages/components/messages";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import NavbarJobSeeker from "@/components/Navbar-job-seeker";
 
 function page(){
@@ -7,7 +7,7 @@ function page(){
         <div>
            <NavbarJobSeeker />
                 <Messages />
-           <Footer />
+           {/* <Footer /> */}
         </div>
     );
 }

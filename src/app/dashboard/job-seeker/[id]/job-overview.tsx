@@ -12,9 +12,13 @@ import {
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { useState } from "react"; 
 import ApplicationModal from "../components/ApplicationForm";
+import { useParams } from 'next/navigation';
+import { Job } from '../components/RecentTabBox';
 
 export default function JobSeekerOverview() {
 
+  const params = useParams();
+  const jobId = params.id as string;
   const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const toggleModal = () => {
@@ -22,15 +26,18 @@ export default function JobSeekerOverview() {
   };
 
   const jobDetails = {
+    id: jobId,
     title: "Quality Assurance Manager",
     company: "SkillNet Incorporated",
     location: "Lagos, Nigeria",
+    workMode: "Remote", 
     type: "Remote",
     posted: "Posted 5 days ago",
     salary: "250,000 - $300,000 per year",
     jobType: "Full-time",
     level: "Senior Level",
     deadline: "Deadline: 21st January, 2025",
+    description: "" 
   };
 
   return (

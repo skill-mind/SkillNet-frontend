@@ -30,7 +30,7 @@ function Input({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="bg-transparent outline-none border-[#252625] text-white text-[0.75rem] w-full md:w-[20rem] pl-10 pr-4 py-[0.5rem] rounded-[0.5rem]" // Reduced size for input
+          className="bg-transparent outline-none border-[#252625] text-white w-full h-[48px] md:w-[20rem] pl-10 pr-4 py-[0.5rem] rounded-[0.5rem] placeholder:text-sans placeholder:text-[#696969] placeholder:text-[14px] placeholder:italic" // Reduced size for input
         />
       </div>
     </div>
