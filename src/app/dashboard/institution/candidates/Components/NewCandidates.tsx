@@ -40,23 +40,23 @@ const pastCandidates = () => {
 
         {data.map((row) => (
           <React.Fragment key={row.sn}>
-            <div className="text-gray-400 border-b border-[#31283A] p-3">
+            <div className="text-sm font-medium text-gray-400 border-b border-[#31283A] p-3">
               {row.sn}
             </div>
-            <div className="text-gray-400 border-b border-[#31283A] p-3">
+            <div className="text-sm font-medium text-gray-400 border-b border-[#31283A] p-3">
               {row.address}
             </div>
-            <div className="text-gray-400 border-b border-[#31283A] p-3">
+            <div className="text-sm font-medium text-gray-400 border-b border-[#31283A] p-3">
               {row.date}
             </div>
-            <div className="text-gray-400 border-b border-[#31283A] p-3">
+            <div className="text-sm font-medium text-gray-400 border-b border-[#31283A] p-3">
               {row.certification}
             </div>
             <div
               className={`${
                 row.status === "Eligible"
-                  ? "text-gray-400 border-b border-[#31283A] p-3"
-                  : "text-gray-600 border-b border-[#31283A] p-3"
+                  ? "text-sm font-medium text-gray-400 border-b border-[#31283A] p-3"
+                  : "text-sm font-medium text-gray-600 border-b border-[#31283A] p-3"
               }`}
             >
               {row.status}
