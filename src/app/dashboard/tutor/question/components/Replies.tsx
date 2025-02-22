@@ -9,7 +9,7 @@ import {MessageIn, Messageout} from "./MessageContainer";
 
 const Replies = () => {
    return (
-      <div className=" flex-grow max-h-[619px] px-[24px] relative flex flex-col justify-between">
+      <div className=" flex-grow h-[619px] px-[24px] relative flex flex-col justify-between">
          <Header />
          <div className="h-[471px] flex flex-col justify-end">
             <section className="flex flex-col gap-6 mx-auto mb-4">
