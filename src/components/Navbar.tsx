@@ -48,6 +48,8 @@ export default function Navbar({
     { href: routes.home, label: "Home" },
     { href: routes.about, label: "About" },
     { href: routes.helpDesk, label: "Help" },
+    { href: routes.faqs, label: "FAQs" },
+    { href: routes.exam, label: "Exam" },
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
