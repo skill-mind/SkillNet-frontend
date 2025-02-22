@@ -1,5 +1,4 @@
-'use client'
-
+import { Metadata } from "next";
 import Link from "next/link";
 import design from "@/public/design.svg";
 import Image from "next/image";
@@ -8,37 +7,45 @@ import Navbar from "@/components/Navbar";
 import { tips } from "../utils/data";
 import InformationCard from "@/components/InformationCard";
 
+export const metadata: Metadata = {
+  title: "Help Desk",
+  description:
+    "Learn about SkillNet, a decentralized platform for job seekers and employers.",
+  keywords: [
+    "SkillNet",
+    "decentralized jobs",
+    "blockchain certification",
+    "secure exams",
+  ],
+};
 
 export default function page() {
- 
   return (
     <>
       <Navbar />
       <div className={` pt-[160px]`}>
         <Image
-          className="absolute -top-[50px]  left-10 -z-10"
+          className="absolute -top-[50px] left-0 sm:left-5 md:left-10 -z-10 w-[90%] sm:w-auto max-w-full object-contain"
           src={design}
           alt="design"
           width={900}
           height={500}
+          priority
         />
         <div
           id="helpDesk"
-          className={` w-full font-sans text-white h-full   font-light space-y-24 text-[16px]pt-5 pb-10`}
+          className={` w-full font-sans text-white h-full   font-light space-y-24 text-[16px] pt-5 pb-10`}
         >
           <div className="flex pt-10 justify-center">
             <div className=" space-y-5 w-full  flex flex-col justify-center items-center">
               <h1 className="text-2xl font-sans font-bold text-white/90 md:text-4xl ">
                 WE&#39;RE HERE TO HELP
               </h1>
-              <p className="text-center text-[#898783] text-lg sm:text-xl leading-5">
-                Having any troubles? If our{" "}
-                {/* <Link className="text-[#C33BEC] font-bold" href={"/"}> */}
-                FAQ section
-                {/* </Link>{" "} */}
-                didn’t provide the solution you’re looking for, please submit a
-                support ticket. <br /> Our team is here to assist you and will
-                respond within 48 business hours.
+              <p className="text-center px-4  text-[#898783] text-sm sm:text-base md:text-xl leading-5">
+                Having any troubles? If our FAQ section didn&#39;t provide the
+                solution you&#39;re looking for, please submit a support ticket
+                <br /> Our team is here to assist you and will respond within 48
+                business hours.
               </p>
               <Link href="/submit-ticket">
                 <button
@@ -56,7 +63,7 @@ export default function page() {
             >
               Tips for Submitting a Support Ticket
             </h1>
-            <div className="flex w-fit flex-grow-1 justify-center gap-8 px-10 flex-wrap">
+            <div className="flex w-fit justify-center gap-4 sm:gap-6 md:gap-8 px-6 sm:px-10 flex-wrap">
               {tips.map((quality, index) => (
                 <InformationCard
                   title={quality.title}

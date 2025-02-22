@@ -1,7 +1,22 @@
+import { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React from "react";
 import { privacy } from "../utils/data";
+
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Learn about SkillNet, a decentralized platform for job seekers and employers.",
+  keywords: [
+    "SkillNet",
+    "decentralized jobs",
+    "blockchain certification",
+    "secure exams",
+  ],
+};
+
 
 const page = () => {
   return (
@@ -9,7 +24,7 @@ const page = () => {
       <Navbar />
 
       <section className="">
-        <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
+        <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-1 lg:mt-5 ">
           <h1 className="text-[40px] text-center font-bold uppercase leading-tight h-12 w-full md:w-[331px] mt-20 ">
             PRIVACY POLICY
           </h1>
