@@ -52,7 +52,7 @@ const NotificationsContainer = () => {
   ];
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen px-[1em]">
       {notifications.map((notification) => (
         <div
           key={notification.id}

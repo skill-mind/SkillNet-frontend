@@ -19,7 +19,7 @@ const NavItem = ({ label, href }: NavItemProps) => {
         transition-all duration-300 ease-in-out
         ${isActive 
           ? 'bg-zinc-800 text-white ' 
-          : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white border-zinc-800/20 border'
+          : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white border-zinc-800/50 border'
         }
       `}
     >
@@ -36,7 +36,7 @@ const TopNavigation = () => {
   ];
 
   return (
-    <nav className="flex gap-4 p-4 bg-none">
+    <nav className="flex gap-4 p-4 bg-black px-[2em]">
       {navItems.map((item) => (
         <NavItem
           key={item.href}
