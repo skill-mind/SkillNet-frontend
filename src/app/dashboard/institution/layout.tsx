@@ -1,10 +1,10 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "./components/header";
 import Sidebar from "./components/Sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <main className="grow pt-[100px] h-[100vh]">
+      <main className="grow  h-[100vh]">
         <Navbar />
         <div className="flex h-full">
           <Sidebar />
