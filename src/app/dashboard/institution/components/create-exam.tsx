@@ -9,7 +9,7 @@ interface Question {
   answer: string;
 }
 
-function CreateExamModel() {
+function CreateExamModel({ onClose }: CreateExamModelProps) {
   const [items, setItems] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [certification, setCertification] = useState<string>("Yes");
@@ -87,6 +87,9 @@ function CreateExamModel() {
   return (
     <div className="w-full h-auto flex bg-inherit absolute left-0 transition-all duration-300 flex-col p-5">
       <div className="flex flex-col gap-10">
+        <div className="sticky flex justify-end top-5 right-5">
+      <button className=" border w-fit rounded-full p-0.5" onClick={onClose}><X size={14} color="white" /></button>
+     </div>
         <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
           <div className="md:flex w-full space-y-5 md:space-y-0 gap-4">
             <div className="flex flex-col w-full md:w-[60%] gap-[20px]">
