@@ -1,8 +1,23 @@
 "use client";
-import React from "react";
 
-const VerifiedCandidates = () => {
-  return <div>Verified candidates</div>;
+import React, { useState } from "react";
+
+const VerifiedCandidates: React.FC = () => {
+  const [verifyAddress, setVerifyAddress] = useState<string>("#");
+
+  return (
+    <div className="mt-10 px-5">
+      <label className="block font-medium text-[#9596A0]">Enter Address</label>
+      <input
+        type="text"
+        value={verifyAddress}
+        onChange={(e) => setVerifyAddress(e.target.value)}
+        placeholder="#"
+        className="w-full mt-2 p-3 border-[#252625] border-2 rounded-xl bg-transparent outline-none"
+      />
+    </div>
+  );
 };
 
 export default VerifiedCandidates;
+
