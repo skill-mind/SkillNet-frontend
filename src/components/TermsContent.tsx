@@ -4,7 +4,7 @@ export function TermsContent() {
 
   return (
     <main className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
-      <h1 className="text-4xl font-bold text-white text-center mt-20 mb-10">
+      <h1 className=" text-3xl lg:text-4xl font-bold text-white text-center mt-20 mb-10">
         TERMS AND CONDITION
       </h1>
       <div className="space-y-12">
