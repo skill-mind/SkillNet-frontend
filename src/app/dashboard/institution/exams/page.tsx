@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import CreateExamModel from "../components/create-exam";
-import { useState } from "react"; // Import useState
+import { useState } from "react"; 
 
 interface Exam {
   id: number;
@@ -16,14 +16,14 @@ const exams: Exam[] = [
 ];
 
 const ExamDashboard: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
-  const openModal = () => setIsModalOpen(true); // Function to open the modal
-  const closeModal = () => setIsModalOpen(false); // Function to close the modal
+  const openModal = () => setIsModalOpen(true); 
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="bg-black min-h-screen p-6 text-white flex flex-col relative">
-      {/* Exam Table */}
+     
       <div className="flex-grow overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm">
           <thead>
@@ -62,14 +62,14 @@ const ExamDashboard: React.FC = () => {
           </p>
           <div className="mt-4 flex justify-center">
             <button
-              onClick={openModal} // Open modal on button click
+              onClick={openModal} 
               className="flex items-center justify-center w-[4.5rem] h-[4.5rem] bg-[#2D2E2D] rounded-full"
             >
               <Plus size={16} color="white" />
             </button>
           </div>
           <button
-            onClick={openModal} // Open modal on button click
+            onClick={openModal}
             className="mt-8 bg-[#2D2E2D] px-4 py-2 rounded-md text-[#D6DFFE]"
           >
             + CREATE EXAM
