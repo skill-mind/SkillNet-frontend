@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 const VerifiedCandidates: React.FC = () => {
-  const [verifyAddress, setVerifyAddress] = useState<string>("");
+  const [verifyAddress, setVerifyAddress] = useState<string>("#");
 
   return (
     <div className="mt-10 px-5">
