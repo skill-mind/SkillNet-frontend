@@ -9,6 +9,10 @@ interface Question {
   answer: string;
 }
 
+interface CreateExamModelProps {
+  onClose: () => void;
+}
+
 function CreateExamModel({ onClose }: CreateExamModelProps) {
   const [items, setItems] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
