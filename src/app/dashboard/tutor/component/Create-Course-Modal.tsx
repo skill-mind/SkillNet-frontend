@@ -1,103 +1,444 @@
-// components/CreateCourseModal.js
+"use client";
 
+import { useState } from "react";
+import { X, Pencil } from "lucide-react";
+import { Plus } from "lucide-react";
 
-interface CreateCourseModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+interface Question {
+  title: string;
+  options: string[];
+  answer: string;
 }
 
-const CreateCourseModal: React.FC<CreateCourseModalProps> = ({
-  isOpen,
-  onClose,
-}) => {
+interface CreateCourseModelProps {
+  onClose: () => void;
+  isOpen: boolean;
+}
+
+function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
   if (!isOpen) return null;
+  const [hovered, setHovered] = useState(false);
+  const [items, setItems] = useState<string[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
+  const [certification, setCertification] = useState<string>("Yes");
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [newQuestion, setNewQuestion] = useState<string>("");
+  const [newOptions, setNewOptions] = useState<string[]>(["", "", "", ""]);
+  const [newAnswer, setNewAnswer] = useState<string>("");
+  const [examDuration, setExamDuration] = useState<string>("");
+  const [examName, setExamName] = useState<string>("");
+  const [examDescription, setExamDescription] = useState<string>("");
+  const [examType, setExamType] = useState<string>("SC"); // SC for Single Choice, MC for Multiple Choice
+  const [candidateEligibility, setCandidateEligibility] =
+    useState<string>("SC");
+
+  const handleAddItem = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const newItem: string = `Button ${items.length + 1}`;
+    setItems([...items, newItem]);
+  };
+
+  const handleAddFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const selectedFiles = e.target.files;
+    if (selectedFiles && selectedFiles.length > 0) {
+      const newFiles = Array.from(selectedFiles);
+      setFiles([...files, ...newFiles]);
+    }
+  };
+
+  const handleRemoveFile = (index: number) => {
+    const updatedFiles = files.filter((_, i) => i !== index);
+    setFiles(updatedFiles);
+  };
+
+  const handleCertificationChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setCertification(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //form submission,
+    const formData = {
+      examName,
+      examDescription,
+      examType,
+      candidateEligibility,
+      items,
+      files,
+      certification,
+      examDuration,
+    };
+    console.log(formData);
+  };
+  const handleAddQuestion = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (
+      newQuestion.trim() !== "" &&
+      newAnswer.trim() !== "" &&
+      newOptions.every((option) => option.trim() !== "")
+    ) {
+      const question: Question = {
+        title: newQuestion,
+        options: newOptions,
+        answer: newAnswer,
+      };
+      setQuestions([...questions, question]);
+      setNewQuestion("");
+      setNewOptions(["", "", "", ""]);
+      setNewAnswer("");
+    }
+  };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-60 z-50">
-      <div className="bg-black border border-[#2D2E2D] rounded-[8px] p-6 w-[700px] max-w-full">
-        <div className="flex justify-end  mb-4">
-          <button onClick={onClose} className="text-[#FAFAFA]">
-            ✕
+    <div className="w-full h-auto flex bg-inherit absolute left-0 transition-all duration-300 flex-col p-5">
+      <div className="flex flex-col gap-10">
+        <div className="sticky flex justify-end top-5 right-5">
+          <button
+            className=" border w-fit rounded-full p-0.5"
+            onClick={onClose}
+          >
+            <X size={14} color="white" />
           </button>
         </div>
-
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="text-[14px] font-normal text-[#9596A0] leading-[26px]">
-              Course title*
-            </label>
-            <input
-              type="text"
-              placeholder="Design made simple"
-              className="w-full mt-1 p-2 rounded-[8px] border border-[#2D2E2D] bg-transparent text-[#FAFAFA] text-[14px] font-normal leading-[24px]"
-            />
-          </div>
-
-          <div>
-            <label className="text-[14px] font-normal leading-[24px] text-[#9596A0]">
-              Access*
-            </label>
-            <select className="w-full mt-1 p-2 rounded-[8px] border border-[#2D2E2D] bg-transparent text-[#FAFAFA] text-[14px] font-normal leading-[24px]">
-              <option className="bg-[#9596A0] text-[#FAFAFA]">
-                Paid Course
-              </option>
-              <option className="bg-[#9596A0] text-[#FAFAFA]">
-                Free Course
-              </option>
-            </select>
-          </div>
-
-          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-            <div className="w-full">
-              <label className="text-[14px] font-normal leading-[24px] text-[#9596A0]">
-                Course description
-              </label>
-              <textarea
-                placeholder="Write your cover letter"
-                className="w-full mt-1 p-2 h-[240px] rounded-[8px] border border-[#2D2E2D] bg-transparent text-[#FAFAFA]"
-              />
-            </div>
-
-            <div className="w-full space-y-4">
-              <div>
-                <label className="text-[14px] font-normal leading-[24px] text-[#9596A0]">
-                  Skills you will gain
+        <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
+          <div className="md:flex w-full space-y-5 md:space-y-0 gap-4">
+            <div className="flex flex-col w-full md:w-[60%] gap-[20px]">
+              <div className="flex flex-col w-full">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="examName"
+                >
+                  Course title*
                 </label>
-                <div className="w-full mt-1 p-2 rounded-[8px] border border-[#2D2E2D] bg-transparent flex gap-2">
-                  <button className="bg-black border rounded-[8px] border-[#2D2E2D] text-[#FAFAFA] text-xs px-2 py-1">
-                    Button x
-                  </button>
-                  <button className="bg-black border border-[#2D2E2D]  text-[#FAFAFA] text-xs px-2 py-1 rounded-[8px]">
-                    Add
-                  </button>
+                <input
+                  className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  type="text"
+                  name="examName"
+                  id="examName"
+                  placeholder="Design made simple"
+                  value={examName}
+                  onChange={(e) => setExamName(e.target.value)}
+                />
+              </div>
+              <div className="w-full flex flex-col">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="examDescription"
+                >
+                  Course Description
+                </label>
+                <textarea
+                  id="examDescription"
+                  className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] min-h-[176px] outline-none border-[#252625] text-white text-[0.875rem] w-full md:w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  placeholder="Write your cover letter"
+                  value={examDescription}
+                  onChange={(e) => setExamDescription(e.target.value)}
+                ></textarea>
+              </div>
+            </div>
+            <div className="flex flex-col w-full gap-[24px] md:w-[40%]">
+              <div className="flex w-full flex-col items-stretch">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="candidateEligibility"
+                >
+                  Access*
+                </label>
+                <select
+                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  value={candidateEligibility}
+                  onChange={(e) => setCandidateEligibility(e.target.value)}
+                >
+                  <option className="bg-[#161716]" value="SC">
+                    Paid Course
+                  </option>
+                  <option className="bg-[#161716]" value="MC">
+                    Free Exam
+                  </option>
+                </select>
+              </div>
+              <div>
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="courseCategory"
+                >
+                  Skills you wll gain
+                </label>
+                <div className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.30rem] rounded-[0.5rem]">
+                  <div className="flex flex-row items-center">
+                    {/* Buttons moved to left side with reduced gap */}
+                    <div className="flex flex-row gap-2 mr-3">
+                      <button
+                        onClick={handleAddItem}
+                        className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px]"
+                      >
+                        button x
+                      </button>
+                      <button
+                        onClick={handleAddItem}
+                        className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px]"
+                      >
+                        Add
+                      </button>
+                    </div>
+
+                    {/* Scrollable items container */}
+                    <div
+                      style={{
+                        scrollbarWidth: "none",
+                        msOverflowStyle: "none",
+                      }}
+                      className="overflow-x-scroll flex gap-[8px] flex-grow"
+                    >
+                      {items.map((item, index) => (
+                        <div
+                          key={index}
+                          className="bg-transparent text-white gap-2 flex items-center flex-none px-2 border-[#252625] border rounded-[8px]"
+                        >
+                          {item}
+                          <X size={14} color="white" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div>
-                <label className="text-[14px] font-normal leading-[24px] text-[#9596A0]">
+              <div className="flex w-full flex-col gap-[5px] items-stretch">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="certification"
+                >
                   Certification*
                 </label>
-                <select className="w-full mt-1 p-2 rounded-[8px] border border-[#2D2E2D] bg-transparent text-[#FAFAFA]">
-                  <option className="bg-[#9596A0] text-[#FAFAFA] text-[14px] font-normal leading-[24px]">
+                <select
+                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  value={certification}
+                  onChange={handleCertificationChange}
+                >
+                  <option className="bg-[#161716]" value="Yes">
                     Yes
                   </option>
-                  <option className="bg-[#9596A0] text-[#FAFAFA] text-[14px] font-normal leading-[24px]">
+                  <option className="bg-[#161716]" value="No">
                     No
                   </option>
                 </select>
+                {certification === "Yes" && (
+                  <div className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.30rem] mt-2 rounded-[0.5rem]">
+                    <div className="flex flex-row gap-5">
+                      <div
+                        style={{
+                          scrollbarWidth: "none",
+                          msOverflowStyle: "none",
+                        }}
+                        className="overflow-x-scroll flex gap-[8px]"
+                      >
+                        {files.map((file, index) => (
+                          <div
+                            key={index}
+                            className="bg-transparent text-white px-2 flex flex-none border-[#252625] border rounded-[8px] items-center gap-2"
+                          >
+                            {file.name}
+                            <button onClick={() => handleRemoveFile(index)}>
+                              <X size={14} color="white" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                      <input
+                        type="file"
+                        id="fileInput"
+                        className="hidden"
+                        onChange={handleAddFile}
+                        multiple
+                      />
+                      <label
+                        htmlFor="fileInput"
+                        className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px] flex items-center gap-1 cursor-pointer"
+                      >
+                        Add file <X size={16} color="white" />
+                      </label>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </form>
 
-                <div className="w-full mt-2 p-2 rounded-[8px] border border-[#2D2E2D] bg-transparent flex items-center justify-between">
-                  <button className="bg-black border border-[#2D2E2D] text-[#FAFAFA] text-xs px-2 py-1 rounded-[8px]">
-                    Add file <span className="text-[10px]">✕</span>
-                  </button>
+        {/* created questions section */}
+
+        {questions.length > 0 && (
+          <div className="bg-[#161716] rounded-[8px] gap-[24px] p-[24px]">
+            <h1 className="text-[#9596A0] text-[0.875rem] mb-7">
+              {questions.length > 1 ? "Questions" : "Question"}{" "}
+              {questions.length}
+            </h1>
+            {questions.map((question, index) => (
+              <div
+                key={index}
+                className="flex items-center md:w-[70%] gap-5 justify-between mb-3"
+              >
+                <span className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full  px-4 py-[0.40rem] rounded-[0.5rem]">
+                  {question.title}
+                </span>
+                <button className="text-white bg-white/10 p-2 rounded-full">
+                  <Pencil size={16} color="white" />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* create question form */}
+        {}
+
+        <form className="bg-[#161716] rounded-[8px] gap-[24px] p-[24px] flex flex-row">
+          {/* Left side - Add Video box */}
+
+          <div className="flex-shrink-0">
+            <h1 className="text-[#9596A0] text-[0.875rem] mb-4">Section 1</h1>
+            <div
+              className="w-64 h-40 border border-dashed border-gray-600 rounded-lg flex flex-col items-center justify-center bg-[#121212] hover:border-gray-400 transition-colors"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
+              <p className="text-gray-300 mb-3">Add Video</p>
+              <div
+                className={`w-12 h-12 rounded-full flex items-center justify-center bg-[#2a2a2a] ${
+                  hovered ? "bg-gray-500" : ""
+                } transition-colors`}
+              >
+                <Plus className="text-gray-200" />
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Form fields */}
+          <div className="flex-grow ml-6">
+            <h1 className="text-[#9596A0] text-[0.875rem] mb-4">
+              Lecture title*
+            </h1>
+            <div className="flex flex-col gap-8">
+              <input
+                className="bg-transparent border-[1px] placeholder:text-[#5E5E5E] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                type="text"
+                name=""
+                placeholder="Enter lecture title"
+                value={newQuestion}
+                onChange={(e) => setNewQuestion(e.target.value)}
+              />
+              <div className="flex flex-col gap-3">
+                <h1 className="text-[#9596A0] text-[0.875rem] mb-1">
+                  Duration *
+                </h1>
+                <div className="flex w-[30%] items-stretch">
+                  <input
+                    className="bg-transparent border-[1px] placeholder:text-[#5E5E5E] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                    type="text"
+                    placeholder="1hr"
+                    value={newOptions[0]}
+                    onChange={(e) => {
+                      const updatedOptions = [...newOptions];
+                      updatedOptions[0] = e.target.value;
+                      setNewOptions(updatedOptions);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="w-full flex flex-col">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="examDescription"
+                >
+                  Note*
+                </label>
+                <textarea
+                  id="examDescription"
+                  className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] min-h-[176px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  placeholder="Note description"
+                  value={examDescription}
+                  onChange={(e) => setExamDescription(e.target.value)}
+                ></textarea>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <h1 className="text-[#9596A0] text-[0.875rem] mb-1">Quiz</h1>
+                <div className="flex w-full items-stretch">
+                  <input
+                    className="bg-transparent border-[1px] placeholder:text-[#5E5E5E] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                    type="text"
+                    placeholder="Enter title"
+                    value={newOptions[0]}
+                    onChange={(e) => {
+                      const updatedOptions = [...newOptions];
+                      updatedOptions[0] = e.target.value;
+                      setNewOptions(updatedOptions);
+                    }}
+                  />
+                </div>
+                <textarea
+                  id="examDescription"
+                  className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] min-h-[176px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  placeholder="Quiz description"
+                  value={examDescription}
+                  onChange={(e) => setExamDescription(e.target.value)}
+                ></textarea>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <h1 className="text-[#9596A0] text-[0.875rem] mb-1">
+                  Excercise
+                </h1>
+                <div className="flex w-full items-stretch">
+                  <input
+                    className="bg-transparent border-[1px] placeholder:text-[#5E5E5E] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                    type="text"
+                    placeholder="Enter excercise details"
+                    value={newOptions[0]}
+                    onChange={(e) => {
+                      const updatedOptions = [...newOptions];
+                      updatedOptions[0] = e.target.value;
+                      setNewOptions(updatedOptions);
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <h1 className="text-[#9596A0] text-[0.875rem] mb-1">
+                  Assignment
+                </h1>
+                <div className="flex w-full items-stretch">
+                  <input
+                    className="bg-transparent border-[1px] placeholder:text-[#5E5E5E] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                    type="text"
+                    placeholder="Enter Assignment details"
+                    value={newOptions[0]}
+                    onChange={(e) => {
+                      const updatedOptions = [...newOptions];
+                      updatedOptions[0] = e.target.value;
+                      setNewOptions(updatedOptions);
+                    }}
+                  />
                 </div>
               </div>
             </div>
           </div>
         </form>
+        <div className="flex items-center justify-center w-full ">
+          <button
+            onClick={handleAddQuestion}
+            className="font-[WorkSans] py-[12px] px-[24px] font-medium bg-[#0f0f0f] rounded-[8px] border border-[#2D2E2D]"
+          >
+            <span className="font-black text-[#D6DFFE]">+</span> ADD SECTION
+          </button>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default CreateCourseModal;
+export default CreateCourseModel;

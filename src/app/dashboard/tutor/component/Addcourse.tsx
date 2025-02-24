@@ -1,4 +1,4 @@
-// components/AddCourse.tsx
+
 import React, { useState } from "react";
 import { PlusIcon } from "lucide-react";
 import CreateCourseModal from "@/app/dashboard/tutor/component/Create-Course-Modal";
@@ -7,7 +7,7 @@ export const Addcourse = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
 
   return (
-    <div className="h-[240px] bg-[#161716] p-[24px] rounded-[8px] flex flex-col gap-[20px] justify-between items-center">
+    <div className="h-[240px] bg-[#161716] p-[24px] rounded-[8px] flex flex-col gap-[20px] justify-between items-center  relative overflow-x-auto">
       <h4 className="text-center font-[400] text-[14px]">
         Create a new course, publish for new learners, and earn an income.
       </h4>
@@ -21,11 +21,13 @@ export const Addcourse = () => {
         <PlusIcon className="w-[16px] h-[16px]" /> CREATE NEW COURSE
       </button>
 
-      {/* Modal component */}
-      <CreateCourseModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {/* Render modal only if isModalOpen is true */}
+      {isModalOpen && (
+        <CreateCourseModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 };
