@@ -23,7 +23,7 @@ import Rectangle27 from "@/public/img/Rectangle 27.svg";
 
 type ModalType = "experience" | "certification" | "skills" | null;
 
-const page: NextPage = () => {
+const Page: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<ModalType>(null);
   const [editData, setEditData] = useState<
@@ -388,4 +388,4 @@ const page: NextPage = () => {
   );
 };
 
-export default page;
+export default Page;
