@@ -6,43 +6,45 @@ import React from "react";
 import NavbarJobSeeker from "@/components/Navbar-job-seeker";
 import FormModal from "@/app/dashboard/user-profile/components/FormModal";
 import {
+  AboutForm,
   ExperienceForm,
   CertificationForm,
   SkillsForm,
 } from "@/app/dashboard/user-profile/components/Form";
 import type {
+  AboutData,
   ExperienceData,
   CertificationData,
   SkillData,
 } from "@/app/dashboard/user-profile/components/Form";
+import ProfilePage from "@/app/dashboard/user-profile/components/ProfilePage";
 import Footer from "@/components/Footer";
-import { Plus, Pencil } from "lucide-react";
-import Image from "next/image";
-import Ellipse from "@/public/img/Ellipse 1.png";
 import Rectangle27 from "@/public/img/Rectangle 27.svg";
+import Image from "next/image";
+import { Plus, Pencil } from "lucide-react";
 
-type ModalType = "experience" | "certification" | "skills" | null;
+type ModalType =  "about" | "experience" | "certification" | "skills" | null;
 
 const Page: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<ModalType>(null);
   const [editData, setEditData] = useState<
-    ExperienceData | CertificationData | SkillData | null
+    AboutData | ExperienceData | CertificationData | SkillData | null
   >(null);
-
-  // const handleAdd = (type: ModalType) => {
-  //   setModalType(type);
-  //   setEditData(null);
-  //   setIsModalOpen(true);
-  // };
 
   const handleEdit = (
     type: ModalType,
-    data: ExperienceData | CertificationData | SkillData
+    data: AboutData | ExperienceData | CertificationData | SkillData
   ) => {
     setModalType(type);
     setEditData(data);
     setIsModalOpen(true);
+  };
+
+  const handleAboutSubmit = (data: AboutData) => {
+    console.log("About data:", data);
+    setIsModalOpen(false);
+    // Add your submission logic here
   };
 
   const handleExperienceSubmit = (data: ExperienceData) => {
@@ -84,37 +86,8 @@ const Page: NextPage = () => {
 
       {/* Profile Box */}
       <div className="px-4 sm:px-3 max-w-screen-xl mx-auto">
-        <div className="flex items-center text-white p-4 w-full max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 flex-grow ml-[110px]">
-            <Image
-              src={Ellipse}
-              alt="Profile Picture"
-              className="w-[82px] h-[82px] rounded-full"
-            />
-
-            <div>
-              <h1 className="text-[24px] font-semibold">Daniel Ochoja</h1>
-              <p className="text-sm text-gray-400">Software Engineer</p>
-              <a
-                href="https://www.danielochoja.com"
-                className="text-sm font-semibold text-[#A8C789] no-underline"
-              >
-                www.danielochoja.com
-              </a>
-            </div>
-          </div>
-          <div className="mx-4 h-5 w-px bg-gray-500 mt-12 "></div>
-          <p className="text-s text-[#bbbb] mt-12 mr-[150px]">
-            TypeScript • Python • Power BI • JavaScript
-          </p>
-
-          {/* Button Stretched to End */}
-          <div className="flex-grow text-right pr-[90px]">
-            <button className="px-6 py-2 border border-gray-500 text-gray-500 text-s rounded hover:bg-gray-700 w-fullx sm:w-auto">
-              SEND A MESSAGE
-            </button>
-          </div>
-        </div>
+        
+        <ProfilePage/>
 
         <div className="min-h-screen text-gray-100 p-6 flex justify-center gap-4">
           {/* Main Content */}
@@ -122,10 +95,26 @@ const Page: NextPage = () => {
           <div className="max-w-4xl ml-7">
             {/* About Section */}
             <section id="about" className="mb-8 mt-7">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-semibold border-b border-[#1d1d1c] pb-4 w-full">
+              <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-2">
+                <h2 className="text-2xl font-semibold pb-4 w-full">
                   About
                 </h2>
+                <div className="flex gap-3">
+                    <button
+                      onClick={() =>
+                        handleEdit("about", {} as AboutData)
+                      }
+                    >
+                      <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
+                    </button>
+                    <button
+                      onClick={() =>
+                        handleEdit("about", {} as AboutData)
+                      }
+                    >
+                      <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
+                    </button>
+                  </div>
               </div>
               <div>
                 <p className="text-[#D9D9D9]">
@@ -362,6 +351,13 @@ const Page: NextPage = () => {
         onClose={() => setIsModalOpen(false)}
         title={getModalTitle()}
       >
+        {modalType === "about" && (
+          <AboutForm
+            onSubmit={handleAboutSubmit}
+            initialData={editData as AboutData}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
         {modalType === "experience" && (
           <ExperienceForm
             onSubmit={handleExperienceSubmit}
