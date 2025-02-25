@@ -4,6 +4,14 @@ import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import CreateExamModel from "../components/create-exam";
 import { useState } from "react"; 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 interface Exam {
   id: number;
@@ -25,32 +33,32 @@ const ExamDashboard: React.FC = () => {
     <div className="bg-black min-h-screen p-6 text-white flex flex-col relative">
      
       <div className="flex-grow overflow-x-auto">
-        <table className="w-full border-collapse text-left text-sm">
-          <thead>
-            <tr className=" text-gray-400 bg-[#161716]">
-              <th className="p-3">SN</th>
-              <th className="p-3">Name</th>
-              <th className="p-3">Date</th>
-              <th className="p-3">Candidates</th>
-              <th className="p-3">Status</th>
-            </tr>
-          </thead>
-          <tbody>
+        <Table className="w-full border-collapse text-left text-sm">
+          <TableHeader>
+            <TableRow className=" text-gray-400 bg-[#161716]">
+              <TableHead className="p-3">SN</TableHead>
+              <TableHead className="p-3">Name</TableHead>
+              <TableHead className="p-3">Date</TableHead>
+              <TableHead className="p-3">Candidates</TableHead>
+              <TableHead className="p-3">Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {exams.map((exam) => (
-              <tr key={exam.id} className="border-b border-[#31283A]">
-                <td className="p-3">{exam.id}</td>
-                <td className="p-3">Web3 Test</td>
-                <td className="p-3">12th Dec, 2025</td>
-                <td className="p-3">
+              <TableRow key={exam.id} className="border-b border-[#31283A]">
+                <TableCell className="p-3">{exam.id}</TableCell>
+                <TableCell className="p-3">Web3 Test</TableCell>
+                <TableCell className="p-3">12th Dec, 2025</TableCell>
+                <TableCell className="p-3">
                   <button className="text-white border-[1px] border-[#2D2E2D] rounded-[3rem] font-normal text-[0.75rem] bg-transparent px-4 py-2">
                     View
                   </button>
-                </td>
+                </TableCell>
                 <td className="p-3 text-[#4B4B4B]">{exam.status}</td>
-              </tr>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
 
       {/* Create Exam Section */}

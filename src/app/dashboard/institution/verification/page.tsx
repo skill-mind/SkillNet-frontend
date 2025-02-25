@@ -32,7 +32,7 @@ export default function VerificationPage() {
     <div className="min-h-screen bg-[#121212] flex items-start justify-start pt-16 px-8">
       <div className="w-full max-w-2xl">
         {/* Header Section */}
-        <div className="mb-6 w-2/5 rounded-lg bg-[#1a1a1a] px-4 py-3">
+        <div className="mb-6 md:w-2/5 w-full rounded-lg bg-[#1a1a1a] px-4 py-3">
           <h2 className="text-lg font-normal text-gray-200">Certificate Lookup</h2>
         </div>
 
