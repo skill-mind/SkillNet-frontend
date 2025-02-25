@@ -2,6 +2,7 @@ import React from "react";
 import AllFilters from "./SideAllFilters";
 import { sampleJobs, Job } from "../data";
 
+
 interface ApplicationTabProps {
   onClick: (jobId: string) => void;
 }
@@ -58,7 +59,8 @@ const JobCard: React.FC<{ job: Job; onClick: (jobId: string) => void }> = ({ job
         </h3>
         <p className="text-[#BBBBBB]">{job.company}</p>
       </div>
-      <button className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded bg-inherit border-[#696969] border hover:border-[#D0EFB1] hover:text-[#D0EFB1]"
+
+      <button className="px-3 py-2 text-xs lg:text-sm flex items-center space-x-1 bg-gray-700 text-white rounded bg-inherit border-[#696969] border hover:border-[#D0EFB1] hover:text-[#D0EFB1]"
        onClick={(e) => {
         e.stopPropagation(); // Prevent triggering the parent div's onClick
         onClick(job.id);
@@ -68,20 +70,22 @@ const JobCard: React.FC<{ job: Job; onClick: (jobId: string) => void }> = ({ job
       </button>
     </div>
 
-    <div className="flex items-center gap-4 text-sm text-gray-400 my-4">
-      <div className="flex items-center space-x-1 ml-2">
+    <div className="flex flex-col lg:flex-row lg:items-center gap-4 text-sm text-gray-400 my-4">
+      <div className="flex items-center space-x-1">
         <LocationIcon />
         <span>{job.location}</span>
       </div>
-      <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
-        {job.workMode}
-      </span>
-      <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
-        {job.type}
-      </span>
-      <span className="border border-[#BBBBBB] rounded-lg px-2 py-1">
-        {job.level}
-      </span>
+      <div className="flex gap-3">
+        <span className=" border border-[#BBBBBB] rounded px-2 py-1">
+          {job.workMode}
+        </span>
+        <span className=" border border-[#BBBBBB] rounded px-2 py-1">
+          {job.type}
+        </span>
+        <span className=" border border-[#BBBBBB] rounded px-2 py-1">
+          {job.level}
+        </span>
+      </div>
     </div>
 
     <div className="flex justify-between items-center text-sm text-gray-400">
@@ -127,8 +131,8 @@ const ApplicationTab: React.FC<ApplicationTabProps> = ({ onClick }) => {
   // ];
 
   return (
-    <div className="mt-4 flex justify-between">
-     <div>
+    <div className="flex justify-between">
+     <div className="w-full">
       {sampleJobs.map((job, index) => (
          <JobCard 
          key={index} 
@@ -137,7 +141,6 @@ const ApplicationTab: React.FC<ApplicationTabProps> = ({ onClick }) => {
        />
       ))}
     </div>
-    <AllFilters />
   </div>
   );
 };

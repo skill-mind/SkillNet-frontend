@@ -20,7 +20,7 @@ function CourseCard({ data, index }: course) {
   const { author, duration, price, title, image } = data
   return (
     <Link href={`/dashboard/learning-hub/course/${index}`} className="block">
-      <div className="border max-w-96 w-[352px] max-h-[452px] rounded-lg border-[#313130] hover:border-[#A8C789] transition-colors duration-300">
+      <div className="border w-full lg:max-w-96 lg:w-[352px]  max-h-[452px] rounded-lg border-[#313130]">
         <Image src={image} alt="course logo" />
         <div className="py-6 px-2">
           <div className="grid grid-cols-[3fr_1fr]">

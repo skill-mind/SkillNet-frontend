@@ -48,14 +48,14 @@ const LocationIcon = () => (
     <path
       d="M8 9.1665C9.10457 9.1665 10 8.27107 10 7.1665C10 6.06193 9.10457 5.1665 8 5.1665C6.89543 5.1665 6 6.06193 6 7.1665C6 8.27107 6.89543 9.1665 8 9.1665Z"
       stroke="#BBBBBB"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M8.00008 1.83325C6.58559 1.83325 5.22904 2.39516 4.22885 3.39535C3.22865 4.39554 2.66675 5.7521 2.66675 7.16658C2.66675 8.42792 2.93475 9.25325 3.66675 10.1666L8.00008 15.1666L12.3334 10.1666C13.0654 9.25325 13.3334 8.42792 13.3334 7.16658C13.3334 5.7521 12.7715 4.39554 11.7713 3.39535C10.7711 2.39516 9.41457 1.83325 8.00008 1.83325Z"
       stroke="#BBBBBB"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -71,9 +71,9 @@ const SaveIcon = () => (
     <path
       d="M0.666748 2.33333V12.0573C0.666748 12.6507 1.38475 12.9487 1.80475 12.5287L6.00008 8.33333L10.1954 12.5287C10.6154 12.9487 11.3334 12.6513 11.3334 12.0573V2.33333C11.3334 1.97971 11.1929 1.64057 10.9429 1.39052C10.6928 1.14048 10.3537 1 10.0001 1H2.00008C1.64646 1 1.30732 1.14048 1.05727 1.39052C0.807224 1.64057 0.666748 1.97971 0.666748 2.33333Z"
       stroke="#696969"
-      stroke-width="1.25"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -87,7 +87,7 @@ const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void; onJobClick: (
   <div className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg" onClick={() => onJobClick(job.id)}>
     <div className="flex justify-between items-start mb-2">
       <div>
-        <h3 className="text-[24px] font-semibold text-white my-1 mb-3">
+        <h3 className="text-[24px] font-semibold text-white mb-1">
           {job.title}
         </h3>
         <p className="text-[#BBBBBB] text-base">{job.company}</p>
@@ -101,20 +101,22 @@ const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void; onJobClick: (
       </button>
     </div>
 
-    <div className="flex items-center gap-4 text-sm text-gray-400 my-4">
-      <div className="flex items-center space-x-1 ml-2">
+    <div className="flex flex-col lg:flex-row lg:items-center gap-4 text-sm text-gray-400 my-4">
+      <div className="flex items-center space-x-1">
         <LocationIcon />
         <span>{job.location}</span>
       </div>
-      <span className=" border border-[#BBBBBB] rounded px-2 py-1">
-        {job.workMode}
-      </span>
-      <span className=" border border-[#BBBBBB] rounded px-2 py-1">
-        {job.type}
-      </span>
-      <span className=" border border-[#BBBBBB] rounded px-2 py-1">
-        {job.level}
-      </span>
+      <div className="flex gap-3">
+        <span className=" border border-[#BBBBBB] rounded px-2 py-1">
+          {job.workMode}
+        </span>
+        <span className=" border border-[#BBBBBB] rounded px-2 py-1">
+          {job.type}
+        </span>
+        <span className=" border border-[#BBBBBB] rounded px-2 py-1">
+          {job.level}
+        </span>
+      </div>
     </div>
 
     <p className="text-[#D9D9D9] text-base  my-4">{job.description}</p>

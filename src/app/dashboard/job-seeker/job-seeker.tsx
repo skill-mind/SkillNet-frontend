@@ -1,11 +1,13 @@
 "use client";
-
 import React, { useState } from "react";
 import RecentTab from "./components/RecentTab";
 import SavedTab from "./components/SavedTab";
 import ApplicationTab from "./components/ApplicationTabs";
 import { Job } from "./data";
 import { useRouter } from 'next/navigation';
+import AllFilters from "./components/SideAllFilters";
+import FilterBottomSheet from "./components/FilterBottomSheet";
+
 
 type TabType = "recent" | "saved" | "applications";
 
@@ -13,6 +15,7 @@ const JobSeeker: React.FC = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>("recent");
   const [savedJobs, setSavedJobs] = useState<Job[]>([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const handleSaveJob = (job: Job) => {
     if (!savedJobs.some((saved) => saved.title === job.title)) {
@@ -56,7 +59,7 @@ const JobSeeker: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen mx-24 text-white p-6">
+    <div className="min-h-screen mx-5 lg:mx-24 text-white py-6">
       <h1 className="text-2xl font-bold mb-6">Jobs you might like</h1>
 
       <div className="mb-6">
@@ -77,7 +80,28 @@ const JobSeeker: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-6">{renderContent()}</div>
+      <div className="mt-6 grid grid-cols-1 lg:grid-cols-4 gap-[4rem]">
+        <div className="col-span-3">{renderContent()}</div>
+        <div className="hidden lg:block">
+          {(savedJobs.length > 0 || activeTab !== "saved") && <AllFilters />}
+        </div>
+      </div>
+
+      {(savedJobs.length > 0 || activeTab !== "saved") && (
+        <>
+          <button
+            className="lg:hidden fixed bottom-4 right-4 bg-primary text-black px-4 py-2 rounded-lg shadow-lg"
+            onClick={() => setIsFilterOpen(true)}
+          >
+            Filters
+          </button>
+
+          <FilterBottomSheet
+            isOpen={isFilterOpen}
+            onClose={() => setIsFilterOpen(false)}
+          />
+        </>
+      )}
     </div>
   );
 };

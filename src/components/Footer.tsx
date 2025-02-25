@@ -4,6 +4,7 @@ import X from "../public/img/new-twitter.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { routes } from "@/lib/route";
+import { usePathname } from "next/navigation";
 
 interface FooterLink {
   href: string;
@@ -31,11 +32,35 @@ const socialLinks = [
   },
 ];
 
+const FooterLinks = ({ href, label }: FooterLink) => {
+  const pathname = usePathname();
+  const isActive = pathname === href || pathname.startsWith(`${href}/`);
+
+  return (
+    <Link
+      href={href}
+      className={`hover:text-white transition-colors duration-300 block w-full ${
+        isActive ? "text-white font-semibold " : "text-[#ABABAB]"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+};
+
+
+
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
+
+    
+
     <footer className="px-4 sm:px-6 lg:px-[100px] pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 lg:pb-12">
+
+
       <div className="border border-[#595958] rounded-lg">
         <div
           className="w-full flex flex-col sm:flex-row justify-between gap-8 sm:gap-0
@@ -46,26 +71,13 @@ export default function Footer() {
           </h5>
 
           <nav className="w-full sm:w-auto">
-            <ul
-              className="grid grid-cols-2 sm:flex sm:flex-row
-                         gap-y-4 gap-x-4 sm:gap-6 lg:gap-11
-                         text-sm sm:text-base leading-5 text-[#ABABAB]
-                         justify-items-center sm:justify-start"
-            >
-              {footerLinks.map((link) => (
-                <li
-                  key={link.href}
-                  className="w-full sm:w-auto text-center sm:text-left"
-                >
-                  <Link
-                    href={link.href}
-                    className="hover:text-white transition-colors duration-300 block w-full"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <ul className="grid grid-cols-2 sm:flex sm:flex-row gap-y-4 gap-x-4 sm:gap-6 lg:gap-11 text-sm sm:text-base leading-5 justify-items-center sm:justify-start">
+  {footerLinks.map((link) => (
+    <li key={link.href} className="w-full sm:w-auto text-center sm:text-left">
+      <FooterLinks href={link.href} label={link.label} />
+    </li>
+  ))}
+</ul>
           </nav>
         </div>
         <div

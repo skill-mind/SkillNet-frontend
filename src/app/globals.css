@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: "Ubuntu", sans-serif;
+}
+
 .hexagon-img {
   background-image: url("../public/img/hexagon.svg");
   background-repeat: no-repeat;
@@ -135,3 +139,10 @@ body {
   border-radius: 14px;
   border: 3px solid var(--primary);
 }
+
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
