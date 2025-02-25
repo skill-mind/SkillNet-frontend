@@ -23,7 +23,7 @@ const Announcements = () => {
           className="w-full flex justify-between items-center p-6 bg-[#161716] rounded-lg "
         >
           <div className="flex items-center gap-[18px] ">
-            <span className=" h-12 w-12 rounded-full bg-[#2D2E2D] flex items-center justify-center ">
+            <span className=" h-12 w-12 rounded-full bg-[#2D2E2D] flex-shrink-0 flex items-center justify-center ">
               <Image
                 src={speakerIcon}
                 alt="students"
@@ -33,11 +33,11 @@ const Announcements = () => {
               />
             </span>
             <div>
-              <h1 className="text-[#CCCCCC] text-base font-medium mb-1 ">
+              <h1 className="text-[#CCCCCC] text-sm md:text-base font-medium mb-1 ">
                 {" "}
                 {announcementNotification.heading}{" "}
               </h1>
-              <p className="text-[#6E6E6E] text-base font-medium ">
+              <p className="text-[#6E6E6E] text-sm md:text-base font-medium ">
                 {" "}
                 {announcementNotification.message}{" "}
               </p>

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 interface StatCardProps {
   icon: ReactNode;
@@ -7,10 +7,11 @@ interface StatCardProps {
   bgCol?: string;
 }
 
-export function EarningStatCard({icon, value, label, bgCol}: StatCardProps) {
+export function EarningStatCard({ icon, value, label, bgCol }: StatCardProps) {
   return (
     <div
-       className={` bg-[#1E1E1E] cursor-pointer hover:bg-[#FFFFFF1A] p-6 rounded-lg`}>
+      className={` bg-[#1E1E1E] cursor-pointer hover:bg-[#FFFFFF1A] p-6 rounded-lg`}
+    >
       <div className="flex min-h-[64px]  items-center justify-start gap-3 pr-20">
         <div className="min-h-[64px] ">
           <div
