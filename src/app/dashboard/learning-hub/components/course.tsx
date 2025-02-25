@@ -16,8 +16,8 @@ interface course {
 function CourseCard({data}:course){
   const {author,duration,price,title,image} = data
     return (
-      <div className="border max-w-96 w-[352px]  max-h-[452px] rounded-lg border-[#313130]">
-        <Image src={image} alt="course logo" />
+      <div className="border w-full lg:max-w-96 lg:w-[352px]  max-h-[452px] rounded-lg border-[#313130]">
+        <Image src={image} className="w-full" alt="course logo" />
         <div className="py-6 px-2">
           <div className="grid grid-cols-[3fr_1fr]">
             <h2 className="text-base font-medium text-[#FCFCFC]">
