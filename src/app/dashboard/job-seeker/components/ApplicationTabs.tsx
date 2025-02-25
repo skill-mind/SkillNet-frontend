@@ -1,5 +1,4 @@
 import React from "react";
-import AllFilters from "./SideAllFilters";
 import { sampleJobs, Job } from "../data";
 
 

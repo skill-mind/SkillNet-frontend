@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Job } from "@/app/dashboard/job-seeker/data";
-import AllFilters from "./SideAllFilters";
 
 interface SavedTabProps {
   savedJobs: Job[];
