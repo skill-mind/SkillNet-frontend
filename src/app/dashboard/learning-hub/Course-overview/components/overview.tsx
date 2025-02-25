@@ -3,6 +3,8 @@ import { Globe } from "lucide-react";
 import Image from "next/image";
 import { Suspense } from "react";
 import Jobcard from "@/public/img/Jobcard.png";
+import { Course } from "@/app/dashboard/learning-hub/types/course"; 
+
 
 const list = [
   `Learn the fundamentals of blockchain technology and its applications.`,
@@ -21,18 +23,18 @@ const courseDetails = [
   "Certificate of Completion",
 ];
 
-export const Overview = () => {
+export const Overview = ({ courseData }: { courseData?: Course }) => {
   return (
     <div className="">
       <h3 className="text-white text-3xl">
-        Blockchain Development Bootcamp: Zero to Hero
+        {courseData?.title || "Blockchain Development Bootcamp: Zero to Hero"}
       </h3>
-      <p className="text-white font-light mt-2">By Satoshi Nakamoto</p>
+      <p className="text-white font-light mt-2">By {courseData?.author || "Satoshi Nakamoto"}</p>
       <div className="grid grid-cols-12 gap-6 xl:gap-[79px] mt-10">
         <div className="col-span-12 lg:col-span-7">
           <Suspense fallback={<p>Loading video...</p>}>
             <div className="relative !h-[302px] w-full border border-[#252625] rounded-lg overflow-hidden bg-[#1011107A]/45">
-              <Image src={Jobcard} alt="course" fill={true} />
+              <Image src={courseData?.image || Jobcard} alt="course" fill={true} />
             </div>
           </Suspense>
           <div className="mt-12 py-6 px-5 bg-[#161716] border border-[#1D1D1C] rounded-xl">
@@ -67,7 +69,9 @@ export const Overview = () => {
           </div>
         </div>
         <div className="col-span-12 lg:col-span-5 md:w-[400px] h-min bg-[#161716] rounded-md border border-[#1D1D1C] p-5">
-          <h4 className="font-bold text-white text-xl">Free!</h4>
+          <h4 className="font-bold text-white text-xl">
+            {courseData?.price ? `$${courseData.price}` : "Free!"}
+          </h4>
           <div className="mt-6">
             <h5 className="text-[#767776] text-lg">Unique Training</h5>
             <ul className="mt-4 space-y-3.5">
@@ -84,11 +88,11 @@ export const Overview = () => {
             <div className="space-y-2">
               <Button
                 variant={"ghost"}
-                className="uppercase w-full h-12 border border-[#313130]"
+                className="uppercase w-full h-12 border border-[#313130]"
               >
                 Add to wishlist
               </Button>
-              <Button className="uppercase w-full h-12 text-[#0E0F0E]">
+              <Button className="uppercase w-full h-12 text-[#0E0F0E]">
                 Enroll Now
               </Button>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import RecentTabBox from "./RecentTabBox";
 import AllFilters from "./SideAllFilters";
-import { Job } from "./RecentTabBox";
+import { Job } from "@/app/dashboard/job-seeker/data";
 
 interface RecentTabProps {
   onSaveJob: (job: Job) => void;

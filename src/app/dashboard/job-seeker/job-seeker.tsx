@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import RecentTab from "./components/RecentTab";
 import SavedTab from "./components/SavedTab";
 import ApplicationTab from "./components/ApplicationTabs";
-import { Job } from "./components/RecentTabBox";
+import { Job } from "./data";
 import { useRouter } from 'next/navigation';
 
 type TabType = "recent" | "saved" | "applications";
@@ -21,7 +21,7 @@ const JobSeeker: React.FC = () => {
   };
 
   const handleJobClick = (jobId: string) => {
-    router.push(`/job-seeker/${jobId}`);
+    router.push(`/dashboard/job-seeker/${jobId}`);
   };
 
   const tabs = [
@@ -41,13 +41,13 @@ const JobSeeker: React.FC = () => {
       case "saved":
         return (
           <div className="text-gray-300">
-            <SavedTab savedJobs={savedJobs} />
+            <SavedTab savedJobs={savedJobs} onJobClick={handleJobClick} />
           </div>
         );
       case "applications":
         return (
           <div className="text-gray-300">
-            <ApplicationTab />
+            <ApplicationTab onClick={handleJobClick}/>
           </div>
         );
       default:

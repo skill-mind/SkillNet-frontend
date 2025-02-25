@@ -1,20 +1,21 @@
 "use client";
 
 import React from "react";
+import { sampleJobs, Job } from "../data";
 
 // This interface can be moved to a shared types file
-export interface Job {
-  id: string;
-  title: string;
-  company: string;
-  location: string;
-  workMode: string;
-  type: string;
-  level: string;
-  description: string;
-  deadline: string;
-  postedTime: string;
-}
+// export interface Job {
+//   id: string;
+//   title: string;
+//   company: string;
+//   location: string;
+//   workMode: string;
+//   type: string;
+//   level: string;
+//   description: string;
+//   deadline: string;
+//   postedTime: string;
+// }
 
 interface RecentTabBoxProps {
   onSaveJob: (job: Job) => void;
@@ -130,47 +131,47 @@ const JobCard: React.FC<{ job: Job; onSaveJob: (job: Job) => void; onJobClick: (
 );
 
 const RecentTabBox: React.FC<RecentTabBoxProps> = ({ onSaveJob, onJobClick }) => {
-  const sampleJobs: Job[] = [
-    {
-      id: '1',
-      title: "Full Stack Developer",
-      company: "SkillNet Incorporated",
-      location: "Lagos, Nigeria",
-      workMode: "Hybrid",
-      type: "Full time",
-      level: "Entry Level",
-      description:
-        "Looking for a FullStack Developer to design, deploy, and maintain web applications, manage servers, ensure seamless user experiences, and optimize performance. Drive innovation in delivering scalable and reliable digital solutions.",
-      deadline: "12th March, 2025",
-      postedTime: "12 hours ago",
-    },
-    {
-      id: '2',
-      title: "Full Stack Developer",
-      company: "SkillNet Incorporated",
-      location: "Lagos, Nigeria",
-      workMode: "Hybrid",
-      type: "Full time",
-      level: "Entry Level",
-      description:
-        "Looking for a FullStack Developer to design, deploy, and maintain web applications, manage servers, ensure seamless user experiences, and optimize performance. Drive innovation in delivering scalable and reliable digital solutions.",
-      deadline: "12th March, 2025",
-      postedTime: "12 hours ago",
-    },
-    {
-      id: '3',
-      title: "Full Stack Developer",
-      company: "SkillNet Incorporated",
-      location: "Lagos, Nigeria",
-      workMode: "Hybrid",
-      type: "Full time",
-      level: "Entry Level",
-      description:
-        "Looking for a FullStack Developer to design, deploy, and maintain web applications, manage servers, ensure seamless user experiences, and optimize performance. Drive innovation in delivering scalable and reliable digital solutions.",
-      deadline: "12th March, 2025",
-      postedTime: "12 hours ago",
-    },
-  ];
+  // const sampleJobs: Job[] = [
+  //   {
+  //     id: '1',
+  //     title: "Full Stack Developer",
+  //     company: "SkillNet Incorporated",
+  //     location: "Lagos, Nigeria",
+  //     workMode: "Hybrid",
+  //     type: "Full time",
+  //     level: "Entry Level",
+  //     description:
+  //       "Looking for a FullStack Developer to design, deploy, and maintain web applications, manage servers, ensure seamless user experiences, and optimize performance. Drive innovation in delivering scalable and reliable digital solutions.",
+  //     deadline: "12th March, 2025",
+  //     postedTime: "12 hours ago",
+  //   },
+  //   {
+  //     id: '2',
+  //     title: "Full Stack Developer",
+  //     company: "SkillNet Incorporated",
+  //     location: "Lagos, Nigeria",
+  //     workMode: "Hybrid",
+  //     type: "Full time",
+  //     level: "Entry Level",
+  //     description:
+  //       "Looking for a FullStack Developer to design, deploy, and maintain web applications, manage servers, ensure seamless user experiences, and optimize performance. Drive innovation in delivering scalable and reliable digital solutions.",
+  //     deadline: "12th March, 2025",
+  //     postedTime: "12 hours ago",
+  //   },
+  //   {
+  //     id: '3',
+  //     title: "Full Stack Developer",
+  //     company: "SkillNet Incorporated",
+  //     location: "Lagos, Nigeria",
+  //     workMode: "Hybrid",
+  //     type: "Full time",
+  //     level: "Entry Level",
+  //     description:
+  //       "Looking for a FullStack Developer to design, deploy, and maintain web applications, manage servers, ensure seamless user experiences, and optimize performance. Drive innovation in delivering scalable and reliable digital solutions.",
+  //     deadline: "12th March, 2025",
+  //     postedTime: "12 hours ago",
+  //   },
+  // ];
   return (
     <div>
       {sampleJobs.map((job, index) => (

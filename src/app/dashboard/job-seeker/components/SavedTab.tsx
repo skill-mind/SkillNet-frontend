@@ -1,11 +1,12 @@
 // SavedTab.tsx
 
 import React from "react";
-import { Job } from "./RecentTabBox";
+import { Job } from "@/app/dashboard/job-seeker/data";
 import AllFilters from "./SideAllFilters";
 
 interface SavedTabProps {
   savedJobs: Job[];
+  onJobClick: (jobId: string) => void;
 }
 
 const ClockIcon = () => (
@@ -64,7 +65,7 @@ const SaveIconFilled = () => (
   </svg>
 );
 
-const SavedTab: React.FC<SavedTabProps> = ({ savedJobs }) => {
+const SavedTab: React.FC<SavedTabProps> = ({ savedJobs,  onJobClick}) => {
   return (
     <div className="mt-4 flex justify-between">
       <div>
@@ -75,6 +76,7 @@ const SavedTab: React.FC<SavedTabProps> = ({ savedJobs }) => {
             <div
               key={index}
               className="mb-6 p-4 bg-[#1D1D1C] w-[760px] rounded-lg"
+              onClick={() => onJobClick(job.id)}
             >
               <div className="flex justify-between items-start mb-2">
                 <div>

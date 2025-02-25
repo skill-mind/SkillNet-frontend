@@ -1,14 +1,9 @@
 import React from "react";
 import AllFilters from "./SideAllFilters";
+import { sampleJobs, Job } from "../data";
 
-export interface Job {
-  title: string;
-  company: string;
-  location: string;
-  workMode: string;
-  type: string;
-  level: string;
-  postedTime: string;
+interface ApplicationTabProps {
+  onClick: (jobId: string) => void;
 }
 
 // Clock Icon Component
@@ -52,16 +47,23 @@ const LocationIcon = () => (
 );
 
 // Job Card Component
-const JobCard: React.FC<{ job: Job }> = ({ job }) => (
+const JobCard: React.FC<{ job: Job; onClick: (jobId: string) => void }> = ({ job, onClick  }) => (
   <div className="mb-4 p-5 bg-[#1D1D1C] w-[760px] rounded-lg shadow-md">
-    <div className="flex justify-between items-start mb-2">
+    <div className="flex justify-between items-start mb-2"
+    onClick={() => onClick(job.id)}
+    >
       <div>
         <h3 className="text-[24px] font-semibold text-white mb-2">
           {job.title}
         </h3>
         <p className="text-[#BBBBBB]">{job.company}</p>
       </div>
-      <button className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded bg-inherit border-[#696969] border hover:border-[#D0EFB1] hover:text-[#D0EFB1]">
+      <button className="px-3 py-2 text-sm flex items-center space-x-1 bg-gray-700 text-white rounded bg-inherit border-[#696969] border hover:border-[#D0EFB1] hover:text-[#D0EFB1]"
+       onClick={(e) => {
+        e.stopPropagation(); // Prevent triggering the parent div's onClick
+        onClick(job.id);
+      }}
+      >
         VIEW APPLICATION
       </button>
     </div>
@@ -92,43 +94,47 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => (
 );
 
 
-const ApplicationTab = () => {
-  const sampleJobs: Job[] = [
-    {
-      title: "Full Stack Developer",
-      company: "SkillNet Incorporated",
-      location: "Lagos, Nigeria",
-      workMode: "Hybrid",
-      type: "Full time",
-      level: "Entry Level",
-      postedTime: "12 hours ago",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "SkillNet Incorporated",
-      location: "Lagos, Nigeria",
-      workMode: "Hybrid",
-      type: "Full time",
-      level: "Entry Level",
-      postedTime: "12 hours ago",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "SkillNet Incorporated",
-      location: "Lagos, Nigeria",
-      workMode: "Hybrid",
-      type: "Full time",
-      level: "Entry Level",
-      postedTime: "12 hours ago",
-    },
-  ];
+const ApplicationTab: React.FC<ApplicationTabProps> = ({ onClick }) => {
 
+  // const sampleJobs: Job[] = [
+  //   {
+  //     title: "Full Stack Developer",
+  //     company: "SkillNet Incorporated",
+  //     location: "Lagos, Nigeria",
+  //     workMode: "Hybrid",
+  //     type: "Full time",
+  //     level: "Entry Level",
+  //     postedTime: "12 hours ago",
+  //   },
+  //   {
+  //     title: "Full Stack Developer",
+  //     company: "SkillNet Incorporated",
+  //     location: "Lagos, Nigeria",
+  //     workMode: "Hybrid",
+  //     type: "Full time",
+  //     level: "Entry Level",
+  //     postedTime: "12 hours ago",
+  //   },
+  //   {
+  //     title: "Full Stack Developer",
+  //     company: "SkillNet Incorporated",
+  //     location: "Lagos, Nigeria",
+  //     workMode: "Hybrid",
+  //     type: "Full time",
+  //     level: "Entry Level",
+  //     postedTime: "12 hours ago",
+  //   },
+  // ];
 
   return (
     <div className="mt-4 flex justify-between">
      <div>
       {sampleJobs.map((job, index) => (
-        <JobCard key={index} job={job} />
+         <JobCard 
+         key={index} 
+         job={job} 
+         onClick={onClick} // Pass down the onClick handler from props
+       />
       ))}
     </div>
     <AllFilters />

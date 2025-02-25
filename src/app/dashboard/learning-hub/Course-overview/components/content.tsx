@@ -2,6 +2,8 @@ import Image from "next/image";
 import globe from "@/public/img/globe.svg";
 import hexagon from "@/public/img/hexagon.svg";
 import Jobcard from "@/public/img/Jobcard.png";
+import { Course } from "@/app/dashboard/learning-hub/types/course";
+
 
 interface Feature {
   icon: string;
@@ -12,7 +14,11 @@ interface CourseObjective {
   text: string;
 }
 
-const ContentComponent = () => {
+interface ContentComponentProps {
+  courseData?: Course;
+}
+
+const ContentComponent = ({ courseData }: ContentComponentProps) => {
   const courseObjectives: CourseObjective[] = [
     {
       text: "Learn the fundamentals of blockchain technology and its applications.",
@@ -48,7 +54,7 @@ const ContentComponent = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 md:max-w-5xl">
             <div className="relative !h-[302px] w-full border border-[#252625] rounded-lg overflow-hidden bg-[#1011107A]/45">
-              <Image src={Jobcard} alt="course" fill={true} />
+              <Image src={courseData?.image || Jobcard} alt="course" fill={true} />
             </div>
 
             <div className="space-y-6 bg-[#121312] p-6 pb-10 rounded mt-5">
@@ -59,7 +65,7 @@ const ContentComponent = () => {
                 <div className="text-gray-300 leading-7">
                   <p>
                     Embark on your journey to becoming a blockchain expert with
-                    Blockchain Development: Zero to Hero. This comprehensive
+                    {courseData?.title || "Blockchain Development: Zero to Hero"}. This comprehensive
                     course is designed to take you from a complete beginner to a
                     skilled blockchain developer, equipped to build innovative
                     decentralized applications (dApps) and smart contracts.
@@ -102,7 +108,7 @@ const ContentComponent = () => {
             <div className="bg-[#121312] flex flex-col items-start justify-start rounded-lg p-6">
               <div className="mb-4 flex flex-col  gap-2">
                 <span className="font-extrabold text-xl py-1 flex items-start justify-start text-white rounded-full ">
-                  Free!
+                  {courseData?.price ? `$${courseData.price}` : "Free!"}
                 </span>
                 <span className="text-[#696969] text-sm">Unique Training</span>
               </div>

@@ -39,7 +39,7 @@ const page = () => {
 
         <div className="flex gap-5 overflow-x-auto max-w-full flex-wrap">
           {coursesData.map((data, index) => {
-            return <CourseCard data={data} key={index} />;
+            return <CourseCard data={data} key={index} index={index} />;
           })}
         </div>
       </main>

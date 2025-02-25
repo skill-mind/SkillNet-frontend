@@ -2,18 +2,7 @@ import { Search } from "lucide-react";
 import CourseCard from "./course";
 import { coursesData } from "../wish-list/courseData";
 
-
 function CourseList() {
-    // const [search, setSearch] = useState("");
-    // const filteredCourses = coursesData.filter(
-    //   (course: Course) =>
-    //     course.title.toLowerCase().includes(search.toLowerCase()) ||
-    //     course.author.toLowerCase().includes(search.toLowerCase())
-    // );
-
-    // const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    //   setSearch(e.target.value);
-    // };
   return (
     <div className="py-[30px]">
       <div className="relative pb-10">
@@ -27,8 +16,8 @@ function CourseList() {
         />
       </div>
       <div className="flex gap-5 overflow-x-auto max-w-full flex-wrap">
-        {coursesData.map((data,index)=>{
-            return <CourseCard data={data} key={index} />;
+        {coursesData.map((data, index) => {
+          return <CourseCard data={data} key={index} index={index} />;
         })}
       </div>
     </div>

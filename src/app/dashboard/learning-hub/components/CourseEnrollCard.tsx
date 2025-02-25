@@ -1,10 +1,18 @@
 import GlobeIcon from "@/public/img/globe.svg";
 import Image from "next/image";
+import { Course } from "@/app/dashboard/learning-hub/types/course";
 
-export default function CourseEnrollCard() {
+
+interface CourseEnrollCardProps {
+  courseData?: Course;
+}
+
+export default function CourseEnrollCard({ courseData }: CourseEnrollCardProps) {
   return (
     <div className="bg-[#222220] py-10 px-5 rounded-md w-fit h-[465px] space-y-3">
-      <p className="text-xl font-bold">Free!</p>
+      <p className="text-xl font-bold">
+        {courseData?.price ? `$${courseData.price}` : "Free!"}
+      </p>
       <p className="text-[#767776] font-medium text-lg">Unique Tranining</p>
       <div className="space-y-2 *:flex *:items-center *:space-x-1 *:font-light">
         <p>

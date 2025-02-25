@@ -2,18 +2,19 @@ import Image from "next/image";
 import GlobeIcon from "@/public/img/globe.svg";
 import CourseAccordion from "../../components/CourseAccordion";
 import CourseEnrollCard from "../../components/CourseEnrollCard";
+import { Course } from "@/app/dashboard/learning-hub/types/course"; 
 
-const TutorFacilitator = () => {
+const TutorFacilitator = ({ courseData }: { courseData?: Course }) => {
   return (
     <div className="flex justify-between font-sans h-full 2xl:h-screen py-10 space-x-5">
       <div className="w-1/2">
         <div className="space-y-3">
           <h1 className="text-2xl font-semibold">
-            Blockchain Development Bootcamp: Zero to Hero
+            {courseData?.title || "Blockchain Development Bootcamp: Zero to Hero"}
           </h1>
-          <p className="font-light">By Satoshi Nakamoto</p>
+          <p className="font-light">By {courseData?.author || "Satoshi Nakamoto"}</p>
           <div className="pt-5 space-y-2">
-            <p className="font-semibold text-xl">Satoshi Nakamoto</p>
+            <p className="font-semibold text-xl">{courseData?.author || "Satoshi Nakamoto"}</p>
             <div className="flex space-x-10 items-center">
               <p className="flex space-x-1 items-center text-[#D9D9D9]">
                 <span>
@@ -58,10 +59,11 @@ const TutorFacilitator = () => {
         </div>
       </div>
       <div className="w-fit">
-        <CourseEnrollCard />
+        <CourseEnrollCard courseData={courseData} />
       </div>
     </div>
   );
 };
+
 
 export default TutorFacilitator;

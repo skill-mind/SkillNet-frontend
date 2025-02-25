@@ -13,7 +13,8 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { useState } from "react"; 
 import ApplicationModal from "../components/ApplicationForm";
 import { useParams } from 'next/navigation';
-import { sampleJobs } from '../components/RecentTabBox';
+import { sampleJobs } from "../data";
+
 
 export default function JobSeekerOverview() {
 
@@ -21,23 +22,19 @@ export default function JobSeekerOverview() {
   const jobId = params.id as string;
   const [isModalOpen, setIsModalOpen] = useState(false); 
 
+  // If jobId exists, find that specific job, otherwise use the first job
+  const job = jobId 
+  ? sampleJobs.find(job => job.id === jobId) 
+  : sampleJobs[0];
+
+  // If no jobs available at all
+  if (!job) {
+  return <div>No jobs available</div>;
+  }
+
+
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
-  };
-
-  const jobDetails = {
-    id: jobId,
-    title: "Quality Assurance Manager",
-    company: "SkillNet Incorporated",
-    location: "Lagos, Nigeria",
-    workMode: "Remote", 
-    type: "Remote",
-    posted: "Posted 5 days ago",
-    salary: "250,000 - $300,000 per year",
-    jobType: "Full-time",
-    level: "Senior Level",
-    deadline: "Deadline: 21st January, 2025",
-    description: "" 
   };
 
   return (
@@ -53,10 +50,10 @@ export default function JobSeekerOverview() {
               {/* Company Info */}
               <div>
                 <h1 className="text-[#FCFCFC] font-[600] leading-[28.8px] text-[24px]">
-                  {jobDetails.title}
+                  {job.title}
                 </h1>
                 <p className="text-[#BBBBBB] font-[400] text-[16px] leading-[19.2px]">
-                  {jobDetails.company}
+                  {job.company}
                 </p>
               </div>
               {/* Apply Button */}
@@ -75,12 +72,12 @@ export default function JobSeekerOverview() {
             <div className="flex items-center gap-4 text-[14px] text-[#BBBBBB] font-[400] leading-[16.8px]">
               <span className="flex items-center gap-1">
                 <MapPin className="w-[16px] h-[16px] text-[#BBBBBB]" />
-                {jobDetails.location}
+                {job.location}
               </span>
               <span className="block w-[2px] h-[28px] bg-[#1D1D1C] rounded-[8px]" />
-              <span>{jobDetails.type}</span>
+              <span>{job.type}</span>
               <span className="block w-[2px] h-[28px] bg-[#1D1D1C] rounded-[8px]" />
-              <span>{jobDetails.posted}</span>
+              <span>{job.posted}</span>
             </div>
             {/* Bookmark Button */}
             <div className="flex items-center gap-2">
@@ -95,19 +92,19 @@ export default function JobSeekerOverview() {
           <div className="grid grid-cols-1 gap-2 text-sm mb-[24px] text-[#BBBBBB]">
             <div className="flex gap-4">
               <IoBriefcaseOutline className="w-5 h-5 text-[#696969]" />
-              <p>{jobDetails.jobType}</p>
+              <p>{job.jobType}</p>
             </div>
             <div className="flex gap-2">
               <Banknote className="w-5 h-5 text-[#696969]" />
-              <p>{jobDetails.salary}</p>
+              <p>{job.salary}</p>
             </div>
             <div className="flex gap-2">
               <BarChart className="w-5 h-5 text-[#696969]" />
-              <p>{jobDetails.level}</p>
+              <p>{job.level}</p>
             </div>
             <div className="flex gap-2">
               <Clock className="w-5 h-5 text-[#696969]" />
-              <p>{jobDetails.deadline}</p>
+              <p>{job.deadline}</p>
             </div>
           </div>
         </div>
