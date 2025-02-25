@@ -36,7 +36,7 @@ const TopNavigation = () => {
   ];
 
   return (
-    <nav className="flex gap-4 p-4 bg-black px-[2em]">
+    <nav className="flex flex-col md:flex-row gap-4 md:p-4 p-2 bg-black px-[2em]">
       {navItems.map((item) => (
         <NavItem
           key={item.href}

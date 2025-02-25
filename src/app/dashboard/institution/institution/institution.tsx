@@ -5,8 +5,8 @@ import MessageIcon from "@/svg/MessageIcon";
 
 function page() {
   return (
-    <div className=" p-5 pr-[100px]">
-      <div className="grid grid-cols-3 gap-4 mb-[37px]">
+    <div className=" p-5 pb-8 pr-5 md:pr-[100px]">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-4 mb-[37px] place-items-center">
         <DashboardCard
           background="#3498DB33"
           color="#3498DB"
@@ -39,10 +39,10 @@ function page() {
       <div>
         <h4 className="text-sm leading-6 text-[#FCFCFC] mb-4">Quick Actions</h4>
         <div className="flex items-center gap-x-5 text-sm leading-6 text-white font-bold">
-          <button className="py-3 w-[190px] text-center rounded-lg border border-[#2D2E2D]">
+          <button className="md:py-3 md:w-[190px] py-2  w-[150px] text-center rounded-lg border text-sm border-[#2D2E2D]">
             Create Exams
           </button>
-          <button className="py-3 w-[190px] text-center rounded-lg border border-[#2D2E2D]">
+          <button className="md:py-3 md:w-[190px] py-2 w-[150px] text-center rounded-lg border text-sm border-[#2D2E2D]">
             View Candidates
           </button>
         </div>
