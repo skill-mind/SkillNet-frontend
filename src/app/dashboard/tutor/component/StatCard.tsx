@@ -23,7 +23,7 @@ export function StatCard({ icon, value, label, bgCol }: StatCardProps) {
 
         <div>
           <p className="text-2xl font-bold mb-1 text-[30px]">{value}</p>
-          <p className="text-gray-400 text-[14px]">{label}</p>
+          <p className="text-gray-400 text-[13px] md:text-[14px]">{label}</p>
         </div>
       </div>
     </div>

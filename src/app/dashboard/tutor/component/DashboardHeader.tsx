@@ -12,9 +12,8 @@ import Avatar from "@/public/img/Avatar.png";
 import { Button } from "@headlessui/react";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
-
 function Header() {
-    const { activeSection } = useContext(DashBoardContext);
+  const { activeSection } = useContext(DashBoardContext);
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
