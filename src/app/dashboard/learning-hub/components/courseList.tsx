@@ -22,7 +22,7 @@ function CourseList() {
         </div>
         <input
           type="text"
-          className="py-3 pl-10 pr-6 rounded-[8px] text-sm leading-6 italic w-[587px] bg-[#1A1B1A] border border-[#1F1F1F] placeholder:text-[#696969] outline-none"
+          className="py-3 pl-10 pr-6 rounded-[8px] text-sm leading-6 italic w-full lg:w-[587px] bg-[#1A1B1A] border border-[#1F1F1F] placeholder:text-[#696969] outline-none"
           placeholder="Search For courses..."
         />
       </div>
