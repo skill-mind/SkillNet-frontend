@@ -32,8 +32,8 @@ function NavItem({ icon, label, active = false, onClick }: NavItemProps) {
 }
 
 export function Sidebar() {
-    const { activeSection, setActiveSection: onSectionChange } =
-      useContext(DashBoardContext);
+  const { activeSection, setActiveSection: onSectionChange } =
+    useContext(DashBoardContext);
   return (
     <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800 overflow-y-auto">
       <div className="p-4 h-[100%] overflow-y-auto scrollbar-hide scroll-smooth">
@@ -105,7 +105,7 @@ export function Sidebar() {
         </nav>
       </div>
 
-      <div className="absolute bottom-0 w-64 border-t border-gray-800">
+      <div className="absolute -bottom-20 w-64 border-t border-gray-800">
         <NavItem
           icon={<Headset size={20} />}
           label="Support"

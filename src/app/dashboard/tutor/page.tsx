@@ -21,8 +21,8 @@ function Page() {
       {activeSection === "earnings" && <Earnings />}
       {activeSection === "support" && <Support />}
       {activeSection === "profile" && <Profile />}
-      
     </div>
   );
 }
+
 export default Page;

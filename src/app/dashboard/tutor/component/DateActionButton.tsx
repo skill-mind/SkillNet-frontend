@@ -1,15 +1,15 @@
 interface DateActionButtonProps {
-    label: string;
-    onClick: () => void;
-  }
+  label: string;
+  onClick: () => void;
+}
 
 export function DateActionButton({ label, onClick }: DateActionButtonProps) {
   return (
     <button
-        onClick={onClick}
-        className="w-full px-3 py-3 bg-none border border-[#2D2E2D] hover:bg-[#FFFFFF1A] rounded-3xl transition-colors"
+      onClick={onClick}
+      className="w-full px-3 py-3 bg-none border border-[#2D2E2D] hover:bg-[#FFFFFF1A] rounded-3xl transition-colors"
     >
-        {label}
+      {label}
     </button>
   );
 }
