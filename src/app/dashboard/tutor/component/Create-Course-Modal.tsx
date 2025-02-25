@@ -16,7 +16,7 @@ interface CreateCourseModelProps {
 }
 
 function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
-  if (!isOpen) return null;
+ 
   const [hovered, setHovered] = useState(false);
   const [items, setItems] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
@@ -25,10 +25,8 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
   const [newQuestion, setNewQuestion] = useState<string>("");
   const [newOptions, setNewOptions] = useState<string[]>(["", "", "", ""]);
   const [newAnswer, setNewAnswer] = useState<string>("");
-  const [examDuration, setExamDuration] = useState<string>("");
   const [examName, setExamName] = useState<string>("");
   const [examDescription, setExamDescription] = useState<string>("");
-  const [examType, setExamType] = useState<string>("SC"); // SC for Single Choice, MC for Multiple Choice
   const [candidateEligibility, setCandidateEligibility] =
     useState<string>("SC");
 
@@ -64,12 +62,11 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
     const formData = {
       examName,
       examDescription,
-      examType,
       candidateEligibility,
       items,
       files,
       certification,
-      examDuration,
+     
     };
     console.log(formData);
   };
@@ -91,6 +88,8 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
       setNewAnswer("");
     }
   };
+
+   if (!isOpen) return null;
 
   return (
     <div className="w-full h-auto flex bg-inherit absolute left-0 transition-all duration-300 flex-col p-5">
@@ -431,7 +430,7 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
         <div className="flex items-center justify-center w-full ">
           <button
             onClick={handleAddQuestion}
-            className="font-[WorkSans] py-[12px] px-[24px] font-medium bg-[#0f0f0f] rounded-[8px] border border-[#2D2E2D]"
+            className="font-[WorkSans] py-[10px] px-[24px] font-medium bg-[#0f0f0f] rounded-[8px] border border-[#2D2E2D]"
           >
             <span className="font-black text-[#D6DFFE]">+</span> ADD SECTION
           </button>
