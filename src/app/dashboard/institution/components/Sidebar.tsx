@@ -84,7 +84,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="p-6 w-[290px] bg-zinc-900 flex flex-col h-full">
+    <div className="p-6 w-[300px] bg-zinc-900 flex flex-col h-full">
       <div className="border border-zinc-700 px-3 py-2 flex justify-between items-center rounded-lg">
         <div className="flex items-center gap-x-2">
           <Image src={avatar} className="w-8 h-8" alt="Organization Avatar" />

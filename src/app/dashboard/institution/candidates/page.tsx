@@ -30,12 +30,12 @@ const CandidatesTabs = () => {
 
   return (
     <div className="mt-5 ml-10">
-      <header className="w-full flex items-center justify-start gap-4">
+      <header className="w-full md:p-4 p-1 flex flex-col md:flex-row items-center justify-start gap-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-5 py-3 rounded-md border border-neutral-900 text-white cursor-pointer transition-all ${
+            className={`md:px-5 gap-2 md:py-3 py-2 w-full rounded-md border border-neutral-900 text-white cursor-pointer transition-all ${
               activeTab === tab.id 
                 ? "bg-neutral-800" 
                 : "hover:bg-neutral-800"

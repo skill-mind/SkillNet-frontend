@@ -14,9 +14,9 @@ function DashboardCard({
   item: string;
 }) {
   return (
-    <div className="w-full py-[30px] px-7 bg-[#161716] rounded-lg flex items-center gap-x-6">
+    <div className=" w-full py-[10px] md:py-[30px] px-3 md:px-7 bg-[#161716] rounded-lg flex items-center gap-x-6">
       <div
-        className={`h-[64px] w-[64px] rounded-full flex justify-center items-center`}
+        className={`md:h-[64px] md:w-[64px] h-[40px] w-[40px] p-2 md:p-0 rounded-full flex justify-center items-center`}
         style={{ color, backgroundColor: background }}
       >
         {icon}
