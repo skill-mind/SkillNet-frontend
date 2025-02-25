@@ -36,21 +36,21 @@ const stats = [
 const quickActions = [
   {
     label: "Create Course",
-    onClick: () => console.log("Create Course clicked"),
+    sectionName: "courses",
   },
   {
     label: "Viewing Earnings",
-    onClick: () => console.log("Viewing Earnings clicked"),
+    sectionName: "earnings",
   },
   {
     label: "Student Feedback",
-    onClick: () => console.log("Student Feedback clicked"),
+    sectionName: "students",
   },
 ];
 
 export default function Tutor() {
   return (
-    <main className="flex-1 px-8">
+    <main className="flex-1 px-8 pb-8 pt-2 mt-2 mb-4 overflow-scroll scrollbar-hide">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {stats.map((stat, index) => (
           <StatCard key={index} {...stat} />
@@ -60,7 +60,11 @@ export default function Tutor() {
         <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {quickActions.map((action, index) => (
-            <QuickActionButton key={index} {...action} />
+            <QuickActionButton
+              key={index}
+              label={action.label}
+              sectionName={action.sectionName}
+            />
           ))}
         </div>
       </section>

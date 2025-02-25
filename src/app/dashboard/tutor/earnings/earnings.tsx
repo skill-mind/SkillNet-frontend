@@ -1,29 +1,26 @@
 "use client";
 
-import {  Percent } from "lucide-react";
+import { Percent } from "lucide-react";
 
-
-import {DateActionButton}  from "../component/DateActionButton"
-import { EarningStatCard } from '../component/EarningStatCard'
-import { PaymentHistoryTable } from '../component/PaymentHistoryTable'
-
+import { DateActionButton } from "../component/DateActionButton";
+import { EarningStatCard } from "../component/EarningStatCard";
+import { PaymentHistoryTable } from "../component/PaymentHistoryTable";
 
 function Earnings() {
   const DateActions = [
-      {
-        label: "All-Time",
-        onClick: () => console.log("All-Time clicked"),
-      },
-      {
-        label: "Weekly",
-        onClick: () => console.log("Weekly clicked"),
-      },
-      {
-        label: "Monthly",
-        onClick: () => console.log("Montly clicked"),
-      },
-  ]
-
+    {
+      label: "All-Time",
+      onClick: () => console.log("All-Time clicked"),
+    },
+    {
+      label: "Weekly",
+      onClick: () => console.log("Weekly clicked"),
+    },
+    {
+      label: "Monthly",
+      onClick: () => console.log("Montly clicked"),
+    },
+  ];
 
   const stats = [
     {
@@ -32,17 +29,28 @@ function Earnings() {
       icon: <Percent className="text-blue-500" size={30} />,
       bgCol: "bg-blue-500",
     },
-
-
   ];
 
   const transactions = [
-    { id: 1, transactionId: "0xe46d0b1039a8f97df2800...", amount: "$15", date: "12th Jan, 2025" },
-    { id: 2, transactionId: "0xe46d0b1039a8f97df2800...", amount: "$15", date: "12th Jan, 2025" },
-    { id: 3, transactionId: "0xe46d0b1039a8f97df2800...", amount: "$15", date: "12th Jan, 2025" },
+    {
+      id: 1,
+      transactionId: "0xe46d0b1039a8f97df2800...",
+      amount: "$15",
+      date: "12th Jan, 2025",
+    },
+    {
+      id: 2,
+      transactionId: "0xe46d0b1039a8f97df2800...",
+      amount: "$15",
+      date: "12th Jan, 2025",
+    },
+    {
+      id: 3,
+      transactionId: "0xe46d0b1039a8f97df2800...",
+      amount: "$15",
+      date: "12th Jan, 2025",
+    },
   ];
-
-
 
   return (
     <main className="flex-1 px-8 scrollbar-hide">
@@ -62,7 +70,6 @@ function Earnings() {
           <PaymentHistoryTable transactions={transactions} />
         </div>
       </section>
-
     </main>
   );
 }

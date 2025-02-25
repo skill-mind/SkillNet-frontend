@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { PlusIcon } from "lucide-react";
 import CreateCourseModal from "@/app/dashboard/tutor/component/Create-Course-Modal";
@@ -21,7 +20,6 @@ export const Addcourse = () => {
         <PlusIcon className="w-[16px] h-[16px]" /> CREATE NEW COURSE
       </button>
 
-      {/* Render modal only if isModalOpen is true */}
       {isModalOpen && (
         <CreateCourseModal
           isOpen={isModalOpen}
