@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: "Ubuntu", sans-serif;
+}
+
 .hexagon-img {
   background-image: url("../public/img/hexagon.svg");
   background-repeat: no-repeat;

@@ -56,7 +56,7 @@ const Checkbox = ({ checked, label }: { checked: boolean; label: string }) => (
 const AllFilters = () => {
   const [sections, setSections] = useState<FilterSection[]>([
     {
-      title: "Work MSStatusode",
+      title: "Work Status",
       isOpen: true,
       options: [
         { id: "available", label: "Available", checked: true },
@@ -87,7 +87,7 @@ const AllFilters = () => {
       isOpen: true,
       options: [
         { id: "contract", label: "Contract", checked: false },
-        { id: "per-time", label: "Per Time", checked: false },
+        { id: "part-time", label: "Part Time", checked: false },
         { id: "full-time", label: "Full Time", checked: false },
       ],
     },
@@ -119,9 +119,7 @@ const AllFilters = () => {
   };
 
   return (
-    <div className="bg-[#1D1D1C] rounded-lg p-4 max-w-xs lg:h-[722px] lg:w-[550px]">
-      <h2 className="text-white text-lg font-semibold mb-4">All Filters</h2>
-
+    <div className="bg-[#1D1D1C] rounded-lg lg:p-4">
       <div className="space-y-6">
         {sections.map((section, sectionIndex) => (
           <div key={section.title}>
