@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import examImage from '@/public/img/exam-paper.png';
+import examImage from '@/public/img/exam-paper.jpg';
 import { examCategories, examMockData } from './mockData';
 import { ExamCard } from './ExamCard';
 import { Button } from '../ui/button';
