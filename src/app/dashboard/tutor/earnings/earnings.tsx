@@ -24,7 +24,7 @@ function Earnings() {
 
   const stats = [
     {
-      value: "$1,500",
+      value: "$30,500",
       label: "Total Earnings",
       icon: <Percent className="text-blue-500" size={30} />,
       bgCol: "bg-blue-500",
