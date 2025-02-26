@@ -1,5 +1,5 @@
 'use client';
-import ExamFeedNavbar from '@/components/ExamFeed/ExamFeedNavbar';
+import ExamFeedNavbar from '@/app/exam/components/ExamFeedNavbar';
 import Footer from '@/components/Footer';
 import { usePathname } from 'next/navigation';
 

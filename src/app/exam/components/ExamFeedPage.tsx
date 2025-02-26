@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import examImage from '@/public/img/exam-paper.jpg';
 import { examCategories, examMockData } from './mockData';
-import { ExamCard } from './ExamCard';
-import { Button } from '../ui/button';
+import { Button } from '../../../components/ui/button';
 import { ArrowLeft, X } from 'lucide-react';
+import { ExamCard } from './ExamCard';
 
 const ExamFeedPage = () => {
   return (
@@ -19,7 +19,7 @@ const ExamFeedPage = () => {
           className='object-cover'
           priority
         />
-        <div className='absolute inset-0 bg-black/50' />
+        <div className='absolute inset-0' />
         <div className='relative h-full flex items-end px-2 sm:px-4 lg:px-16 pb-8'>
           <h1 className='text-3xl sm:text-4xl font-semibold text-white'>
             Ongoing examinations

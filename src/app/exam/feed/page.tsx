@@ -1,4 +1,4 @@
-import ExamFeedPage from '@/components/ExamFeed/ExamFeedPage';
+import ExamFeedPage from '@/app/exam/components/ExamFeedPage';
 
 const Page = () => {
   return <ExamFeedPage />;
