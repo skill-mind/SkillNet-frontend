@@ -29,15 +29,14 @@ export const ExamCard = ({ exam }: { exam: ExamProps }) => {
   const handleRegistrationSubmit = async (formData: any) => {
     setIsRegistrationOpen(false);
     // Simulate API call
-    try {
-      // Replace with actual API call
-      const success = Math.random() > 0.5; // Simulate success/failure
-      setStatusType(success ? 'success' : 'failure');
-      setIsStatusOpen(true);
-    } catch (error) {
-      setStatusType('failure');
-      setIsStatusOpen(true);
-    }
+    // try {
+    //   const success = Math.random() > 0.5; 
+    //   setStatusType(success ? 'success' : 'failure');
+    //   setIsStatusOpen(true);
+    // } catch (error) {
+    //   setStatusType('failure');
+    //   setIsStatusOpen(true);
+    // }
   };
 
   return (

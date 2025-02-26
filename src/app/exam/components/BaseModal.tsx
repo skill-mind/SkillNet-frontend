@@ -25,6 +25,7 @@ const BaseModal: React.FC<BaseModalProps> = ({ isOpen, onClose, title = 'Registr
             <X className="w-5 h-5 text-[#9596A0]" />
           </button>
         </div>
+        <div className='h-[1px] bg-[#313130] mb-8' />
         {children}
       </div>
     </div>

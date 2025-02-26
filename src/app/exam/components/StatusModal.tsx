@@ -21,7 +21,7 @@ const StatusModal: React.FC<StatusModalProps> = ({ isOpen, onClose, type, examFe
           {type === 'success' ? (
             <span className="text-[#A8C789] text-xs">Paid</span>
           ) : (
-            <span className="text-red-500">Unpaid</span>
+            <span className="text-[#C78989]">Unpaid</span>
           )}
         </div>
         
