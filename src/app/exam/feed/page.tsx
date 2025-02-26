@@ -1,12 +1,7 @@
+import ExamFeedPage from '@/components/ExamFeed/ExamFeedPage';
 
-const Page =()=>{
-    return(
-        <>
-        <h1>Exam feed</h1>
-        </>
-    )
-}
+const Page = () => {
+  return <ExamFeedPage />;
+};
 
 export default Page;
-
-
