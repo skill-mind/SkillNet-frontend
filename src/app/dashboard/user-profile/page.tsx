@@ -1,103 +1,120 @@
-// import { useEffect } from "react";
-// import Link from "next/link";
 "use client";
+import { useState } from "react";
+import { type NextPage } from "next";
 
 import React from "react";
 import NavbarJobSeeker from "@/components/Navbar-job-seeker";
+import FormModal from "@/app/dashboard/user-profile/components/FormModal";
+import {
+  AboutForm,
+  ExperienceForm,
+  CertificationForm,
+  SkillsForm,
+} from "@/app/dashboard/user-profile/components/Form";
+import type {
+  AboutData,
+  ExperienceData,
+  CertificationData,
+  SkillData,
+} from "@/app/dashboard/user-profile/components/Form";
+import ProfilePage from "@/app/dashboard/user-profile/components/ProfilePage";
 import Footer from "@/components/Footer";
-import { Plus, Pencil } from "lucide-react";
+import Rectangle27 from "@/public/img/Rectangle 27.svg";
 import Image from "next/image";
-import Ellipse from "@/public/img/Ellipse 1.png";
+import { Plus, Pencil } from "lucide-react";
 
-const scrollToSection = (id: string) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
+type ModalType =  "about" | "experience" | "certification" | "skills" | null;
 
-const page = () => {
+const Page: NextPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>(null);
+  const [editData, setEditData] = useState<
+    AboutData | ExperienceData | CertificationData | SkillData | null
+  >(null);
+
+  const handleEdit = (
+    type: ModalType,
+    data: AboutData | ExperienceData | CertificationData | SkillData
+  ) => {
+    setModalType(type);
+    setEditData(data);
+    setIsModalOpen(true);
+  };
+
+  const handleAboutSubmit = (data: AboutData) => {
+    console.log("About data:", data);
+    setIsModalOpen(false);
+    // Add your submission logic here
+  };
+
+  const handleExperienceSubmit = (data: ExperienceData) => {
+    console.log("Experience data:", data);
+    setIsModalOpen(false);
+    // Add your submission logic here
+  };
+
+  const handleCertificationSubmit = (data: CertificationData) => {
+    console.log("Certification data:", data);
+    setIsModalOpen(false);
+    // Add your submission logic here
+  };
+
+  const handleSkillsSubmit = (data: SkillData) => {
+    console.log("Skill data:", data);
+    setIsModalOpen(false);
+    // Add your submission logic here
+  };
+
+  const getModalTitle = () => {
+    return modalType
+      ? `${editData ? "Edit" : "Add"} ${
+          modalType.charAt(0).toUpperCase() + modalType.slice(1)
+        }`
+      : "";
+  };
+
   return (
     <>
       <NavbarJobSeeker />
 
+      <Image
+        src={Rectangle27}
+        alt="Rectangle27}"
+        width={1920}
+        className="border-bottom-8"
+      />
+
       {/* Profile Box */}
       <div className="px-4 sm:px-3 max-w-screen-xl mx-auto">
-        <div className="flex items-center p-10 ml-20 mt-4">
-          <Image
-            src={Ellipse}
-            alt="Ellipse"
-            width={84}
-            height={84}
-            className="w-16 h-16 rounded-full mr-4"
-          />
-          <div>
-            <h1 className="text-[32px] font-semibold text-white">
-              Daniel Ochoja
-            </h1>
-            <h1 className="text-xl text-white">Software Engineer</h1>
-            <a
-              href="mailto:daniel@example.com"
-              className="text-sm"
-              style={{ color: "#A8C789" }} // Inline styling for the required color
-            >
-              www.danielochoja.com
-            </a>
-          </div>
-        </div>
+        
+        <ProfilePage/>
 
         <div className="min-h-screen text-gray-100 p-6 flex justify-center gap-4">
-          {/* Side Navigation */}
-          <div className="w-[400px] h-[292px] bg-[#161716] border border-[#1D1D1C] rounded-lg">
-            <nav className="space-y-5 p-[20px] border">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block text-[#A8C789]"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="block text-gray-300 hover:text-[#A8C789]"
-              >
-                Experience
-              </button>
-              <button
-                onClick={() => scrollToSection("education")}
-                className="block text-gray-300 hover:text-[#A8C789]"
-              >
-                Education
-              </button>
-              <button
-                onClick={() => scrollToSection("certifications")}
-                className="block text-gray-300 hover:text-[#A8C789]"
-              >
-                Certifications
-              </button>
-              <button
-                onClick={() => scrollToSection("languages")}
-                className="block text-gray-300 hover:text-[#A8C789]"
-              >
-                Spoken Languages
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="block text-gray-300 hover:text-[#A8C789]"
-              >
-                Skills
-              </button>
-            </nav>
-          </div>
-
           {/* Main Content */}
 
           <div className="max-w-4xl ml-7">
             {/* About Section */}
             <section id="about" className="mb-8 mt-7">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-semibold border-b border-[#1d1d1c] pb-4 w-full">
+              <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-2">
+                <h2 className="text-2xl font-semibold pb-4 w-full">
                   About
                 </h2>
+                <div className="flex gap-3">
+                    <button
+                      onClick={() =>
+                        handleEdit("about", {} as AboutData)
+                      }
+                    >
+                      <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
+                    </button>
+                    <button
+                      onClick={() =>
+                        handleEdit("about", {} as AboutData)
+                      }
+                    >
+                      <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
+                    </button>
+                  </div>
               </div>
               <div>
                 <p className="text-[#D9D9D9]">
@@ -124,17 +141,24 @@ const page = () => {
                 <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-2">
                   <h2 className="text-2xl font-semibold flex-1">Experiences</h2>
                   <div className="flex gap-3">
-                    <button>
+                    <button
+                      onClick={() =>
+                        handleEdit("experience", {} as ExperienceData)
+                      }
+                    >
                       <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
                     </button>
-                    <button>
+                    <button
+                      onClick={() =>
+                        handleEdit("experience", {} as ExperienceData)
+                      }
+                    >
                       <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
                     </button>
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  {/* Experience Item */}
                   <div className="pb-4 border-[#1d1d1c]">
                     <div className="flex justify-between items-start border-b border-[#1d1d1c]">
                       <div>
@@ -190,26 +214,48 @@ const page = () => {
                     Certifications
                   </h2>
                   <div className="flex gap-3">
-                    <button>
+                    <button
+                      onClick={() =>
+                        handleEdit("certification", {} as CertificationData)
+                      }
+                    >
                       <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
                     </button>
-                    <button>
+
+                    <button
+                      onClick={() =>
+                        handleEdit("certification", {} as CertificationData)
+                      }
+                    >
                       <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
                     </button>
                   </div>
                 </div>
 
                 <div className="pb-4 border-[#1d1d1c]">
-                  <div className="flex justify-between items-start border-b border-[#1d1d1c]">
-                    <div>
-                      <h3 className="text-xl font-semibold text-[#bbbb] pt-2">
-                        Blockchain Developer
-                      </h3>
-                      <p className="text-[#999999] mt-2 pb-2">
-                        Provider: SkillNet Academy
-                      </p>
+                  <div className="flex items-center border-b border-[#1d1d1c] gap-4">
+                    <div className="w-20 h-20 bg-gray-700 rounded-md flex-shrink-0"></div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="text-xl font-semibold text-[#bbbb] pt-2">
+                            Blockchain Developer
+                          </h3>
+                          <p className="text-[#999999] mt-2 pb-2">
+                            Provider: SkillNet Academy
+                          </p>
+
+                          <div className="pb-2">
+                            <a href="#" className="text-[#D0EFB1] no-underline">
+                              https://unframed.co/item/0x07....5f1/3171138
+                            </a>
+                          </div>
+                        </div>
+                        <span className="text-gray-400">2018 - Present</span>
+                      </div>
                     </div>
-                    <span className="text-gray-400">2018 - Present</span>
                   </div>
                   <p className="text-gray-300 mt-3">
                     I design experiments that could rival a sci-fi plot, pushing
@@ -223,17 +269,30 @@ const page = () => {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b-2 border-[#1d1d1c]">
-                  <div className="flex justify-between items-start border-b border-[#1d1d1c]">
-                    <div>
-                      <h3 className="text-xl font-semibold text-[#bbbb]">
-                        Blockchain Developer
-                      </h3>
-                      <p className="text-[#999999] mt-2 pb-2">
-                        Provider: SkillNet Academy
-                      </p>
+                <div className="pb-4 border-[#1d1d1c]">
+                  <div className="flex items-center border-b border-[#1d1d1c] gap-4">
+                    <div className="w-20 h-20 bg-gray-700 rounded-md flex-shrink-0"></div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="text-xl font-semibold text-[#bbbb] pt-2">
+                            Blockchain Developer
+                          </h3>
+                          <p className="text-[#999999] mt-2 pb-2">
+                            Provider: SkillNet Academy
+                          </p>
+
+                          <div className="pb-2">
+                            <a href="#" className="text-[#D0EFB1] no-underline">
+                              https://unframed.co/item/0x07....5f1/3171138
+                            </a>
+                          </div>
+                        </div>
+                        <span className="text-gray-400">2018 - Present</span>
+                      </div>
                     </div>
-                    <span className="text-gray-400">2018 - Present</span>
                   </div>
                   <p className="text-gray-300 mt-3">
                     I design experiments that could rival a sci-fi plot, pushing
@@ -253,10 +312,14 @@ const page = () => {
                 <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-6">
                   <h2 className="text-2xl font-semibold flex-1">Skills</h2>
                   <div className="flex gap-3">
-                    <button>
+                    <button
+                      onClick={() => handleEdit("skills", {} as SkillData)}
+                    >
                       <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
                     </button>
-                    <button>
+                    <button
+                      onClick={() => handleEdit("skills", {} as SkillData)}
+                    >
                       <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
                     </button>
                   </div>
@@ -282,8 +345,43 @@ const page = () => {
         </div>
       </div>
       <Footer />
+
+      <FormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={getModalTitle()}
+      >
+        {modalType === "about" && (
+          <AboutForm
+            onSubmit={handleAboutSubmit}
+            initialData={editData as AboutData}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+        {modalType === "experience" && (
+          <ExperienceForm
+            onSubmit={handleExperienceSubmit}
+            initialData={editData as ExperienceData}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+        {modalType === "certification" && (
+          <CertificationForm
+            onSubmit={handleCertificationSubmit}
+            initialData={editData as CertificationData}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+        {modalType === "skills" && (
+          <SkillsForm
+            onSubmit={handleSkillsSubmit}
+            initialData={editData as SkillData}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+      </FormModal>
     </>
   );
 };
 
-export default page;
+export default Page;
