@@ -1,5 +1,8 @@
 import { ExamProps } from '@/interfaces/exam.interface';
 import { Button } from '../../../components/ui/button';
+import { useState } from 'react';
+import RegistrationModal from './RegistrationModal';
+import StatusModal from './StatusModal';
 
 const InfoRow = ({
   label,
@@ -15,6 +18,28 @@ const InfoRow = ({
 );
 
 export const ExamCard = ({ exam }: { exam: ExamProps }) => {
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [isStatusOpen, setIsStatusOpen] = useState(false);
+  const [statusType, setStatusType] = useState<'success' | 'failure'>('success');
+
+  const handleRegistration = () => {
+    setIsRegistrationOpen(true);
+  };
+
+  const handleRegistrationSubmit = async (formData: any) => {
+    setIsRegistrationOpen(false);
+    // Simulate API call
+    try {
+      // Replace with actual API call
+      const success = Math.random() > 0.5; // Simulate success/failure
+      setStatusType(success ? 'success' : 'failure');
+      setIsStatusOpen(true);
+    } catch (error) {
+      setStatusType('failure');
+      setIsStatusOpen(true);
+    }
+  };
+
   return (
     <div className='bg-[#161716] rounded-lg p-6 text-white'>
       <h2 className='text-xl font-bold mb-4'>{exam.title}</h2>
@@ -56,10 +81,24 @@ export const ExamCard = ({ exam }: { exam: ExamProps }) => {
 
       <Button
         variant='outline'
+        onClick={handleRegistration}
         className='w-full bg-transparent py-3 border border-[#D0EFB1] rounded-lg hover:bg-[#D0EFB1] hover:text-[#000000] transition-colors uppercase'
       >
         Register
       </Button>
+      
+      <RegistrationModal 
+        isOpen={isRegistrationOpen}
+        onClose={() => setIsRegistrationOpen(false)}
+        examFee="24.00"
+      />
+
+<StatusModal 
+        isOpen={isStatusOpen}
+        onClose={() => setIsStatusOpen(false)}
+        type={statusType}
+        examFee="24.00"
+      />
     </div>
   );
 };
