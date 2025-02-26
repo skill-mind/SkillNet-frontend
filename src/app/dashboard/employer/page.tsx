@@ -1,10 +1,10 @@
-
 import Employer from './employer';
+import Layout from './layout';
 function page(){
     return(
-        <div>
-           <Employer/>
-        </div>
+        <>
+             <Employer />
+       </>
     );
 }
 
