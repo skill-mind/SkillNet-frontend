@@ -32,6 +32,7 @@ function NavItem({ icon, label, active = false, onClick }: NavItemProps) {
 export function Sidebar() {
   const { activeSection, setActiveSection: onSectionChange } =
     useContext(DashBoardContext);
+
   return (
     <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800 overflow-y-auto">
       <div className="p-4 h-[100%] overflow-y-auto scrollbar-hide scroll-smooth">
@@ -63,9 +64,7 @@ export function Sidebar() {
             onClick={() => onSectionChange("home")}
           />
           <NavItem
-            icon={
-              <Image src={jobIcon} alt="Jo" height={20} width={20} />
-            }
+            icon={<Image src={jobIcon} alt="Jo" height={20} width={20} />}
             label="Job Openings"
             active={activeSection === "job openings"}
             onClick={() => onSectionChange("job openings")}
@@ -83,10 +82,8 @@ export function Sidebar() {
             active={activeSection === "notifications"}
             onClick={() => onSectionChange("notifications")}
           />
-          
         </nav>
       </div>
-
     </aside>
   );
 }

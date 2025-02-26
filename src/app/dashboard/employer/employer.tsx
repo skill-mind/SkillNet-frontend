@@ -1,14 +1,13 @@
 "use client";
-
-
 import { MessageSquare, Percent, Folder } from "lucide-react";
-import { StatCard } from "../tutor/component/StatCard";
-import { QuickActionButton } from "../tutor/component/QuickActionButton";
+import EmployerStatCard from "./components/employer-stats";
+import QuickActionButton from "./components/employer-card";
+
 
 const stats = [
   {
     value: "$1,500",
-    label: "Total Money Disburses",
+    label: "Total Money Disbursed",
     icon: <Percent className="text-blue-500" size={30} />,
     bgCol: "bg-blue-500",
   },
@@ -31,16 +30,16 @@ const stats = [
 
 const quickActions = [
   {
-    label: "Create Course",
-    sectionName: "courses",
+    label: "Create Job Opening",
+    sectionName: "job openings",
   },
   {
-    label: "Viewing Earnings",
-    sectionName: "earnings",
+    label: "Viewing Jobs",
+    sectionName: "job openings",
   },
   {
-    label: "Student Feedback",
-    sectionName: "students",
+    label: "Workers Feedback",
+    sectionName: "notifications",
   },
 ];
 
@@ -49,7 +48,7 @@ export default function Tutor() {
     <main className="flex-1 px-8 pb-8 pt-2 mt-2 mb-4 overflow-scroll scrollbar-hide">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <StatCard key={index} {...stat} />
+          <EmployerStatCard key={index} {...stat} />
         ))}
       </div>
       <section>

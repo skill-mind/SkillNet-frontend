@@ -4,8 +4,8 @@ import { useState } from "react";
 ;
 import DashBoardContextProvider from "@/app/useContext/dashboardContext";
 import { Logs } from "lucide-react";
-import Header from "../tutor/component/DashboardHeader";
-import { Sidebar } from "./job-opening-notification/employer-sidebar";
+import { Sidebar } from "./components/employer-sidebar";
+import Header from "./components/header";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

@@ -1,32 +1,29 @@
 "use client";
 
-import Dashboard from "./employer";
+import EmployerDashboard from "./employer";
 import { useContext } from "react";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
-
+import JobOpening from "./job-openings/job-openings";
+import Notifications from "./notifications/notifications";
 
 function Page() {
   const { activeSection } = useContext(DashBoardContext);
 
   const renderContent = () => {
     switch (activeSection) {
-      case "dashboard":
-        return <Dashboard />;
+      case "home":
+        return <EmployerDashboard />;
       case "job openings":
-        return <div className="text-white">"job-opening"</div>;
+        return <JobOpening />;
       case "notifications":
-        return <div className="text-white">"Notifications"</div>;
+        return <Notifications />;
 
       default:
-        return <Dashboard />;
+        return <EmployerDashboard />;
     }
   };
 
-  return (
-    <div className="mx-auto">
-      {renderContent()}
-    </div>
-  );
+  return <div className="mx-auto">{renderContent()}</div>;
 }
 
 export default Page;
