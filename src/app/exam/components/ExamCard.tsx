@@ -91,6 +91,7 @@ export const ExamCard = ({ exam }: { exam: ExamProps }) => {
         isOpen={isRegistrationOpen}
         onClose={() => setIsRegistrationOpen(false)}
         examFee="24.00"
+        onSubmit={handleRegistrationSubmit}
       />
 
 <StatusModal 

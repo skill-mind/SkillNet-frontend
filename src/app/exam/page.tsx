@@ -3,11 +3,12 @@
 import Navbar from "@/components/Navbar";
 import Loading from "../Loading";
 import Footer from "@/components/Footer";
+import ExamFeedPage from "./components/ExamFeedPage";
 
 function ExamPage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
 
       <section className="">
         <div className="w-full md:w-[1256px] mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
@@ -16,9 +17,11 @@ function ExamPage() {
             <Loading />
           </h1>
         </div>
-      </section>
+      </section> */}
+      <ExamFeedPage/>
 
       <Footer />
+
     </>
   );
 }
