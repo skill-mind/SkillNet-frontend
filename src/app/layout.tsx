@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "../components/providers";
 import { siteConfig } from "@/config/site";
+import { WalletProvider } from "@/app/useContext/WalletContext";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url.base),
@@ -46,7 +48,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat overflow-x-hidden">
-        <Providers>{children}</Providers>
+        <Providers>
+          <WalletProvider>{children}</WalletProvider>
+        </Providers>
       </body>
     </html>
   );

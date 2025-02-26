@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { routes } from "@/lib/route";
+import { useWalletContext } from "@/app/useContext/WalletContext";
 
 interface NavLinkProps {
   href: string;
@@ -55,6 +56,7 @@ export default function Navbar({
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { account, disconnectWallet } = useWalletContext();
 
   const showModal = () => {
     setIsModalVisible(!isModalVisible);
@@ -100,21 +102,39 @@ export default function Navbar({
       </ul>
 
       <div className="hidden md:flex items-center flex-col relative">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
-        >
-          CONNECT WALLET
-        </button>
+        {account ? (
+          <button
+            onClick={disconnectWallet}
+            className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
+          >
+            DISCONNECT WALLET
+          </button>
+        ) : (
+          <button
+            onClick={showModal}
+            className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
+          >
+            CONNECT WALLET
+          </button>
+        )}
       </div>
 
       <div className="flex md:hidden items-center gap-4">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
-        >
-          CONNECT
-        </button>
+        {account ? (
+          <button
+            onClick={disconnectWallet}
+            className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
+          >
+            DISCONNECT
+          </button>
+        ) : (
+          <button
+            onClick={showModal}
+            className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
+          >
+            CONNECT
+          </button>
+        )}
         <button
           onClick={toggleMenu}
           className="p-2 rounded-lg hover:bg-[#313130] transition-colors"
