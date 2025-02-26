@@ -1,13 +1,11 @@
 "use client";
-import { ChevronDown, Headset } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { ReactNode, useContext } from "react";
 import profilePic from "@/public/img/dashboardProfile.svg";
 import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
-import studentIcon from "@/public/img/tutor icon/studentsDashboard.svg";
+import jobIcon from "@/public/img/permanent-job.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
-import coursesIcon from "@/public/img/tutor icon/courseDashboard.svg";
-import earningIcon from "@/public/img/tutor icon/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
 interface NavItemProps {
@@ -53,7 +51,6 @@ export function Sidebar() {
           </div>
           <div>
             <h2 className="font-semibold">Miss Flora</h2>
-            <p className="text-sm text-gray-400">Tutor</p>
           </div>
           <ChevronDown className="absolute right-3" size={20} color="#BABABA" />
         </div>
@@ -67,7 +64,7 @@ export function Sidebar() {
           />
           <NavItem
             icon={
-              <Image src={studentIcon} alt="Jo" height={20} width={20} />
+              <Image src={jobIcon} alt="Jo" height={20} width={20} />
             }
             label="Job Openings"
             active={activeSection === "job openings"}
