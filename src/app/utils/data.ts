@@ -179,3 +179,48 @@ export const featureCard = [
       "All platform users must comply with applicable laws, regulations, and the terms outlined by SkillNet.",
   },
 ];
+
+export const transactionsData = [
+  {
+    id: 1,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$20,000",
+    date: "12th Jan, 2025",
+  },
+  {
+    id: 2,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$88",
+    date: "12th Jan, 2025",
+  },
+  {
+    id: 3,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$275",
+    date: "1st Feb, 2025",
+  },
+  {
+    id: 4,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$300",
+    date: "2nd Feb, 2025",
+  },
+  {
+    id: 5,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$2500",
+    date: "20th Feb, 2025",
+  },
+  {
+    id: 6,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$1200",
+    date: "24th Feb, 2025",
+  },
+  {
+    id: 7,
+    transactionId: "0xe46d0b1039a8f97df2800...",
+    amount: "$300",
+    date: "26th Feb, 2025",
+  },
+];
