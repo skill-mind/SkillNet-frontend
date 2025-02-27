@@ -17,7 +17,7 @@ const Page = () => {
     header: {
       width: '100%',
       height: '250px',
-      position: 'relative',
+      position: 'relative' as const,
       backgroundColor: '#2a4d69',
       backgroundImage: `url(${Header.src})`,
       backgroundSize: '150%',
@@ -175,7 +175,7 @@ const Page = () => {
           <div style={styles.examCard}>
             <h2 style={styles.examTitle}>WEB3 FUNDAMENTALS CERTIFICATION EXAM</h2>
             <p style={styles.examDescription}>
-              The Web3 Test Exam is a blockchain-powered assessment designed to evaluate a candidate's understanding of decentralized technologies, smart contracts, and blockchain security. This exam is hosted on SkillNet, ensuring that all results are securely stored on-chain for authenticity and tamper-proof verification.
+              The Web3 Test Exam is a blockchain-powered assessment designed to evaluate a candidate&apos;s understanding of decentralized technologies, smart contracts, and blockchain security. This exam is hosted on SkillNet, ensuring that all results are securely stored on-chain for authenticity and tamper-proof verification.
             </p>
             <div style={styles.examDetails}>
               <div style={styles.detailItem}>
@@ -212,7 +212,7 @@ const Page = () => {
           <div style={styles.examCard}>
             <h2 style={styles.examTitle}>WEB3 FUNDAMENTALS CERTIFICATION EXAM</h2>
             <p style={styles.examDescription}>
-              The Web3 Test Exam is a blockchain-powered assessment designed to evaluate a candidate's understanding of decentralized technologies, smart contracts, and blockchain security. This exam is hosted on SkillNet, ensuring that all results are securely stored on-chain for authenticity and tamper-proof verification.
+              The Web3 Test Exam is a blockchain-powered assessment designed to evaluate a candidate&apos;s understanding of decentralized technologies, smart contracts, and blockchain security. This exam is hosted on SkillNet, ensuring that all results are securely stored on-chain for authenticity and tamper-proof verification.
             </p>
             <div style={styles.examDetails}>
               <div style={styles.detailItem}>
