@@ -5,7 +5,7 @@ import { Percent } from "lucide-react";
 
 import { EarningStatCard } from "@/app/dashboard/tutor/component/EarningStatCard";
 import { PaymentHistoryTable } from "@/app/dashboard/tutor/component/PaymentHistoryTable";
-import { isDateInThisMonth, isDateInThisWeek } from "@/app/utils/datetime";
+import { isDateInThisMonth } from "@/app/utils/datetime";
 
 import { transactionsData } from "@/app/utils/data";
 
