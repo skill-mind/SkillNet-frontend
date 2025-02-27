@@ -13,8 +13,6 @@ const formGroupsData = [
   { label: "Minimum Requirements", type: "textarea" },
 ];
 
-const selectedskills = ["Javascript", "Frontend"];
-
 type FormGroupProps = {
   formData: { label: string; type: "input" | "textarea" };
   // For list fields:
@@ -144,6 +142,22 @@ export default function CreateJobModal() {
     }
   };
 
+  // State for skills
+  const [skills, setSkills] = useState<string[]>(["JavaScript", "Front-End"]);
+  const [skillInput, setSkillInput] = useState<string>("");
+
+  const handleAddSkill = () => {
+    const trimmedSkill = skillInput.trim();
+    if (trimmedSkill && !skills.includes(trimmedSkill)) {
+      setSkills((prev) => [...prev, trimmedSkill]);
+      setSkillInput("");
+    }
+  };
+
+  const handleRemoveSkill = (skillToRemove: string) => {
+    setSkills((prev) => prev.filter((skill) => skill !== skillToRemove));
+  };
+
   return (
     <div className="border border-white p-6 bg-[#161716]">
       {/* Header */}
@@ -185,22 +199,45 @@ export default function CreateJobModal() {
               (input all the required skills for this role)
             </div>
           </label>
-          <div className="filter-tags flex items-center">{
-            selectedskills.map((skill) => (
-                <div className="flex items-center">
-                    <X color="#40403E"/> <span className="text-[#EAEDE7]">{skill}</span>
-                </div>
-            ))
-            }</div>
+          <div className="flex flex-wrap gap-4">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="flex rounded-[4px] border border-[#313130] gap-2 items-center py-2 px-3"
+              >
+                <button
+                  type="button"
+                  onClick={() => handleRemoveSkill(skill)}
+                  className="cursor-pointer"
+                >
+                  <X size={20} color="#40403E" />
+                </button>
+                <span className="text-[#EAEDE7] text-[14px] font-[400]">
+                  {skill}
+                </span>
+              </div>
+            ))}
+          </div>
           <input
             type="text"
-            placeholder="e.g: Typescript"
-            className="border placeholder:text-[#696969] placeholder:text-[14px] border-[#252625] outline-none bg-transparent rounded-lg p-2 w-full"
+            placeholder="e.g: TypeScript"
+            value={skillInput}
+            onChange={(e) => setSkillInput(e.target.value)}
+            className="border border-[#252625] outline-none bg-transparent rounded-lg p-2 w-full mt-2 placeholder:text-[#696969] placeholder:text-[14px]"
           />
-          <button className="flex items-center gap-2 justify-center bg-transparent border-[#252625] border rounded-[8px] w-full py-[10px] px-[14px] text-[#696969] mt-3">
+          <button
+            type="button"
+            onClick={handleAddSkill}
+            className="flex items-center gap-2 justify-center border border-[#252625] rounded-lg w-full py-2 px-3 text-[#696969] mt-4 bg-transparent"
+          >
             <CirclePlus color="#A8C789" />
             <div>Add Skill</div>
           </button>
+          <input
+            type="submit"
+            value="POST"
+            className="text-black bg-[#D0EFB1] w-full min-h-[48px] rounded-lg font-bold mt-6"
+          />
         </div>
       </form>
     </div>
