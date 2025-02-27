@@ -17,6 +17,12 @@ const InfoRow = ({
   </div>
 );
 
+interface RegistrationFormData {
+  fullName: string;
+  email: string;
+  walletAddress: string;
+}
+
 export const ExamCard = ({ exam }: { exam: ExamProps }) => {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isStatusOpen, setIsStatusOpen] = useState(false);
@@ -26,17 +32,15 @@ export const ExamCard = ({ exam }: { exam: ExamProps }) => {
     setIsRegistrationOpen(true);
   };
 
-  const handleRegistrationSubmit = async (formData: any) => {
+  const handleSubmit = (formData: RegistrationFormData) => {
+    console.log('Form submitted with data:', formData);
     setIsRegistrationOpen(false);
-    // Simulate API call
-    // try {
-    //   const success = Math.random() > 0.5; 
-    //   setStatusType(success ? 'success' : 'failure');
-    //   setIsStatusOpen(true);
-    // } catch (error) {
-    //   setStatusType('failure');
-    //   setIsStatusOpen(true);
-    // }
+    
+    setTimeout(() => {
+      const isSuccess = Math.random() > 0.5; // 50% success rate
+      setStatusType(isSuccess ? 'success' : 'failure');
+      setIsStatusOpen(true);
+    }, 1000);
   };
 
   return (
@@ -90,7 +94,7 @@ export const ExamCard = ({ exam }: { exam: ExamProps }) => {
         isOpen={isRegistrationOpen}
         onClose={() => setIsRegistrationOpen(false)}
         examFee="24.00"
-        onSubmit={handleRegistrationSubmit}
+        onSubmit={handleSubmit}
       />
 
 <StatusModal 
