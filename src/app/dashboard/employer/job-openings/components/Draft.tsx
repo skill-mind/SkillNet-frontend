@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
+
 
 const Draft: NextPage = () => {
-  const [activeTab, setActiveTab] = useState('Posts');
+
   
   // Sample job data
   const jobs = [
