@@ -1,5 +1,8 @@
 import { ExamProps } from '@/interfaces/exam.interface';
 import { Button } from '../../../components/ui/button';
+import { useState } from 'react';
+import RegistrationModal from './RegistrationModal';
+import StatusModal from './StatusModal';
 
 const InfoRow = ({
   label,
@@ -14,7 +17,32 @@ const InfoRow = ({
   </div>
 );
 
+interface RegistrationFormData {
+  fullName: string;
+  email: string;
+  walletAddress: string;
+}
+
 export const ExamCard = ({ exam }: { exam: ExamProps }) => {
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [isStatusOpen, setIsStatusOpen] = useState(false);
+  const [statusType, setStatusType] = useState<'success' | 'failure'>('success');
+
+  const handleRegistration = () => {
+    setIsRegistrationOpen(true);
+  };
+
+  const handleSubmit = (formData: RegistrationFormData) => {
+    console.log('Form submitted with data:', formData);
+    setIsRegistrationOpen(false);
+    
+    setTimeout(() => {
+      const isSuccess = Math.random() > 0.5; // 50% success rate
+      setStatusType(isSuccess ? 'success' : 'failure');
+      setIsStatusOpen(true);
+    }, 1000);
+  };
+
   return (
     <div className='bg-[#161716] rounded-lg p-6 text-white'>
       <h2 className='text-xl font-bold mb-4'>{exam.title}</h2>
@@ -56,10 +84,25 @@ export const ExamCard = ({ exam }: { exam: ExamProps }) => {
 
       <Button
         variant='outline'
+        onClick={handleRegistration}
         className='w-full bg-transparent py-3 border border-[#D0EFB1] rounded-lg hover:bg-[#D0EFB1] hover:text-[#000000] transition-colors uppercase'
       >
         Register
       </Button>
+      
+      <RegistrationModal 
+        isOpen={isRegistrationOpen}
+        onClose={() => setIsRegistrationOpen(false)}
+        examFee="24.00"
+        onSubmit={handleSubmit}
+      />
+
+<StatusModal 
+        isOpen={isStatusOpen}
+        onClose={() => setIsStatusOpen(false)}
+        type={statusType}
+        examFee="24.00"
+      />
     </div>
   );
 };
