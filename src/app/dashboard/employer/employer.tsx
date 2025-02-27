@@ -2,7 +2,7 @@
 import { MessageSquare, Percent, Folder } from "lucide-react";
 import EmployerStatCard from "./components/employer-stats";
 import QuickActionButton from "./components/employer-card";
-
+import CreateJobModal from "./components/create-job-modal";
 
 const stats = [
   {
@@ -17,7 +17,7 @@ const stats = [
     icon: <Folder className="text-purple-600" size={30} fill={"#9333ea"} />,
     bgCol: "bg-purple-500",
   },
- 
+
   {
     value: "10+",
     label: "Messages",
@@ -29,10 +29,6 @@ const stats = [
 ];
 
 const quickActions = [
-  {
-    label: "Create Job Opening",
-    sectionName: "job openings",
-  },
   {
     label: "Viewing Jobs",
     sectionName: "job openings",
@@ -54,6 +50,9 @@ export default function Tutor() {
       <section>
         <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <button className="w-full px-6 py-3 bg-none border border-[#2D2E2D] hover:bg-[#FFFFFF1A] rounded-lg transition-colors">
+              Create Job Opening
+            </button>
           {quickActions.map((action, index) => (
             <QuickActionButton
               key={index}
@@ -63,6 +62,7 @@ export default function Tutor() {
           ))}
         </div>
       </section>
+      <CreateJobModal/>
     </main>
   );
 }
