@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Arrow from '@/public/arrow-left.svg';
 import Vector from '@/public/Vector.svg';
 import Header from '@/public/registered.svg';
+import ExamDetailsModal from '@/app/exam/registered/ExamDetailsModal';
 
 const Page = () => {
   const styles = {
@@ -163,8 +163,8 @@ const Page = () => {
           <Image 
             src={Vector} 
             alt="Chat" 
-            width={15}
-            height={15}
+            width={12}
+            height={12}
             style={{ marginLeft: '8px' }}
           />
         </button>
@@ -204,9 +204,29 @@ const Page = () => {
               </div>
             </div>
             <div style={styles.buttonDivider}></div>
-            <Link href="/exam/registered/details" passHref>
-              <button style={styles.detailsButton}>VIEW DETAILS</button>
-            </Link>
+            <ExamDetailsModal 
+              buttonStyle={styles.detailsButton}
+              examData={{
+                title: "WEB3 FUNDAMENTALS CERTIFICATION EXAM",
+                description: "The Web3 Test Exam is a blockchain-powered assessment designed to evaluate a candidate&apos;s understanding of decentralized technologies, smart contracts, and blockchain security. This exam is hosted on SkillNet, ensuring that all results are securely stored on-chain for authenticity and tamper-proof verification.",
+                date: "29th Feb, 2025",
+                duration: "1hr",
+                registeredCandidates: "120",
+                certification: "Yes on completion",
+                passingScore: "75%",
+                format: "Multichoice",
+                topics: [
+                  "Blockchain Basics (Consensus mechanisms, Layer 1 vs. Layer 2, decentralization)",
+                  "Smart Contracts (Solidity fundamentals, contract security, gas optimization)",
+                  "DeFi & NFTs (Decentralized finance protocols, NFT standards, use cases)"
+                ],
+                reasons: [
+                  "Enhance Your Web3 Credentials With A Blockchain-Verified Certificate",
+                  "Prove Your Skills To Potential Employers And Blockchain Projects",
+                  "Gain Credibility In The Decentralized Space With Verifiable Results"
+                ]
+              }}
+            />
           </div>
           
           <div style={styles.examCard}>
@@ -241,9 +261,29 @@ const Page = () => {
               </div>
             </div>
             <div style={styles.buttonDivider}></div>
-            <Link href="/exam/registered/details" passHref>
-              <button style={styles.detailsButton}>VIEW DETAILS</button>
-            </Link>
+            <ExamDetailsModal 
+              buttonStyle={styles.detailsButton}
+              examData={{
+                title: "WEB3 FUNDAMENTALS CERTIFICATION EXAM",
+                description: "The Web3 Test Exam is a blockchain-powered assessment designed to evaluate a candidate&apos;s understanding of decentralized technologies, smart contracts, and blockchain security. This exam is hosted on SkillNet, ensuring that all results are securely stored on-chain for authenticity and tamper-proof verification.",
+                date: "29th Feb, 2025",
+                duration: "1hr",
+                registeredCandidates: "120",
+                certification: "Yes on completion",
+                passingScore: "75%",
+                format: "Multichoice",
+                topics: [
+                  "Blockchain Basics (Consensus mechanisms, Layer 1 vs. Layer 2, decentralization)",
+                  "Smart Contracts (Solidity fundamentals, contract security, gas optimization)",
+                  "DeFi & NFTs (Decentralized finance protocols, NFT standards, use cases)"
+                ],
+                reasons: [
+                  "Enhance Your Web3 Credentials With A Blockchain-Verified Certificate",
+                  "Prove Your Skills To Potential Employers And Blockchain Projects",
+                  "Gain Credibility In The Decentralized Space With Verifiable Results"
+                ]
+              }}
+            />
           </div>
         </div>
       </div>
