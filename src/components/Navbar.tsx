@@ -58,15 +58,14 @@ export default function Navbar({
   const menuRef = useRef<HTMLDivElement>(null);
   const { account, disconnectWallet } = useWalletContext();
 
+  // Toggle modal visibility; also ensure that if one is open, the other is closed.
   const showModal = () => {
-    setIsModalVisible(!isModalVisible);
-    // Close menu if it's open
+    setIsModalVisible((prev) => !prev);
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    // Close modal if it's open
+    setIsMenuOpen((prev) => !prev);
     if (isModalVisible) setIsModalVisible(false);
   };
 
@@ -78,7 +77,8 @@ export default function Navbar({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -167,7 +167,7 @@ export default function Navbar({
       )}
       {isModalVisible && (
         <div className="absolute top-full left-0 right-3 md:right-10 md:left-auto px-4 mt-2 z-10">
-          <WalletSelectorUI />
+          <WalletSelectorUI onClose={showModal} />
         </div>
       )}
     </nav>
