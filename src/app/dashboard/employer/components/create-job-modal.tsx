@@ -49,7 +49,7 @@ const FormGroup = ({
           <Asterisk color="red" size={15} />
         </label>
         {/* Container styled to mimic a textarea */}
-        <div className="border border-[#252625] rounded-lg p-2 min-h-[100px] bg-transparent">
+        <div className="border border-[#252625] rounded-lg p-2 min-h-[100px] bg-transparent ">
           {listData && listData.items.length > 0 && (
             <ul className="m-0 pl-5 list-disc text-white">
               {listData.items.map((item, index) => (
@@ -167,7 +167,7 @@ export const CreateJobModal: React.FC<CreateJobModalProps> = ({
   };
 
   return (
-    <div className="border w-full mx-auto my-4  overflow-y-scroll !max-w-[761px] border-[#40403E] p-6 bg-[#161716] rounded-[12px] custom-scrollbar">
+    <div className="border w-full mx-auto my-4  overflow-y-scroll !max-w-[761px] border-[#40403E] p-6 bg-[#161716] rounded-[12px] [&::-webkit-scrollbar]:hidden [scrollbar-width:none]">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
