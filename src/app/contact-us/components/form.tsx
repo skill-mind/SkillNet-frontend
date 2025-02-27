@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 
+interface FormErrors {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function Form() {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,9 +16,8 @@ export default function Form() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<FormErrors>({
     name: "",
     email: "",
     message: "",
@@ -33,7 +38,7 @@ export default function Form() {
   };
 
   const validateForm = () => {
-    const newErrors: typeof errors = {
+    const newErrors: FormErrors = {
       name: "",
       email: "",
       message: "",
@@ -66,7 +71,7 @@ export default function Form() {
     }
 
     setIsSubmitting(true);
-    setSubmitMessage(null);
+ 
 
     try {
       const response = await fetch(
@@ -102,11 +107,11 @@ export default function Form() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen w-full max-w-[90%] sm:max-w-[80%] md:max-w-[600px] mx-auto">
+    <div className="flex justify-center items-center w-full max-w-[90%] sm:max-w-[80%] md:max-w-[700px] mx-auto">
       {!isSubmitted ? (
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 p-4 sm:p-6 md:p-[32px] rounded-[8px]   w-full"
+          className="space-y-4 p-4 sm:p-6 md:p-[32px] rounded-[8px] w-full"
         >
           <div className="space-y-2">
             <label className="block text-sm md:text-base font-medium text-[#FFFFFF]">
@@ -118,8 +123,8 @@ export default function Form() {
               value={formData.name}
               onChange={handleChange}
               placeholder="Type in your name"
-              className={`mt-1 block w-full border bg-transparent placeholder:italic ${
-                errors.name ? "border-red-500" : "text-[#898783]"
+              className={`outline-none mt-1 block w-full border bg-transparent placeholder:italic ${
+                errors.name ? "border-red-500" : "border-[#898783]"
               } rounded-md shadow-sm text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               required
             />
@@ -138,8 +143,8 @@ export default function Form() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Type in your email address"
-              className={`mt-1 block w-full border bg-transparent placeholder:italic ${
-                errors.email ? "border-red-500" : "text-[#898783]"
+              className={`outline-none  mt-1 block w-full border bg-transparent placeholder:italic ${
+                errors.email ? "border-red-500" : "border-[#898783]"
               } rounded-[4px] shadow-sm text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               required
             />
@@ -157,9 +162,9 @@ export default function Form() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Type your special message here..."
-              className={`mt-1 block w-full border bg-transparent placeholder:italic ${
-                errors.message ? "border-red-500" : "text-[#898783]"
-              } rounded-[4px] text-sm md:text-base focus:border-[#898783] focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
+              className={`outline-none mt-1 block w-full border bg-transparent placeholder:italic ${
+                errors.message ? "border-red-500" : "border-[#898783]"
+              } rounded-[4px] text-sm md:text-base focus:border-[#898783] text-white focus:ring-[#898783] px-3 py-2 md:px-[16px] md:py-[13px]`}
               rows={4}
               required
             ></textarea>
@@ -168,22 +173,22 @@ export default function Form() {
             )}
           </div>
 
-          <div className="text-center md:text-end pt-4">
+          <div className="text-center pt-4">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`flex justify-center items-center m-auto py-2 md:py-[12px] px-4 md:px-[24px] border border-transparent text-sm md:text-[14px] font-medium rounded-[32px] text-black focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+              className={`flex justify-center items-center py-3 md:py-[12px] px-2 md:px-[24px] border border-transparent text-sm md:text-[14px] font-bold rounded-[10px] text-black focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                 isSubmitting
                   ? "bg-gray-500 cursor-not-allowed"
                   : "bg-[#D0EFB1] hover:bg-[#D0EFB1]"
-              } w-full md:max-w-[226px] transition-colors duration-200`}
+              } w-full transition-colors duration-200`}
             >
-              {isSubmitting ? "Sending..." : "Send message"}
+              {isSubmitting ? "Sending..." : "CONTINUE"}
             </button>
           </div>
         </form>
       ) : (
-        <div className="flex flex-col items-center justify-center space-y-4 bg-[#F4F4F5] p-4 sm:p-6 md:p-[32px] rounded-[8px] border-[1px] border-[#898783] text-center w-full">
+        <div className="flex flex-col items-center justify-center space-y-4 bg-black p-4 sm:p-6 md:p-[32px] rounded-[8px] border-[1px] border-[#898783] text-center w-full">
           <span className="text-[#10B981] text-[32px] md:text-[48px]">✓</span>
           <p className="text-[18px] md:text-[24px] font-semibold text-[#898783]">
             Thank you for filling the form
@@ -195,4 +200,4 @@ export default function Form() {
       )}
     </div>
   );
-}
+};

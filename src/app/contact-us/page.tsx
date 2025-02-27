@@ -1,20 +1,39 @@
+import { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React from "react";
 import Form from "./components/form";
 
-const page = () => {
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Learn about SkillNet, a decentralized platform for job seekers and employers.",
+  keywords: [
+    "SkillNet",
+    "decentralized jobs",
+    "blockchain certification",
+    "secure exams",
+  ],
+};
   
+
+
+
+const page = () => {
+
+
+
+
   return (
   <>
     <Navbar/>
 
-   <section className="h-[847px] items-center justify-center pt-10 ">
-      <div className="md:p-8 flex flex-col items-center justify-center px-2 pt-0 rounded-[8px]   w-full">
+   <section className="mt-20">
+      <div className="w-full mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
         
-      <div className=" flex flex-col items-center justify-center">
-        <h1 className="text-[40px] text-pretty font-bold text-[#FCFCFC]">Contact Us</h1>
-        <p className=" text-lg text-[#898783]">Do you have something to share with us? Reach out to us!</p>  
+      <div className="text-center ">
+        <h1 className="text-[40px] text-pretty font-bold pb-4 text-[#FCFCFC]">CONTACT US</h1>
+        <p className=" text-base lg:text-lg text-[#898783]">Do you have something to share with us? Reach out to us!</p>  
       </div>
 
       <Form/>

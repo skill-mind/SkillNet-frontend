@@ -1,11 +1,41 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "../components/providers";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "SkillNet",
-  description:
-    "SkillNet is an innovative blockchain-powered platform that seamlessly bridges the gap between job seekers, employers, tutors, and institutions",
+  metadataBase: new URL(siteConfig.url.base),
+  title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.author, url: siteConfig.url.author }],
+  creator: siteConfig.author,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url.base,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@projectSkillNet",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -15,11 +45,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Providers>
-        <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat">
-          {children}
-        </body>
-      </Providers>
+      <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat overflow-x-hidden">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
