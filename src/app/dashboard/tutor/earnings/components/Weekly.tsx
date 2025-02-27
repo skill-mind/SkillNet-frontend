@@ -19,7 +19,7 @@ type Transaction = {
 
 function Weekly() {
 
-    const [filteredTransactions, setTransactions] = useState<Transaction[]>(transactionsData.filter((transaction) => isDateInThisWeek(transaction.date)));
+    const [filteredTransactions] = useState<Transaction[]>(transactionsData.filter((transaction) => isDateInThisWeek(transaction.date)));
     // const transactions = transactionsData;
 
     // "useCallback" to reduce unneccessary recomputations.

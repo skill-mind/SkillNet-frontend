@@ -20,7 +20,7 @@ type Transaction = {
 
 function AllTime() {
 
-    const [transactions, setTransactions] = useState<Transaction[]>(transactionsData);
+    const [transactions] = useState<Transaction[]>(transactionsData);
     // const transactions = transactionsData;
 
     // "useCallback" to reduce unneccessary recomputations.

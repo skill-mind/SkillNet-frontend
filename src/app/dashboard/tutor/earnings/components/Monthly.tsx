@@ -19,7 +19,7 @@ type Transaction = {
 
 function Monthly() {
 
-    const [filteredTransactions, setTransactions] = useState<Transaction[]>(transactionsData.filter((transaction) => isDateInThisMonth(transaction.date)));
+    const [filteredTransactions] = useState<Transaction[]>(transactionsData.filter((transaction) => isDateInThisMonth(transaction.date)));
     // const transactions = transactionsData;
 
     // "useCallback" to reduce unneccessary recomputations.
