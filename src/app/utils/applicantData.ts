@@ -13,6 +13,7 @@ export interface Certification {
   
   export interface Applicant {
     id: number;
+    postedTime: string;
     name: string;
     position: string;
     location: string;
@@ -38,6 +39,7 @@ export interface Certification {
   export const applicantData: Applicant[] = [
     {
       id: 1,
+      postedTime: "12 hours ago",
       name: "Benedict Ooochoche",
       position: "Front-End Developer",
       location: "Lagos, Nigeria",
@@ -64,6 +66,7 @@ export interface Certification {
     },
     {
       id: 2,
+      postedTime: "12 hours ago",
       name: "Benedict Ooochoche",
       position: "Front-End Developer",
       location: "Lagos, Nigeria",
@@ -84,6 +87,7 @@ export interface Certification {
     },
     {
       id: 3,
+      postedTime: "12 hours ago",
       name: "Benedict Ooochoche",
       position: "Front-End Developer",
       location: "Lagos, Nigeria",
@@ -104,6 +108,7 @@ export interface Certification {
     },
     {
       id: 4,
+      postedTime: "12 hours ago",
       name: "Benedict Ooochoche",
       position: "Front-End Developer",
       location: "Lagos, Nigeria",

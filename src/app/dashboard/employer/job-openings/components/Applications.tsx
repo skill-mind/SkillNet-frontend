@@ -24,12 +24,13 @@ const Applications = () => {
             key={applicant.id} 
             className={`bg-zinc-900 border ${expandedId === applicant.id ? "border-purple-500" : "border-zinc-800"} rounded-md overflow-hidden`}
           >
-            {/* Basic info card that's always shown */}
+            {/* card */}
             <div className="p-4">
+            <div className="text-sm text-gray-400">Posted {applicant.postedTime}</div>
               <h2 className="text-white text-xl font-semibold">{applicant.name}</h2>
               <p className="text-gray-400 mb-2">{applicant.position}</p>
               
-              <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
+              <div className="flex justify-start sm:flex-row sm:justify-between mb-2">
                 <div className="flex items-center gap-1 text-gray-400 text-sm">
                   <MapPin size={14} />
                   <span>{applicant.location}</span>
@@ -43,16 +44,17 @@ const Applications = () => {
                   </div>
                 </div>
               </div>
-              
-              <button
-                className="flex items-center justify-center px-3 py-1 text-white bg-transparent border border-zinc-700 rounded-md hover:bg-zinc-800 transition text-sm mt-2"
-                onClick={() => toggleExpand(applicant.id)}
-              >
-                {expandedId === applicant.id ? "HIDE APPLICATION" : "VIEW APPLICATION"}
-              </button>
+              <div className="flex justify-end mb-2">
+                <button
+                  className="flex items-center justify-center px-3 py-1 text-white bg-transparent border border-zinc-700 rounded-md hover:bg-zinc-800 transition text-sm"
+                  onClick={() => toggleExpand(applicant.id)}
+                >
+                  {expandedId === applicant.id ? "HIDE APPLICATION" : "VIEW APPLICATION"}
+                </button>
+              </div>
             </div>
             
-            {/* Expanded details section */}
+            {/* drop-down details section */}
             {expandedId === applicant.id && (
               <div className="p-4 bg-zinc-950 border-t border-zinc-800">
                 {/* Submission */}
@@ -113,7 +115,7 @@ const Applications = () => {
         ))}
       </div>
       
-      {/* Right side - Job details */}
+      {/*  Job Application details */}
       <div className="hidden lg:block lg:w-2/5">
         <div className="bg-zinc-900 rounded-md p-4">
           <div className="flex justify-between items-center mb-4">
