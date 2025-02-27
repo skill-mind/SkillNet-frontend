@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { X, ArrowLeft, Asterisk, CirclePlus } from "lucide-react";
 
+interface CreateJobModalProps {
+  createJobModalOpen: boolean;
+  setCreateJobModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const formGroupsData = [
   { label: "Job Title", type: "input" },
   { label: "Job Type", type: "input" },
@@ -94,7 +99,10 @@ const FormGroup = ({
   );
 };
 
-export default function CreateJobModal() {
+export const CreateJobModal: React.FC<CreateJobModalProps> = ({
+  createJobModalOpen,
+  setCreateJobModalOpen,
+}) => {
   // For list fields, we store both the list items and the current input text.
   const [listData, setListData] = useState<{
     [key: string]: { items: string[]; current: string };
@@ -159,14 +167,16 @@ export default function CreateJobModal() {
   };
 
   return (
-    <div className="border border-white p-6 bg-[#161716]">
+    <div className="border w-full mx-auto my-4  overflow-y-scroll !max-w-[761px] border-[#40403E] p-6 bg-[#161716] rounded-[12px] custom-scrollbar">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <ArrowLeft />
           <div className="text-2xl font-semibold">Create Job Openings</div>
         </div>
-        <X />
+        <div onClick={() => setCreateJobModalOpen(false)}>
+          <X />
+        </div>
       </div>
 
       {/* Form */}
@@ -242,4 +252,6 @@ export default function CreateJobModal() {
       </form>
     </div>
   );
-}
+};
+
+export default CreateJobModal;
