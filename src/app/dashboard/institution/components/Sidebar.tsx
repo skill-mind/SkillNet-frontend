@@ -85,6 +85,7 @@ function Sidebar() {
 
   return (
     <div className="p-6 w-[300px] bg-zinc-900 flex flex-col h-full">
+      <Link href={"institution/profile"}>
       <div className="border border-zinc-700 px-3 py-2 flex justify-between items-center rounded-lg">
         <div className="flex items-center gap-x-2">
           <Image src={avatar} className="w-8 h-8" alt="Organization Avatar" />
@@ -92,6 +93,8 @@ function Sidebar() {
         </div>
         <ChevronDown className="text-zinc-400 hover:text-zinc-200 transition-colors cursor-pointer" />
       </div>
+      </Link>
+        
 
       <nav className="flex flex-1 flex-col gap-y-2 mt-4">
         {routes.map((route) => {
