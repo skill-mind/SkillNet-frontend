@@ -36,7 +36,7 @@ export default function ProfileEditModal() {
       {/* Edit Button */}
 
       <div onClick={openModal} className="hover:cursor-pointer flex py-2 px-4 border-[1px] gap-2 rounded-[48px]">
-        <Edit />
+        <Edit width={20} height={20} />
         <p className="">Edit</p>
       </div>
 

@@ -4,6 +4,7 @@ import TutorReview from "@/public/img/tutorreview.png";
 import ProfileEditModal from "./profile-edit-modal"
 
 import Image from "next/image";
+import { Copy } from "lucide-react";
 const Profile = () => {
   return (
     <div className="font-Ubuntu mb-16 md:mb-32 Sans px-8 w-full md:w-[900px]  scrollbar-hidden">
@@ -25,8 +26,13 @@ const Profile = () => {
                 Product Designer
               </p>
             </div>
-            <div className="text-[#CCCCCC]">
+            <div className="flex flex-row gap-4">
               <ProfileEditModal />
+              
+              <div className="border-[1px] flex-row flex w-fit h-fit py-2 px-4 gap-4 rounded-[48px] text-gray-300 leading-[19.2px]">
+                <p>0X12345...</p>
+                <Copy width={20} height={20} />
+              </div>
             </div>
           </div>
         </div>
