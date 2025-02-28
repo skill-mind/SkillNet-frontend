@@ -3,17 +3,19 @@ import Logo from '@/public/skillnet-white logo.png';
 import Avatar from '@/public/img/profile-avatar.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Bell, Search, MoreVertical, X, Menu } from 'lucide-react';
+import { Bell, Search, MoreVertical, X, Menu, MessageCircle } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { ExamNavLinkProps } from '@/interfaces/exam.interface';
 import { navLinks } from './mockData';
+import { useChatbot } from './ChatbotContext';
 
 const ExamFeedNavbar = () => {
   const pathname = usePathname();
   const [showSearch, setShowSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { toggleChatbot } = useChatbot();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -53,9 +55,8 @@ const ExamFeedNavbar = () => {
                 <Fragment key={link.href}>
                   <Link href={link.href}>
                     <span
-                      className={`relative cursor-pointer pb-1 group ${
-                        isActive ? 'text-white' : 'text-[#ABABAB]'
-                      }`}
+                      className={`relative cursor-pointer pb-1 group ${isActive ? 'text-white' : 'text-[#ABABAB]'
+                        }`}
                     >
                       {link.label}
                     </span>
@@ -69,6 +70,14 @@ const ExamFeedNavbar = () => {
           </ul>
 
           <div className='flex items-center gap-2 lgTablet:mx-auto'>
+            <button
+              className='p-2 hover:bg-[#313130] rounded-full transition-colors'
+              onClick={toggleChatbot}
+              aria-label="Open chatbot"
+            >
+              <MessageCircle size={20} />
+            </button>
+
             <button className='p-2 hover:bg-[#313130] rounded-full transition-colors'>
               <Bell size={20} />
             </button>
@@ -141,15 +150,26 @@ const ExamFeedNavbar = () => {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`flex items-center px-6 py-3 hover:bg-[#313130] transition-colors text-sm ${
-                      isActive ? 'text-white' : 'text-[#ABABAB]'
-                    }`}
+                    className={`flex items-center px-6 py-3 hover:bg-[#313130] transition-colors text-sm ${isActive ? 'text-white' : 'text-[#ABABAB]'
+                      }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                 );
               })}
+              <button
+                className='flex items-center px-6 py-3 hover:bg-[#313130] transition-colors text-sm text-[#ABABAB] w-full text-left'
+                onClick={() => {
+                  toggleChatbot();
+                  setIsMenuOpen(false);
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <MessageCircle size={16} />
+                  <span>Chatbot</span>
+                </div>
+              </button>
             </div>
           </div>
         )}
