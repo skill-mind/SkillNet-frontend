@@ -23,7 +23,7 @@ import Rectangle27 from "@/public/img/Rectangle 27.svg";
 import Image from "next/image";
 import { Plus, Pencil } from "lucide-react";
 
-type ModalType =  "about" | "experience" | "certification" | "skills" | null;
+type ModalType = "about" | "experience" | "certification" | "skills" | null;
 
 const Page: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,25 +44,21 @@ const Page: NextPage = () => {
   const handleAboutSubmit = (data: AboutData) => {
     console.log("About data:", data);
     setIsModalOpen(false);
-    // Add your submission logic here
   };
 
   const handleExperienceSubmit = (data: ExperienceData) => {
     console.log("Experience data:", data);
     setIsModalOpen(false);
-    // Add your submission logic here
   };
 
   const handleCertificationSubmit = (data: CertificationData) => {
     console.log("Certification data:", data);
     setIsModalOpen(false);
-    // Add your submission logic here
   };
 
   const handleSkillsSubmit = (data: SkillData) => {
     console.log("Skill data:", data);
     setIsModalOpen(false);
-    // Add your submission logic here
   };
 
   const getModalTitle = () => {
@@ -76,48 +72,37 @@ const Page: NextPage = () => {
   return (
     <>
       <NavbarJobSeeker />
-
-      <Image
-        src={Rectangle27}
-        alt="Rectangle27}"
-        width={1920}
-        className="border-bottom-8"
-      />
+      <div className="w-full">
+        <Image
+          src={Rectangle27}
+          alt="Rectangle27}"
+          width={1920}
+          className="w-full border-bottom-8"
+        />
+      </div>
 
       {/* Profile Box */}
-      <div className="px-4 sm:px-3 max-w-screen-xl mx-auto">
-        
-        <ProfilePage/>
-
-        <div className="min-h-screen text-gray-100 p-6 flex justify-center gap-4">
-          {/* Main Content */}
-
-          <div className="max-w-4xl ml-7">
+      <div className="px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
+        <ProfilePage />
+        <div className="min-h-screen text-gray-100 py-6 px-2 sm:px-4 flex flex-col items-center">
+          <div className="w-full max-w-4xl">
             {/* About Section */}
             <section id="about" className="mb-8 mt-7">
               <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-2">
-                <h2 className="text-2xl font-semibold pb-4 w-full">
+                <h2 className="text-xl sm:text-2xl font-semibold pb-4 w-full">
                   About
                 </h2>
                 <div className="flex gap-3">
-                    <button
-                      onClick={() =>
-                        handleEdit("about", {} as AboutData)
-                      }
-                    >
-                      <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleEdit("about", {} as AboutData)
-                      }
-                    >
-                      <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
-                    </button>
-                  </div>
+                  <button onClick={() => handleEdit("about", {} as AboutData)}>
+                    <Pencil className="w-5 h-5 text-gray-400 hover:text-white" />
+                  </button>
+                  <button onClick={() => handleEdit("about", {} as AboutData)}>
+                    <Plus className="w-5 h-5 text-gray-400 hover:text-white" />
+                  </button>
+                </div>
               </div>
               <div>
-                <p className="text-[#D9D9D9]">
+                <p className="text-[#D9D9D9] text-sm sm:text-base">
                   We are seeking a highly skilled and detail-oriented Quality
                   Assurance Manager to lead and manage our QA team. In this
                   role, you will be responsible for ensuring that our products
@@ -139,7 +124,9 @@ const Page: NextPage = () => {
               {/* Experiences */}
               <section id="experience" className="mb-8">
                 <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-2">
-                  <h2 className="text-2xl font-semibold flex-1">Experiences</h2>
+                  <h2 className="text-xl sm:text-2xl font-semibold flex-1">
+                    Experiences
+                  </h2>
                   <div className="flex gap-3">
                     <button
                       onClick={() =>
@@ -160,16 +147,18 @@ const Page: NextPage = () => {
 
                 <div className="space-y-6">
                   <div className="pb-4 border-[#1d1d1c]">
-                    <div className="flex justify-between items-start border-b border-[#1d1d1c]">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start border-b border-[#1d1d1c]">
                       <div>
-                        <h3 className="text-xl font-semibold text-[#bbbb]">
+                        <h3 className="text-lg sm:text-xl font-semibold text-[#bbbb]">
                           AI Researcher and Data Analyst
                         </h3>
                         <p className="text-[#999999] mt-2 pb-2">CityScape</p>
                       </div>
-                      <span className="text-gray-400">2018 - Present</span>
+                      <span className="text-gray-400 text-sm sm:text-base mb-2 sm:mb-0">
+                        2018 - Present
+                      </span>
                     </div>
-                    <p className="text-gray-300 mt-3">
+                    <p className="text-gray-300 mt-3 text-sm sm:text-base">
                       I design experiments that could rival a sci-fi plot,
                       pushing machines to understand everything from Shakespeare
                       to cat memes. Translating complex AI jargon into something
@@ -182,17 +171,19 @@ const Page: NextPage = () => {
                     </p>
                   </div>
 
-                  <div className="pb-12 border-b-2 border-[#1d1d1c]">
-                    <div className="flex justify-between items-start border-b border-[#1d1d1c]">
+                  <div className="pb-8 sm:pb-12 border-b-2 border-[#1d1d1c]">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start border-b border-[#1d1d1c]">
                       <div>
-                        <h3 className="text-xl font-semibold text-[#bbbb]">
+                        <h3 className="text-lg sm:text-xl font-semibold text-[#bbbb]">
                           AI Researcher and Data Analyst
                         </h3>
                         <p className="text-[#999999] mt-2 pb-2">CityScape</p>
                       </div>
-                      <span className="text-gray-400">2018 - Present</span>
+                      <span className="text-gray-400 text-sm sm:text-base mb-2 sm:mb-0">
+                        2018 - Present
+                      </span>
                     </div>
-                    <p className="text-gray-300 mt-3">
+                    <p className="text-gray-300 mt-3 text-sm sm:text-base">
                       I design experiments that could rival a sci-fi plot,
                       pushing machines to understand everything from Shakespeare
                       to cat memes. Translating complex AI jargon into something
@@ -209,8 +200,8 @@ const Page: NextPage = () => {
 
               {/* Certifications */}
               <section id="certifications" className="mb-8">
-                <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-8">
-                  <h2 className="text-2xl font-semibold flex-1 pt-3">
+                <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-4 sm:pb-8">
+                  <h2 className="text-xl sm:text-2xl font-semibold flex-1 pt-3">
                     Certifications
                   </h2>
                   <div className="flex gap-3">
@@ -233,31 +224,36 @@ const Page: NextPage = () => {
                 </div>
 
                 <div className="pb-4 border-[#1d1d1c]">
-                  <div className="flex items-center border-b border-[#1d1d1c] gap-4">
-                    <div className="w-20 h-20 bg-gray-700 rounded-md flex-shrink-0"></div>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center border-b border-[#1d1d1c] gap-4">
+                    <div className="w-16 h-16 sm:w-25 sm:h-25 bg-gray-700 rounded-md flex-shrink-0 mx-auto sm:mx-0"></div>
 
                     {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start">
+                    <div className="flex-1 w-full">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                         <div>
-                          <h3 className="text-xl font-semibold text-[#bbbb] pt-2">
+                          <h3 className="text-lg sm:text-xl font-semibold text-[#bbbb] pt-2">
                             Blockchain Developer
                           </h3>
-                          <p className="text-[#999999] mt-2 pb-2">
+                          <p className="text-[#999999] mt-2 pb-2 text-sm sm:text-base">
                             Provider: SkillNet Academy
                           </p>
 
                           <div className="pb-2">
-                            <a href="#" className="text-[#D0EFB1] no-underline">
+                            <a
+                              href="#"
+                              className="text-[#D0EFB1] no-underline text-sm sm:text-base break-all"
+                            >
                               https://unframed.co/item/0x07....5f1/3171138
                             </a>
                           </div>
                         </div>
-                        <span className="text-gray-400">2018 - Present</span>
+                        <span className="text-gray-400 text-sm sm:text-base mt-2 sm:mt-0">
+                          2018 - Present
+                        </span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-300 mt-3">
+                  <p className="text-gray-300 mt-3 text-sm sm:text-base">
                     I design experiments that could rival a sci-fi plot, pushing
                     machines to understand everything from Shakespeare to cat
                     memes. Translating complex AI jargon into something humans
@@ -270,31 +266,36 @@ const Page: NextPage = () => {
                 </div>
 
                 <div className="pb-4 border-[#1d1d1c]">
-                  <div className="flex items-center border-b border-[#1d1d1c] gap-4">
-                    <div className="w-20 h-20 bg-gray-700 rounded-md flex-shrink-0"></div>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center border-b border-[#1d1d1c] gap-4">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-700 rounded-md flex-shrink-0 mx-auto sm:mx-0"></div>
 
                     {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start">
+                    <div className="flex-1 w-full">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                         <div>
-                          <h3 className="text-xl font-semibold text-[#bbbb] pt-2">
+                          <h3 className="text-lg sm:text-xl font-semibold text-[#bbbb] pt-2">
                             Blockchain Developer
                           </h3>
-                          <p className="text-[#999999] mt-2 pb-2">
+                          <p className="text-[#999999] mt-2 pb-2 text-sm sm:text-base">
                             Provider: SkillNet Academy
                           </p>
 
                           <div className="pb-2">
-                            <a href="#" className="text-[#D0EFB1] no-underline">
+                            <a
+                              href="#"
+                              className="text-[#D0EFB1] no-underline text-sm sm:text-base break-all"
+                            >
                               https://unframed.co/item/0x07....5f1/3171138
                             </a>
                           </div>
                         </div>
-                        <span className="text-gray-400">2018 - Present</span>
+                        <span className="text-gray-400 text-sm sm:text-base mt-2 sm:mt-0">
+                          2018 - Present
+                        </span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-300 mt-3">
+                  <p className="text-gray-300 mt-3 text-sm sm:text-base">
                     I design experiments that could rival a sci-fi plot, pushing
                     machines to understand everything from Shakespeare to cat
                     memes. Translating complex AI jargon into something humans
@@ -309,8 +310,10 @@ const Page: NextPage = () => {
 
               {/* Skills Section */}
               <section id="skills">
-                <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-6">
-                  <h2 className="text-2xl font-semibold flex-1">Skills</h2>
+                <div className="flex items-center justify-between mb-4 border-b-2 border-[#1d1d1c] pb-3 sm:pb-6">
+                  <h2 className="text-xl sm:text-2xl font-semibold flex-1">
+                    Skills
+                  </h2>
                   <div className="flex gap-3">
                     <button
                       onClick={() => handleEdit("skills", {} as SkillData)}
@@ -326,16 +329,16 @@ const Page: NextPage = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-2 pt-4">
-                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-sm">
+                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-xs sm:text-sm">
                     TypeScript
                   </span>
-                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-sm">
+                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-xs sm:text-sm">
                     Python
                   </span>
-                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-sm">
+                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-xs sm:text-sm">
                     Power BI
                   </span>
-                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-sm">
+                  <span className="px-3 py-1 bg-[#1a1b1a] border border-[#313130] rounded-sm text-xs sm:text-sm">
                     JavaScript
                   </span>
                 </div>
