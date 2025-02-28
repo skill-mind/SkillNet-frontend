@@ -7,18 +7,19 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Logo from "@/public/skillnet-white logo.png";
+import pen from "@/public/paint-brush-01.png";
 import Notification from "@/public/img/notification.svg";
 import Avatar from "@/public/img/Avatar.png";
 
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
 function Header() {
-  const { activeSection } = useContext(DashBoardContext);
+  const { activeSection, activeNotificationTab } = useContext(DashBoardContext);
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Dynamic navigation based on active section
-  const getNavigation = () => {
+   const getNavigation = () => {
     switch (activeSection) {
       case "home":
         return [
@@ -27,17 +28,9 @@ function Header() {
           { name: "Profile", href: "/account/dashboard/employer" },
         ];
       case "job openings":
-        return [
-          { name: "Home", href: "/account/dashboard/employer" },
-          { name: "Dashboard", href: "/account/dashboard/employer" },
-          { name: "Profile", href: "/account/dashboard/employer" },
-        ];
+        return [{ name: "Job Openings", href: "/account/dashboard/employer" }];
       case "notifications":
-        return [
-          { name: "Home", href: "/account/dashboard/employer" },
-          { name: "Dashboard", href: "/account/dashboard/employer" },
-          { name: "Profile", href: "/account/dashboard/employer" },
-        ];
+        return [{ name: "Notifications", href: "/account/dashboard/employer" }];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
     }
@@ -46,6 +39,7 @@ function Header() {
   useEffect(() => {
     console.log("Updated activeSection:", activeSection);
   }, [activeSection]);
+
   const navigation = getNavigation();
 
   return (
@@ -87,18 +81,29 @@ function Header() {
               >
                 {item.name}
               </Link>
+              {activeSection === "notifications" &&
+                item.name === "Notifications" && (
+                  <>
+                    <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+                    <span className="text-white text-xs font-bold">
+                      {activeNotificationTab}
+                    </span>
+                  </>
+                )}
             </div>
           ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Image
-            src={Notification}
-            width={20}
-            height={20}
-            className="text-white"
-            alt="Notification"
-          />
+          <div className="relative flex items-center gap-2">
+            <Image
+              src={Notification}
+              width={20}
+              height={20}
+              className="text-white cursor-pointer"
+              alt="Notification"
+            />
+          </div>
 
           <div className="relative max-w-sm flex items-center">
             <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-5 w-5 text-[#ABABAB] pointer-events-none" />
@@ -108,7 +113,15 @@ function Header() {
               className="pl-8 py-2 bg-transparent text-[#ABABAB] border border-[#1F1F1F] outline-none placeholder:italic rounded-lg w-[200px] lg:w-[277px]"
             />
           </div>
-    
+
+          {/* Create Courses button - Only for Notifications Page */}
+          {activeSection === "notifications" && (
+            <button className="px-4 py-2 bg-transparent  text-white rounded-lg border border-[#1F1F1F] outline-none flex items-center gap-2">
+              <Image src={pen} width={20} height={20} alt="pen" />
+              Create Courses
+            </button>
+          )}
+
           <div className="flex items-center gap-2 hover:bg-[#FFFFFF1A]  bg-[#161716] p-2 rounded-lg">
             <Image
               src={Avatar}
@@ -117,59 +130,11 @@ function Header() {
               className="rounded-full"
               alt="Avatar"
             />
-            <span className="text-sm text-[#F3F5FF]">
-            kaybruv.braavos.eth
-            </span>
+            <span className="text-sm text-[#F3F5FF]">kaybruv.braavos.eth</span>
             <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
           </div>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="lg:hidden mt-4 px-4 sm:px-6">
-          <nav className="flex flex-col gap-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium py-2",
-                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
-                )}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-          <div className="mt-4 flex flex-col gap-4">
-            <div className="relative">
-              <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-5 w-5 text-[#ABABAB] placeholder:italic pointer-events-none" />
-              <input
-                type="search"
-                placeholder="Search..."
-                className="w-full pl-8 py-2 bg-transparent text-[#ABABAB] border border-[#1F1F1F] outline-none placeholder:font rounded-lg"
-              />
-            </div>
-            <div className="flex items-center justify-between bg-[#161716] p-2 rounded-lg">
-              <div className="flex items-center gap-2">
-                <Image
-                  src={Avatar}
-                  width={25}
-                  height={25}
-                  className="rounded-full"
-                  alt="Avatar"
-                />
-                <span className="text-sm text-[#F3F5FF]">
-                  kaybruv.braavos.eth
-                </span>
-              </div>
-              <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
