@@ -40,7 +40,7 @@ const Applications = () => {
               
               <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center sm:justify-between pb-6 mb-4 border-b border-[#1D1D1C]">
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-0">
-                  <div className="flex items-center gap-1 text-gray-400 text-xs sm:text-sm">
+                  <div className="flex items-center gap-1 text-gray-400 text-xs md:text-[12px] sm:text-sm">
                     <MapPin size={14} />
                     <span>{applicant.location}</span>
                     <span className="border-[#1D1D1C] mr-2">|</span>
@@ -50,14 +50,14 @@ const Applications = () => {
                     <span className="border-[#1D1D1C] mr-2">|</span>
                   </div>
                   <div className="flex items-center gap-1 text-gray-400 text-xs sm:text-sm">
-                    <Clock size={14} />
+  
                     <span>Applied {applicant.appliedTime}</span>
                   </div>
                 </div>
 
                 <div className="w-full sm:w-auto">
                   <button
-                    className="flex items-center justify-center w-full sm:w-auto px-3 sm:px-[24px] py-2 sm:py-[12px] text-[#A8C789] bg-transparent border border-zinc-700 rounded-md hover:bg-zinc-800 transition text-xs sm:text-sm"
+                    className="flex items-center justify-center w-full  sm:w-auto px-3 md:py-[4px] md:px-[8px] sm:px-[24px] py-2 sm:py-[12px] text-[#A8C789] bg-transparent border border-zinc-700 rounded-md hover:bg-zinc-800 transition text-xs md:text-[10px] sm:text-sm"
                     onClick={() => toggleExpand(applicant.id)}
                   >
                     {expandedId === applicant.id ? "HIDE APPLICATION" : "VIEW APPLICATION"}
