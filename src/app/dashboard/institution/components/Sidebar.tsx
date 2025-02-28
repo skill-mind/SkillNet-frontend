@@ -7,7 +7,7 @@ import ExamIcon from "@/svg/ExamIcon";
 import HomeIcon from "@/svg/HomeIcon";
 import NotificationIcon from "@/svg/NotificationIcon";
 import VerificationIcon from "@/svg/VerificationIcon";
-import { ChevronDown, Settings } from "lucide-react";
+import { ChevronDown, Headset, Settings } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -55,31 +55,31 @@ function Sidebar() {
       to: "notification",
       icon: <NotificationIcon />,
       subroutes: ["exams", "certification", "candidates"],
-      defaultSubroute: "exams" 
+      defaultSubroute: "exams",
     },
   ];
 
   const isActiveRoute = (route: RouteType): boolean => {
     const basePath = "/dashboard/institution/";
-    
+
     if (route.to === "") {
       return pathname === basePath || pathname === basePath.slice(0, -1);
     }
-    
+
     if (route.to === "notification" && route.subroutes) {
       return pathname.startsWith(`${basePath}${route.to}`);
     }
-    
+
     return pathname === `${basePath}${route.to}`;
   };
 
   const getRouteHref = (route: RouteType): string => {
     const basePath = "/dashboard/institution/";
-    
+
     if (route.to === "notification" && route.defaultSubroute) {
       return `${basePath}${route.to}/${route.defaultSubroute}`;
     }
-    
+
     return `${basePath}${route.to}`;
   };
 
@@ -100,16 +100,17 @@ function Sidebar() {
         {routes.map((route) => {
           const isActive = isActiveRoute(route);
           const href = getRouteHref(route);
-          
+
           return (
             <Link
               href={href}
               className={`
                 flex items-center gap-x-3 py-2 px-3 rounded-lg
                 transition-all duration-300 ease-in-out
-                ${isActive 
-                  ? "bg-white/10 text-white" 
-                  : "text-zinc-400 hover:bg-white/10 hover:text-white"
+                ${
+                  isActive
+                    ? "bg-white/10 text-white"
+                    : "text-zinc-400 hover:bg-white/10 hover:text-white"
                 }
               `}
               key={route.to}
@@ -122,11 +123,20 @@ function Sidebar() {
           );
         })}
       </nav>
+      <div className="mb-24">
+        <Link
+          href="/dashboard/institution/support"
+          className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 mt-4"
+        >
+          <Headset />
+          <span className="font-medium">Support</span>
+        </Link>
 
-      <button className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 mt-4">
-        <Settings />
-        <span className="font-medium">Settings</span>
-      </button>
+        <button className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 mt-4">
+          <Settings />
+          <span className="font-medium">Settings</span>
+        </button>
+      </div>
     </div>
   );
 }

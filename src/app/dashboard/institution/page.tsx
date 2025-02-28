@@ -7,6 +7,7 @@ import Notification from "./notification/page";
 import Certification from "./certificates/page";
 import Exam from "./exams/page";
 import Verification from "./verification/page";
+import Support from "./support/page";
 import Profile from "./profile/page";
 
 
@@ -22,7 +23,7 @@ function Page() {
       {activeSection === "exam" && <Exam />}
       {activeSection === "candidates" && <Candidates />}
       {activeSection === "verification" && <Verification />}
-      
+      {activeSection === "support" && <Support />}
     </div>
   );
 }
