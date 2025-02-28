@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, Pencil } from "lucide-react";
+import { X, Pencil, ArrowLeft, Plus } from "lucide-react";
 
 interface Question {
   title: string;
@@ -14,6 +14,7 @@ interface CreateExamModelProps {
 }
 
 function CreateExamModel({ onClose }: CreateExamModelProps) {
+  const [hovered, setHovered] = useState(false);
   const [items, setItems] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [certification, setCertification] = useState<string>("Yes");
@@ -90,17 +91,34 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
 
   return (
     <div className="w-full h-auto flex bg-inherit absolute left-0 transition-all duration-300 flex-col p-5">
-      <div className="flex flex-col gap-10">
-        <div className="sticky flex justify-end top-5 right-5">
-      <button className=" border w-fit rounded-full p-0.5" onClick={onClose}><X size={14} color="white" /></button>
-     </div>
+      <div className="absolute flex justify-start -top-4 left-5 ">
+        <button onClick={onClose}>
+          <ArrowLeft className="text-4xl" color="white" />
+        </button>
+      </div>
+      <div className="flex flex-col gap-10 overflow-y-auto scrollbar-hide scroll-smooth">
         <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
           <div className="md:flex w-full space-y-5 md:space-y-0 gap-4">
             <div className="flex flex-col w-full md:w-[60%] gap-[20px]">
+              <div
+                className="w-full h-52 border border-dashed border-gray-600 rounded-lg flex flex-col items-center justify-center bg-[#121212] hover:border-gray-400 transition-colors"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <p className="text-gray-300 mb-3">Upload Image</p>
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center bg-[#2a2a2a] ${
+                    hovered ? "bg-gray-500" : ""
+                  } transition-colors`}
+                >
+                  <Plus className="text-gray-200" />
+                </div>
+              </div>
               <div className="flex flex-col w-full">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="examName">
+                  htmlFor="examName"
+                >
                   Exam Name*
                 </label>
                 <input
@@ -116,7 +134,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
               <div className="w-full flex flex-col">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="examDescription">
+                  htmlFor="examDescription"
+                >
                   Exam Description
                 </label>
                 <textarea
@@ -124,20 +143,21 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
                   className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] min-h-[176px] outline-none border-[#252625] text-white text-[0.875rem] w-full md:w-full px-4 py-[0.40rem] rounded-[0.5rem]"
                   placeholder="Write exam description"
                   value={examDescription}
-                  onChange={(e) =>
-                    setExamDescription(e.target.value)
-                  }></textarea>
+                  onChange={(e) => setExamDescription(e.target.value)}
+                ></textarea>
               </div>
               <div className="flex w-full flex-col items-stretch">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="examType">
+                  htmlFor="examType"
+                >
                   Exam Type*
                 </label>
                 <select
                   className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
                   value={examType}
-                  onChange={(e) => setExamType(e.target.value)}>
+                  onChange={(e) => setExamType(e.target.value)}
+                >
                   <option className="bg-[#161716]" value="MC">
                     Multiple choice
                   </option>
@@ -148,16 +168,40 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
               </div>
             </div>
             <div className="flex flex-col w-full gap-[24px] md:w-[40%]">
+              <button className="text-[#0E0F0E] bg-[#D0EFB1] py-3 text-center rounded-lg">
+                Publish For $50
+              </button>
+              <button className="text-[#D6DFFE] bg-[#2D2E2D] py-3 text-center rounded-lg">
+                Add to draft
+              </button>
               <div className="flex w-full flex-col items-stretch">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="candidateEligibility">
+                  htmlFor="courseAmount"
+                >
+                  Exam amount*
+                </label>
+                <select className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-3 py-2 rounded-[0.5rem]">
+                  <option className="bg-[#161716]" value="24">
+                    $24
+                  </option>
+                  <option className="bg-[#161716]" value="45">
+                    $45
+                  </option>
+                </select>
+              </div>
+              <div className="flex w-full flex-col items-stretch">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="candidateEligibility"
+                >
                   Candidate Eligibility*
                 </label>
                 <select
                   className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
                   value={candidateEligibility}
-                  onChange={(e) => setCandidateEligibility(e.target.value)}>
+                  onChange={(e) => setCandidateEligibility(e.target.value)}
+                >
                   <option className="bg-[#161716]" value="SC">
                     Paid Exam
                   </option>
@@ -169,7 +213,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
               <div>
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="courseCategory">
+                  htmlFor="courseCategory"
+                >
                   Exam Category
                 </label>
                 <div className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.30rem] rounded-[0.5rem]">
@@ -179,11 +224,13 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
                         scrollbarWidth: "none",
                         msOverflowStyle: "none",
                       }}
-                      className="overflow-x-scroll flex gap-[8px]">
+                      className="overflow-x-scroll flex gap-[8px]"
+                    >
                       {items.map((item, index) => (
                         <div
                           key={index}
-                          className="bg-transparent text-white gap-2 flex items-center flex-none px-2 border-[#252625] border rounded-[8px]">
+                          className="bg-transparent text-white gap-2 flex items-center flex-none px-2 border-[#252625] border rounded-[8px]"
+                        >
                           {item}
                           <X size={14} color="white" />
                         </div>
@@ -191,7 +238,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
                     </div>
                     <button
                       onClick={handleAddItem}
-                      className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px]">
+                      className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px]"
+                    >
                       Add
                     </button>
                   </div>
@@ -200,13 +248,15 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
               <div className="flex w-full flex-col gap-[5px] items-stretch">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="certification">
+                  htmlFor="certification"
+                >
                   Certification*
                 </label>
                 <select
                   className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
                   value={certification}
-                  onChange={handleCertificationChange}>
+                  onChange={handleCertificationChange}
+                >
                   <option className="bg-[#161716]" value="Yes">
                     Yes
                   </option>
@@ -222,11 +272,13 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
                           scrollbarWidth: "none",
                           msOverflowStyle: "none",
                         }}
-                        className="overflow-x-scroll flex gap-[8px]">
+                        className="overflow-x-scroll flex gap-[8px]"
+                      >
                         {files.map((file, index) => (
                           <div
                             key={index}
-                            className="bg-transparent text-white px-2 flex flex-none border-[#252625] border rounded-[8px] items-center gap-2">
+                            className="bg-transparent text-white px-2 flex flex-none border-[#252625] border rounded-[8px] items-center gap-2"
+                          >
                             {file.name}
                             <button onClick={() => handleRemoveFile(index)}>
                               <X size={14} color="white" />
@@ -243,7 +295,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
                       />
                       <label
                         htmlFor="fileInput"
-                        className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px] flex items-center gap-1 cursor-pointer">
+                        className="bg-transparent text-white px-2 border-[#252625] border rounded-[8px] flex items-center gap-1 cursor-pointer"
+                      >
                         Add file <X size={16} color="white" />
                       </label>
                     </div>
@@ -253,7 +306,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
               <div className="flex flex-col w-full items-stretch">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
-                  htmlFor="duration">
+                  htmlFor="duration"
+                >
                   Exam Duration*
                 </label>
                 <input
@@ -280,7 +334,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
             {questions.map((question, index) => (
               <div
                 key={index}
-                className="flex items-center md:w-[70%] gap-5 justify-between mb-3">
+                className="flex items-center md:w-[70%] gap-5 justify-between mb-3"
+              >
                 <span className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full  px-4 py-[0.40rem] rounded-[0.5rem]">
                   {question.title}
                 </span>
@@ -329,7 +384,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
             <div className="flex flex-col mt-3">
               <label
                 className="text-[#9596A0] text-[0.875rem] mb-1"
-                htmlFor="answer">
+                htmlFor="answer"
+              >
                 Answer
               </label>
               <input
@@ -345,7 +401,8 @@ function CreateExamModel({ onClose }: CreateExamModelProps) {
             <div className="flex items-center justify-center w-full ">
               <button
                 onClick={handleAddQuestion}
-                className="font-[WorkSans] py-[12px] px-[24px] font-medium bg-[#2D2E2D] rounded-[8px]">
+                className="font-[WorkSans] py-[12px] px-[24px] font-medium bg-[#2D2E2D] rounded-[8px]"
+              >
                 <span className="font-black text-white">+</span> ADD QUESTION
               </button>
             </div>
