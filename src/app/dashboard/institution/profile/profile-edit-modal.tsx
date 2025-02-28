@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import profilePic from "@/public/img/dashboardProfile.svg";
 import Image from "next/image";
+import { X } from "lucide-react"
 
 export default function ProfileEditModal() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -53,17 +54,22 @@ export default function ProfileEditModal() {
           >
             <div className="p-6 space-y-6">
               {/* Profile Picture */}
-              <div className="flex justify-start mb-6">
-                <div className="relative">
-                  <div className="w-24 h-24 rounded-full overflow-hidden bg-[#f8c4c4]">
-                  <Image
-            src={profilePic}
-            alt="Profile"
-            fill
-            className="object-cover"
-          />
+              <div className="flex relative justify-between mb-6">
+                <div className=" flex justify-between items-center">
+                  <div className="w-24 h-24 rounded-full bg-[#f8c4c4]">
+                    <Image
+                        src={profilePic}
+                        alt="Profile"
+                        className="object-cover"
+                        width={100}
+                        height={100}
+                    />
                   </div>
+                 
                 </div>
+                  <span  className="absolute cursor-pointer right-0 top-5">
+                     <X onClick={closeModal} width={24} height={24} />
+                  </span>
               </div>
 
               {/* Name Input */}
