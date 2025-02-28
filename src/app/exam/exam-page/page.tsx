@@ -139,7 +139,7 @@ const ExamPage = () => {
                 <div className="w-full p-4 flex flex-col items-start justify-start space-y-4">
                   <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                     {questions.map((q, index) => (
-                      <div className="w-full col-span-1 flex items-center space-x-4">
+                      <div key={index} className="w-full col-span-1 flex items-center space-x-4">
                         <label
                           htmlFor="answer"
                           className="font-normal text-white text-md sm:text-lg flex flex-row space-x-4 items-center"
@@ -330,10 +330,10 @@ const ExamPage = () => {
                 <div className="w-full">
                   <ul className="w-full px-8 py-4 flex flex-col items-start justify-start space-y-4 list-disc">
                     <li className="font-normal text-white text-md sm:text-lg px-4">
-                      Click "Yes, Submit Exam" to finalize.
+                      Click &quot;Yes, Submit Exam&quot; to finalize.
                     </li>
                     <li className="font-normal text-white text-md sm:text-lg px-4">
-                      Click "Cancel" to go back.
+                      Click &quot;Cancel&quot; to go back.
                     </li>
                   </ul>
                 </div>

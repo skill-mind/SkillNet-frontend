@@ -3,10 +3,8 @@ import Logo from "@/public/skillnet-white logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { EllipsisVertical, X, Menu } from "lucide-react";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 const ExamPageNavbar = () => {
-  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
