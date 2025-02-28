@@ -1,3 +1,5 @@
+"use client";
+
 import { Pencil, EllipsisVertical } from "lucide-react";
 import Separator from "./Separator";
 import { cn } from "@/lib/utils";
