@@ -1,35 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useContext } from "react";
 import Messages from "./components/Messages";
 import Payments from "./components/Payments";
 import Newrequests from "./components/Newrequests";
 import Announcements from "./components/Announcements";
+import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
 const tabs = [
-  { id: "messages", label: "Messages" },
-  { id: "payments", label: "Payments" },
-  { id: "announcements", label: "Announcements" },
-  { id: "newrequests", label: "New Requests" },
+  { id: "Messages", label: "Messages" },
+  { id: "Payments", label: "Payments" },
+  { id: "Announcements", label: "Announcements" },
+  { id: "New Requests", label: "New Requests" },
 ] as const;
 
 type TabType = (typeof tabs)[number]["id"];
 
 function Notification() {
-  const [activeTab, setActiveTab] = useState<TabType>("messages");
+  const { activeNotificationTab, setActiveNotificationTab } =
+    useContext(DashBoardContext);
 
   const renderComponent = () => {
-    switch (activeTab) {
-      case "messages":
+    switch (activeNotificationTab) {
+      case "Messages":
         return <Messages />;
 
-      case "payments":
+      case "Payments":
         return <Payments />;
 
-      case "announcements":
+      case "Announcements":
         return <Announcements />;
 
-      case "newrequests":
+      case "New Requests":
         return <Newrequests />;
 
       default:
@@ -43,9 +45,9 @@ function Notification() {
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => setActiveNotificationTab(tab.id as TabType)}
             className={`py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium rounded-full flex-shrink-0 transition-all ${
-              activeTab === tab.id
+              activeNotificationTab === tab.id
                 ? "bg-[#2D2E2D] text-white"
                 : "bg-[#161716] text-gray-400 hover:text-gray-300"
             }`}
