@@ -5,38 +5,34 @@ import Image from "next/image";
 import { useWalletContext } from "@/app/useContext/WalletContext";
 import ArgentImg from "@/public/ArgentImg.svg";
 import Braavos from "@/public/Braavos.svg";
-
-const wallets = [
-  {
-    name: "Argent Mobile Phone",
-    icon: ArgentImg,
-    id: "argentX",
-  },
-  {
-    name: "Argent Web",
-    icon: ArgentImg,
-    id: "argentWeb",
-  },
-  {
-    name: "Braavos",
-    icon: Braavos,
-    id: "braavos",
-  },
-];
+import { useConnect } from "@starknet-react/core";
 
 interface WalletSelectorUIProps {
   onClose: () => void;
 }
 
 export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
-  const { account, connectWallet, disconnectWallet } = useWalletContext();
+  const { account, disconnectWallet } = useWalletContext();
 
-  const handleConnectWallet = async () => {
-    try {
-      await connectWallet();
-      onClose();
-    } catch (error) {
-      console.error("Error connecting wallet:", error);
+  const { connect, connectors } = useConnect();
+
+  const getWalletDetails = (id: string) => {
+    switch (id) {
+      case "argentX":
+        return {
+          name: "Argent X",
+          icon: ArgentImg,
+        };
+      case "braavos":
+        return {
+          name: "Braavos",
+          icon: Braavos,
+        };
+      default:
+        return {
+          name: id,
+          icon: Braavos, // fallback icon
+        };
     }
   };
 
@@ -55,7 +51,7 @@ export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
             className="w-full justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
             onClick={() => {
               disconnectWallet();
-              onClose(); // Optionally close the modal after disconnecting
+              onClose();
             }}
           >
             Disconnect Wallet
@@ -67,17 +63,28 @@ export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
             SELECT WALLET
           </h2>
           <div className="flex flex-col gap-2">
-            {wallets.map((wallet) => (
-              <Button
-                key={wallet.name}
-                variant="ghost"
-                className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
-                onClick={handleConnectWallet}
-              >
-                <Image src={wallet.icon} alt={wallet.name} />
-                <span>{wallet.name}</span>
-              </Button>
-            ))}
+            {connectors.map((connector) => {
+              const details = getWalletDetails(connector.id);
+              return (
+                <Button
+                  key={connector.id}
+                  variant="ghost"
+                  className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
+                  onClick={() => {
+                    connect({ connector });
+                    onClose();
+                  }}
+                >
+                  <Image
+                    src={details.icon}
+                    alt={details.name}
+                    width={24}
+                    height={24}
+                  />
+                  <span>{details.name}</span>
+                </Button>
+              );
+            })}
           </div>
         </>
       )}
