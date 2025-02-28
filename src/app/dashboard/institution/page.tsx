@@ -8,12 +8,15 @@ import Certification from "./certificates/page";
 import Exam from "./exams/page";
 import Verification from "./verification/page";
 import Support from "./support/page";
+import Profile from "./profile/page";
+
 
 function Page() {
   const { activeSection } = useContext(DashBoardContext);
 
   return (
     <div className="overflow-y-auto scrollbar-hide scroll-smooth">
+      {activeSection === "profile" && <Profile />}
       {activeSection === "home" && <Institution />}
       {activeSection === "certifications" && <Certification />}
       {activeSection === "notifications" && <Notification />}

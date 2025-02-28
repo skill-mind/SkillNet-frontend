@@ -1,26 +1,39 @@
 import profilePic from "@/public/img/dashboardProfile.svg";
 import TutorCourse from "@/public/img/image.png";
 import TutorReview from "@/public/img/tutorreview.png";
+import ProfileEditModal from "./profile-edit-modal"
 
 import Image from "next/image";
+import { Copy } from "lucide-react";
 const Profile = () => {
   return (
     <div className="font-Ubuntu mb-16 md:mb-32 Sans px-8 w-full md:w-[900px]  scrollbar-hidden">
-      <div className=" w-fit">
+      <div className=" w-full">
+        <div className="relative w-[111px] h-[111px] rounded-full overflow-hidden">
+          <Image
+            src={profilePic}
+            alt="Profile"
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className="flex items-center gap-3 md:flex-col">
-          <div className="relative w-[111px] h-[111px] rounded-full overflow-hidden">
-            <Image
-              src={profilePic}
-              alt="Profile"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <h2 className="font-[600] text-gray-100">Miss Flora Osatuyi</h2>
-            <p className="text-sm font-Ubuntu Sans font-[400]  text-gray-300">
-              Product Designer
-            </p>
+          <div className="w-full flex justify-between">
+
+            <div className="flex flex-col gap-1">
+              <h2 className="font-[600] text-gray-100">Miss Flora Osatuyi</h2>
+              <p className="text-sm font-Ubuntu Sans font-[400]  text-gray-300">
+                Product Designer
+              </p>
+            </div>
+            <div className="flex flex-row gap-4">
+              <ProfileEditModal />
+              
+              <div className="border-[1px] flex-row flex w-fit h-fit py-2 px-4 gap-4 rounded-[48px] text-gray-300 leading-[19.2px]">
+                <p>0X12345...</p>
+                <Copy width={20} height={20} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
