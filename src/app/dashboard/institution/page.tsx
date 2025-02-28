@@ -7,7 +7,7 @@ import Notification from "./notification/page";
 import Certification from "./certificates/page";
 import Exam from "./exams/page";
 import Verification from "./verification/page";
-
+import Profile from "./profile/page";
 
 
 function Page() {
@@ -15,6 +15,7 @@ function Page() {
 
   return (
     <div className="overflow-y-auto scrollbar-hide scroll-smooth">
+      {activeSection === "profile" && <Profile />}
       {activeSection === "home" && <Institution />}
       {activeSection === "certifications" && <Certification />}
       {activeSection === "notifications" && <Notification />}
