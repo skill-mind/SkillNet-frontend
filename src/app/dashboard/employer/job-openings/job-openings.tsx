@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Applications from "./components/Applications";
 import Post from "./components/Post";
@@ -15,7 +14,7 @@ const tabs = [
 type TabType = (typeof tabs)[number]["id"];
 
 const JobOpening = () => {
-  const [activeTab, setActiveTab] = useState<TabType>("applications");
+  const [activeTab, setActiveTab] = useState<TabType>("post");
 
   const renderComponent = () => {
     switch (activeTab) {
@@ -31,7 +30,7 @@ const JobOpening = () => {
   };
 
   return (
-    <div className="w-full h-full mx-auto p-3 sm:p-6 bg-black">
+    <div className="w-full h-full  mx-auto p-3 mr-8 sm:p-6 bg-black">
       <h1 className="text-[24px] font-bold mb-4 text-white">Job Openings</h1>
       
       <div className="flex gap-2 mb-4">

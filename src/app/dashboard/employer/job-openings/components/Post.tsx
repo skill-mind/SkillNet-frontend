@@ -1,11 +1,10 @@
+import { ArrowUpRightIcon, MapPin } from 'lucide-react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-
 const Post: NextPage = () => {
-
   
-  // Sample job data
+
   const jobs = [
     {
       id: 1,
@@ -34,49 +33,43 @@ const Post: NextPage = () => {
   ];
 
   return (
-    <div className="mb-10 text-white">
-      
+    <div className="mb-10 text-white lg:mr-10">
         
         {/* Job listings */}
-        <div className="space-y-4  ">
+        <div className="space-y-4">
           {jobs.map((job) => (
-            <div key={job.id} className="bg-[#161716] hover:border-[#A8C789]  rounded-lg p-5">
-              <p className="text-gray-500 text-sm mb-2">Posted {job.postedTime}</p>
+            <div key={job.id} className="bg-[#161716] hover:border-[#A8C789] rounded-lg p-4 md:p-5">
+              <p className="text-gray-500 text-xs md:text-sm mb-2">Posted {job.postedTime}</p>
               
-              <div className="flex justify-between items-start mb-2">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-2">
                 <div>
-                  <h3 className="text-lg font-semibold">{job.title}</h3>
-                  <p className="text-gray-400">{job.company}</p>
+                  <h3 className="text-lg sm:text-xl md:text-[24px] text-white font-semibold">{job.title}</h3>
+                  <p className="text-[#BBBBBB] text-sm md:text-[16px]">{job.company}</p>
                 </div>
-                <div className="flex space-x-2">
-                  
-                  <button className="px-6 py-2  border border-[#A8C789] rounded text-xs hover:bg-gray-700 transition">
+                <div className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto px-4 sm:px-6 py-2 border border-[#A8C789] rounded text-xs hover:bg-gray-700 transition">
                     VIEW APPLICATIONS
                   </button>
                 </div>
               </div>
               
-              <div className="flex items-center text-gray-300 text-sm mb-3">
-                <div className="flex items-center mr-4">
-                  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-gray-300 text-xs md:text-sm mb-3">
+                <div className="flex items-center text-[#BBBBBB] mr-4">
+                  <MapPin className='w-3 h-3 md:w-4 md:h-4 mr-1'/>
                   {job.location}
                 </div>
-                <div>{job.applicants} applicants</div>
+                <div className='text-[#BBBBBB] border border-[#BBBBBB] rounded-sm px-3 md:px-4 py-1 md:py-2'>{job.applicants} applicants</div>
               </div>
               
-              <Link href={`/job-listings/${job.id}`} className="text-gray-400 hover:text-white text-sm inline-flex items-center">
-                → View Job Listing
+              <Link href={`/job-listings/${job.id}`} className="text-[#BBBBBB] hover:text-white text-xs md:text-[13px] inline-flex items-center gap-1">
+                <ArrowUpRightIcon className="w-3 h-3 md:w-4 md:h-4" />View Job Listing
               </Link>
             </div>
           ))}
         </div>
         
-        {/* View more link */}
         <div className="text-right mt-4">
-          <button className="text-gray-400 hover:text-white text-sm">
+          <button className="text-gray-400 hover:text-white text-xs md:text-sm">
             View More
           </button>
         </div>

@@ -1,4 +1,3 @@
-// utils/applicantData.ts
 
 export interface Certification {
     title: string;
@@ -52,13 +51,13 @@ export interface Certification {
         {
           title: "Blockchain Developer",
           provider: "SkillNet Academy",
-          id: "certificate/12345/12171128",
+          id: "unframed.co/item/0x07....5f1/3171138",
           date: "26-09-2022"
         },
         {
           title: "Blockchain Developer",
           provider: "SkillNet Academy",
-          id: "certificate/12345/12171128",
+          id: "unframed.co/item/0x07....5f1/3171138",
           date: "26-09-2022"
         }
       ],
@@ -79,7 +78,7 @@ export interface Certification {
         {
           title: "Blockchain Developer",
           provider: "SkillNet Academy",
-          id: "certificate/12345/12171128",
+          id: "unframed.co/item/0x07....5f1/3171138",
           date: "26-09-2022"
         }
       ],
@@ -100,7 +99,7 @@ export interface Certification {
         {
           title: "Blockchain Developer",
           provider: "SkillNet Academy",
-          id: "certificate/12345/12171128",
+          id: "unframed.co/item/0x07....5f1/3171138",
           date: "26-09-2022"
         }
       ],
@@ -121,7 +120,7 @@ export interface Certification {
         {
           title: "Blockchain Developer",
           provider: "SkillNet Academy",
-          id: "certificate/12345/12171128",
+          id: "unframed.co/item/0x07....5f1/3171138",
           date: "26-09-2022"
         }
       ],
@@ -129,14 +128,3 @@ export interface Certification {
     }
   ];
   
-  export const jobDetails: JobDetails = {
-    title: "Job Title",
-    applicants: 124,
-    postedTime: "12 hours ago",
-    type: "Hybrid",
-    level: "Senior",
-    deadline: "2 weeks",
-    skills: ["React", "TypeScript", "Node.js"],
-    description: "SkillNet is an innovative, blockchain-powered platform that seamlessly connects job seekers with employers while empowering tutors and institutions to create, sell, and deliver high-quality courses and exams. It combines the best of both worlds—an online job marketplace and a learning hub—giving users a competitive edge in today's dynamic digital landscape.",
-    keyResponsibilities: "SkillNet is an innovative, blockchain-powered platform that seamlessly connects job seekers with employers while empowering tutors and institutions to create, sell, and deliver high-quality courses and exams. It combines the best of both worlds—an online job marketplace and a learning hub—giving users a competitive edge in today's dynamic digital landscape."
-  };
