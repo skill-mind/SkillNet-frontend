@@ -7,7 +7,7 @@ import ExamIcon from "@/svg/ExamIcon";
 import HomeIcon from "@/svg/HomeIcon";
 import NotificationIcon from "@/svg/NotificationIcon";
 import VerificationIcon from "@/svg/VerificationIcon";
-import { ChevronDown, Settings } from "lucide-react";
+import { ChevronDown, Settings, WalletIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -55,6 +55,13 @@ function Sidebar() {
       to: "notification",
       icon: <NotificationIcon />,
       subroutes: ["exams", "certification", "candidates"],
+      defaultSubroute: "exams" 
+    },
+    {
+      label: "Earnings",
+      to: "earnings",
+      icon: <WalletIcon />,
+      subroutes: ["", "", ""],
       defaultSubroute: "exams" 
     },
   ];
