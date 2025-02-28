@@ -81,7 +81,7 @@ const Newrequests = () => {
             <button className="mx-4 border-[1px] border-[#2D2E2D] rounded-lg py-2 sm:py-3 px-4 sm:px-[18px] transition duration-200 ease-in-out active:scale-95 text-white font-bold text-xs sm:text-sm whitespace-nowrap mt-2 sm:mt-0">
               Reject
             </button>
-            <button className="border-[1px] border-[#2D2E2D] rounded-lg py-2 sm:py-3 px-4 sm:px-[18px] transition duration-200 ease-in-out active:scale-95 text-white font-bold text-xs sm:text-sm whitespace-nowrap mt-2 sm:mt-0">
+            <button className="mx-4 border-[1px] border-[#2D2E2D] rounded-lg py-2 sm:py-3 px-4 sm:px-[18px] transition duration-200 ease-in-out active:scale-95 text-white font-bold text-xs sm:text-sm whitespace-nowrap mt-2 sm:mt-0">
               Accept
             </button>
           </Link>
