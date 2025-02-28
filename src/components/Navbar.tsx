@@ -54,6 +54,7 @@ export default function Navbar({
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDisconnectModalVisible, setIsDisconnectModalVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { account, disconnectWallet } = useWalletContext();
@@ -81,6 +82,11 @@ export default function Navbar({
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Helper function to truncate the wallet address
+  const truncateAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
+  };
+
   return (
     <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
       {/* Logo */}
@@ -101,13 +107,14 @@ export default function Navbar({
         ))}
       </ul>
 
+      {/* Desktop Wallet Button */}
       <div className="hidden md:flex items-center flex-col relative">
         {account ? (
           <button
-            onClick={disconnectWallet}
+            onClick={() => setIsDisconnectModalVisible(true)}
             className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
           >
-            DISCONNECT WALLET
+            {`Connected: ${truncateAddress(account)}`}
           </button>
         ) : (
           <button
@@ -119,13 +126,14 @@ export default function Navbar({
         )}
       </div>
 
+      {/* Mobile Wallet Button and Menu Toggle */}
       <div className="flex md:hidden items-center gap-4">
         {account ? (
           <button
-            onClick={disconnectWallet}
+            onClick={() => setIsDisconnectModalVisible(true)}
             className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
           >
-            DISCONNECT
+            {truncateAddress(account)}
           </button>
         ) : (
           <button
@@ -143,6 +151,7 @@ export default function Navbar({
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
       {isMenuOpen && (
         <div
           ref={menuRef}
@@ -165,9 +174,42 @@ export default function Navbar({
           </div>
         </div>
       )}
+
       {isModalVisible && (
         <div className="absolute top-full left-0 right-3 md:right-10 md:left-auto px-4 mt-2 z-10">
           <WalletSelectorUI onClose={showModal} />
+        </div>
+      )}
+
+      {isDisconnectModalVisible && (
+        <div
+          className="fixed inset-0 bg-black/60 z-[9999] backdrop-blur-sm flex items-center justify-center"
+          onClick={() => setIsDisconnectModalVisible(false)}
+        >
+          <div
+            className="w-[300px] bg-neutral-900 p-6 rounded-lg text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-lg font-bold mb-4">Disconnect Wallet</h3>
+            <p className="mb-6">Are you sure you want to disconnect your wallet?</p>
+            <div className="flex justify-around">
+              <button
+                className="border border-[#313130] rounded-lg px-4 py-2 hover:bg-[#313130] transition-colors"
+                onClick={() => setIsDisconnectModalVisible(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="border border-[#313130] rounded-lg px-4 py-2 hover:bg-[#313130] transition-colors"
+                onClick={() => {
+                  disconnectWallet();
+                  setIsDisconnectModalVisible(false);
+                }}
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </nav>

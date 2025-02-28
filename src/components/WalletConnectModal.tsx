@@ -47,7 +47,9 @@ export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
           <h2 className="mb-4 text-sm font-semibold text-neutral-400">
             CONNECTED WALLET
           </h2>
-          <div className="mb-4 text-sm text-neutral-200">Address: {account}</div>
+          <div className="mb-4 text-sm text-neutral-200">
+            Address: {account}
+          </div>
           <Button
             variant="ghost"
             className="w-full justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
@@ -70,7 +72,7 @@ export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
                 key={wallet.name}
                 variant="ghost"
                 className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
-                onClick={() => handleConnectWallet()}
+                onClick={handleConnectWallet}
               >
                 <Image src={wallet.icon} alt={wallet.name} />
                 <span>{wallet.name}</span>
