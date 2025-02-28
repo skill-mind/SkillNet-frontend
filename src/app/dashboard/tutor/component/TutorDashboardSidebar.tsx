@@ -9,6 +9,7 @@ import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
 import coursesIcon from "@/public/img/tutor icon/courseDashboard.svg";
 import earningIcon from "@/public/img/tutor icon/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
+import ChatBotButton from "@/components/ChatBotButton";
 
 interface NavItemProps {
   icon: ReactNode;
@@ -102,6 +103,8 @@ export function Sidebar() {
             active={activeSection === "earnings"}
             onClick={() => onSectionChange("earnings")}
           />
+
+<ChatBotButton/>
         </nav>
       </div>
 

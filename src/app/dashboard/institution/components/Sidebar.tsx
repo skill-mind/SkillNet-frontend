@@ -1,5 +1,6 @@
 "use client";
 
+import ChatBotButton from "@/components/ChatBotButton";
 import avatar from "@/public/org-avatar.svg";
 import CandidatesIcon from "@/svg/CandidatesIcon";
 import CertificatesIcon from "@/svg/CertificatesIcon";
@@ -99,6 +100,7 @@ function Sidebar() {
           const href = getRouteHref(route);
           
           return (
+          <>
             <Link
               href={href}
               className={`
@@ -115,9 +117,10 @@ function Sidebar() {
                 {route.icon}
               </span>
               <span className="font-medium">{route.label}</span>
-            </Link>
+            </Link></>
           );
         })}
+        <ChatBotButton/>
       </nav>
 
       <button className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 mt-4">
