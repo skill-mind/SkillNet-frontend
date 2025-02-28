@@ -164,7 +164,7 @@ const Applications = () => {
               </div>
               {isDescriptionExpanded && (
                 <div className="py-3 text-xs md:text-sm text-[#D9D9D9] leading-relaxed">
-                  SkillNet is an innovative, blockchain-powered platform that seamlessly connects job seekers with employers while empowering tutors and institutions to create, sell, and deliver high-quality courses and exams. It combines the best of both worlds—an online job marketplace and a learning hub—giving users a competitive edge in today's dynamic job market.
+                  SkillNet is an innovative, blockchain-powered platform that seamlessly connects job seekers with employers while empowering tutors and institutions to create, sell, and deliver high-quality courses and exams. It combines the best of both worlds—an online job marketplace and a learning hub—giving users a competitive edge in today&apos;s dynamic job market.
                 </div>
               )}
             </div>
@@ -179,7 +179,7 @@ const Applications = () => {
               </div>
               {isResponsibilitiesExpanded && (
                 <div className="py-3 text-xs md:text-sm text-[#D9D9D9] leading-relaxed">
-                  SkillNet is an innovative, blockchain-powered platform that seamlessly connects job seekers with employers while empowering tutors and institutions to create, sell, and deliver high-quality courses and exams. It combines the best of both worlds—an online job marketplace and a learning hub—giving users a competitive edge in today's dynamic job market.
+                  SkillNet is an innovative, blockchain-powered platform that seamlessly connects job seekers with employers while empowering tutors and institutions to create, sell, and deliver high-quality courses and exams. It combines the best of both worlds—an online job marketplace and a learning hub—giving users a competitive edge in today&apos;s dynamic job market.
                 </div>
               )}
             </div>
