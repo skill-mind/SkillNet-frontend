@@ -27,10 +27,16 @@ function Header() {
           { name: "Profile", href: "/account/dashboard/employer" },
         ];
       case "job openings":
-        return [{ name: "Job Openings", href: "/account/dashboard/employer" }];
+        return [
+          { name: "Home", href: "/account/dashboard/employer" },
+          { name: "Dashboard", href: "/account/dashboard/employer" },
+          { name: "Profile", href: "/account/dashboard/employer" },
+        ];
       case "notifications":
         return [
-          { name: "Notifications", href: "/account/dashboard/employer" },
+          { name: "Home", href: "/account/dashboard/employer" },
+          { name: "Dashboard", href: "/account/dashboard/employer" },
+          { name: "Profile", href: "/account/dashboard/employer" },
         ];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
