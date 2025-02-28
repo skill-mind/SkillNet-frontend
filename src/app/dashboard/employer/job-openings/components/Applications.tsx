@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronDown, MapPin, Clock, PencilIcon } from "lucide-react";
+import { ChevronDown, MapPin, PencilIcon } from "lucide-react";
 import { applicantData} from "@/app/utils/applicantData";
 
 const Applications = () => {
