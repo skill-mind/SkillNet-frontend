@@ -19,7 +19,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Dynamic navigation based on active section
-  const getNavigation = () => {
+   const getNavigation = () => {
     switch (activeSection) {
       case "home":
         return [
