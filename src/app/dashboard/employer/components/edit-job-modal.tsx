@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { X, ArrowLeft, Asterisk, CirclePlus } from "lucide-react";
 
-interface CreateJobModalProps {
-  createJobModalOpen: boolean;
-  setCreateJobModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+interface EditJobModalProps {
+  EditJobModalOpen: boolean;
+  setEditJobModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const formGroupsData: {
@@ -122,9 +122,9 @@ const FormGroup = ({
   );
 };
 
-export const CreateJobModal: React.FC<CreateJobModalProps> = ({
-  createJobModalOpen,
-  setCreateJobModalOpen,
+export const EditJobModal: React.FC<EditJobModalProps> = ({
+  EditJobModalOpen,
+  setEditJobModalOpen,
 }) => {
   // For list fields, we store both the list items and the current input text.
   const [listData, setListData] = useState<{
@@ -197,7 +197,7 @@ export const CreateJobModal: React.FC<CreateJobModalProps> = ({
           <ArrowLeft />
           <div className="text-2xl font-semibold">Create Job Openings</div>
         </div>
-        <div onClick={() => setCreateJobModalOpen(false)}>
+        <div onClick={() => setEditJobModalOpen(false)}>
           <X />
         </div>
       </div>
@@ -277,4 +277,4 @@ export const CreateJobModal: React.FC<CreateJobModalProps> = ({
   );
 };
 
-export default CreateJobModal;
+export default EditJobModal;
