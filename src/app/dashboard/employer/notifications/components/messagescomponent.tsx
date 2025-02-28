@@ -11,8 +11,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import Input from "./input-messages";
 import { useState } from "react";
-import userProfile from "@/public/img/Avatar.png";
-// import userProfile from "@/public/img/userProfile.png" // image file returns error (file is corrupted)
+import userProfile2 from "@/public/img/astronaut.svg";
 
 function Messages() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All"); // Track the selected filter
@@ -24,33 +23,20 @@ function Messages() {
       id: 1,
       name: "Satoshi Nakamoto",
       message: "Hi, how are you?",
-      status: "Unread",
+      status: "New",
     },
+
     {
       id: 2,
-      name: "Vitalik Buterin",
-      message: "Let's catch up later!",
-      status: "Favourite",
-    },
-    {
-      id: 3,
       name: "Elon Musk",
       message: "Hey, we need to talk.",
       status: "Archived",
-    },
-    {
-      id: 4,
-      name: "Bill Gates",
-      message: "Excited to chat!",
-      status: "Unread",
     },
   ];
 
   // Filter messages based on the selected filter
   const filteredMessages = messages.filter((msg) => {
-    if (selectedFilter === "All") return true;
-    if (selectedFilter === "Unread") return msg.status === "Unread";
-    if (selectedFilter === "Favourite") return msg.status === "Favourite";
+    if (selectedFilter === "New") return true;
     if (selectedFilter === "Archived") return msg.status === "Archived";
     return false;
   });
@@ -61,15 +47,11 @@ function Messages() {
   );
 
   return (
-    <div className="px-4 sm:px-8 lg:px-[100px] flex w-full h-screen">
+    <div className="flex w-full h-screen">
       <div className="flex w-full h-full">
         {/* Side Nav containing messages */}
         <div className="w-full md:w-1/3 lg:w-1/3 p-4 border-r border-[#252625] overflow-hidden md:block hidden">
           <div className="flex flex-col space-y-6">
-            <div className="flex items-center justify-between">
-              <h4 className="text-2xl">Messages</h4>
-              <EllipsisVertical color="#9596A0" />
-            </div>
             <Input
               label=""
               name="search"
@@ -81,7 +63,7 @@ function Messages() {
 
             <div className="flex flex-wrap gap-2">
               {/* Filter Buttons */}
-              {["All", "Unread", "Favourite", "Archived"].map((filter) => (
+              {["New", "Archived"].map((filter) => (
                 <div
                   key={filter}
                   className={`border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px] ${
@@ -98,7 +80,7 @@ function Messages() {
             {filteredBySearch.map((msg) => (
               <ContactMessage
                 key={msg.id}
-                imgSrc={userProfile}
+                imgSrc={userProfile2}
                 name={msg.name}
                 message={msg.message}
               />
@@ -113,7 +95,7 @@ function Messages() {
               {/* back button */}
               <ChevronLeft className="block md:hidden" />
               <Image
-                src={userProfile}
+                src={userProfile2}
                 alt="user profile image"
                 width={40}
                 height={40}
@@ -136,9 +118,8 @@ function Messages() {
           <div className="flex justify-end p-4">
             <div className="bg-[#1e1e1e] p-4 rounded-md">
               <p className="text-[14px] text-[#bbb]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis magni, totam ipsum perferendis libero iusto porro
-                expedita deleniti officiis delectus?
+                What videos and materials can you recommend for a beginner
+                started web design
               </p>
               <div className="flex justify-end items-center space-x-2 mt-2">
                 <small className="text-[#888]">12:43 AM</small>
@@ -150,12 +131,10 @@ function Messages() {
           <div className="flex justify-end p-4">
             <div className="bg-[#1e1e1e] p-4 rounded-md">
               <p className="text-[14px] text-[#bbb]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis magni, totam ipsum perferendis libero iusto porro
-                expedita deleniti officiis delectus?
+                You could start with introduction to design by Flora Osatuyi
               </p>
               <div className="flex justify-end items-center space-x-2 mt-2">
-                <small className="text-[#888]">12:43 AM</small>
+                <small className="text-[#888]">12:45 AM</small>
                 <CheckCheck color="white" size={18} />
               </div>
             </div>
@@ -177,7 +156,7 @@ function Messages() {
               <Send
                 size={34}
                 color="#555"
-                className="cursor-pointer  bg-white hover:bg-[#3a3a3a] hover:text-white p-2 rounded-full transition-colors duration-200 ease-in-out"
+                className="cursor-pointer  bg-[#A8C789] hover:bg-[#3a3a3a] hover:text-white p-2 rounded-full transition-colors duration-200 ease-in-out"
               />
             </div>
           </div>
