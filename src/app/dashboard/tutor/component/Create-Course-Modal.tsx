@@ -91,13 +91,13 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="w-full h-auto flex bg-inherit transition-all duration-300 flex-col p-5">
+    <div className="w-full relative h-auto flex bg-inherit transition-all duration-300 flex-col p-5 overflow-x-hidden">
+      <div className="flex justify-start -top-4 left-5 mb-2">
+        <button onClick={onClose}>
+          <ArrowLeft className="text-4xl" color="white" />
+        </button>
+      </div>
       <div className="flex flex-col gap-10">
-        <div className="absolute flex justify-start -top-4 left-5 ">
-          <button onClick={onClose}>
-            <ArrowLeft className="text-4xl" color="white" />
-          </button>
-        </div>
         <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
           <div className="md:flex w-full space-y-5 md:space-y-0 gap-4">
             <div className="flex flex-col w-full md:w-[60%] gap-[20px]">
