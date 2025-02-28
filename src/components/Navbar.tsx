@@ -2,13 +2,13 @@
 import Logo from "../public/skillnet-white logo.png";
 import Image from "next/image";
 import React, { useState, useRef, useEffect, ReactNode, Fragment } from "react";
-import { WalletSelectorUI } from "./WalletConnectModal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { routes } from "@/lib/route";
 import { useWalletContext } from "@/app/useContext/WalletContext";
-
+import { useAccount, useDisconnect } from "@starknet-react/core";
+import { WalletSelectorUI } from "./WalletConnectModal";
 interface NavLinkProps {
   href: string;
   children: ReactNode;
@@ -54,7 +54,8 @@ export default function Navbar({
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isDisconnectModalVisible, setIsDisconnectModalVisible] = useState(false);
+  const [isDisconnectModalVisible, setIsDisconnectModalVisible] =
+    useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { account, disconnectWallet } = useWalletContext();
@@ -78,14 +79,16 @@ export default function Navbar({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Helper function to truncate the wallet address
   const truncateAddress = (addr: string) => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
+
+  const { address } = useAccount();
+  const { disconnect } = useDisconnect();
 
   return (
     <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
@@ -109,20 +112,27 @@ export default function Navbar({
 
       {/* Desktop Wallet Button */}
       <div className="hidden md:flex items-center flex-col relative">
-        {account ? (
-          <button
-            onClick={() => setIsDisconnectModalVisible(true)}
-            className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
-          >
-            {`Connected: ${truncateAddress(account)}`}
-          </button>
+        {!address ? (
+          <>
+            <button
+              onClick={() => setIsModalVisible(!isModalVisible)}
+              className="px-4 py-2 bg-greenish-500 hover:bg-greenish-300 text-white text-center font-semibold rounded-lg transition-colors"
+            >
+              Connect Wallet
+            </button>
+          </>
         ) : (
-          <button
-            onClick={showModal}
-            className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
-          >
-            CONNECT WALLET
-          </button>
+          <div className="flex items-center gap-2">
+            <div className="text-base font-medium px-4 py-2 bg-greenish-500 text-white rounded-lg">
+              {address.slice(0, 6)}...{address.slice(-4)}
+            </div>
+            <button
+              onClick={() => disconnect()}
+              className="px-4 py-2 bg-greenish-500 text-center hover:bg-greenish-300 text-white font-semibold rounded-lg transition-colors"
+            >
+              Disconnect
+            </button>
+          </div>
         )}
       </div>
 
@@ -177,7 +187,7 @@ export default function Navbar({
 
       {isModalVisible && (
         <div className="absolute top-full left-0 right-3 md:right-10 md:left-auto px-4 mt-2 z-10">
-          <WalletSelectorUI onClose={showModal} />
+          <WalletSelectorUI onClose={() => setIsModalVisible(false)} />
         </div>
       )}
 
@@ -191,7 +201,9 @@ export default function Navbar({
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="text-lg font-bold mb-4">Disconnect Wallet</h3>
-            <p className="mb-6">Are you sure you want to disconnect your wallet?</p>
+            <p className="mb-6">
+              Are you sure you want to disconnect your wallet?
+            </p>
             <div className="flex justify-around">
               <button
                 className="border border-[#313130] rounded-lg px-4 py-2 hover:bg-[#313130] transition-colors"
