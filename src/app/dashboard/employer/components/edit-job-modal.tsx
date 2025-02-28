@@ -195,7 +195,7 @@ export const EditJobModal: React.FC<EditJobModalProps> = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <ArrowLeft />
-          <div className="text-2xl font-semibold">Create Job Openings</div>
+          <div className="text-2xl font-semibold">Edit Job Openings</div>
         </div>
         <div onClick={() => setEditJobModalOpen(false)}>
           <X />
