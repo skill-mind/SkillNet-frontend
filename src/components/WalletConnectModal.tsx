@@ -31,9 +31,10 @@ interface WalletSelectorUIProps {
 export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
   const { account, connectWallet, disconnectWallet } = useWalletContext();
 
-  const handleConnectWallet = async (walletId: string) => {
+  const handleConnectWallet = async () => {
     try {
-      connectWallet(); // Connect to the wallet
+      await connectWallet();
+      onClose();
     } catch (error) {
       console.error("Error connecting wallet:", error);
     }
@@ -52,6 +53,7 @@ export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
             className="w-full justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
             onClick={() => {
               disconnectWallet();
+              onClose(); // Optionally close the modal after disconnecting
             }}
           >
             Disconnect Wallet
@@ -68,7 +70,7 @@ export function WalletSelectorUI({ onClose }: WalletSelectorUIProps) {
                 key={wallet.name}
                 variant="ghost"
                 className="w-full justify-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-6 text-neutral-200 hover:bg-neutral-800 hover:text-white"
-                onClick={() => handleConnectWallet(wallet.id)}
+                onClick={() => handleConnectWallet()}
               >
                 <Image src={wallet.icon} alt={wallet.name} />
                 <span>{wallet.name}</span>
