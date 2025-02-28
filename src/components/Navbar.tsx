@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { routes } from "@/lib/route";
+import { useWalletContext } from "@/app/useContext/WalletContext";
 
 interface NavLinkProps {
   href: string;
@@ -55,16 +56,16 @@ export default function Navbar({
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { account, disconnectWallet } = useWalletContext();
 
+  // Toggle modal visibility; also ensure that if one is open, the other is closed.
   const showModal = () => {
-    setIsModalVisible(!isModalVisible);
-    // Close menu if it's open
+    setIsModalVisible((prev) => !prev);
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    // Close modal if it's open
+    setIsMenuOpen((prev) => !prev);
     if (isModalVisible) setIsModalVisible(false);
   };
 
@@ -76,7 +77,8 @@ export default function Navbar({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -100,21 +102,39 @@ export default function Navbar({
       </ul>
 
       <div className="hidden md:flex items-center flex-col relative">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
-        >
-          CONNECT WALLET
-        </button>
+        {account ? (
+          <button
+            onClick={disconnectWallet}
+            className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
+          >
+            DISCONNECT WALLET
+          </button>
+        ) : (
+          <button
+            onClick={showModal}
+            className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
+          >
+            CONNECT WALLET
+          </button>
+        )}
       </div>
 
       <div className="flex md:hidden items-center gap-4">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
-        >
-          CONNECT
-        </button>
+        {account ? (
+          <button
+            onClick={disconnectWallet}
+            className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
+          >
+            DISCONNECT
+          </button>
+        ) : (
+          <button
+            onClick={showModal}
+            className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
+          >
+            CONNECT
+          </button>
+        )}
         <button
           onClick={toggleMenu}
           className="p-2 rounded-lg hover:bg-[#313130] transition-colors"
@@ -147,7 +167,7 @@ export default function Navbar({
       )}
       {isModalVisible && (
         <div className="absolute top-full left-0 right-3 md:right-10 md:left-auto px-4 mt-2 z-10">
-          <WalletSelectorUI />
+          <WalletSelectorUI onClose={showModal} />
         </div>
       )}
     </nav>
