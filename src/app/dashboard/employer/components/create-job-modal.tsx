@@ -123,7 +123,6 @@ const FormGroup = ({
 };
 
 export const CreateJobModal: React.FC<CreateJobModalProps> = ({
-  createJobModalOpen,
   setCreateJobModalOpen,
 }) => {
   // For list fields, we store both the list items and the current input text.

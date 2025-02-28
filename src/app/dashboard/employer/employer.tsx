@@ -1,5 +1,5 @@
 "use client";
-import { MessageSquare, Percent, Folder, X } from "lucide-react";
+import { MessageSquare, Percent, Folder} from "lucide-react";
 import EmployerStatCard from "./components/employer-stats";
 import QuickActionButton from "./components/employer-card";
 import { useState } from "react";
