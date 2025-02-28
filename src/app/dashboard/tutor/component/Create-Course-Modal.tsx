@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { X, Pencil } from "lucide-react";
+import { X,ArrowLeft} from "lucide-react";
 import { Plus } from "lucide-react";
+import SectionOverview from "./SectionOverview";
 
 interface Question {
   title: string;
-  options: string[];
-  answer: string;
+  sectionImage: string;
+  durration: string;
 }
 
 interface CreateCourseModelProps {
@@ -16,7 +17,6 @@ interface CreateCourseModelProps {
 }
 
 function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
- 
   const [hovered, setHovered] = useState(false);
   const [items, setItems] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
@@ -66,7 +66,6 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
       items,
       files,
       certification,
-     
     };
     console.log(formData);
   };
@@ -79,8 +78,8 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
     ) {
       const question: Question = {
         title: newQuestion,
-        options: newOptions,
-        answer: newAnswer,
+        durration: '',
+        sectionImage: '',
       };
       setQuestions([...questions, question]);
       setNewQuestion("");
@@ -89,22 +88,33 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
     }
   };
 
-   if (!isOpen) return null;
+  if (!isOpen) return null;
 
   return (
-    <div className="w-full h-auto flex bg-inherit absolute left-0 transition-all duration-300 flex-col p-5">
+    <div className="w-full h-auto flex bg-inherit transition-all duration-300 flex-col p-5">
       <div className="flex flex-col gap-10">
-        <div className="sticky flex justify-end top-5 right-5">
-          <button
-            className=" border w-fit rounded-full p-0.5"
-            onClick={onClose}
-          >
-            <X size={14} color="white" />
+        <div className="absolute flex justify-start -top-4 left-5 ">
+          <button onClick={onClose}>
+            <ArrowLeft className="text-4xl" color="white" />
           </button>
         </div>
         <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
           <div className="md:flex w-full space-y-5 md:space-y-0 gap-4">
             <div className="flex flex-col w-full md:w-[60%] gap-[20px]">
+              <div
+                className="w-full h-52 border border-dashed border-gray-600 rounded-lg flex flex-col items-center justify-center bg-[#121212] hover:border-gray-400 transition-colors"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <p className="text-gray-300 mb-3">Upload Image</p>
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center bg-[#2a2a2a] ${
+                    hovered ? "bg-gray-500" : ""
+                  } transition-colors`}
+                >
+                  <Plus className="text-gray-200" />
+                </div>
+              </div>
               <div className="flex flex-col w-full">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
@@ -131,7 +141,7 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
                 </label>
                 <textarea
                   id="examDescription"
-                  className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] min-h-[176px] outline-none border-[#252625] text-white text-[0.875rem] w-full md:w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  className="bg-transparent placeholder:text-[#5E5E5E] border-[1px] h-full min-h-[176px] outline-none border-[#252625] text-white text-[0.875rem] w-full md:w-full px-4 py-[0.40rem] rounded-[0.5rem]"
                   placeholder="Write your cover letter"
                   value={examDescription}
                   onChange={(e) => setExamDescription(e.target.value)}
@@ -139,6 +149,32 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
               </div>
             </div>
             <div className="flex flex-col w-full gap-[24px] md:w-[40%]">
+              <button className="text-[#0E0F0E] bg-[#D0EFB1] py-3 text-center rounded-lg">
+                Publish For $50
+              </button>
+              <button className="text-[#D6DFFE] bg-[#2D2E2D] py-3 text-center rounded-lg">
+                Add to draft
+              </button>
+              <div className="flex w-full flex-col items-stretch">
+                <label
+                  className="text-[#9596A0] text-[0.875rem] mb-1"
+                  htmlFor="courseAmount"
+                >
+                  Course amount*
+                </label>
+                <select
+                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-3 py-2 rounded-[0.5rem]"
+                  value={candidateEligibility}
+                  onChange={(e) => setCandidateEligibility(e.target.value)}
+                >
+                  <option className="bg-[#161716]" value="24">
+                    $24
+                  </option>
+                  <option className="bg-[#161716]" value="45">
+                    $45
+                  </option>
+                </select>
+              </div>
               <div className="flex w-full flex-col items-stretch">
                 <label
                   className="text-[#9596A0] text-[0.875rem] mb-1"
@@ -147,7 +183,7 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
                   Access*
                 </label>
                 <select
-                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full  px-3 py-2 rounded-[0.5rem]"
                   value={candidateEligibility}
                   onChange={(e) => setCandidateEligibility(e.target.value)}
                 >
@@ -213,7 +249,7 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
                   Certification*
                 </label>
                 <select
-                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full px-4 py-[0.40rem] rounded-[0.5rem]"
+                  className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full  px-3 py-2 rounded-[0.5rem]"
                   value={certification}
                   onChange={handleCertificationChange}
                 >
@@ -269,31 +305,9 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
 
         {/* created questions section */}
 
-        {questions.length > 0 && (
-          <div className="bg-[#161716] rounded-[8px] gap-[24px] p-[24px]">
-            <h1 className="text-[#9596A0] text-[0.875rem] mb-7">
-              {questions.length > 1 ? "Questions" : "Question"}{" "}
-              {questions.length}
-            </h1>
-            {questions.map((question, index) => (
-              <div
-                key={index}
-                className="flex items-center md:w-[70%] gap-5 justify-between mb-3"
-              >
-                <span className="bg-transparent border-[1px] outline-none border-[#252625] text-white text-[0.875rem] w-full  px-4 py-[0.40rem] rounded-[0.5rem]">
-                  {question.title}
-                </span>
-                <button className="text-white bg-white/10 p-2 rounded-full">
-                  <Pencil size={16} color="white" />
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
+        {questions.length > 0 && <SectionOverview />}
 
         {/* create question form */}
-        {}
-
         <form className="bg-[#161716] rounded-[8px] gap-[24px] p-[24px] flex flex-row">
           {/* Left side - Add Video box */}
 
@@ -425,16 +439,16 @@ function CreateCourseModel({ onClose, isOpen }: CreateCourseModelProps) {
                 </div>
               </div>
             </div>
+            <div className=" w-full mt-4 ml-36">
+              <button
+                onClick={handleAddQuestion}
+                className="font-workSans py-[10px] px-[24px] font-medium bg-transparent rounded-[8px] border border-[#2D2E2D]"
+              >
+                <span className="font-black text-[#D6DFFE]">+</span> ADD SECTION
+              </button>
+            </div>
           </div>
         </form>
-        <div className="flex items-center justify-center w-full ">
-          <button
-            onClick={handleAddQuestion}
-            className="font-[WorkSans] py-[10px] px-[24px] font-medium bg-[#0f0f0f] rounded-[8px] border border-[#2D2E2D]"
-          >
-            <span className="font-black text-[#D6DFFE]">+</span> ADD SECTION
-          </button>
-        </div>
       </div>
     </div>
   );
