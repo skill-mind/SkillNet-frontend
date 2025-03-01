@@ -2,12 +2,13 @@
 import Logo from "../public/skillnet-white logo.png";
 import Image from "next/image";
 import React, { useState, useRef, useEffect, ReactNode, Fragment } from "react";
-import { WalletSelectorUI } from "./WalletConnectModal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { routes } from "@/lib/route";
-
+import { useWalletContext } from "@/app/useContext/WalletContext";
+import { useAccount, useDisconnect } from "@starknet-react/core";
+import { WalletSelectorUI } from "./WalletConnectModal";
 interface NavLinkProps {
   href: string;
   children: ReactNode;
@@ -47,24 +48,27 @@ export default function Navbar({
   navLinks = [
     { href: routes.home, label: "Home" },
     { href: routes.about, label: "About" },
-    { href: routes.helpDesk, label: "Help" },
-    { href: routes.faqs, label: "FAQs" },
     { href: routes.exam, label: "Exam" },
+    { href: routes.faqs, label: "FAQs" },
+    { href: routes.helpDesk, label: "Help" }, 
+   
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDisconnectModalVisible, setIsDisconnectModalVisible] =
+    useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { account, disconnectWallet } = useWalletContext();
 
+  // Toggle modal visibility; also ensure that if one is open, the other is closed.
   const showModal = () => {
-    setIsModalVisible(!isModalVisible);
-    // Close menu if it's open
+    setIsModalVisible((prev) => !prev);
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    // Close modal if it's open
+    setIsMenuOpen((prev) => !prev);
     if (isModalVisible) setIsModalVisible(false);
   };
 
@@ -78,6 +82,14 @@ export default function Navbar({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Helper function to truncate the wallet address
+  const truncateAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
+  };
+
+  const { address } = useAccount();
+  const { disconnect } = useDisconnect();
 
   return (
     <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] fixed top-0 left-0 z-50">
@@ -99,22 +111,49 @@ export default function Navbar({
         ))}
       </ul>
 
+      {/* Desktop Wallet Button */}
       <div className="hidden md:flex items-center flex-col relative">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-4 px-[35px] font-bold hover:bg-[#313130] transition-colors duration-300"
-        >
-          CONNECT WALLET
-        </button>
+        {!address ? (
+          <>
+            <button
+              onClick={() => setIsModalVisible(!isModalVisible)}
+              className="px-4 py-2 bg-greenish-500 hover:bg-greenish-300 cursor-pointer border text-white text-center font-semibold rounded-lg transition-colors hover:text-black hover:bg-white"
+            >
+              Connect Wallet
+            </button>
+          </>
+        ) : (
+          <div className="flex items-center gap-2">
+            <div className="text-base font-medium px-4 py-2 bg-greenish-500 text-white rounded-lg">
+              {address.slice(0, 6)}...{address.slice(-4)}
+            </div>
+            <button
+              onClick={() => disconnect()}
+              className="cursor-pointer border px-4 py-2 bg-greenish-500 text-center hover:bg-greenish-300 text-white font-semibold rounded-lg transition-colors hover:text-black hover:bg-white"
+            >
+              Disconnect
+            </button>
+          </div>
+        )}
       </div>
 
+      {/* Mobile Wallet Button and Menu Toggle */}
       <div className="flex md:hidden items-center gap-4">
-        <button
-          onClick={showModal}
-          className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
-        >
-          CONNECT
-        </button>
+        {account ? (
+          <button
+            onClick={() => setIsDisconnectModalVisible(true)}
+            className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
+          >
+            {truncateAddress(account)}
+          </button>
+        ) : (
+          <button
+            onClick={showModal}
+            className="border border-[#313130] rounded-lg py-3 px-4 font-bold text-sm"
+          >
+            CONNECT
+          </button>
+        )}
         <button
           onClick={toggleMenu}
           className="p-2 rounded-lg hover:bg-[#313130] transition-colors"
@@ -123,6 +162,7 @@ export default function Navbar({
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
       {isMenuOpen && (
         <div
           ref={menuRef}
@@ -145,9 +185,44 @@ export default function Navbar({
           </div>
         </div>
       )}
+
       {isModalVisible && (
         <div className="absolute top-full left-0 right-3 md:right-10 md:left-auto px-4 mt-2 z-10">
-          <WalletSelectorUI />
+          <WalletSelectorUI onClose={() => setIsModalVisible(false)} />
+        </div>
+      )}
+
+      {isDisconnectModalVisible && (
+        <div
+          className="fixed inset-0 bg-black/60 z-[9999] backdrop-blur-sm flex items-center justify-center"
+          onClick={() => setIsDisconnectModalVisible(false)}
+        >
+          <div
+            className="w-[300px] bg-neutral-900 p-6 rounded-lg text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-lg font-bold mb-4">Disconnect Wallet</h3>
+            <p className="mb-6">
+              Are you sure you want to disconnect your wallet?
+            </p>
+            <div className="flex justify-around">
+              <button
+                className="border border-[#313130] rounded-lg px-4 py-2 hover:bg-[#313130] transition-colors"
+                onClick={() => setIsDisconnectModalVisible(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="border border-[#313130] rounded-lg px-4 py-2 hover:bg-[#313130] transition-colors"
+                onClick={() => {
+                  disconnectWallet();
+                  setIsDisconnectModalVisible(false);
+                }}
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </nav>

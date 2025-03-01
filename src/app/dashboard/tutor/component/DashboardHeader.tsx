@@ -11,9 +11,11 @@ import Notification from "@/public/img/notification.svg";
 import Avatar from "@/public/img/Avatar.png";
 import { Button } from "@headlessui/react";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
+import { useWalletContext } from "@/app/useContext/WalletContext";
 
 function Header() {
   const { activeSection } = useContext(DashBoardContext);
+  const { account, disconnectWallet } = useWalletContext();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -26,7 +28,10 @@ function Header() {
           { name: "Glance", href: "/account/dashboard/tutor" },
         ];
       case "students":
-        return [{ name: "Students", href: "/account/dashboard/tutor" }];
+        return [
+          { name: "Students", href: "/account/dashboard/tutor" },
+          { name: "Details", href: "/account/dashboard/tutor" }
+        ];
       case "courses":
         return [
           { name: "Courses", href: "/account/dashboard/tutor" },
@@ -43,7 +48,11 @@ function Header() {
           { name: "New students", href: "/account/dashboard/tutor" },
         ];
       case "support":
-        return [{ name: "Help Center", href: "/account/dashboard/tutor" }];
+        return [
+          { name: "Support", href: "/account/dashboard/tutor" },
+          { name: "Help Center", href: "/account/dashboard/tutor" }
+
+        ];
       default:
         return [{ name: "Profile", href: "/account/dashboard/tutor" }];
     }
@@ -119,7 +128,10 @@ function Header() {
             <Button className={"text-sm text-[#F3F5FF]"}>Create Courses</Button>
           </div>
 
-          <div className="flex items-center gap-2 hover:bg-[#FFFFFF1A]  bg-[#161716] p-2 rounded-lg">
+          <div
+            className="flex items-center gap-2 hover:bg-[#FFFFFF1A] bg-[#161716] p-2 rounded-lg cursor-pointer"
+            onClick={account ? disconnectWallet : undefined}
+          >
             <Image
               src={Avatar}
               width={25}
@@ -128,9 +140,9 @@ function Header() {
               alt="Avatar"
             />
             <span className="text-sm text-[#F3F5FF]">
-              osatuyipikin.braavos.eth
+              {account ? account : "Not connected"}
             </span>
-            <MoreVertical className="h-5 w-5 text-white cursor-pointer" />
+            <MoreVertical className="h-5 w-5 text-white" />
           </div>
         </div>
       </div>
@@ -172,7 +184,7 @@ function Header() {
                   alt="Avatar"
                 />
                 <span className="text-sm text-[#F3F5FF]">
-                  osatuyipikin.braavos.eth
+                  {account ? account : "Not connected"}
                 </span>
               </div>
               <MoreVertical className="h-5 w-5 text-white cursor-pointer" />

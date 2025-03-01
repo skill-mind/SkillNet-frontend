@@ -7,6 +7,7 @@ import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
 import jobIcon from "@/public/img/permanent-job.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
+import ChatBotButton from "@/components/ChatBotButton";
 
 interface NavItemProps {
   icon: ReactNode;
@@ -51,7 +52,7 @@ export function Sidebar() {
             />
           </div>
           <div>
-            <h2 className="font-semibold">Miss Flora</h2>
+            <h2 className="font-semibold">Air Peace</h2>
           </div>
           <ChevronDown className="absolute right-3" size={20} color="#BABABA" />
         </div>
@@ -82,6 +83,8 @@ export function Sidebar() {
             active={activeSection === "notifications"}
             onClick={() => onSectionChange("notifications")}
           />
+
+          <ChatBotButton/>
         </nav>
       </div>
     </aside>
