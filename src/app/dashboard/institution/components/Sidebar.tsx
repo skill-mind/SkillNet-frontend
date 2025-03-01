@@ -8,7 +8,8 @@ import ExamIcon from "@/svg/ExamIcon";
 import HomeIcon from "@/svg/HomeIcon";
 import NotificationIcon from "@/svg/NotificationIcon";
 import VerificationIcon from "@/svg/VerificationIcon";
-import { ChevronDown, Headset, Settings } from "lucide-react";
+import { ChevronDown, Headset } from "lucide-react";
+import {  WalletIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -58,6 +59,13 @@ function Sidebar() {
       subroutes: ["exams", "certification", "candidates"],
       defaultSubroute: "exams",
     },
+    {
+      label: "Earnings",
+      to: "earnings",
+      icon: <WalletIcon />,
+      subroutes: ["alltime", "weekly", "monthly"],
+      defaultSubroute: "alltime",
+    },
   ];
 
   const isActiveRoute = (route: RouteType): boolean => {
@@ -90,7 +98,7 @@ function Sidebar() {
       <div className="border border-zinc-700 px-3 py-2 flex justify-between items-center rounded-lg">
         <div className="flex items-center gap-x-2">
           <Image src={avatar} className="w-8 h-8" alt="Organization Avatar" />
-          <span className="text-sm text-zinc-100">SkillNet Org</span>
+          <span className="text-sm text-zinc-100">First Bank</span>
         </div>
         <ChevronDown className="text-zinc-400 hover:text-zinc-200 transition-colors cursor-pointer" />
       </div>
@@ -135,10 +143,6 @@ function Sidebar() {
           <span className="font-medium">Support</span>
         </Link>
 
-        <button className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 mt-4">
-          <Settings />
-          <span className="font-medium">Settings</span>
-        </button>
       </div>
     </div>
   );
