@@ -2,15 +2,20 @@ import { cn } from "@/lib/utils";
 import { Pencil } from "lucide-react";
 
 interface ProfileAboutProps {
+  onOpenModal: (section: string) => void;
   isUser: boolean;
 }
 
-export default function ProfileAbout({ isUser }: ProfileAboutProps) {
+export default function ProfileAbout({
+  isUser,
+  onOpenModal,
+}: ProfileAboutProps) {
   return (
     <div className="space-y-3 ">
       <div className="flex justify-between items-center py-4 border-b border-[#313130]">
         <p className="font-semibold text-2xl">About</p>
         <button
+          onClick={() => onOpenModal("Overview")}
           className={cn(
             !isUser ? "hidden" : "flex",
             "text-grayText items-center space-x-2"

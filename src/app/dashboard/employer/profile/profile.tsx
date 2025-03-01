@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import ProfileCover from "../../../../../public/img/profile-cover.png";
-import ProfileHeader from "./ProfileHeader";
-import ProfileAbout from "./ProfileAbout";
-import ProfileOverview from "./ProfileOverview";
-import JobOpenings from "./JobOpenings";
-import Modal from "./Modal";
+import ProfileCover from "../../../../public/img/profile-cover.png";
+import ProfileHeader from "./components/ProfileHeader";
+import ProfileAbout from "./components/ProfileAbout";
+import ProfileOverview from "./components/ProfileOverview";
+import JobOpenings from "./components/JobOpenings";
+import Modal from "./components/Modal";
 import { useState } from "react";
 
-export default function ProfileView() {
+export default function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>("");
   const isUser = true;
@@ -37,7 +37,7 @@ export default function ProfileView() {
       </div>
       <div className="px-5 md:px-10">
         <ProfileHeader isUser={isUser} />
-        <ProfileAbout isUser={isUser} />
+        <ProfileAbout onOpenModal={openModal} isUser={isUser} />
 
         <div className="mt-10 py-4 space-y-5 bg-[#161716] border border-[#1D1D1C] rounded-md p-5">
           <ProfileOverview onOpenModal={openModal} isUser={isUser} />

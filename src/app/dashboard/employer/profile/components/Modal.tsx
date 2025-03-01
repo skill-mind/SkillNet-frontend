@@ -15,6 +15,7 @@ export default function Modal({ activeSection, onCloseModal }: ModalProps) {
     >
       <div
         className="bg-[#161716] border border-[#1D1D1C] rounded-md p-5 w-full md:w-[70%] max-h-[90vh] overflow-y-auto"
+        style={{ scrollbarWidth: "none" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center py-4 border-b border-[#313130]">
