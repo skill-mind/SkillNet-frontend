@@ -40,7 +40,7 @@ const RegisteredPage = () => {
           />
           <h2 className="text-2xl font-semibold mb-4">No Registered Exams</h2>
           <p className="text-[#ABABAB] max-w-md mx-auto">
-            You haven't registered for any exams yet. Browse available exams and register to see them here.
+            You haven&apos;t registered for any exams yet. Browse available exams and register to see them here.
           </p>
 
           <Link href="/exam/feed">

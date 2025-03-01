@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { MoveLeft, X, MessageCircle } from "lucide-react";
+import { MoveLeft, MessageCircle } from "lucide-react";
 import HeaderBG from "../../../public/img/resultBgImg.png";
 import ResultsModal from "./resultsModal"; // Import the modal component
 import { useChatbot } from '../components/ChatbotContext';

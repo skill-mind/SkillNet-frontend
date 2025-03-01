@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import examImage from '@/public/img/exam-paper.jpg';
 import { examCategories, examMockData } from './mockData';
-import { MessageCircle, X } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { ExamCard } from './ExamCard';
 import { useChatbot } from './ChatbotContext';
 import ChatbotModal from './ChatbotModal';
