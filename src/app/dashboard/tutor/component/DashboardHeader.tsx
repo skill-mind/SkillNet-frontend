@@ -28,7 +28,10 @@ function Header() {
           { name: "Glance", href: "/account/dashboard/tutor" },
         ];
       case "students":
-        return [{ name: "Students", href: "/account/dashboard/tutor" }];
+        return [
+          { name: "Students", href: "/account/dashboard/tutor" },
+          { name: "Details", href: "/account/dashboard/tutor" }
+        ];
       case "courses":
         return [
           { name: "Courses", href: "/account/dashboard/tutor" },
@@ -45,7 +48,11 @@ function Header() {
           { name: "New students", href: "/account/dashboard/tutor" },
         ];
       case "support":
-        return [{ name: "Help Center", href: "/account/dashboard/tutor" }];
+        return [
+          { name: "Support", href: "/account/dashboard/tutor" },
+          { name: "Help Center", href: "/account/dashboard/tutor" }
+
+        ];
       default:
         return [{ name: "Profile", href: "/account/dashboard/tutor" }];
     }

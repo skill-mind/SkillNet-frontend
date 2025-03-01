@@ -92,7 +92,7 @@ function Support(): JSX.Element {
 
   return (
     <div>
-      <h1 className="text-[#FCFCFC] text-400 font-normal p-[15px]">Support Layouts</h1>
+      <h1 className="text-[#FCFCFC] text-400 font-normal p-[15px]">Support</h1>
 
       <div className="">
         {sponserData.map((item, i) => (

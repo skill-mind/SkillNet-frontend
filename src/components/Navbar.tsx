@@ -48,9 +48,10 @@ export default function Navbar({
   navLinks = [
     { href: routes.home, label: "Home" },
     { href: routes.about, label: "About" },
-    { href: routes.helpDesk, label: "Help" },
-    { href: routes.faqs, label: "FAQs" },
     { href: routes.exam, label: "Exam" },
+    { href: routes.faqs, label: "FAQs" },
+    { href: routes.helpDesk, label: "Help" }, 
+   
   ],
 }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -116,7 +117,7 @@ export default function Navbar({
           <>
             <button
               onClick={() => setIsModalVisible(!isModalVisible)}
-              className="px-4 py-2 bg-greenish-500 hover:bg-greenish-300 text-white text-center font-semibold rounded-lg transition-colors"
+              className="px-4 py-2 bg-greenish-500 hover:bg-greenish-300 cursor-pointer border text-white text-center font-semibold rounded-lg transition-colors hover:text-black hover:bg-white"
             >
               Connect Wallet
             </button>
@@ -128,7 +129,7 @@ export default function Navbar({
             </div>
             <button
               onClick={() => disconnect()}
-              className="px-4 py-2 bg-greenish-500 text-center hover:bg-greenish-300 text-white font-semibold rounded-lg transition-colors"
+              className="cursor-pointer border px-4 py-2 bg-greenish-500 text-center hover:bg-greenish-300 text-white font-semibold rounded-lg transition-colors hover:text-black hover:bg-white"
             >
               Disconnect
             </button>
