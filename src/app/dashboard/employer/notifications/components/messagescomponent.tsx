@@ -20,7 +20,6 @@ function Messages() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
-  // Sample messages (this can be replaced with actual dynamic data)
   const sidebarMessages = [
     {
       id: 1,
@@ -36,7 +35,6 @@ function Messages() {
     },
   ];
 
-  // Mock chat messages between user and current contact
   const chatMessages = [
     {
       id: 1,
@@ -54,7 +52,6 @@ function Messages() {
     },
   ];
 
-  // Check screen size on component mount and resize
   useEffect(() => {
     const checkScreenSize = () => {
       const isMobile = window.innerWidth < 768;
@@ -62,17 +59,13 @@ function Messages() {
       setShowSidebar(!isMobile);
     };
 
-    // Initial check
     checkScreenSize();
 
-    // Set up listener
     window.addEventListener('resize', checkScreenSize);
 
-    // Clean up
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Filter messages based on the selected filter
   const filteredMessages = sidebarMessages.filter((msg) => {
     if (selectedFilter === "All") return true;
     if (selectedFilter === "Unread") return msg.status === "Unread";
@@ -85,21 +78,18 @@ function Messages() {
     }
   }, [chatMessages]);
 
-  // Toggle sidebar on mobile
   const toggleSidebar = () => {
     if (isMobileView) {
       setShowSidebar(!showSidebar);
     }
   };
 
-  // Handle chat selection on mobile
   const handleChatSelect = () => {
     if (isMobileView) {
       setShowSidebar(false);
     }
   };
 
-  // Handle message change
   const handleMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputMessage(e.target.value);
   };
@@ -107,13 +97,11 @@ function Messages() {
   return (
     <div className="flex w-full h-[75vh]">
       <div className="flex w-full h-full relative">
-        {/* Side Nav containing messages */}
         <div className={`${
           isMobileView ? (showSidebar ? 'block absolute z-10 w-full bg-inherit' : 'hidden') : 'block'
         } md:w-1/3 lg:w-1/3 p-4 h-full overflow-y-auto`}>
           <div className="flex flex-col space-y-6 border border-[#222220] p-2 h-full">
             <div className="flex flex-wrap gap-2 ">
-              {/* Filter Buttons */}
               {["All", "Unread", "Archived"].map((filter) => (
                 <div
                   key={filter}
@@ -128,7 +116,6 @@ function Messages() {
               <div className="w-[90%] border-t border-[#222220] mx-auto" />
             </div>
 
-            {/* Display Filtered Messages */}
             <div>
               {filteredMessages.map((msg) => (
                 <div key={msg.id} onClick={handleChatSelect} className="cursor-pointer">
@@ -143,7 +130,6 @@ function Messages() {
           </div>
         </div>
 
-        {/* Chat editor screen */}
         <div className={`${
           isMobileView && showSidebar ? 'hidden' : 'flex'
         } w-full md:w-2/3 lg:w-2/3 flex-col h-full bg-[#121212]`}>
@@ -174,7 +160,6 @@ function Messages() {
           </div>
 
               <div className="border-b border-[#252625] w-[90%] mx-auto"/>
-          {/* Chat messages area */}
           <div ref={messagesContainerRef} className="flex-grow   p-4 overflow-auto flex flex-col space-y-4 justify-end">
             {chatMessages.map((msg) => (
               <div 
@@ -195,7 +180,6 @@ function Messages() {
             <div ref={messagesEndRef} />
           </div>
           
-          {/* Original message input from your code */}
           <div className="p-4">
             <div className="p-1 pl-4 pr-4 flex items-center space-x-4 border-[#252625] border rounded-[0.5em] w-full">
               <div className="flex space-x-4">
