@@ -8,7 +8,6 @@ export default function PaymentPage() {
   const { setActiveSection } = useContext(DashBoardContext);
 
   useEffect(() => {
-    // Set the active section to payments
     setActiveSection("payments");
   }, [setActiveSection]);
 
