@@ -6,7 +6,6 @@ import Link from "next/link";
 // import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Logo from "@/public/skillnet-white logo.png";
 import pen from "@/public/paint-brush-01.png";
 import Notification from "@/public/img/notification.svg";
 import Avatar from "@/public/img/Avatar.png";
