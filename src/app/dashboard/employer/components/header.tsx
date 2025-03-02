@@ -25,12 +25,11 @@ function Header() {
         return [
           { name: "Home", href: "/account/dashboard/employer" },
           { name: "Dashboard", href: "/account/dashboard/employer" },
-          { name: "Profile", href: "/account/dashboard/employer" },
         ];
       case "job openings":
-        return [{ name: "Job Openings", href: "/account/dashboard/employer" }];
+        return [{ name: "Job Openings", href: "/account/dashboard/employer" },  { name: "Dashboard", href: "/account/dashboard/employer" }];
       case "notifications":
-        return [{ name: "Notifications", href: "/account/dashboard/employer" }];
+        return [{ name: "Notifications", href: "/account/dashboard/employer" }, { name: "Question", href: "/account/dashboard/employer" }];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
     }
@@ -76,20 +75,12 @@ function Header() {
                 href={item.href}
                 className={cn(
                   "text-sm font-medium hover:text-[#FCFCFC]",
-                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
+                  index === 0 ? "text-[#FCFCFC]" : "text-[#ABABAB]"
                 )}
               >
                 {item.name}
               </Link>
-              {activeSection === "notifications" &&
-                item.name === "Notifications" && (
-                  <>
-                    <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
-                    <span className="text-white text-xs font-bold">
-                      {activeNotificationTab}
-                    </span>
-                  </>
-                )}
+             
             </div>
           ))}
         </nav>

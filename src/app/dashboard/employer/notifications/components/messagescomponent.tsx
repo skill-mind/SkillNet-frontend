@@ -13,21 +13,20 @@ import { useState, useEffect, useRef } from "react";
 import userProfile2 from "@/public/img/astronaut.svg";
 
 function Messages() {
-  const [selectedFilter, setSelectedFilter] = useState<string>("New");
+  const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [isMobileView, setIsMobileView] = useState<boolean>(true);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const [inputMessage, setInputMessage] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
-  
   // Sample messages (this can be replaced with actual dynamic data)
   const sidebarMessages = [
     {
       id: 1,
       name: "Satoshi Nakamoto",
       message: "Hi, how are you?",
-      status: "New",
+      status: "Unread",
     },
     {
       id: 2,
@@ -36,7 +35,7 @@ function Messages() {
       status: "Archived",
     },
   ];
-  
+
   // Mock chat messages between user and current contact
   const chatMessages = [
     {
@@ -50,9 +49,9 @@ function Messages() {
       id: 2,
       text: "You could start with introduction to design by Flora Osatuyi",
       timestamp: "12:45 AM",
-      isUser: true,
+      isUser: false,
       isRead: true,
-    }
+    },
   ];
 
   // Check screen size on component mount and resize
@@ -62,28 +61,29 @@ function Messages() {
       setIsMobileView(isMobile);
       setShowSidebar(!isMobile);
     };
-    
+
     // Initial check
     checkScreenSize();
-    
+
     // Set up listener
     window.addEventListener('resize', checkScreenSize);
-    
+
     // Clean up
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   // Filter messages based on the selected filter
-  const filteredMessages = sidebarMessages.filter((msg) =>
-    selectedFilter === "New" ? true : msg.status === selectedFilter
-  );
+  const filteredMessages = sidebarMessages.filter((msg) => {
+    if (selectedFilter === "All") return true;
+    if (selectedFilter === "Unread") return msg.status === "Unread";
+    return msg.status === selectedFilter;
+  });
 
   useEffect(() => {
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   }, [chatMessages]);
-
 
   // Toggle sidebar on mobile
   const toggleSidebar = () => {
@@ -110,11 +110,11 @@ function Messages() {
         {/* Side Nav containing messages */}
         <div className={`${
           isMobileView ? (showSidebar ? 'block absolute z-10 w-full bg-inherit' : 'hidden') : 'block'
-        } md:w-1/3 lg:w-1/3 p-4 border-r border-[#252625] h-full overflow-y-auto`}>
-          <div className="flex flex-col space-y-6">
-            <div className="flex flex-wrap gap-2">
+        } md:w-1/3 lg:w-1/3 p-4 h-full overflow-y-auto`}>
+          <div className="flex flex-col space-y-6 border border-[#222220] p-2 h-full">
+            <div className="flex flex-wrap gap-2 ">
               {/* Filter Buttons */}
-              {["New", "Archived"].map((filter) => (
+              {["All", "Unread", "Archived"].map((filter) => (
                 <div
                   key={filter}
                   className={`border border-[#1D1D1C] px-[1.25rem] py-[0.375rem] text-base font-medium text-[#ABABAB] text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] ${
@@ -125,6 +125,7 @@ function Messages() {
                   {filter}
                 </div>
               ))}
+              <div className="w-[90%] border-t border-[#222220] mx-auto" />
             </div>
 
             {/* Display Filtered Messages */}
@@ -146,7 +147,7 @@ function Messages() {
         <div className={`${
           isMobileView && showSidebar ? 'hidden' : 'flex'
         } w-full md:w-2/3 lg:w-2/3 flex-col h-full bg-[#121212]`}>
-          <div className="flex items-center justify-between p-4 border-b border-[#252625]">
+          <div className="flex items-center justify-between p-4 ">
             <div className="flex items-center space-x-3">
               {isMobileView && (
                 <ChevronLeft 
@@ -172,15 +173,16 @@ function Messages() {
             </div>
           </div>
 
+              <div className="border-b border-[#252625] w-[90%] mx-auto"/>
           {/* Chat messages area */}
-          <div ref={messagesContainerRef} className="flex-grow p-4 overflow-auto flex flex-col space-y-4 justify-end">
+          <div ref={messagesContainerRef} className="flex-grow   p-4 overflow-auto flex flex-col space-y-4 justify-end">
             {chatMessages.map((msg) => (
               <div 
                 key={msg.id} 
                 className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`w-full p-3 rounded-lg ${
-                  msg.isUser ? 'bg-[#1A1A1A] text-gray-200' : 'bg-blue-500 text-white'
+                <div className={`max-w-[80%] p-3 rounded-lg text- ${
+                  msg.isUser ? 'bg-[#202120] text-gray-200' : 'bg-[#161716] '
                 }`}>
                   <p className="text-sm">{msg.text}</p>
                   <div className="flex items-center justify-end mt-1 space-x-1">
@@ -205,7 +207,7 @@ function Messages() {
                 value={inputMessage}
                 onChange={handleMessageChange}
                 placeholder="Type a message..."
-                className="flex-grow p-2 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] placeholder:italic focus:outline-none focus:border-[#555]"
+                className="flex-grow p-2 border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] placeholder:italic focus:outline-none focus:border-[#555]"
               />
               <Send
                 size={34}

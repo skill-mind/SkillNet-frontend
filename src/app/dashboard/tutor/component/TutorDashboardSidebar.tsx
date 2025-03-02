@@ -114,6 +114,7 @@ export function Sidebar() {
           active={activeSection === "support"}
           onClick={() => onSectionChange("support")}
         />
+        <ChatBotButton />
       </div>
     </aside>
   );
