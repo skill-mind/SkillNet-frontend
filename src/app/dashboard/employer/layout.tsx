@@ -1,44 +1,33 @@
 "use client";
 
-import { useState } from "react";
-;
-import DashBoardContextProvider from "@/app/useContext/dashboardContext";
-import { Logs } from "lucide-react";
 import { Sidebar } from "./components/employer-sidebar";
 import Header from "./components/header";
+import { DashBoardContext } from "@/app/useContext/dashboardContext";
+import { useState } from "react";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+export default function EmployerLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [activeSection, setActiveSection] = useState("home");
+
   return (
-    <DashBoardContextProvider>
-      <main className="bg-[#101110] h-[90vh] max-h-screen">
-        <Header />
-        <div
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="md:hidden px-8"
-        >
-          <Logs size={30} className="text-white" />
+    <DashBoardContext.Provider
+      value={{
+        activeSection,
+        setActiveSection,
+        activeNotificationTab: "all",
+        setActiveNotificationTab: useState("all")[1],
+      }}
+    >
+      <div className="flex min-h-screen bg-[#101110] text-white">
+        <Sidebar />
+        <div className="flex-1">
+          <Header />
+          <main>{children}</main>
         </div>
-        <div className="flex h-[100%] text-white overflow-y-auto scrollbar-hide scroll-smooth">
-          {isSidebarOpen && (
-            <section className="">
-              {" "}
-              <Sidebar />
-            </section>
-          )}
-
-          <section className=" hidden md:block">
-            {" "}
-            <Sidebar />
-          </section>
-
-          <main className="flex-grow overflow-y-scroll scrollbar-hide h-auto hide-scrollbar">
-            {children}
-          </main>
-        </div>
-      </main>
-    </DashBoardContextProvider>
+      </div>
+    </DashBoardContext.Provider>
   );
-};
-
-export default Layout;
+}
