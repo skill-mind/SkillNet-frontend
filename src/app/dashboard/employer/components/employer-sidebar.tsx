@@ -52,7 +52,7 @@ export function Sidebar() {
             />
           </div>
           <div>
-            <h2 className="font-semibold">Air Peace</h2>
+            <h2 className="font-semibold">The Buidl</h2>
           </div>
           <ChevronDown className="absolute right-3" size={20} color="#BABABA" />
         </div>
@@ -84,7 +84,7 @@ export function Sidebar() {
             onClick={() => onSectionChange("notifications")}
           />
 
-          <ChatBotButton/>
+          <ChatBotButton />
         </nav>
       </div>
     </aside>
