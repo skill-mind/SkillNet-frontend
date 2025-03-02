@@ -19,7 +19,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Dynamic navigation based on active section
-   const getNavigation = () => {
+  const getNavigation = () => {
     switch (activeSection) {
       case "home":
         return [
@@ -31,6 +31,14 @@ function Header() {
         return [{ name: "Job Openings", href: "/account/dashboard/employer" }];
       case "notifications":
         return [{ name: "Notifications", href: "/account/dashboard/employer" }];
+      case "payments":
+        return [
+          { name: "Payment", href: "/account/dashboard/employer/payment" },
+          {
+            name: "Total Earnings",
+            href: "/account/dashboard/employer/payment",
+          },
+        ];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
     }
