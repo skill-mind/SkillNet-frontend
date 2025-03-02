@@ -19,7 +19,7 @@ function Page() {
       case "notifications":
         return <Notifications />;
       case "profile":
-        return <Profile />;
+        return <Profile />;      
 
       default:
         return <EmployerDashboard />;

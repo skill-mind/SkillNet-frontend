@@ -6,8 +6,10 @@ import profilePic from "@/public/img/dashboardProfile.svg";
 import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
 import jobIcon from "@/public/img/permanent-job.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
+import supportIcon from "@/public/img/supportIcon.svg"; 
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 import ChatBotButton from "@/components/ChatBotButton";
+
 
 interface NavItemProps {
   icon: ReactNode;
@@ -65,7 +67,7 @@ export function Sidebar() {
             onClick={() => onSectionChange("home")}
           />
           <NavItem
-            icon={<Image src={jobIcon} alt="Jo" height={20} width={20} />}
+            icon={<Image src={jobIcon} alt="Job" height={20} width={20} />}
             label="Job Openings"
             active={activeSection === "job openings"}
             onClick={() => onSectionChange("job openings")}
@@ -82,6 +84,12 @@ export function Sidebar() {
             label="Notifications"
             active={activeSection === "notifications"}
             onClick={() => onSectionChange("notifications")}
+          />
+          <NavItem
+            icon={<Image src={supportIcon} alt="Support" height={20} width={20} />}
+            label="Support"
+            active={activeSection === "support"}
+            onClick={() => onSectionChange("support")}
           />
 
           <ChatBotButton />
