@@ -135,7 +135,6 @@ export default function Payment() {
             </div>
           </div>
         </div>
-
         <div className="bg-[#161716] rounded-lg p-6">
           <div className="flex items-center">
             <div className="bg-[#1E293B] w-12 h-12 rounded-full mr-4 flex items-center justify-center">
@@ -163,7 +162,9 @@ export default function Payment() {
         </div>
       </div>
       <div className="mt-8 px-4 md:px-8">
-        <h2 className="text-xl font-semibold mb-4">Payment History</h2>
+        <h2 className="text-xl font-semibold mb-4 text-gray-400">
+          Payment History
+        </h2>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-[#101110] rounded-lg">
             <thead>
