@@ -26,7 +26,7 @@ function Notification() {
     if (activeNotificationTab) {
       setLocalActiveTab(activeNotificationTab as TabType);
     }
-  }, []);
+  }, [activeNotificationTab]);
   
   const handleTabChange = (tabId: TabType) => {
     setLocalActiveTab(tabId);
