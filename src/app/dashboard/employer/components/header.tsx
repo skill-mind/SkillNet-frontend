@@ -31,10 +31,15 @@ function Header() {
         return [{ name: "Notifications", href: "/account/dashboard/employer" }];
       case "payments":
         return [
-          { name: "Payment", href: "/account/dashboard/employer/payment" },
+          {
+            name: "Payment",
+            href: "/account/dashboard/employer/payment",
+            active: true,
+          },
           {
             name: "Total Earnings",
             href: "/account/dashboard/employer/payment",
+            active: false,
           },
         ];
       default:
@@ -55,14 +60,20 @@ function Header() {
           <nav className="hidden lg:flex items-center justify-center gap-4">
             {navigation.map((item, index) => (
               <div key={item.name} className="flex items-center">
-                {index > 0 && (
-                  <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+                {index > 0 && activeSection === "payments" ? (
+                  <span className="text-gray-400 mx-2">|</span>
+                ) : (
+                  index > 0 && (
+                    <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+                  )
                 )}
                 <Link
                   href={item.href}
                   className={cn(
                     "text-sm font-medium hover:text-[#FCFCFC]",
-                    pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
+                    pathname === item.href || ("active" in item && item.active)
+                      ? "text-[#FCFCFC]"
+                      : "text-[#ABABAB]"
                   )}
                 >
                   {item.name}
