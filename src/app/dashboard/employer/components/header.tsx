@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Menu, MoreVertical, Search, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Logo from "@/public/skillnet-white logo.png";
