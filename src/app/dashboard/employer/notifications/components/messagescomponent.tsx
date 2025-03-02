@@ -9,7 +9,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import userProfile2 from "@/public/img/astronaut.svg";
 
 function Messages() {
@@ -35,7 +35,7 @@ function Messages() {
     },
   ];
 
-  const chatMessages = [
+  const chatMessages = useMemo(() => [
     {
       id: 1,
       text: "What videos and materials can you recommend for a beginner started web design",
@@ -50,7 +50,7 @@ function Messages() {
       isUser: false,
       isRead: true,
     },
-  ];
+  ], []);
 
   useEffect(() => {
     const checkScreenSize = () => {

@@ -14,8 +14,8 @@ import Avatar from "@/public/img/Avatar.png";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
 function Header() {
-  const { activeSection, activeNotificationTab } = useContext(DashBoardContext);
-  const pathname = usePathname();
+  const { activeSection } = useContext(DashBoardContext);
+  // const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Dynamic navigation based on active section

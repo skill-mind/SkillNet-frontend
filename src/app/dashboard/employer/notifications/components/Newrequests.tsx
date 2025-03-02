@@ -17,7 +17,7 @@ const truncateText = (text: string, maxLength: number): string => {
   return text;
 };
 
-const questionsNotifications = [
+const questionsNotifications: Notification[] = [
   {
     image: questionIcon,
     time: "15 mins",
