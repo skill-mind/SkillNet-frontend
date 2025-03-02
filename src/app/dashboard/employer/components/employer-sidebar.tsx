@@ -6,6 +6,7 @@ import profilePic from "@/public/img/dashboardProfile.svg";
 import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
 import jobIcon from "@/public/img/permanent-job.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
+import paymentIcon from "@/public/img/tutor icon/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 import ChatBotButton from "@/components/ChatBotButton";
 import Link from "next/link";
@@ -84,12 +85,20 @@ export function Sidebar() {
             active={activeSection === "notifications"}
             onClick={() => onSectionChange("notifications")}
           />
+          <NavItem
+            icon={
+              <Image src={paymentIcon} alt="Payment" height={20} width={20} />
+            }
+            label="Payments"
+            active={activeSection === "payments"}
+            onClick={() => onSectionChange("payments")}
+          />
         </nav>
       </div>
 
       <div className="p-4">
         <Link
-          href="/dashboard/institution/support"
+          href="/dashboard/employer/support"
           className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
         >
           <Headset />

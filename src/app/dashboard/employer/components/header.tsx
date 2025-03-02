@@ -30,6 +30,19 @@ function Header() {
         return [{ name: "Job Openings", href: "/account/dashboard/employer" },  { name: "Dashboard", href: "/account/dashboard/employer" }];
       case "notifications":
         return [{ name: "Notifications", href: "/account/dashboard/employer" }, { name: "Question", href: "/account/dashboard/employer" }];
+        case "payments":
+          return [
+            {
+              name: "Payment",
+              href: "/account/dashboard/employer/payment",
+              active: true,
+            },
+            {
+              name: "Total Earnings",
+              href: "/account/dashboard/employer/payment",
+              active: false,
+            },
+          ];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
     }
@@ -44,17 +57,7 @@ function Header() {
   return (
     <header className="bg-[#101110] py-5">
       <div className="flex items-center justify-between pl-4 md:px-24 pr-8 px-3 py-3 sm:px-6 ">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center ">
-            <Image
-              src={Logo}
-              width={100}
-              height={40}
-              className="w-[100px] h-[40px]"
-              alt="Logo"
-            />
-          </Link>
-        </div>
+
 
         {/* Mobile menu button */}
         <button
