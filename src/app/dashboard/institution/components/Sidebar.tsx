@@ -133,7 +133,6 @@ function Sidebar() {
             </Link></>
           );
         })}
-        <ChatBotButton/>
       </nav>
       <div className="mb-24">
         <Link
@@ -144,6 +143,7 @@ function Sidebar() {
           <span className="font-medium">Support</span>
         </Link>
 
+          <ChatBotButton/>
       </div>
     </div>
   );

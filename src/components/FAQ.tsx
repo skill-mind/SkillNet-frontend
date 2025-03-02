@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react"; // Ensure you have lucide-react installed
+import { Work_Sans } from "next/font/google";
 
+const work_sans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+
+});
 const FAQSection = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -40,10 +46,10 @@ const FAQSection = () => {
     <section id="faqs" className="py-[140px] px-6 flex justify-center">
       <div className="lg:w-[892px] flex flex-col justify-center items-center">
         <div className="text-center">
-          <h1 className="font-bold text-[22px] lg:text-[40px] leading-[47px] text-white font-workSans mb-6 uppercase">
+          <h1 className={`font-bold text-[22px] lg:text-[40px] leading-[47px] text-white font-workSans mb-6 uppercase ${work_sans.className}`}>
             Frequently Asked Questions
           </h1>
-          <p className="font-normal text-[17px] lg:text-[24px] leading-8">
+          <p className="font-normal text-[17px] lg:text-[24px] text-[#EAEDE7] leading-8">
             Quick answers to questions you might have about SkillNet. Can’t find
             what you are looking for?{" "}
             <span className="text-[#A8C789]">Contact Us</span>
@@ -51,7 +57,7 @@ const FAQSection = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="mt-12 flex flex-col gap-y-[20px] px-9  w-[400px] lg:w-full">
+        <div className="mt-12 flex flex-col gap-y-[20px] px-9  text-[#EAEDE7] w-[400px] lg:w-full">
           {faqs.map((faq, index:number) => (
             <div
               key={index}

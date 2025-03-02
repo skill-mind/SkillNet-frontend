@@ -9,9 +9,10 @@ export const DashBoardContext = createContext<{
 }>({
   activeSection: "home",
   setActiveSection: () => {},
-  activeNotificationTab: "messages",
+  activeNotificationTab: "Messages", 
   setActiveNotificationTab: () => {},
 });
+
 
 export default function DashBoardContextProvider({
   children,
@@ -20,7 +21,7 @@ export default function DashBoardContextProvider({
 }) {
   const [activeSection, setActiveSection] = useState("home");
   const [activeNotificationTab, setActiveNotificationTab] =
-    useState("messages");
+    useState("Messages");
 
   return (
     <DashBoardContext.Provider

@@ -3,8 +3,14 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { skillNetGoals } from "../utils/data";
+import { Ubuntu } from "next/font/google";
 import InformationCard from "@/components/InformationCard";
 
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+})
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,9 +25,9 @@ export default function About() {
   return (
     <main className="bg-[#101110]">
       <Navbar />
-      <section className="flex justify-center items-center py-10 mt-10 px-4">
+      <section className={`${ubuntu.className} flex justify-center items-center py-10 mt-10 px-4`}>
         <div className="w-full max-w-[1256px] mx-auto flex flex-col items-center gap-6 py-10 md:py-[100px] px-4 md:px-[80px]">
-          <h1 className="text-[28px] md:text-[40px] text-center font-bold uppercase leading-tight w-full md:w-[331px]">
+          <h1 className="text-[28px] md:text-[40px] text-center font-bold uppercase leading-tight w-full md:w-[331px] text-[#FCFCFC]">
             About Skillnet
           </h1>
           <p className="w-full max-w-[600px] pt-5 sm:max-w-[934px] mx-auto text-left sm:text-justify lg:text-center text-sm md:text-lg leading-8 md:leading-10 text-[#ABABAB] px-4">

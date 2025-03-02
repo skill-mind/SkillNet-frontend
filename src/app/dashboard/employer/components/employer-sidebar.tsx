@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Headset } from "lucide-react";
 import Image from "next/image";
 import { ReactNode, useContext } from "react";
 import profilePic from "@/public/img/dashboardProfile.svg";
@@ -10,6 +10,7 @@ import supportIcon from "@/public/img/supportIcon.svg";
 import paymentIcon from "@/public/img/tutor icon/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 import ChatBotButton from "@/components/ChatBotButton";
+import Link from "next/link";
 
 
 interface NavItemProps {
@@ -38,8 +39,8 @@ export function Sidebar() {
     useContext(DashBoardContext);
 
   return (
-    <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800 overflow-y-auto">
-      <div className="p-4 h-[100%] overflow-y-auto scrollbar-hide scroll-smooth">
+    <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800 overflow-y-auto flex flex-col justify-between">
+      <div className="p-4 overflow-y-auto scrollbar-hide scroll-smooth">
         <div
           onClick={() => onSectionChange("profile")}
           className={`flex relative cursor-pointer items-center gap-3 mb-8 border rounded-md p-2 border-[#2F302F] hover:bg-[#FFFFFF1A] ${
@@ -100,9 +101,19 @@ export function Sidebar() {
           active={activeSection === "payments"}
           onClick={() => onSectionChange("payments")}
           />
-
-          <ChatBotButton />
         </nav>
+      </div>
+
+      <div className="p-4">
+        <Link
+          href="/dashboard/employer/support"
+          className="flex items-center gap-x-3 py-2 px-3 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+        >
+          <Headset />
+          <span className="font-medium">Support</span>
+        </Link>
+
+        <ChatBotButton />
       </div>
     </aside>
   );

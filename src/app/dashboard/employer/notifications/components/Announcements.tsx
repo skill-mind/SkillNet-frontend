@@ -23,13 +23,13 @@ const Announcements = () => {
           className="w-full flex justify-between items-center p-6 bg-[#161716] rounded-lg "
         >
           <div className="flex items-center gap-[18px] ">
-            <span className=" h-12 w-12 rounded-full bg-[#2D2E2D] flex-shrink-0 flex items-center justify-center ">
+            <span className=" md:h-12 md:w-12 w-6 h-6 rounded-full bg-[#2D2E2D] flex-shrink-0 flex items-center justify-center ">
               <Image
                 src={speakerIcon}
                 alt="students"
                 height={100}
                 width={100}
-                className="w-6 h-6 object-contain "
+                className="md:w-6 md:h-6 w-3 h-3 object-contain "
               />
             </span>
             <div>

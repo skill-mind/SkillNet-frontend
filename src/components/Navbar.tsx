@@ -50,6 +50,7 @@ export default function Navbar({
     { href: routes.about, label: "About" },
     { href: routes.exam, label: "Exam" },
     { href: routes.faqs, label: "FAQs" },
+    {href: routes.quiz, label: "Quiz" },
     { href: routes.helpDesk, label: "Help" }, 
    
   ],
