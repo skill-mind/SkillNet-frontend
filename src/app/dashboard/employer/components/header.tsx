@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Menu, MoreVertical, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Logo from "@/public/skillnet-white logo.png";
 import pen from "@/public/paint-brush-01.png";
 import Notification from "@/public/img/notification.svg";
 import Avatar from "@/public/img/Avatar.png";
@@ -18,8 +17,7 @@ function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Dynamic navigation based on active section
-   const getNavigation = () => {
+  const getNavigation = () => {
     switch (activeSection) {
       case "home":
         return [
@@ -31,6 +29,19 @@ function Header() {
         return [{ name: "Job Openings", href: "/account/dashboard/employer" }];
       case "notifications":
         return [{ name: "Notifications", href: "/account/dashboard/employer" }];
+      case "payments":
+        return [
+          {
+            name: "Payment",
+            href: "/account/dashboard/employer/payment",
+            active: true,
+          },
+          {
+            name: "Total Earnings",
+            href: "/account/dashboard/employer/payment",
+            active: false,
+          },
+        ];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
     }
@@ -46,15 +57,39 @@ function Header() {
     <header className="bg-[#101110] py-5">
       <div className="flex items-center justify-between pl-4 md:px-24 pr-8 px-3 py-3 sm:px-6 ">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center ">
-            <Image
-              src={Logo}
-              width={100}
-              height={40}
-              className="w-[100px] h-[40px]"
-              alt="Logo"
-            />
-          </Link>
+          <nav className="hidden lg:flex items-center justify-center gap-4">
+            {navigation.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                {index > 0 && activeSection === "payments" ? (
+                  <span className="text-gray-400 mx-2">|</span>
+                ) : (
+                  index > 0 && (
+                    <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+                  )
+                )}
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium hover:text-[#FCFCFC]",
+                    pathname === item.href || ("active" in item && item.active)
+                      ? "text-[#FCFCFC]"
+                      : "text-[#ABABAB]"
+                  )}
+                >
+                  {item.name}
+                </Link>
+                {activeSection === "notifications" &&
+                  item.name === "Notifications" && (
+                    <>
+                      <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
+                      <span className="text-white text-xs font-bold">
+                        {activeNotificationTab}
+                      </span>
+                    </>
+                  )}
+              </div>
+            ))}
+          </nav>
         </div>
 
         {/* Mobile menu button */}
@@ -64,35 +99,6 @@ function Header() {
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center justify-center gap-4">
-          {navigation.map((item, index) => (
-            <div key={item.name} className="flex items-center">
-              {index > 0 && (
-                <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
-              )}
-              <Link
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium hover:text-[#FCFCFC]",
-                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
-                )}
-              >
-                {item.name}
-              </Link>
-              {activeSection === "notifications" &&
-                item.name === "Notifications" && (
-                  <>
-                    <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
-                    <span className="text-white text-xs font-bold">
-                      {activeNotificationTab}
-                    </span>
-                  </>
-                )}
-            </div>
-          ))}
-        </nav>
 
         <div className="hidden lg:flex items-center gap-4">
           <div className="relative flex items-center gap-2">
@@ -114,15 +120,15 @@ function Header() {
             />
           </div>
 
-          {/* Create Courses button - Only for Notifications Page */}
-          {activeSection === "notifications" && (
-            <button className="px-4 py-2 bg-transparent  text-white rounded-lg border border-[#1F1F1F] outline-none flex items-center gap-2">
-              <Image src={pen} width={20} height={20} alt="pen" />
-              Create Courses
+          {(activeSection === "notifications" ||
+            activeSection === "payments") && (
+            <button className="px-4 py-2 bg-transparent text-gray-400 hover:text-white rounded-lg border border-[#1F1F1F] outline-none flex items-center gap-2 transition-colors">
+              <Image src={pen} width={18} height={18} alt="pen" />
+              <span>Create Courses</span>
             </button>
           )}
 
-          <div className="flex items-center gap-2 hover:bg-[#FFFFFF1A]  bg-[#161716] p-2 rounded-lg">
+          <div className="flex items-center gap-2 hover:bg-[#FFFFFF1A] bg-[#161716] p-2 rounded-lg">
             <Image
               src={Avatar}
               width={25}
