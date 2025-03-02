@@ -167,26 +167,29 @@ export default function Payment() {
         <div className="overflow-x-auto">
           <table className="min-w-full bg-[#101110] rounded-lg">
             <thead>
-              <tr>
-                <th className="py-4 px-4 text-left text-sm font-medium text-gray-400">
+              <tr className="border-b border-[#1D1D1C]">
+                <th className="py-4 px-6 text-left text-sm font-medium text-gray-400">
                   SN
                 </th>
-                <th className="py-4 px-4 text-left text-sm font-medium text-gray-400">
+                <th className="py-4 px-6 text-left text-sm font-medium text-gray-400">
                   Transaction ID
                 </th>
-                <th className="py-4 px-4 text-right text-sm font-medium text-gray-400">
+                <th className="py-4 px-6 text-right text-sm font-medium text-gray-400">
                   Amount
                 </th>
-                <th className="py-4 px-4 text-right text-sm font-medium text-gray-400">
+                <th className="py-4 px-6 text-right text-sm font-medium text-gray-400">
                   Date
                 </th>
               </tr>
             </thead>
             <tbody>
               {currentData.transactions.map((transaction, index) => (
-                <tr key={index} className="border-t border-[#1D1D1C]">
-                  <td className="py-6 px-4 text-white">{index + 1}</td>
-                  <td className="py-6 px-4">
+                <tr
+                  key={index}
+                  className="border-t border-[#1D1D1C] hover:bg-[#161716]"
+                >
+                  <td className="py-6 px-6 text-white">{index + 1}</td>
+                  <td className="py-6 px-6">
                     <div className="flex items-center">
                       <span className="text-white">{transaction.id}</span>
                       <button
@@ -197,10 +200,10 @@ export default function Payment() {
                       </button>
                     </div>
                   </td>
-                  <td className="py-6 px-4 text-right text-white">
+                  <td className="py-6 px-6 text-right text-white">
                     {transaction.amount}
                   </td>
-                  <td className="py-6 px-4 text-right text-white">
+                  <td className="py-6 px-6 text-right text-white">
                     {transaction.date}
                   </td>
                 </tr>
