@@ -7,13 +7,20 @@ import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQ";
+import { Ubuntu , Work_Sans} from "next/font/google";
 
 
 
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+})
 
 
-
-
+const work_sans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+})
 
 
 
@@ -23,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="relative">
+      <main className={`relative ${ubuntu.className}`}>
         <section className="h-[806px]  pt-[150px] lg:pt-[204px] flex justify-center text-center ">
           {/* <Image
             src={hexagon}
@@ -89,7 +96,7 @@ export default function Home() {
               <Image src={astronaut} className="" alt="#" />
             </div>
             <div className=" py-10 lg:py-[113px]">
-              <h3 className=" text-[23px]  lg:text-[40px]  leading-[47px] font-workSans font-bold mb-12">
+              <h3 className={`${work_sans.className} text-[#EAEDE7]  text-[23px]  lg:text-[40px]  leading-[47px] font-workSans font-bold mb-12`}>
                 Find Top Talents With Confidence
               </h3>
               <div className="flex flex-col justify-between gap-5 text-[#EAEDE7]">
@@ -113,7 +120,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <button className="bg-[#0E0F0E] border border-[#161716] rounded-lg py-3 px-6 mt-12 flex justify-center items-center gap-[10px] text-base leading-5">
+              <button className="bg-[#0E0F0E] border text-[#EAEDE7] border-[#161716] rounded-lg py-3 px-6 mt-12 flex justify-center items-center gap-[10px] text-base leading-5">
                 Find out more
                 <span>
                   <ArrowRight />
@@ -125,7 +132,7 @@ export default function Home() {
 
         <section className="lg:py-[140px] bg-[#0e0f0e]">
           <div className="py-[40px] lg:py-[80px] px-4 sm:px-6 lg:px-[100px]">
-            <h3 className="font-bold text-white text-center lg:text-[40px] leading-[20px] lg:leading-[47px] font-workSans mb-6 uppercase">
+            <h3 className={`${work_sans.className} font-bold text-white text-center lg:text-[40px] leading-[20px] lg:leading-[47px] font-workSans mb-6 uppercase`}>
               Share Knowledge, Earn Revenue
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -156,7 +163,7 @@ export default function Home() {
 
         <section className="py-[80px] px-6 lg:px-[100px] bg-[#121312]">
           <div className="flex items-center gap-6">
-            <h4 className="text-[40px] pr-6 border-r-4 border-[#222220] leading-[48px] font-bold uppercase">
+            <h4 className="text-[40px] pr-6 border-r-4 text-white border-[#222220] leading-[48px] font-bold uppercase">
               How skillnet works
             </h4>
             <p className="text-2xl leading-7 text-[#80837E]">

@@ -59,13 +59,7 @@ function Sidebar() {
       subroutes: ["exams", "certification", "candidates"],
       defaultSubroute: "exams",
     },
-    {
-      label: "Earnings",
-      to: "earnings",
-      icon: <WalletIcon />,
-      subroutes: ["alltime", "weekly", "monthly"],
-      defaultSubroute: "alltime",
-    },
+    
   ];
 
   const isActiveRoute = (route: RouteType): boolean => {
@@ -132,7 +126,6 @@ function Sidebar() {
             </Link></>
           );
         })}
-        <ChatBotButton/>
       </nav>
       <div className="mb-24">
         <Link

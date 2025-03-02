@@ -5,6 +5,14 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Ubuntu } from "next/font/google";
+
+
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+})
 
 export default function SubmitTicket() {
   const [email, setEmail] = useState("");
@@ -13,7 +21,7 @@ export default function SubmitTicket() {
   return (
     <>
       <Navbar />
-      <div className="relative pt-[150px] md:pt-[200px] lg::pt-[252px] pb-[128px] text-center flex flex-col items-center px-6">
+      <div className={`${ubuntu.className} relative pt-[150px] md:pt-[200px] lg::pt-[252px] pb-[128px] text-center flex flex-col items-center px-6`}>
         <Image
           src={hexagon}
           className="absolute top-[-232px] left-[24px] lg:left-[59px] z-[-1]"

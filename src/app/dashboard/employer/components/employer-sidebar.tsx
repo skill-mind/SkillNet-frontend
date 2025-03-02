@@ -84,7 +84,6 @@ export function Sidebar() {
             onClick={() => onSectionChange("notifications")}
           />
 
-          <ChatBotButton />
         </nav>
       </div>
     </aside>

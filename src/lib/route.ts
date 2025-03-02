@@ -14,4 +14,5 @@ export const routes = {
   tutor: "/dashboard/tutor",
   jobs: "/dashboard/job-seeker",
   messages: "/dashboard/messages",
+  quiz: "/quiz"
 };

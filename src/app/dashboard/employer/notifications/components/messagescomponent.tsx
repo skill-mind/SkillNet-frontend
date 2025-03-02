@@ -9,14 +9,20 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import userProfile2 from "@/public/img/astronaut.svg";
 
 function Messages() {
-  const [selectedFilter, setSelectedFilter] = useState<string>("New"); // Track the selected filter
+  const [selectedFilter, setSelectedFilter] = useState<string>("New");
+  const [isMobileView, setIsMobileView] = useState<boolean>(true);
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
+  const [inputMessage, setInputMessage] = useState<string>("");
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
+  
   // Sample messages (this can be replaced with actual dynamic data)
-  const messages = [
+  const sidebarMessages = [
     {
       id: 1,
       name: "Satoshi Nakamoto",
@@ -30,27 +36,91 @@ function Messages() {
       status: "Archived",
     },
   ];
+  
+  // Mock chat messages between user and current contact
+  const chatMessages = [
+    {
+      id: 1,
+      text: "What videos and materials can you recommend for a beginner started web design",
+      timestamp: "12:43 AM",
+      isUser: true,
+      isRead: true,
+    },
+    {
+      id: 2,
+      text: "You could start with introduction to design by Flora Osatuyi",
+      timestamp: "12:45 AM",
+      isUser: true,
+      isRead: true,
+    }
+  ];
+
+  // Check screen size on component mount and resize
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const isMobile = window.innerWidth < 768;
+      setIsMobileView(isMobile);
+      setShowSidebar(!isMobile);
+    };
+    
+    // Initial check
+    checkScreenSize();
+    
+    // Set up listener
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   // Filter messages based on the selected filter
-  const filteredMessages = messages.filter((msg) =>
+  const filteredMessages = sidebarMessages.filter((msg) =>
     selectedFilter === "New" ? true : msg.status === selectedFilter
   );
 
+  useEffect(() => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  }, [chatMessages]);
+
+
+  // Toggle sidebar on mobile
+  const toggleSidebar = () => {
+    if (isMobileView) {
+      setShowSidebar(!showSidebar);
+    }
+  };
+
+  // Handle chat selection on mobile
+  const handleChatSelect = () => {
+    if (isMobileView) {
+      setShowSidebar(false);
+    }
+  };
+
+  // Handle message change
+  const handleMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputMessage(e.target.value);
+  };
+
   return (
-    <div className="flex w-full h-screen">
-      <div className="flex w-full h-full">
+    <div className="flex w-full h-[75vh]">
+      <div className="flex w-full h-full relative">
         {/* Side Nav containing messages */}
-        <div className="w-full md:w-1/3 lg:w-1/3 p-4 border-r border-[#252625] overflow-hidden md:block hidden">
+        <div className={`${
+          isMobileView ? (showSidebar ? 'block absolute z-10 w-full bg-inherit' : 'hidden') : 'block'
+        } md:w-1/3 lg:w-1/3 p-4 border-r border-[#252625] h-full overflow-y-auto`}>
           <div className="flex flex-col space-y-6">
             <div className="flex flex-wrap gap-2">
               {/* Filter Buttons */}
               {["New", "Archived"].map((filter) => (
                 <div
                   key={filter}
-                  className={`border border-[#252625] p-1 text-xs text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] flex-1 min-w-[60px] ${
-                    selectedFilter === filter ? "bg-[#313130]" : ""
+                  className={`border border-[#1D1D1C] px-[1.25rem] py-[0.375rem] text-base font-medium text-[#ABABAB] text-center cursor-pointer hover:bg-[#313130] transition-colors duration-300 rounded-[0.4rem] ${
+                    selectedFilter === filter ? "bg-[#161716]  border-[#3B3B3A] text-[#ABC789]" : ""
                   }`}
-                  onClick={() => setSelectedFilter(filter)} // Update selected filter on click
+                  onClick={() => setSelectedFilter(filter)}
                 >
                   {filter}
                 </div>
@@ -58,22 +128,32 @@ function Messages() {
             </div>
 
             {/* Display Filtered Messages */}
-            {filteredMessages.map((msg) => (
-              <ContactMessage
-                key={msg.id}
-                imgSrc={userProfile2}
-                name={msg.name}
-                message={msg.message}
-              />
-            ))}
+            <div>
+              {filteredMessages.map((msg) => (
+                <div key={msg.id} onClick={handleChatSelect} className="cursor-pointer">
+                  <ContactMessage
+                    imgSrc={userProfile2}
+                    name={msg.name}
+                    message={msg.message}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Chat editor screen */}
-        <div className="w-full md:w-2/3 lg:w-2/3 flex flex-col h-full">
+        <div className={`${
+          isMobileView && showSidebar ? 'hidden' : 'flex'
+        } w-full md:w-2/3 lg:w-2/3 flex-col h-full bg-[#121212]`}>
           <div className="flex items-center justify-between p-4 border-b border-[#252625]">
             <div className="flex items-center space-x-3">
-              <ChevronLeft className="block md:hidden" />
+              {isMobileView && (
+                <ChevronLeft 
+                  className="cursor-pointer" 
+                  onClick={toggleSidebar}
+                />
+              )}
               <Image
                 src={userProfile2}
                 alt="user profile image"
@@ -92,8 +172,29 @@ function Messages() {
             </div>
           </div>
 
-          <div className="flex-grow p-4 overflow-auto"></div>
-          <div className="p-4 flex items-center space-x-4">
+          {/* Chat messages area */}
+          <div ref={messagesContainerRef} className="flex-grow p-4 overflow-auto flex flex-col space-y-4 justify-end">
+            {chatMessages.map((msg) => (
+              <div 
+                key={msg.id} 
+                className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
+              >
+                <div className={`w-full p-3 rounded-lg ${
+                  msg.isUser ? 'bg-[#1A1A1A] text-gray-200' : 'bg-blue-500 text-white'
+                }`}>
+                  <p className="text-sm">{msg.text}</p>
+                  <div className="flex items-center justify-end mt-1 space-x-1">
+                    <span className="text-xs text-gray-400">{msg.timestamp}</span>
+                    {msg.isRead && <CheckCheck size={12} className="text-gray-400" />}
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
+          
+          {/* Original message input from your code */}
+          <div className="p-4">
             <div className="p-1 pl-4 pr-4 flex items-center space-x-4 border-[#252625] border rounded-[0.5em] w-full">
               <div className="flex space-x-4">
                 <Mic size={24} color="#555" className="cursor-pointer" />
@@ -101,6 +202,8 @@ function Messages() {
               </div>
               <input
                 type="text"
+                value={inputMessage}
+                onChange={handleMessageChange}
                 placeholder="Type a message..."
                 className="flex-grow p-2 border-l border-r bg-transparent border-[#252625] text-[#555] placeholder:text-[#888] placeholder:italic focus:outline-none focus:border-[#555]"
               />
@@ -139,13 +242,13 @@ const ContactMessage = ({
       </div>
       <div className="flex flex-col w-full pr-4 pb-2 border-b border-[#252625]">
         <div className="flex items-center space-x-2">
-          <h4 className="text-xs font-semibold text-[#b9b9b9]">{name}</h4>
+          <h4 className="text-sm font-meduim text-[#FCFCFC]">{name}</h4>
         </div>
-        <div className="text-xs text-[#727272] flex items-center space-x-3">
+        <div className="text-xs text-[#ABABAB] flex items-center space-x-3">
           <CheckCheck color="white" size={18} />
           <p className="truncate text sm w-full">{message}</p>
           <div className="flex flex-col items-end ml-4">
-            <small className="text-[#bbb]">Friday</small>
+            <small className="text-[#696969] text-xs">Friday</small>
             <EllipsisVertical
               size={20}
               color="#555"
@@ -156,6 +259,6 @@ const ContactMessage = ({
       </div>
     </div>
   );
-};
+}
 
 export default Messages;

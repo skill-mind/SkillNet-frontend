@@ -104,7 +104,6 @@ export function Sidebar() {
             onClick={() => onSectionChange("earnings")}
           />
 
-<ChatBotButton/>
         </nav>
       </div>
 
