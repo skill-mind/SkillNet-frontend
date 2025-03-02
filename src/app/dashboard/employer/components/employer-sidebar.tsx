@@ -6,9 +6,11 @@ import profilePic from "@/public/img/dashboardProfile.svg";
 import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
 import jobIcon from "@/public/img/permanent-job.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
+import supportIcon from "@/public/img/supportIcon.svg"; 
 import paymentIcon from "@/public/img/tutor icon/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 import ChatBotButton from "@/components/ChatBotButton";
+
 
 interface NavItemProps {
   icon: ReactNode;
@@ -85,12 +87,18 @@ export function Sidebar() {
             onClick={() => onSectionChange("notifications")}
           />
           <NavItem
-            icon={
-              <Image src={paymentIcon} alt="Payment" height={20} width={20} />
-            }
-            label="Payments"
-            active={activeSection === "payments"}
-            onClick={() => onSectionChange("payments")}
+            icon={<Image src={supportIcon} alt="Support" height={20} width={20} />}
+            label="Support"
+            active={activeSection === "support"}
+            onClick={() => onSectionChange("support")}          
+          />
+          <NavItem 
+          icon={
+            <Image src={paymentIcon} alt="Payment" height={20} width={20} />
+          }
+          label="Payments"
+          active={activeSection === "payments"}
+          onClick={() => onSectionChange("payments")}
           />
 
           <ChatBotButton />

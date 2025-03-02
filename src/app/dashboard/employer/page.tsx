@@ -6,6 +6,7 @@ import { DashBoardContext } from "@/app/useContext/dashboardContext";
 import JobOpening from "./job-openings/job-openings";
 import Notifications from "./notifications/notifications";
 import Profile from "./profile/profile";
+import Support from "./support/page";
 import Payment from "./payment/payment";
 
 function Page() {
@@ -20,9 +21,11 @@ function Page() {
       case "notifications":
         return <Notifications />;
       case "profile":
-        return <Profile />;
+        return <Profile />;      
       case "payments":
         return <Payment />;
+        case "support":
+         return <Support />;
       default:
         return <EmployerDashboard />;
     }
