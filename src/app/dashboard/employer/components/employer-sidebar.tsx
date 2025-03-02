@@ -6,7 +6,7 @@ import profilePic from "@/public/img/dashboardProfile.svg";
 import homeIcon from "@/public/img/tutor icon/homeDashboard.svg";
 import jobIcon from "@/public/img/permanent-job.svg";
 import notificationIcon from "@/public/img/tutor icon/messageDashboard.svg";
-import paymentIcon from "@/public/img/tutor icon/messageDashboard.svg"; // You may want to use a different icon
+import paymentIcon from "@/public/img/tutor icon/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 import ChatBotButton from "@/components/ChatBotButton";
 
