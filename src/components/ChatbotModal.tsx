@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, Search, MoreVertical, Mic, Smile, Send } from 'lucide-react';
 import clsx from 'clsx';
@@ -13,6 +14,7 @@ interface ChatbotModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
 
 const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([
@@ -69,18 +71,18 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Blurred dark overlay with 0.5 opacity */}
-      <div  className="fixed inset-0 bg-[#101110]   bg-opacity-50 backdrop-blur-md z-40"></div>
-      
+      <div className="fixed inset-0 bg-[#101110]   bg-opacity-50 backdrop-blur-md z-40"></div>
+
       {/* Modal container with new dimensions */}
-      <div  className="fixed inset-0 z-50 flex items-center justify-center ">
+      <div className="fixed inset-0 z-50 flex items-center justify-center ">
         <div className="bg-[#101110] h-[85%] w-[700px] border border-gray-800 flex flex-col rounded-lg overflow-hidden">
           {/* Header */}
           <div className="px-4 py-3 flex items-center justify-between border-b border-gray-800">
             <div className="flex items-center">
-              <button onClick={onClose} className="mr-3 text-gray-400 hover:text-gray-300">
-                <ArrowLeft size={20} />
+              <button onClick={onClose} className="mr-3 gap-2 flex items-center text-gray-400 hover:text-gray-300">
+                <ArrowLeft size={20} /> Back
               </button>
-              <span className="mr-5 text-gray-400">Back</span>
+
               <div className="flex items-center">
                 <div className="w-6 h-6 bg-white rounded-full mr-2"></div>
                 <span className="font-medium text-white">Skillnet Chatbot</span>
@@ -114,10 +116,10 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
                   <div className="text-xs text-gray-500 mt-1 text-right flex items-center justify-end">
                     {message.timestamp}
                     {message.sender === 'user' && (
-                    <>  <svg className="ml-1 w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  </>
+                      <>  <svg className="ml-1 w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      </>
                     )}
                   </div>
                 </div>
@@ -145,7 +147,7 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
                   if (e.key === 'Enter') handleSendMessage();
                 }}
               />
-            
+
               <button
                 onClick={handleSendMessage}
                 className="bg-[#A8C789] hover:bg-[#6d9b35] w-8 h-8 rounded-full flex items-center justify-center"

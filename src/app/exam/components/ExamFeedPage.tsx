@@ -5,11 +5,9 @@ import examImage from '@/public/img/exam-paper.jpg';
 import { examCategories, examMockData } from './mockData';
 import { MessageCircle } from 'lucide-react';
 import { ExamCard } from './ExamCard';
-import { useChatbot } from './ChatbotContext';
-import ChatbotModal from './ChatbotModal';
+import { ChatBot } from './ChatBox';
 
 const ExamFeedPage = () => {
-  const { isChatbotOpen, toggleChatbot, closeChatbot } = useChatbot();
 
   return (
     <main className='min-h-screen bg-[#101110] pt-24 px-4 sm:px-6 lg:px-[100px]'>
@@ -31,13 +29,7 @@ const ExamFeedPage = () => {
       </div>
 
       <div className='my-14 flex justify-end items-center text-white'>
-        <div
-          className='flex space-x-3 items-center cursor-pointer'
-          onClick={toggleChatbot}
-        >
-          <div className='font-extralight text-sm'>Chatbot</div>
-          <MessageCircle className='w-4 h-4 font-semibold' />
-        </div>
+        <ChatBot />
       </div>
 
       {/* Categories Section */}
@@ -59,9 +51,6 @@ const ExamFeedPage = () => {
           <ExamCard key={index} exam={exam} />
         ))}
       </div>
-
-      {/* Chatbot Modal */}
-      <ChatbotModal isOpen={isChatbotOpen} onClose={closeChatbot} />
     </main>
   );
 };

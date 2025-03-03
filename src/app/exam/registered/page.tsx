@@ -1,9 +1,7 @@
 import React from "react";
-import Image from "next/image";
-import Arrow from "@/public/arrow-left.svg";
-import Vector from "@/public/Vector.svg";
 import Header from "@/public/registered.svg";
 import ExamDetailsModal from "@/app/exam/registered/ExamDetailsModal";
+import { ChatBot } from "@/app/exam/components/ChatBox";
 
 const Page = () => {
   const styles = {
@@ -148,26 +146,8 @@ const Page = () => {
       </div>
 
       <div style={styles.buttonsContainer}>
-        <button style={styles.backButton}>
-          <Image
-            src={Arrow}
-            alt="Back"
-            width={20}
-            height={20}
-            style={{ marginRight: "8px" }}
-          />
-          Back
-        </button>
-        <button style={styles.chatboxButton}>
-          Chatbox
-          <Image
-            src={Vector}
-            alt="Chat"
-            width={12}
-            height={12}
-            style={{ marginLeft: "8px" }}
-          />
-        </button>
+        <div style={styles.backButton} />
+        <ChatBot />
       </div>
 
       <div style={styles.contentContainer}>
