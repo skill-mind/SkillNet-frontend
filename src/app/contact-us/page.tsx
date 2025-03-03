@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React from "react";
 import Form from "./components/form";
+import { Ubuntu } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -17,6 +18,10 @@ export const metadata: Metadata = {
 };
   
 
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+})
 
 
 const page = () => {
@@ -28,7 +33,7 @@ const page = () => {
   <>
     <Navbar/>
 
-   <section className="mt-20">
+   <section className={`mt-20 ${ubuntu.className}`}>
       <div className="w-full mx-auto flex flex-col items-center gap-6 py-14 px-7 md:py-[100px] md:px-[80px] mt-10 ">
         
       <div className="text-center ">

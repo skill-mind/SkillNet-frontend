@@ -104,7 +104,6 @@ export function Sidebar() {
             onClick={() => onSectionChange("earnings")}
           />
 
-<ChatBotButton/>
         </nav>
       </div>
 
@@ -115,6 +114,7 @@ export function Sidebar() {
           active={activeSection === "support"}
           onClick={() => onSectionChange("support")}
         />
+        <ChatBotButton />
       </div>
     </aside>
   );

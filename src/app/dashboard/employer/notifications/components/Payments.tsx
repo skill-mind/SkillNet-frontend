@@ -18,16 +18,16 @@ const Payments = () => {
       {paymentNotifications.map((paymentNotification, index) => (
         <div
           key={index}
-          className="w-full flex flex-col md:flex-row justify-start items-start md:justify-between md:items-center py-3 border-b-[1px] border-[#2D2E2D] "
+          className="w-full flex flex-row justify-between items-center py-3 border-b-[1px] border-[#2D2E2D] "
         >
           <div className="flex items-center gap-[18px] ">
-            <span className=" h-12 w-12 rounded-full bg-[#2D2E2D] flex items-center flex-shrink-0 justify-center ">
+            <span className="md:h-12 md:w-12 w-6 h-6 rounded-full bg-[#2D2E2D] flex items-center flex-shrink-0 justify-center ">
               <Image
                 src={walletIcon}
                 alt="students"
                 height={100}
                 width={100}
-                className="w-6 h-6 object-contain "
+                className="md:w-6 md:h-6 w-3 h-3 object-contain "
               />
             </span>
             <div>

@@ -3,10 +3,9 @@
 import { useState, useEffect, useContext } from "react";
 import { Menu, MoreVertical, Search, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Logo from "@/public/skillnet-white logo.png";
 import pen from "@/public/paint-brush-01.png";
 import Notification from "@/public/img/notification.svg";
 import Avatar from "@/public/img/Avatar.png";
@@ -14,8 +13,8 @@ import Avatar from "@/public/img/Avatar.png";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
 
 function Header() {
-  const { activeSection, activeNotificationTab } = useContext(DashBoardContext);
-  const pathname = usePathname();
+  const { activeSection } = useContext(DashBoardContext);
+  // const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Dynamic navigation based on active section
@@ -25,12 +24,24 @@ function Header() {
         return [
           { name: "Home", href: "/account/dashboard/employer" },
           { name: "Dashboard", href: "/account/dashboard/employer" },
-          { name: "Profile", href: "/account/dashboard/employer" },
         ];
       case "job openings":
-        return [{ name: "Job Openings", href: "/account/dashboard/employer" }];
+        return [{ name: "Job Openings", href: "/account/dashboard/employer" },  { name: "Dashboard", href: "/account/dashboard/employer" }];
       case "notifications":
-        return [{ name: "Notifications", href: "/account/dashboard/employer" }];
+        return [{ name: "Notifications", href: "/account/dashboard/employer" }, { name: "Question", href: "/account/dashboard/employer" }];
+        case "payments":
+          return [
+            {
+              name: "Payment",
+              href: "/account/dashboard/employer/payment",
+              active: true,
+            },
+            {
+              name: "Total Earnings",
+              href: "/account/dashboard/employer/payment",
+              active: false,
+            },
+          ];
       default:
         return [{ name: "Home", href: "/account/dashboard/employer" }];
     }
@@ -45,17 +56,7 @@ function Header() {
   return (
     <header className="bg-[#101110] py-5">
       <div className="flex items-center justify-between pl-4 md:px-24 pr-8 px-3 py-3 sm:px-6 ">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center ">
-            <Image
-              src={Logo}
-              width={100}
-              height={40}
-              className="w-[100px] h-[40px]"
-              alt="Logo"
-            />
-          </Link>
-        </div>
+
 
         {/* Mobile menu button */}
         <button
@@ -76,20 +77,12 @@ function Header() {
                 href={item.href}
                 className={cn(
                   "text-sm font-medium hover:text-[#FCFCFC]",
-                  pathname === item.href ? "text-[#FCFCFC]" : "text-[#ABABAB]"
+                  index === 0 ? "text-[#FCFCFC]" : "text-[#ABABAB]"
                 )}
               >
                 {item.name}
               </Link>
-              {activeSection === "notifications" &&
-                item.name === "Notifications" && (
-                  <>
-                    <div className="bg-[#1D1D1C] w-[3px] h-4 rounded-lg mx-2"></div>
-                    <span className="text-white text-xs font-bold">
-                      {activeNotificationTab}
-                    </span>
-                  </>
-                )}
+             
             </div>
           ))}
         </nav>

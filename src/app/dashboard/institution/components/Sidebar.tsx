@@ -15,6 +15,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
+
 interface RouteType {
   label: string;
   to: string;
@@ -132,7 +133,6 @@ function Sidebar() {
             </Link></>
           );
         })}
-        <ChatBotButton/>
       </nav>
       <div className="mb-24">
         <Link
@@ -143,6 +143,7 @@ function Sidebar() {
           <span className="font-medium">Support</span>
         </Link>
 
+          <ChatBotButton/>
       </div>
     </div>
   );
