@@ -3,6 +3,7 @@ import ExamFeedNavbar from "@/app/exam/components/ExamFeedNavbar";
 import ExamPageNavbar from "@/app/exam/components/ExamPageNavbar";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
+import { ChatbotProvider } from './components/ChatbotContext';
 
 export default function ExamLayout({
   children,
@@ -14,11 +15,13 @@ export default function ExamLayout({
   const isExamPage = pathname.includes("exam-page");
 
   return (
-    <div>
-      {!isMainExamPage && !isExamPage && <ExamFeedNavbar />}
-      {isExamPage && <ExamPageNavbar />}
-      {<div className="">{children}</div>}
-      {!isMainExamPage && !isExamPage && <Footer />}
-    </div>
+    <ChatbotProvider>
+      <div>
+        {!isMainExamPage && !isExamPage && <ExamFeedNavbar />}
+        {isExamPage && <ExamPageNavbar />}
+        {<div className="">{children}</div>}
+        {!isMainExamPage && !isExamPage && <Footer />}
+      </div>
+    </ChatbotProvider>
   );
 }
