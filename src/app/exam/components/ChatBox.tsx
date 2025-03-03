@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { useChatbot } from './ChatbotContext';
 import ChatBotImage from "../../../public/chat-bot.png";

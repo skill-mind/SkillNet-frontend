@@ -9,6 +9,7 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import { ExamNavLinkProps } from '@/interfaces/exam.interface';
 import { navLinks } from './mockData';
 import { useChatbot } from './ChatbotContext';
+import { ChatBot } from './ChatBox';
 
 const ExamFeedNavbar = () => {
   const pathname = usePathname();
@@ -70,14 +71,6 @@ const ExamFeedNavbar = () => {
           </ul>
 
           <div className='flex items-center gap-2 lgTablet:mx-auto'>
-            <button
-              className='p-2 hover:bg-[#313130] rounded-full transition-colors'
-              onClick={toggleChatbot}
-              aria-label="Open chatbot"
-            >
-              <MessageCircle size={20} />
-            </button>
-
             <button className='p-2 hover:bg-[#313130] rounded-full transition-colors'>
               <Bell size={20} />
             </button>
@@ -158,18 +151,7 @@ const ExamFeedNavbar = () => {
                   </Link>
                 );
               })}
-              <button
-                className='flex items-center px-6 py-3 hover:bg-[#313130] transition-colors text-sm text-[#ABABAB] w-full text-left'
-                onClick={() => {
-                  toggleChatbot();
-                  setIsMenuOpen(false);
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <MessageCircle size={16} />
-                  <span>Chatbot</span>
-                </div>
-              </button>
+              <ChatBot />
             </div>
           </div>
         )}

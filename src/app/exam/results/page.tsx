@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { MoveLeft, MessageCircle } from "lucide-react";
 import HeaderBG from "../../../public/img/resultBgImg.png";
 import ResultsModal from "./resultsModal"; // Import the modal component
-import { useChatbot } from '../components/ChatbotContext';
-import ChatbotModal from '../components/ChatbotModal';
+import { ChatBot } from "../components/ChatBox";
 
 // Define TypeScript types
 interface ExamDetails {
@@ -68,7 +67,6 @@ const results: ExamData[] = [
 export default function ResultsPage() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [selectedExam, setSelectedExam] = useState<ExamData | null>(null);
-    const { isChatbotOpen, toggleChatbot, closeChatbot } = useChatbot();
 
     const handleViewResults = (exam: ExamData) => {
         setSelectedExam(exam);
@@ -91,21 +89,7 @@ export default function ResultsPage() {
                 </div>
 
                 <div className="mb-8 flex items-center justify-between">
-                    <Link href="/exams" className="flex items-center text-sm gap-2 text-[#ABABAB]">
-                        <span>
-                            <MoveLeft className="text-sm font-light" />
-                        </span>{" "}
-                        Back
-                    </Link>
-                    <div
-                        className="flex items-center text-sm gap-2 text-[#ABABAB] cursor-pointer"
-                        onClick={toggleChatbot}
-                    >
-                        Chatbot{" "}
-                        <span>
-                            <MessageCircle className="text-sm font-light" />
-                        </span>
-                    </div>
+                    <ChatBot />
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
@@ -145,9 +129,6 @@ export default function ResultsPage() {
 
                 {/* Add the modal component with the selected exam data */}
                 <ResultsModal isOpen={isModalOpen} onClose={handleCloseModal} examData={selectedExam} />
-
-                {/* Chatbot Modal */}
-                <ChatbotModal isOpen={isChatbotOpen} onClose={closeChatbot} />
             </main>
         </div>
     );
