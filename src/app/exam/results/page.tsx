@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { MoveLeft, X } from "lucide-react";
 import HeaderBG from "../../../public/img/resultBgImg.png";
 import ResultsModal from "./resultsModal"; // Import the modal component
+import { ChatBot } from "../components/ChatBox";
 
 // Define TypeScript types
 interface ExamDetails {
@@ -82,32 +81,33 @@ export default function ResultsPage() {
       <main className="mx-auto px-4 py-8">
         <div className="mb-8 overflow-hidden rounded-lg my-20 relative">
           <div className="absolute inset-0 top-40 -left-[86%] flex items-center justify-center z-10">
-            <h1 className="text-4xl font-semibold font-ubuntu bg-gradient-to-r from-[#FCFCFC] via-[#FCFCFC] to-transparent bg-clip-text text-transparent">Results</h1>
+            <h1 className="text-4xl font-semibold font-ubuntu bg-gradient-to-r from-[#FCFCFC] via-[#FCFCFC] to-transparent bg-clip-text text-transparent">
+              Results
+            </h1>
           </div>
-          <Image src={HeaderBG} alt="Results table" width={1000} height={200} className="w-full object-cover" />
+          <Image
+            src={HeaderBG}
+            alt="Results table"
+            width={1000}
+            height={200}
+            className="w-full object-cover"
+          />
         </div>
 
         <div className="mb-8 flex items-center justify-between">
-          <Link href="/exams" className="flex items-center text-sm gap-2 text-[#ABABAB]">
-            <span>
-              <MoveLeft className="text-sm font-light" />
-            </span>{" "}
-            Back
-          </Link>
-          <Link href="" className="flex items-center text-sm gap-2 text-[#ABABAB]">
-            Chatbox{" "}
-            <span>
-              <X className="text-sm font-light" />
-            </span>
-          </Link>
+          <ChatBot />
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {results.map((exam, index) => (
             <div key={index} className="rounded-lg bg-[#161716] p-6">
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-[#FFFFFF] font-sans">{exam.title}</h2>
-                <span className={`rounded-md px-3 py-1 text-xs font-medium ${exam.statusColor}`}>
+                <h2 className="text-lg font-semibold text-[#FFFFFF] font-sans">
+                  {exam.title}
+                </h2>
+                <span
+                  className={`rounded-md px-3 py-1 text-xs font-medium ${exam.statusColor}`}
+                >
                   {exam.status}
                 </span>
               </div>
@@ -119,7 +119,9 @@ export default function ResultsPage() {
               <div className="mb-6 grid gap-2">
                 {Object.entries(exam.details).map(([key, value], idx) => (
                   <div key={idx} className="flex gap-2 py-2">
-                    <span className="text-xs text-[#6E6E6E] font-medium font-sans">{key}:</span>
+                    <span className="text-xs text-[#6E6E6E] font-medium font-sans">
+                      {key}:
+                    </span>
                     <span className="text-xs text-[#FFFFFFCC]/80">{value}</span>
                   </div>
                 ))}
@@ -138,7 +140,11 @@ export default function ResultsPage() {
         </div>
 
         {/* Add the modal component with the selected exam data */}
-        <ResultsModal isOpen={isModalOpen} onClose={handleCloseModal} examData={selectedExam} />
+        <ResultsModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          examData={selectedExam}
+        />
       </main>
     </div>
   );
